@@ -29,14 +29,23 @@
 
 /*** Популярное ***/
 .popular__items {display: flex;flex-wrap: wrap;align-items: flex-start;}
-.popular__item {width: calc(33.333333% - 2rem);margin: 0 1rem;display: flex;justify-content: center;}
+.popular__item {width: calc(33.333333% - 2rem);margin: 0 1rem;display: flex;justify-content: center;position: relative;}
 .popular__title {color: #ffffff;font-size: 1.25rem;font-weight: bold;text-transform: uppercase;position: absolute;bottom: 1rem;transition: all 0.3s ease;}
 .popular__item:hover .popular__title {font-size: 1.5rem;}
 .popular__image {display: block;}
 
 
+/*** Баннеры ***/
+.banners__items {display: flex;flex-wrap: wrap;align-items: flex-start;}
+.banners__item {width: calc(50% - 2rem);margin: 0 1rem;height: 15rem;background-size: cover;background-repeat: no-repeat;}
+.banners__content {color: #ffffff;height: 100%;padding: 1.25rem;position: relative;z-index: 2;display: flex;flex-direction: column;align-items: flex-end;justify-content: flex-end;}
+.banners__title {font-size: 1.5rem;font-weight: bold;text-transform: uppercase;transition: all 0.3s ease;}
+.banners__title:hover {color: #ffbb3e;}
+.banners__subtitle {margin-top: .5rem;font-size: 1.25rem;}
 
 
-
+/*** Описание на главной ***/
+.index__content {padding: 2rem;background-color: #ffffff;border-radius: 1.25rem;}
+.index__content h1 {font-size: 1.75rem;}
 
 
