@@ -58,27 +58,26 @@
 .advantages__subtitle {margin-top: .75rem;}
 .advantages__icon {font-size: 3.5rem;color: #ffffff;background-color: #6aa344;border-radius: 50%;width: 6rem;height: 6rem;position: absolute;left: 1rem;top: -3.5rem;display: flex;align-items: center;justify-content: center;}
 
-
 /*** Возникли вопросы? ***/
-#callback .inner {padding: 2rem;background-color: #ffbb3e;border-radius: 1.25rem;align-items: center;}
-#callback .callback__icon {width: 10rem;}
-#callback .callback__icon i {color: #ffdd9f;font-size: 7.5rem;transform: rotate(45deg);display: inline-block;}
-#callback .callback__content {width: calc(100% - 10rem);color: #ffffff;}
-#callback .callback__title {margin-bottom: 1rem;font-size: 1.5rem;font-weight: bold;text-transform: uppercase;}
-#callback .callback__subtitle {margin-bottom: 1rem;font-weight: 600;}
-#callback .form__button {border-radius: 1.5rem;top: .25rem;right: .25rem;line-height: 2.75rem;position: absolute;}
-#callback input {height: 3.5rem;border-radius: 1.5rem;border: 0;padding: 0 13rem 0 2rem;}
-#callback .form__pp {text-align: right;}
-#callback .form__pp a {color: #ffffff;}
-
+.callback__index .inner {padding: 2rem;background-color: #ffbb3e;border-radius: 1.25rem;align-items: center;}
+.callback__index .callback__icon {width: 10rem;}
+.callback__index .callback__icon i {color: #ffdd9f;font-size: 7.5rem;transform: rotate(45deg);display: inline-block;}
+.callback__index .callback__content {width: calc(100% - 10rem);color: #ffffff;}
+.callback__index .callback__title {margin-bottom: 1rem;font-size: 1.5rem;font-weight: bold;text-transform: uppercase;}
+.callback__index .callback__subtitle {margin-bottom: 1rem;font-weight: 600;}
+.callback__index .form__button {padding: 0 3rem;border-radius: 1.5rem;top: .25rem;right: .25rem;line-height: 2.75rem;position: absolute;}
+.callback__index input {height: 3.5rem;border-radius: 1.5rem;border: 0;padding: 0 13rem 0 2rem;}
+.callback__index .form__pp {text-align: right;}
+.callback__index .form__pp a {color: #ffffff;}
 /*** Подпишитесь ***/
-#subscribe .inner {padding: 2rem;background-color: #6aa344;border-radius: 1.25rem;align-items: center;}
-#subscribe .subscribe__icon {width: 10rem;}
-#subscribe .subscribe__icon i {color: #b5d1a2;font-size: 7.5rem;display: inline-block;}
-#subscribe .subscribe__content {width: calc(100% - 10rem);color: #ffffff;}
-#subscribe .subscribe__title {margin-bottom: 1rem;font-size: 1.5rem;font-weight: bold;text-transform: uppercase;}
-#subscribe .subscribe__subtitle {margin-bottom: 1rem;font-weight: 600;}
-#subscribe .form__button {border-radius: 1.5rem;top: .25rem;right: .25rem;line-height: 2.75rem;position: absolute;}
-#subscribe input {height: 3.5rem;border-radius: 1.5rem;border: 0;padding: 0 13rem 0 2rem;}
-#subscribe .form__pp {text-align: right;}
-#subscribe .form__pp a {color: #ffffff;}
+#subscribe .inner {background-color: #6aa344;}
+#subscribe .callback__icon i {color: #b5d1a2;transform: rotate(0);}
+
+
+
+
+
+
+
+
+

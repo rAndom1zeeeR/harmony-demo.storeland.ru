@@ -479,7 +479,7 @@
 	
 	
 	<!-- Обратный звонок -->
-	<section id="callback">
+	<section id="callback" class="callback__index">
 		<div class="container">
 			<div class="inner">
 				<div class="callback__icon">
@@ -506,15 +506,15 @@
 	</section>
 	
 	<!-- Подпишитесь -->
-	<section id="subscribe">
+	<section id="subscribe" class="callback__index">
 		<div class="container">
 			<div class="inner">
-				<div class="subscribe__icon">
+				<div class="callback__icon">
 					<i class="icon-send"></i>
 				</div>
-				<div class="subscribe__content">
-					<div class="subscribe__title">Подпишитесь!</div>
-					<div class="subscribe__subtitle">Подпишитесь на нашу рассылку и получайте эксклюзивные предложения и секретные акции!</div>
+				<div class="callback__content">
+					<div class="callback__title">Подпишитесь!</div>
+					<div class="callback__subtitle">Подпишитесь на нашу рассылку и получайте эксклюзивные предложения и секретные акции!</div>
 					<form method="post" action="{CALLBACK_URL}" class="form__callback" enctype="multipart/form-data">
 						<input type="hidden" name="hash" value="{HASH}" />
 						<input class="callbackredirect" type="hidden" name="return_to" value="{CALLBACK_URL}" />
