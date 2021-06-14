@@ -474,10 +474,10 @@ header {position: relative;}
 /* Шапка. Контакты */
 .header__contacts {display: flex;flex-wrap: wrap;align-items: center;}
 .contacts__block {display: flex;flex-wrap: wrap;align-items: center;}
-.contacts__block i {color: #d2d9cd;font-size: 1.25rem;margin-right: .75rem;transition: all 0.3s ease;}
-.contacts__block:hover i {color: #6aa344;}
-.contacts__block a {font-size: .875rem}
-.contacts__block-content {width: calc(100% - 2rem);}
+.header__contacts .contacts__block i {color: #d2d9cd;font-size: 1.25rem;margin-right: .75rem;transition: all 0.3s ease;}
+.header__contacts .contacts__block:hover i {color: #6aa344;}
+.header__contacts .contacts__block a {font-size: .875rem}
+.header__contacts .contacts__block-content {width: calc(100% - 2rem);}
 /* Шапка. ЛК, Избр, Срав */
 #addto {display: flex;flex-wrap: wrap;align-items: center;}
 .addto__block {margin: 0 1.25rem;}
