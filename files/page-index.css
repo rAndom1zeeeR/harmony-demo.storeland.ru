@@ -49,3 +49,20 @@
 .index__content h1 {font-size: 1.75rem;}
 
 
+/*** Преимущества ***/
+.advantages__items {display: flex;flex-wrap: wrap;align-items: flex-start;}
+.advantages__item {width: calc(33.333333% - 2rem);margin: 0 1rem;position: relative;}
+.advantages__content {padding: 3rem 1rem 1.5rem 1rem;background-color: #ffffff;border-radius: 1rem;text-align: right;}
+.advantages__title {font-size: 1.25rem;font-weight: bold;}
+.advantages__subtitle {margin-top: .75rem;}
+.advantages__icon {font-size: 3.5rem;color: #ffffff;background-color: #6aa344;border-radius: 50%;width: 6rem;height: 6rem;position: absolute;left: 1rem;top: -3.5rem;display: flex;align-items: center;justify-content: center;}
+
+
+
+
+
+
+
+
+
+
