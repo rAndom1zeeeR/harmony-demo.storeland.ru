@@ -9,7 +9,7 @@
 .owl-nav .owl-next {float: right;right: 0;}
 .owl-nav .owl-prev:before {content: '\e92c';}
 .owl-nav .owl-next:before {content: '\e932';}
-.owl-nav.disable, .owl-nav [class^="owl-"].disable:hover {cursor: default;color: #ecdfd4;}
+.owl-nav.disable, .owl-nav [class^="owl-"].disable:hover {cursor: default;color: #d2d9cd;}
 .owl-nav.disabled {display: none;}
 /*** Навигация точками ***/
 .owl-dots {text-align: center;}
