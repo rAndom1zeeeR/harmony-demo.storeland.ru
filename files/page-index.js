@@ -53,40 +53,6 @@ function counterDate() {
 	}, 1000);
 }
 
-// Функция показать больше для Каталога на главной странице
-function pdtCatalog() {
-	$('#catalog .owl-carousel').owlCarousel({
-		items: 4,
-		margin: 32,
-		loop: false,
-		rewind: true,
-		lazyLoad: true,
-		nav: true,
-		navContainer: '#catalog .owl-nav',
-		navText: [ , ],
-		dots: true,
-		autoHeight: false,
-		autoHeightClass: 'owl-height',
-		autoplay: false,
-		autoplayHoverPause: true,
-		smartSpeed: 500,
-		mouseDrag: true,
-		touchDrag: true,
-		pullDrag: true,
-		responsiveClass: true,
-		responsiveRefreshRate: 100,
-		responsive: {
-			0:{items:1},
-			320:{items:2},
-			481:{items:2},
-			641:{items:2},
-			768:{items:3},
-			992:{items:3},
-			1200:{items:4}
-		}
-	});
-}
-
 // Функция слайдеров на главной
 function pdtSlider() {
 	// Функция слайдер для "Акции" на главной странице
@@ -234,8 +200,8 @@ function slideShow() {
 		lazyLoad: true,
 		nav: true,
 		navText: [ , ],
-		navContainer: '#slideshow .owl-nav',
-		dots: false,
+		navContainer: '',
+		dots: true,
 		dotsContainer: '',
 		URLhashListener: true,
 		autoplay: false,
@@ -246,16 +212,8 @@ function slideShow() {
 		dotsSpeed: 400,
 		mouseDrag: true,
 		touchDrag: true,
-		pullDrag: true,
-		onInitialized: counter,
-		onChanged: counter
+		pullDrag: true
 	});
-	function counter(event) {
-		var items = event.item.count;     // Number of items
-		var item = event.item.index + 1;  // Position of the current item
-		$('#slideshow .count').remove();
-		$('#slideshow .owl-next').before('<span class="count">'+ item + '/' + items +'</span>')
-	}
 }
 
 // Новости

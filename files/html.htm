@@ -133,7 +133,7 @@
 					{% IF SETTINGS_STORE_EMAIL_MAIN %}
 					<div class="contacts__block email">
 						<i class="icon-mail"></i>
-						<div class="contacts__content">
+						<div class="contacts__block-content">
 							<a class="email"
 								href="mailto:{SETTINGS_STORE_EMAIL_MAIN}"
 								title="{SETTINGS_STORE_EMAIL_MAIN}"
@@ -142,13 +142,15 @@
 							</a>
 						</div>
 					</div>
+					<!-- Разделительная точка -->
+					<div class="separator"></div>
 					{% ENDIF %}
 					
 					<!-- Телефон 1 -->
 					{% IF SETTINGS_STORE_PHONE_NUMBER1 %}
 					<div class="contacts__block phone">
 						<i class="icon-phone"></i>
-						<div class="contacts__content">
+						<div class="contacts__block-content">
 							<a class="contacts__phone phone"
 								href="tel:{SETTINGS_STORE_PHONE_COUNTRY_CODE1}({SETTINGS_STORE_PHONE_CITY_CODE1}){SETTINGS_STORE_PHONE_NUMBER1}"
 								title="{SETTINGS_STORE_PHONE_COUNTRY_CODE1}({SETTINGS_STORE_PHONE_CITY_CODE1}){SETTINGS_STORE_PHONE_NUMBER1}"
@@ -159,9 +161,12 @@
 					</div>
 					{% ENDIF %}
 					
+					<!-- Разделительная точка -->
+					<div class="separator"></div>
+					
 					<!-- Обратный звонок -->
 					<div class="contacts__block callback">
-						<a class="fancybox__link"
+						<a class="fancybox__link dashed"
 							href="javascript:;"
 							data-fancybox=""
 							data-src="#fancybox__callback"
@@ -182,14 +187,12 @@
 					</div>
 					{% ENDIF %}
 					<!-- Избранное -->
-					{% IFNOT MOD_LNAME=user && ACT=favorites %}
 					<div class="addto__block favorites {% IF FAVORITES_GOODS_COUNT > 0 %}hasItems{% ENDIF %}">
 						<a href="{FAVORITES_URL}" class="addto__label dropdown__open favorites__icon" title="Избранное" data-open="favorites">
 							<i class="icon-favorites"></i>
 							<span class="favorites__count" data-count="{FAVORITES_GOODS_COUNT}">{FAVORITES_GOODS_COUNT}</span>
 						</a>
 					</div>
-					{% ENDIF %}
 					<!-- Сравнение -->
 					{% IFNOT MOD_LNAME = compare && SETTINGS_COMPARE_DISABLE=0 %}
 					<div class="addto__block compare {% IF COMPARE_GOODS_COUNT > 0 %}hasItems{% ENDIF %}">
@@ -241,14 +244,14 @@
 						<meta itemprop="target" content="{SEARCH_URL}?q={{EMPTY}q}" />
 						<input type="hidden" name="goods_search_field_id" value="0" />
 						<input type="text" name="q" value="{FORM_SEARCH_Q}" class="search__input" placeholder="Искать" autocomplete="off" itemprop="query-input" />
-						<button type="submit" class="search__submit" title="Искать"><i class="icon-search"></i></button>
 						<div class="lds-ring">
 							<div></div>
 							<div></div>
 							<div></div>
 							<div></div>
 						</div>
-						<div class="search__reset"><i class="icon-close"></i></div>
+						<a href="javascript:;" class="search__reset"><i class="icon-close"></i></a>
+						<button type="submit" class="search__submit search__icon" title="Искать"><i class="icon-search"></i></button>
 					</form>
 					<!-- Результаты поиска -->
 					<div id="search__result" style="display: none;">
@@ -258,16 +261,20 @@
 							<div class="result__showAll button">все результаты</div>
 						</div>
 					</div>
+					<!-- Иконка поиска -->
+					<div class="search__icon button">
+						<i class="icon-search"></i>
+					</div>
 				</div>
 				<!-- Корзина -->
-				<div class="header__block cart dropdown {% IF CART_COUNT_TOTAL > 0 %}hasItems{% ENDIF %}">
-					<div class="header__block-icon dropdown__open" data-open="cart">
+				<div class="cart__block cart dropdown {% IF CART_COUNT_TOTAL > 0 %}hasItems{% ENDIF %}">
+					<div class="cart__block-icon" data-open="cart">
 						<i class="icon-cart"></i>
-						<span class="cart__count" data-count="{CART_COUNT_TOTAL}">{CART_COUNT_TOTAL}</span>
 					</div>
-					<div class="header__block-content">
-						<a href="{CART_URL}" class="addto__label" title="Корзина">
+					<div class="cart__block-content">
+						<a href="{CART_URL}" class="cart__block-label" title="Корзина">
 							<span class="price__now cartSumNow {CURRENCY_CHAR_CODE}">{CART_SUM_NOW | money_format}</span>
+							<span><span class="cart__count" data-count="{CART_COUNT_TOTAL}">{CART_COUNT_TOTAL}</span> товар{CART_COUNT_TOTAL | gen_word_end("","а","ов")}</span>
 						</a>
 					</div>
 				</div>
@@ -275,6 +282,77 @@
 			</div>
 		</div>
 	</header>
+	
+	<!-- Категории на главной -->
+	<div id="catalog">
+		<div class="container">
+			<div class="catalog__list owl-carousel">
+				{% FOR catalog_full %}
+				{% IF catalog_full.LEVEL = 0 %}
+				<a class="catalog__item" href="{catalog_full.URL}" data-id="{catalog_full.ID}">
+					<span class="catalog__image">
+						<noscript>
+							<img class="goods-image-medium" src="{% IF catalog_full.IMAGE_MEDIUM %}{catalog_full.IMAGE_MEDIUM}{% ELSE %}{ASSETS_IMAGES_PATH}no-photo-small.png?design=THEMENAME{% ENDIF %}" />
+						</noscript>
+						<img class="owl-lazy goods-image-medium script__on" data-src="{% IF catalog_full.IMAGE_MEDIUM %}{catalog_full.IMAGE_MEDIUM}{% ELSE %}{ASSETS_IMAGES_PATH}no-photo-small.png?design=THEMENAME{% ENDIF %}" />
+					</span>
+					<span class="catalog__name">{catalog_full.NAME}</span>
+				</a>
+				{% ENDIF %}
+				{% ENDFOR %}
+			</div>
+		</div>
+	</div>
+	
+	<!-- Слайдшоу -->
+	<section id="slideshow">
+		<div class="container">
+			<div class="inner">
+				<!-- Слайдер -->
+				<div class="slider owl-carousel">
+					<!-- Слайд 1 -->
+					<a href="{CATALOG_URL}" class="slider__item lozad" data-background-image="{ASSETS_IMAGES_PATH}slide_1.jpg?design=THEMENAME" data-slide="1">
+						<div class="slider__content">
+							<span class="slider__button button button2">Новинка</span>
+							<div class="slider__title">Палатки Strong</div>
+							<div class="slider__subtitle">выдержат любые погодные условия</div>
+						</div>
+					</a>
+					<!-- Слайд 2 -->
+					<a href="{CATALOG_URL}" class="slider__item lozad" data-background-image="{ASSETS_IMAGES_PATH}slide_2.jpg?design=THEMENAME" data-slide="1">
+						<div class="slider__content">
+							<span class="slider__button button button2">Хит продаж</span>
+							<div class="slider__title">Термос TRamp</div>
+							<div class="slider__subtitle">согреет даже в лютую непогоду</div>
+						</div>
+					</a>
+					<!-- Слайд 3 -->
+					<a href="{CATALOG_URL}" class="slider__item lozad" data-background-image="{ASSETS_IMAGES_PATH}slide_3.jpg?design=THEMENAME" data-slide="1">
+						<div class="slider__content">
+							<span class="slider__button button button2">Распродажа</span>
+							<div class="slider__title">Скидки до 40%</div>
+							<div class="slider__subtitle">на наше лучшее снаряжение для похода</div>
+						</div>
+					</a>
+				</div>
+				<!-- Слайдер. Баннеры -->
+				<div class="slider__banners">
+					<a class="slider__banner lozad" data-background-image="{ASSETS_IMAGES_PATH}banner_1.jpg?design=THEMENAME" href="{CATALOG_URL}">
+						<div class="slider__content">
+							<span class="slider__button button button2">от 500 рублей</span>
+							<div class="slider__title">Посуда для отдыха на природе</div>
+						</div>
+					</a>
+					<a class="slider__banner lozad" data-background-image="{ASSETS_IMAGES_PATH}banner_2.jpg?design=THEMENAME" href="{CATALOG_URL}">
+						<div class="slider__content">
+							<span class="slider__button button button2">Скидка 20%</span>
+							<div class="slider__title">Рюкзаки для походов</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
 	
 	<!-- Модальные окна -->
 	<noindex>

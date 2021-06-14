@@ -554,32 +554,6 @@ function openMenu() {
     }
   });
 
-  // "Еще" в выпадающем каталоге
-  function catalogItemsMore(){
-    // Определяем главные категории
-    var item = $('#menu .catalog__item[data-level="0"]');
-    // Удаляем скрытые категории
-    item.find('.hide').remove();
-    // Проверяем категории
-    item.each(function (event){
-      var t = $(this);
-      var item1 = t.find('.catalog__item[data-level="1"]');
-      var href = t.find('a').attr('href');
-      // Добавляем порядок главных категорий
-      var count = event + 1;
-      t.css('order', count)
-      // Добавляем кнопку "Еще" если больше 4 подкатегорий
-      if(item1.length > 4) {
-        t.append('<div class="catalog__more"><a href="'+ href +'" class="catalog__link">Еще...</a></div>');
-      }
-      // Если в категории нет подкатегорий, переносим ее в конец
-      if(item1.length == 0) {
-        t.css('order', item.length + 1)
-      }
-    });
-  }
-  catalogItemsMore();
-
   //Кнопка выбора меню/каталога
   var  button = $('.dropdown__label [data-open]');
   //Скрываем меню
@@ -611,6 +585,13 @@ function openMenu() {
     $('.dropdown__label [data-open="catalog"]').addClass('active');
   });
 
+  //Открытие каталога
+  $('.search__icon.button').on('click', function (event){
+    event.preventDefault();
+    $(this).parent().toggleClass('opened');
+    $('#overlay').toggleClass('opened');
+  });
+
   //Открытие меню в подвале
   $('.footer__open').on('click', function (){
     var p = $(this).parent().parent(); //parent
@@ -621,7 +602,7 @@ function openMenu() {
 
 // Дополнительные пункты меню в шапке Перенос пунктов меню
 function mainnavHeader(){
-  var mainnav = $('#menu .mainnav');
+  var mainnav = $('header .mainnav');
   var overMenuExist = mainnav.find('.overflowMenu li').length;
   if(overMenuExist){
     mainnav.find('.overflowMenu li').removeClass('mainnav__replaced');
@@ -644,7 +625,7 @@ function mainnavHeader(){
       mainnav.find('.mainnav__replaced').each(function(){
         mainnav.find('.overflowMenu').append($(this));
       });
-      mainnav.find('.mainnav__list').append('<li class="mainnav__item mainnav__more"><a class="mainnav__link">Еще...</a></li>');
+      mainnav.find('.mainnav__list').append('<li class="mainnav__item mainnav__more"><a class="mainnav__link"><span>Ещё</span><i class="icon-arrow_drop_down"></i></a></li>');
       mainnav.find('.mainnav__more').on('click',function(){
         mainnav.find('.overflowMenu').hasClass('opened') ? mainnav.find('.overflowMenu').removeClass('opened') : mainnav.find('.overflowMenu').addClass('opened');
         mainnav.hasClass('opened') ? mainnav.removeClass('opened') : mainnav.addClass('opened');
@@ -664,6 +645,40 @@ function mainnavHeader(){
   }
 }
 
+
+// Функция показать больше для Каталога на главной странице
+function pdtCatalog() {
+  $('#catalog .owl-carousel').owlCarousel({
+    items: 6,
+    margin: 0,
+    loop: false,
+    rewind: true,
+    lazyLoad: true,
+    nav: true,
+    navContainer: '#catalog .owl-nav',
+    navText: [ , ],
+    dots: true,
+    autoHeight: false,
+    autoHeightClass: 'owl-height',
+    autoplay: false,
+    autoplayHoverPause: true,
+    smartSpeed: 500,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    responsiveClass: true,
+    responsiveRefreshRate: 100,
+    responsive: {
+      0:{items:1},
+      320:{items:2},
+      481:{items:2},
+      641:{items:2},
+      768:{items:3},
+      992:{items:3},
+      1200:{items:4}
+    }
+  });
+}
 
 
 // Превращает поле пароля в текстовое поле и обратно
