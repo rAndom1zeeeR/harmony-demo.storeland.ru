@@ -477,6 +477,63 @@
 		</div>
 	</section>
 	
+	
+	<!-- Обратный звонок -->
+	<section id="callback">
+		<div class="container">
+			<div class="inner">
+				<div class="callback__icon">
+					<i class="icon-call"></i>
+				</div>
+				<div class="callback__content">
+					<div class="callback__title">Возникли вопросы?</div>
+					<div class="callback__subtitle">Оставьте свой номер телефона и наши специалисты проконсультируют Вас совершенно бесплатно!</div>
+					<form method="post" action="{CALLBACK_URL}" class="form__callback" enctype="multipart/form-data">
+						<input type="hidden" name="hash" value="{HASH}" />
+						<input class="callbackredirect" type="hidden" name="return_to" value="{CALLBACK_URL}" />
+						<input type="hidden" name="form[{ANTISPAM_FORM_FIELD_NAME_CALLBACK_PERSON}]" value="Возникли вопросы -- " />
+						<!-- Набор полей которые не видит пользователь, но видят боты. Когда они их заполняют мы точно знаем, что их прислал нам бот и мы не сохраняем подобный отзыв о товаре, а боту отправившему отзыв сообщаем, что отзыв добавлен успешно, но будет отображён здесь после прохождения модерации -->
+						{ANTISPAM_CODE}
+						<div class="form__fields">
+							<input class="form__input form__phone" type="tel" name="form[{ANTISPAM_FORM_FIELD_NAME_CALLBACK_PHONE}]" value="{FORM_CALLBACK_PHONE}" placeholder="Ваш телефон" autocomplete="off" />
+							<button type="submit" title="Заказать звонок" class="form__button button">Заказать звонок</button>
+						</div>
+						<div class="form__pp">Нажимая на кнопку &laquo;Заказать звонок&raquo;, Вы соглашаетесь с <a data-fancybox data-src="#fancybox__pp" href="javascript:;">правилами обработки данных</a></div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<!-- Подпишитесь -->
+	<section id="subscribe">
+		<div class="container">
+			<div class="inner">
+				<div class="subscribe__icon">
+					<i class="icon-send"></i>
+				</div>
+				<div class="subscribe__content">
+					<div class="subscribe__title">Подпишитесь!</div>
+					<div class="subscribe__subtitle">Подпишитесь на нашу рассылку и получайте эксклюзивные предложения и секретные акции!</div>
+					<form method="post" action="{CALLBACK_URL}" class="form__callback" enctype="multipart/form-data">
+						<input type="hidden" name="hash" value="{HASH}" />
+						<input class="callbackredirect" type="hidden" name="return_to" value="{CALLBACK_URL}" />
+						<!-- Скрытые поля -->
+						<input class="form__input" type="hidden" name="form[{ANTISPAM_FORM_FIELD_NAME_CALLBACK_PERSON}]" value="Подписаться" placeholder="Ваше имя" autocomplete="off" />
+						<input class="form__input" type="hidden" name="form[{ANTISPAM_FORM_FIELD_NAME_CALLBACK_PHONE}]" value="Подписаться" placeholder="Ваш телефон" autocomplete="off" />
+						<!-- Набор полей которые не видит пользователь, но видят боты. Когда они их заполняют мы точно знаем, что их прислал нам бот и мы не сохраняем подобный отзыв о товаре, а боту отправившему отзыв сообщаем, что отзыв добавлен успешно, но будет отображён здесь после прохождения модерации -->
+						{ANTISPAM_CODE}
+						<div class="form__fields">
+							<input class="form__input form__email required" type="email" name="form[{ANTISPAM_FORM_FIELD_NAME_CALLBACK_EMAIL}]" value="{FORM_CALLBACK_EMAIL}" placeholder="email@email.ru *" autocomplete="off" />
+							<button type="submit" title="Заказать звонок" class="form__button button button2">Подписаться</button>
+						</div>
+						<div class="form__pp">Нажимая на кнопку &laquo;Заказать звонок&raquo;, Вы соглашаетесь с <a data-fancybox data-src="#fancybox__pp" href="javascript:;">правилами обработки данных</a></div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	
 	<!-- Модальные окна -->
 	<noindex>
 		<!-- Наверх -->
