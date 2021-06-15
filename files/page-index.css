@@ -75,30 +75,6 @@
 #subscribe .callback__icon i {color: #b5d1a2;transform: rotate(0);}
 
 
-/*** Подвал ***/
-.footer__top {background-color: #ffffff;border-radius: 1.25rem;display: flex;flex-wrap: wrap;}
-.footer__block {width: 33.333333%;padding: 2rem 3rem;}
-.footer__block:nth-child(2) {background-color: #e9f9de;}
-.footer__title {font-size: 1.25rem;font-weight: bold;margin-bottom: 1rem;text-transform: uppercase;}
-/*** Подвал. Меню ***/
-footer ul {margin: 0;padding: 0;list-style: none;}
-footer li {padding: .5rem 0;display: block;}
-footer li:before {content: '';margin-right: .5rem;width: .5rem;height: .5rem;background-color: #6aa344;border-radius: 100%;display: inline-block;vertical-align: middle;transition: all 0.3s ease;}
-footer li a {display: inline-block;vertical-align: middle;}
-footer li:hover:before {background-color: #ffbb3e;}
-/*** Подвал. Контакты TODO ограничить вывод большиъ почт, адреса ***/
-footer .logo {margin: 0 auto 2rem;}
-footer .contacts__icon {font-size: 1.25rem;width: 3rem;height: 3rem;line-height: 3.25rem;color: #6aa344;background-color: #ffffff;border-radius: 100%;text-align: center;transition: all 0.3s ease;}
-footer .contacts__block:hover .contacts__icon {color: #ffffff;background-color: #6aa344;}
-footer .contacts__content {width: calc(100% - 3rem);padding-left: 1rem;}
-footer .contacts__content a {display: block;}
-footer .contacts__content a + a {margin-top: .5rem;}
-footer .contacts__block {margin-top: 1rem;}
-/*** Подвал. Соц сети TODO сделать цвета для каждой соц сети ***/
-.social-links {margin-top: 2rem;display: flex;flex-wrap: wrap;}
-.social-links a span {display: none;}
-.social-links a {margin-right: 1rem;font-size: 1.25rem;width: 3rem;height: 3rem;line-height: 3.25rem;color: #6aa344;background-color: #ffffff;border-radius: 100%;text-align: center;transition: all 0.3s ease;display: inline-block;}
-
 
 
 
