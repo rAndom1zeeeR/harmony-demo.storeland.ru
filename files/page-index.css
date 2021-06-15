@@ -42,6 +42,8 @@
 .banners__title {font-size: 1.5rem;font-weight: bold;text-transform: uppercase;transition: all 0.3s ease;}
 .banners__title:hover {color: #ffbb3e;}
 .banners__subtitle {margin-top: .5rem;font-size: 1.25rem;}
+.banners__price {width: 6rem;height: 6rem;background-color: #ffbb3e;border-radius: 100%;top: 1.25rem;right: 1.25rem;position: absolute;display: flex;align-items: center;justify-content: center;flex-direction: column;}
+.banners__price .price__old {margin-bottom: .25rem;}
 
 
 /*** Описание на главной ***/
