@@ -654,10 +654,10 @@ function pdtCatalog() {
     loop: false,
     rewind: true,
     lazyLoad: true,
-    nav: true,
-    navContainer: '#catalog .owl-nav',
+    nav: false,
+    navContainer: '',
     navText: [ , ],
-    dots: true,
+    dots: false,
     autoHeight: false,
     autoHeightClass: 'owl-height',
     autoplay: false,
@@ -672,10 +672,10 @@ function pdtCatalog() {
       0:{items:1},
       320:{items:2},
       481:{items:2},
-      641:{items:2},
-      768:{items:3},
-      992:{items:3},
-      1200:{items:4}
+      641:{items:3},
+      768:{items:4},
+      992:{items:5},
+      1200:{items:6}
     }
   });
 }
@@ -767,6 +767,7 @@ $(document).ready(function(){
   showPass();
   quantity();
   mainnavHeader();
+  pdtCatalog();
   toTop();
   // Стили для новых селектов
   /*$('.select').styler();*/

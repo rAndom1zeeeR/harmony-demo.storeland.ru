@@ -63,7 +63,7 @@ function pdtSlider() {
 		rewind: true,
 		lazyLoad: true,
 		nav: true,
-		navContainer: '.pdt .owl-nav[data-content="pdt__sales"]',
+		navContainer: '#pdt__sales .owl-nav[data-content="pdt__sales"]',
 		navText: [ , ],
 		dots: false,
 		dotsContainer: '',
@@ -86,7 +86,7 @@ function pdtSlider() {
 		rewind: true,
 		lazyLoad: true,
 		nav: true,
-		navContainer: '.pdt .owl-nav[data-content="pdt__best"]',
+		navContainer: '#pdt__best .owl-nav[data-content="pdt__best"]',
 		navText: [ , ],
 		dots: false,
 		dotsContainer: '',
@@ -102,7 +102,7 @@ function pdtSlider() {
 		responsiveRefreshRate: 100,
 		responsive: {
 			0:{items:1},
-			320:{items:1},
+			320:{items:1, autoHeight: true},
 			481:{items:2},
 			641:{items:3},
 			768:{items:3},
@@ -118,7 +118,7 @@ function pdtSlider() {
 		rewind: true,
 		lazyLoad: true,
 		nav: true,
-		navContainer: '.pdt .owl-nav[data-content="pdt__new"]',
+		navContainer: '#pdt__new .owl-nav[data-content="pdt__new"]',
 		navText: [ , ],
 		dots: false,
 		autoHeight: false,
@@ -133,7 +133,7 @@ function pdtSlider() {
 		responsiveRefreshRate: 100,
 		responsive: {
 			0:{items:1},
-			320:{items:1},
+			320:{items:1, autoHeight: true},
 			481:{items:2},
 			641:{items:3},
 			768:{items:3},
@@ -143,13 +143,13 @@ function pdtSlider() {
 	});
 	// Функция слайдера для Хитов продаж на главной странице
 	$('#pdt__sale .owl-carousel').owlCarousel({
-		items: 3,
+		items: 4,
 		margin: 32,
 		loop: false,
 		rewind: true,
 		lazyLoad: true,
 		nav: true,
-		navContainer: '.pdt .owl-nav[data-content="pdt__sale"]',
+		navContainer: '#pdt__sale .owl-nav[data-content="pdt__sale"]',
 		navText: [ , ],
 		dots: false,
 		autoHeight: false,
@@ -164,12 +164,12 @@ function pdtSlider() {
 		responsiveRefreshRate: 100,
 		responsive: {
 			0:{items:1},
-			320:{items:1},
-			481:{items:1},
-			641:{items:1},
-			768:{items:2},
+			320:{items:1, autoHeight: true},
+			481:{items:2},
+			641:{items:3},
+			768:{items:3},
 			992:{items:3},
-			1200:{items:3}
+			1200:{items:4}
 		}
 	});
 	// Табы в товарах
@@ -346,6 +346,5 @@ $(document).ready(function(){
 	counterDate();
 	slideShow();
 	newsCarousel();
-	pdtCatalog();
 	pdtSlider();
 });
