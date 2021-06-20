@@ -262,15 +262,14 @@ function slideShow() {
 
 // Новости
 function newsCarousel() {
-	if ($("#news .news_list_all.owl-carousel").length){
-		$("#news .news_list_all.owl-carousel").owlCarousel({
+	$("#news .owl-carousel").owlCarousel({
 			items: 2,
 			margin: 32,
 			loop: false,
 			rewind: true,
 			lazyLoad: true,
 			nav: true,
-			navContainer: '#news .owl-nav[data-content="news_list_all"]',
+			navContainer: '#news .owl-nav',
 			navText: [ , ],
 			dots: false,
 			autoHeight: true,
@@ -285,103 +284,14 @@ function newsCarousel() {
 			responsiveRefreshRate: 100,
 			responsive: {
 				0:{items:1},
-				320:{items:1},
-				640:{items:2}
+				320:{items:1, autoHeight: true},
+				481:{items:1},
+				641:{items:2},
+				768:{items:2},
+				992:{items:3},
+				1200:{items:3}
 			}
 		});
-	}else{
-		$("#news .news_list_articles.owl-carousel").owlCarousel({
-			items: 2,
-			margin: 32,
-			loop: false,
-			rewind: true,
-			lazyLoad: true,
-			nav: true,
-			navContainer: '#news .owl-nav[data-content="news_list_articles"]',
-			navText: [ , ],
-			dots: false,
-			autoHeight: true,
-			autoHeightClass: 'owl-height',
-			autoplay: false,
-			autoplayHoverPause: true,
-			smartSpeed: 500,
-			mouseDrag: true,
-			touchDrag: true,
-			pullDrag: true,
-			responsiveClass: true,
-			responsiveRefreshRate: 100,
-			responsive: {
-				0:{items:1},
-				320:{items:1},
-				640:{items:2}
-			}
-		});
-		$("#news .news_list_mass_media.owl-carousel").owlCarousel({
-			items: 2,
-			margin: 32,
-			loop: false,
-			rewind: true,
-			lazyLoad: true,
-			nav: true,
-			navContainer: '#news .owl-nav[data-content="news_list_mass_media"]',
-			navText: [ , ],
-			dots: false,
-			autoHeight: true,
-			autoHeightClass: 'owl-height',
-			autoplay: false,
-			autoplayHoverPause: true,
-			smartSpeed: 500,
-			mouseDrag: true,
-			touchDrag: true,
-			pullDrag: true,
-			responsiveClass: true,
-			responsiveRefreshRate: 100,
-			responsive: {
-				0:{items:1},
-				320:{items:1},
-				640:{items:2}
-			}
-		});
-		$("#news .news_list_shop.owl-carousel").owlCarousel({
-			items: 2,
-			margin: 32,
-			loop: false,
-			rewind: true,
-			lazyLoad: true,
-			nav: true,
-			navContainer: '#news .owl-nav[data-content="news_list_shop"]',
-			navText: [ , ],
-			dots: false,
-			autoHeight: true,
-			autoHeightClass: 'owl-height',
-			autoplay: false,
-			autoplayHoverPause: true,
-			smartSpeed: 500,
-			mouseDrag: true,
-			touchDrag: true,
-			pullDrag: true,
-			responsiveClass: true,
-			responsiveRefreshRate: 100,
-			responsive: {
-				0:{items:1},
-				320:{items:1},
-				640:{items:2}
-			}
-		});
-	}
-	// Табы в новостях
-	$('#news .nav__tab').on('click', function (event) {
-		event.preventDefault();
-		var content = $(this).attr('data-content');
-		$('#news [class^="news_list_"]').prepend('<div class="preloader"><div class="loading"></div></div>');
-		preload();
-		$('#news .nav__tab').removeClass('active')
-		$('#news [class^="news_list_"][data-content]').removeClass('active');
-		$('#news .owl-nav[data-content]').removeClass('active');
-		$(this).addClass('active');
-		$('#news [class^="news_list_"][data-content="'+ content +'"').addClass('active');
-		$('#news .owl-nav[data-content="'+ content +'"').addClass('active');
-	});
 }
 
 // Загрузка основных функций шаблона
