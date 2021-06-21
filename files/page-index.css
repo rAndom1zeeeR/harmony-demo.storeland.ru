@@ -99,14 +99,7 @@
 .product__counter > div:after {content: ':';display: inline-block;margin: 0 .75rem 0 .5rem;}
 .product__counter > div:last-child:after {display: none;}
 .product__counter i {font-size: 1.75rem;margin-right: 1rem;}
-
-/*#pdt__sales .product__thumblist .owl-nav {width: auto;background-color: transparent;position: unset;}
-#pdt__sales .product__thumblist .owl-nav:before {display: none;}
-#pdt__sales .product__thumblist .owl-nav [class^="owl-"] {color: #23261d;background-color: transparent;width: 2rem;height: 3.75rem;top: calc(50% - 3.75rem/2);position: absolute;}
-#pdt__sales .product__thumblist .owl-nav [class^="owl-"]:hover {color: #6aa344;}
-#pdt__sales .product__thumblist .owl-prev {top: 0;}
-#pdt__sales .product__thumblist .owl-next {bottom: 0;}*/
-
+/* Навигация в распродаже доп. изображений */
 .product__thumblist {width: 6.25rem;}
 .product__thumblist-items {margin: 1rem 0;}
 .product__thumblist-item {width: 6.25rem;height: 6.25rem;border: 1px solid #d2d9cd;border-radius: 1rem;display: none;align-items: center;justify-content: center;transition: all 0.3s ease;}
@@ -118,3 +111,17 @@
 .product__thumblist-nav:hover {color: #6aa344;cursor: pointer;}
 
 
+/*** Новости ***/
+#news .owl-carousel .owl-stage {display: flex;flex-wrap: wrap;align-items: stretch;}
+.news__item {height: 100%;padding: 3rem 0 1.5rem;}
+.news__inner {height: 100%;padding: 3rem 2rem;border: 1px solid #d2d9cd;border-radius: 1rem;background-color: #ffffff;transition: all 0.3s ease;}
+.news__item:hover {border-color: #6aa344;}
+.news__image {margin-bottom: 1rem;height: 18.25rem;display: flex;align-items: center;justify-content: center;}
+.news__date {width: 6rem;height: 6rem;color: #ffffff;background-color: #ffbb3e;border-radius: 100%;top: 0;right: 1rem;position: absolute;display: flex;align-items: center;justify-content: center;flex-direction: column;z-index: 2;transition: all 0.3s ease;}
+.news__item:hover .news__date {background-color: #6aa344;}
+.news__date .day {font-size: 1.5rem;font-weight: bold;}
+.news__date .month {font-size: .875rem;text-transform: lowercase;}
+.news__title {font-size: 1.25rem;font-weight: bold;max-height: 3.25rem;overflow: hidden;display: block;text-align: center;text-transform: uppercase;}
+.news__text {margin-top: 1rem;max-height: 3.75rem;overflow: hidden;text-align: center;}
+.news__buttons {bottom: 0;position: absolute;width: calc(100% - 4rem);text-align: center;}
+.news__more {border-radius: 2rem;line-height: 3rem;}
