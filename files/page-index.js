@@ -148,7 +148,7 @@ function pdtSlider() {
 			0:{items:1},
 			320:{items:1, autoHeight: true},
 			481:{items:2},
-			641:{items:3},
+			641:{items:2},
 			768:{items:3},
 			992:{items:3},
 			1200:{items:4}

@@ -554,19 +554,6 @@ function openMenu() {
     }
   });
 
-  //Кнопка выбора меню/каталога
-  var  button = $('.dropdown__label [data-open]');
-  //Скрываем меню
-  $('[data-content="menu"]').hide();
-  button.on('click', function(){
-    var name = $(this).attr('data-open');
-    var content = $(this).parents().find('[data-content="'+ name +'"]');
-    button.removeClass('active');
-    $(this).addClass('active');
-    $('.dropdown__content [data-content]').hide();
-    content.show();
-  });
-
   //Открытие меню
   $('.mainnav--icon').on('click', function (event){
     event.preventDefault();
