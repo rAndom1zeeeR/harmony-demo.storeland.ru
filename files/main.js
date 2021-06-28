@@ -55,7 +55,7 @@ function setCookie(name, value, options) {
     d.setTime(d.getTime() + expires*1000);
     expires = options.expires = d;
   }
-  if (expires && expires.toUTCString) { 
+  if (expires && expires.toUTCString) {
     options.expires = expires.toUTCString();
   }
   value = encodeURIComponent(value);
@@ -159,9 +159,9 @@ function validName(){
     name.parent().addClass('error');
     name.attr('placeholder','Вы не ввели Имя');
     return false;
-  } 
+  }
 }
-function validPhone(){ 
+function validPhone(){
   var tel = $('#callback').find('.form__phone');
   var check = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{5,10}$/.test(tel.val());
   if(check == true && check != ''){
@@ -201,7 +201,7 @@ function validNameFancy(){
     name.parent().addClass('error');
     name.attr('placeholder','Вы не ввели Имя');
     return false;
-  } 
+  }
 }
 function validPhoneFancy(){
   var tel = $('#fancybox__callback').find('.form__phone');
@@ -657,9 +657,9 @@ function pdtCatalog() {
     responsiveRefreshRate: 100,
     responsive: {
       0:{items:1},
-      320:{items:2},
-      481:{items:2},
-      641:{items:3},
+      320:{items:1},
+      375:{items:2},
+      640:{items:3},
       768:{items:4},
       992:{items:5},
       1200:{items:6}

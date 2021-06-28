@@ -78,6 +78,7 @@ function pdtSlider() {
 		responsiveClass: true,
 		responsiveRefreshRate: 100
 	});
+
 	// Функция вертикального слайдера для Распродажи
 	// Навигация след слайда
 	$('.product__thumblist-nav--bottom').on('click', function (){
@@ -95,7 +96,7 @@ function pdtSlider() {
 		$('.product__thumblist-item[data-index='+ cur +']').addClass('show')
 		$('.product__thumblist-item[data-index='+ next +']').addClass('show')
 		$('.product__thumblist-items').attr('data-index', next);
-	})
+	});
 	// Навигация пред слайда
 	$('.product__thumblist-nav--top').one('click', function (){
 		var cur = parseInt($('.product__thumblist-items').attr('data-index') - 1);
@@ -122,6 +123,7 @@ function pdtSlider() {
 		$('.product__thumblist-item[data-index='+ next +']').addClass('show')
 		$('.product__thumblist-items').attr('data-index', next);
 	})
+
 	// Функция слайдера для "Лидеры продаж" на главной странице
 	$('#pdt__best .owl-carousel').owlCarousel({
 		items: 4,
@@ -145,15 +147,13 @@ function pdtSlider() {
 		responsiveClass: true,
 		responsiveRefreshRate: 100,
 		responsive: {
-			0:{items:1},
-			320:{items:1, autoHeight: true},
-			481:{items:2},
-			641:{items:2},
+			0:{items:1, autoHeight: true},
+			540:{items:2},
 			768:{items:3},
-			992:{items:3},
 			1200:{items:4}
 		}
 	});
+
 	// Функция слайдера для Новинок на главной странице
 	$('#pdt__new .owl-carousel').owlCarousel({
 		items: 4,
@@ -176,15 +176,13 @@ function pdtSlider() {
 		responsiveClass: true,
 		responsiveRefreshRate: 100,
 		responsive: {
-			0:{items:1},
-			320:{items:1, autoHeight: true},
-			481:{items:2},
-			641:{items:3},
+			0:{items:1, autoHeight: true},
+			540:{items:2},
 			768:{items:3},
-			992:{items:3},
 			1200:{items:4}
 		}
 	});
+
 	// Функция слайдера для Хитов продаж на главной странице
 	$('#pdt__sale .owl-carousel').owlCarousel({
 		items: 4,
@@ -207,29 +205,71 @@ function pdtSlider() {
 		responsiveClass: true,
 		responsiveRefreshRate: 100,
 		responsive: {
-			0:{items:1},
-			320:{items:1, autoHeight: true},
-			481:{items:2},
-			641:{items:3},
+			0:{items:1, autoHeight: true},
+			540:{items:2},
 			768:{items:3},
-			992:{items:3},
 			1200:{items:4}
 		}
 	});
-	// Табы в товарах
-	$('#pdt .nav__tab').on('click', function (event) {
-		event.preventDefault();
-		var content = $(this).attr('data-content');
-		var parent = $(this).parents('#pdt');
-		console.log(parent)
-		parent.find('[id^="pdt__"]').prepend('<div class="preloader top"><div class="loading"></div></div>');
-		preload();
-		parent.find('.nav__tab').removeClass('active')
-		parent.find('[id^="pdt__"][data-content]').removeClass('active');
-		parent.find('.owl-nav[data-content]').removeClass('active');
-		$(this).addClass('active');
-		parent.find('[id^="pdt__"][data-content="'+ content +'"').addClass('active');
-		parent.find('.owl-nav[data-content="'+ content +'"').addClass('active');
+
+	// Функция слайдера для Хитов продаж на главной странице
+	$('#popular .owl-carousel').owlCarousel({
+		items: 3,
+		margin: 32,
+		loop: false,
+		rewind: true,
+		lazyLoad: true,
+		nav: false,
+		navContainer: '',
+		navText: [ , ],
+		dots: true,
+		autoHeight: false,
+		autoHeightClass: 'owl-height',
+		autoplay: false,
+		autoplayHoverPause: true,
+		smartSpeed: 500,
+		mouseDrag: true,
+		touchDrag: true,
+		pullDrag: true,
+		responsiveClass: true,
+		responsiveRefreshRate: 100,
+		responsive: {
+			0:{items:1},
+			540:{items:2},
+			768:{items:3}
+		}
+	});
+
+	// Функция слайдера для Хитов продаж на главной странице
+	$('#advantages .owl-carousel').owlCarousel({
+		items: 3,
+		margin: 32,
+		loop: false,
+		rewind: true,
+		lazyLoad: true,
+		nav: false,
+		navContainer: '',
+		navText: [ , ],
+		dots: true,
+		autoHeight: false,
+		autoHeightClass: 'owl-height',
+		autoplay: false,
+		autoplayHoverPause: true,
+		smartSpeed: 500,
+		mouseDrag: true,
+		touchDrag: true,
+		pullDrag: true,
+		responsiveClass: true,
+		responsiveRefreshRate: 100,
+		responsive: {
+			0:{items:1},
+			320:{items:1, autoHeight: true},
+			480:{items:1},
+			641:{items:2},
+			768:{items:3},
+			992:{items:3},
+			1200:{items:3}
+		}
 	});
 }
 
@@ -283,13 +323,9 @@ function newsCarousel() {
 			responsiveClass: true,
 			responsiveRefreshRate: 100,
 			responsive: {
-				0:{items:1},
-				320:{items:1, autoHeight: true},
-				481:{items:1},
-				641:{items:2},
-				768:{items:2},
-				992:{items:3},
-				1200:{items:3}
+				0:{items:1, autoHeight: true},
+				540:{items:2},
+				768:{items:3}
 			}
 		});
 }
