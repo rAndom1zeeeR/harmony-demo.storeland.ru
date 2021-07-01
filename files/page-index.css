@@ -282,88 +282,6 @@
 	}
 }
 
-/*** Баннеры ***/
-.banners__items {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: flex-start;
-}
-
-.banners__item {
-	width: calc(50% - 2rem);
-	margin: 0 1rem;
-	height: 15rem;
-	background-size: cover;
-	background-repeat: no-repeat;
-	border-radius: 1.5rem;
-}
-
-.banners__content {
-	color: #ffffff;
-	height: 100%;
-	padding: 1.25rem;
-	position: relative;
-	z-index: 2;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-end;
-	justify-content: flex-end;
-}
-
-.banners__title {
-	font-size: 1.5rem;
-	font-weight: bold;
-	text-transform: uppercase;
-	transition: all 0.3s ease;
-}
-
-.banners__title:hover {
-	color: #ffbb3e;
-}
-
-.banners__subtitle {
-	margin-top: .5rem;
-	font-size: 1.25rem;
-}
-
-.banners__price {
-	width: 6rem;
-	height: 6rem;
-	background-color: #ffbb3e;
-	border-radius: 100%;
-	top: 1.25rem;
-	right: 1.25rem;
-	position: absolute;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-}
-
-.banners__price .price__old {
-	margin-bottom: .25rem;
-}
-
-@media (max-width: 991.98px) {
-	.banners__title {
-		font-size: 1rem;
-	}
-
-	.banners__subtitle {
-		font-size: .825rem;
-	}
-}
-
-@media (max-width: 767.98px) {
-	.banners__item {
-		width: 100%;
-	}
-
-	.banners__item + .banners__item {
-		margin-top: 2rem;
-	}
-}
-
 
 /*** Описание на главной ***/
 .index__content {
@@ -432,121 +350,6 @@
 }
 
 
-/*** Возникли вопросы? ***/
-.callback__index .inner {
-	padding: 2rem;
-	background-color: #ffbb3e;
-	border-radius: 1.5rem;
-	align-items: center;
-}
-
-.callback__index .callback__icon {
-	width: 10rem;
-}
-
-.callback__index .callback__icon i {
-	color: #ffdd9f;
-	font-size: 7.5rem;
-	transform: rotate(45deg);
-	display: inline-block;
-}
-
-.callback__index .callback__content {
-	width: calc(100% - 10rem);
-	color: #ffffff;
-}
-
-.callback__index .callback__title {
-	margin-bottom: 1rem;
-	font-size: 1.5rem;
-	font-weight: bold;
-	text-transform: uppercase;
-}
-
-.callback__index .callback__subtitle {
-	margin-bottom: 1rem;
-	font-weight: 600;
-}
-
-.callback__index .form__button {
-	padding: 0 3rem;
-	top: .25rem;
-	right: .25rem;
-	height: 3rem;
-	position: absolute;
-}
-
-.callback__index .form__button i {
-	display: none;
-}
-
-.callback__index input {
-	height: 3.5rem;
-	border-radius: 1.5rem;
-	border: 0;
-	padding: 0 15rem 0 2rem;
-}
-
-.callback__index .form__pp {
-	text-align: right;
-}
-
-.callback__index .form__pp a {
-	color: #ffffff;
-}
-
-@media (max-width: 767.98px) {
-	.callback__index .form__button {
-		padding: 0 1.5rem;
-	}
-
-	.callback__index input {
-		padding-right: 12rem;
-	}
-}
-
-@media (max-width: 639.98px) {
-	.callback__index .callback__icon {
-		display: none;
-	}
-
-	.callback__index .callback__content {
-		width: 100%;
-	}
-}
-
-@media (max-width: 479.98px) {
-	.callback__index input {
-		padding: 0 3.25rem 0 2rem;
-	}
-
-	.callback__index .form__button span {
-		display: none;
-	}
-
-	.callback__index .form__button i {
-		display: block;
-	}
-
-	.callback__index .inner {
-		padding: 1rem;
-	}
-
-	.callback__index .form__button {
-		padding: 0 1rem;
-	}
-}
-
-/*** Подпишитесь ***/
-#subscribe .inner {
-	background-color: #6aa344;
-}
-
-#subscribe .callback__icon i {
-	color: #b5d1a2;
-	transform: rotate(0);
-}
-
 
 /*** Товары на главной ***/
 #pdt__sales .pdt__sales-bg {
@@ -558,6 +361,7 @@
 
 #pdt__sales .product__item {
 	margin: 0;
+	height: 100%;
 }
 
 #pdt__sales .product__item form {

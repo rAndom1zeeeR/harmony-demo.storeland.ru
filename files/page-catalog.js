@@ -17,8 +17,6 @@ function catalog() {
 			$(this).parent().find('.collapsible__content').slideUp(600);
 			$(this).closest('.collapsible').removeClass('active');
 		} else {
-			$('.collapsible__content').slideUp(600);
-			$('.collapsible').removeClass('active');
 			$(this).parent().find('.collapsible__content').slideDown(600);
 			$(this).closest('.collapsible').addClass('active');
 		}

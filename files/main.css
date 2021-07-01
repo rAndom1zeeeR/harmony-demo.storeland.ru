@@ -413,8 +413,9 @@ input[type="file"] {
 }
 
 .selectBox:after {
-	content: '\e915';
+	content: '\e934';
 	font-family: 'icomoon';
+	font-size: .75rem;
 	position: absolute;
 	right: 1rem;
 	line-height: 1;
@@ -427,21 +428,22 @@ input[type="file"] {
 }
 
 .selectBox select {
+	color: #23261d;
 	background-color: #ffffff;
 	width: 100%;
-	height: 50px;
+	height: 3rem;
 	padding: 0 2.5rem 0 1.5rem;
 	font-size: 1rem;
 	font-weight: 400;
 	line-height: 1.2;
+	transition: all 0.3s ease;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
 }
 
-.selectBox:hover:after, .selectBox:hover select {
-	color: #ffffff;
-	background-color: #ffbb3e;
+.selectBox:hover {
+	color: #6aa344;
 }
 
 @media all and (max-width: 479.98px) {
@@ -481,7 +483,7 @@ input.square:checked, input.square:hover {
 
 input.square:after {
 	opacity: 0;
-	content: '\e91c';
+	content: '\e91a';
 	font-family: 'icomoon';
 	vertical-align: top;
 	color: #ffffff;
@@ -494,14 +496,19 @@ input.square:checked:after, input.square:hover:after {
 }
 
 input.square[disabled] {
-	background-color: #;
-	border-color: #;
+	background-color: #d2d9cd;
+	border-color: #d2d9cd;
+	color: #d2d9cd;
 	cursor: default;
+}
+
+input.square[disabled]:checked:after, input.square[disabled]:hover:after {
+	opacity: 0;
 }
 
 input[disabled] + label {
 	cursor: default;
-	color: #;
+	color: #d2d9cd;
 }
 
 /*Текст в не активном инпуте TODO*/
@@ -682,6 +689,12 @@ label.error:after {
 	border-color: #6aa344;
 }
 
+.button4 {
+	color: #b6bfb0;
+	background: #f0f7f5;
+	border-color: #f0f7f5;
+}
+
 .button5 {
 	color: #6aa344;
 	background: transparent;
@@ -763,6 +776,47 @@ label.error:after {
 
 .paymentFormSubmitLink {
 	padding: 0 1rem;
+}
+
+
+/* Кол-во */
+.qty {
+	border: 1px solid #d2d9cd;
+	border-left: 0;
+	border-right: 0;
+	border-radius: 2rem;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.qty a {
+	width: 3rem;
+	height: 3rem;
+	background-color: #f0f7f5;
+	border: 1px solid #d2d9cd;
+	border-radius: 100%;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.qty a:hover {
+	background-color: #6aa344;
+	color: #ffffff;
+	border-color: #6aa344;
+}
+
+.qty input {
+	width: 3rem;
+	height: 3rem;
+	background-color: #ffffff;
+	color: #23261d;
+	margin: 0;
+	padding: 0 0.25rem;
+	border: 0;
+	text-align: center;
 }
 
 /******************************************************************************Основные элементы шаблона*******************************************************************************//*** Оверлей. Темный фон ***/
@@ -1226,19 +1280,33 @@ label.error:after {
 	list-style: none;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-end;
 }
 
 .pages li {
 	position: relative;
-	margin: 0 .25rem;
 }
 
-.pages li span, .pages li i {
-	width: 50px;
-	height: 50px;
-	background: #;
-	font-size: 1rem;
+.pages li:after {
+	content: '';
+	width: 1px;
+	height: 60%;
+	background-color: #d2d9cd;
+	position: absolute;
+	top: 20%;
+	right: 0;
+	z-index: 2;
+}
+
+.pages li:last-child:after {
+	display: none;
+}
+
+.pages li span {
+	width: 3rem;
+	height: 3rem;
+	background: #ffffff;
+	font-size: .875rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -1248,21 +1316,28 @@ label.error:after {
 	z-index: 2;
 }
 
-.pages li.current {
-	cursor: default;
+.pages li.first span {
+	border-radius: 1.5rem 0 0 1.5rem;
 }
 
-.pages li:hover span, .pages li.current span {
-	background-color: #;
-	color: #;
-}
-
-.pages li a {
-	line-height: 1;
+.pages li.last span {
+	border-radius: 0 1.5rem 1.5rem 0;
 }
 
 .pages li i {
-	font-size: 24px;
+	color: #d2d9cd;
+	transition: all 0.3s ease;
+}
+
+.pages li:hover span,
+.pages li:hover i {
+	color: #6aa344;
+}
+
+.pages li.current span {
+	color: #6aa344;
+	font-weight: bold;
+	cursor: default;
 }
 
 /*** Общие блоки ***/
@@ -1290,34 +1365,34 @@ section {
 	flex-wrap: wrap;
 }
 
-.main-block__left {
+.main-block-left {
 	width: 25%;
 	padding-right: 1rem;
 }
 
-.main-block__right {
+.main-block-right {
 	width: 100%;
 	flex-grow: 1;
 }
 
-.main-block__right.hasSidebar {
+.main-block-right.hasSidebar {
 	width: 75%;
 	padding-left: 1rem;
 }
 
 @media all and (max-width: 1199.98px) {
-	.main-block__left {
+	.main-block-left {
 		width: 100%;
 		order: 2;
 		padding: 0;
 		margin-top: 2rem;
 	}
 
-	.main-block__right {
+	.main-block-right {
 		order: 1;
 	}
 
-	.main-block__right.hasSidebar {
+	.main-block-right.hasSidebar {
 		width: 100%;
 		padding: 0;
 	}
@@ -1401,12 +1476,6 @@ h6 {
 	position: relative;
 }
 
-.block__title .title {
-}
-
-#page__title {
-	text-align: center;
-}
 
 /* Заголовки с навигацией TODO colors */
 .block__nav {
@@ -2527,6 +2596,208 @@ header {
 	color: #ffffff;
 	overflow: hidden;
 }
+
+
+/*** Возникли вопросы? ***/
+.callback__index .inner {
+	padding: 2rem;
+	background-color: #ffbb3e;
+	border-radius: 1.5rem;
+	align-items: center;
+}
+
+.callback__index .callback__icon {
+	width: 10rem;
+}
+
+.callback__index .callback__icon i {
+	color: #ffdd9f;
+	font-size: 7.5rem;
+	transform: rotate(45deg);
+	display: inline-block;
+}
+
+.callback__index .callback__content {
+	width: calc(100% - 10rem);
+	color: #ffffff;
+}
+
+.callback__index .callback__title {
+	margin-bottom: 1rem;
+	font-size: 1.5rem;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.callback__index .callback__subtitle {
+	margin-bottom: 1rem;
+	font-weight: 600;
+}
+
+.callback__index .form__button {
+	padding: 0 3rem;
+	top: .25rem;
+	right: .25rem;
+	height: 3rem;
+	position: absolute;
+}
+
+.callback__index .form__button i {
+	display: none;
+}
+
+.callback__index input {
+	height: 3.5rem;
+	border-radius: 1.5rem;
+	border: 0;
+	padding: 0 15rem 0 2rem;
+}
+
+.callback__index .form__pp {
+	text-align: right;
+}
+
+.callback__index .form__pp a {
+	color: #ffffff;
+}
+
+@media (max-width: 767.98px) {
+	.callback__index .form__button {
+		padding: 0 1.5rem;
+	}
+
+	.callback__index input {
+		padding-right: 12rem;
+	}
+}
+
+@media (max-width: 639.98px) {
+	.callback__index .callback__icon {
+		display: none;
+	}
+
+	.callback__index .callback__content {
+		width: 100%;
+	}
+}
+
+@media (max-width: 479.98px) {
+	.callback__index input {
+		padding: 0 3.25rem 0 2rem;
+	}
+
+	.callback__index .form__button span {
+		display: none;
+	}
+
+	.callback__index .form__button i {
+		display: block;
+	}
+
+	.callback__index .inner {
+		padding: 1rem;
+	}
+
+	.callback__index .form__button {
+		padding: 0 1rem;
+	}
+}
+
+/*** Подпишитесь ***/
+#subscribe .inner {
+	background-color: #6aa344;
+}
+
+#subscribe .callback__icon i {
+	color: #b5d1a2;
+	transform: rotate(0);
+}
+
+
+
+/*** Баннеры ***/
+.banners__items {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+}
+
+.banners__item {
+	width: calc(50% - 2rem);
+	margin: 0 1rem;
+	height: 15rem;
+	background-size: cover;
+	background-repeat: no-repeat;
+	border-radius: 1.5rem;
+}
+
+.banners__content {
+	color: #ffffff;
+	height: 100%;
+	padding: 1.25rem;
+	position: relative;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: flex-end;
+}
+
+.banners__title {
+	font-size: 1.5rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	transition: all 0.3s ease;
+}
+
+.banners__title:hover {
+	color: #ffbb3e;
+}
+
+.banners__subtitle {
+	margin-top: .5rem;
+	font-size: 1.25rem;
+}
+
+.banners__price {
+	width: 6rem;
+	height: 6rem;
+	background-color: #ffbb3e;
+	border-radius: 100%;
+	top: 1.25rem;
+	right: 1.25rem;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.banners__price .price__old {
+	margin-bottom: .25rem;
+}
+
+@media (max-width: 991.98px) {
+	.banners__title {
+		font-size: 1rem;
+	}
+
+	.banners__subtitle {
+		font-size: .825rem;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.banners__item {
+		width: 100%;
+	}
+
+	.banners__item + .banners__item {
+		margin-top: 2rem;
+	}
+}
+
+
 
 /*** Подвал ***/
 .footer__top {
