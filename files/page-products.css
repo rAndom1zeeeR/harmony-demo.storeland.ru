@@ -314,7 +314,7 @@
 
 .products__list .product__price {
 	margin: 0;
-	width: 15rem;
+	width: 16rem;
 	justify-content: flex-start;
 }
 
@@ -337,8 +337,33 @@
 	margin-right: 1rem;
 }
 
+@media (max-width: 767.98px) {
+	.products__list .product__qty {
+		margin: 0 0 1rem 0;
+		width: 100%;
+		flex-grow: 1;
+	}
+}
 
-
+@media (max-width: 479.98px) {
+	.products__list .product__image {
+		width: 100%;
+	}
+	.products__list .product__shop {
+		width: 100%;
+		padding: 1rem 0 0 0;
+	}
+	.products__list .product__image .product__img {
+		width: 100%;
+		height: 14.625rem;
+	}
+	.products__list .qty {
+		width: 100%;
+	}
+	.products__list .qty input {
+		width: calc(100% - 6rem);
+	}
+}
 
 
 

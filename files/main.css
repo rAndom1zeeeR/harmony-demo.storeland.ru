@@ -299,7 +299,7 @@ dt, dd {
 }
 
 .DescriptionBlock {
-	margin: 2rem 0;
+	margin: 2rem 0 0 0;
 }
 
 .htmlDataBlock {
@@ -781,6 +781,7 @@ label.error:after {
 
 /* Кол-во */
 .qty {
+	width: 9rem;
 	border: 1px solid #d2d9cd;
 	border-left: 0;
 	border-right: 0;

@@ -34,6 +34,10 @@
 	{% IFNOT IS_FULL_CATALOG && goods_empty=0 || goods_filters_empty=0 %}
 	<!-- Верхний блок, изменяющий отображение данных выдачи товаров -->
 	<div class="toolbar {% FOR filter_attr_list %}{% FOR values %}{% IF filter_attr_list.values.CHECKED %}hasFilters {% ENDIF %}{% ENDFOR %}{% ENDFOR %} {% FOR filter_prop_list %}{% FOR values %}{% IF filter_prop_list.values.CHECKED %}hasFilters {% ENDIF %}{% ENDFOR %}{% ENDFOR %}">
+		<div class="filters__open button button2">
+			<i class="icon-filter"></i>
+			<span>Фильтры</span>
+		</div>
 		<form action="" class="form__toolbar">
 			<!-- Список фильтров, которые сейчас действуют на результаты поиска -->
 			{% FOR goods_filters %}
@@ -89,10 +93,6 @@
 		{% IF TARIFF_FEATURE_GOODS_FILTERS && SHOW_GOODS_FILTERS %}
 		<!-- Фильтры -->
 		<div class="filters-by {% FOR filter_attr_list %}{% FOR values %}{% IF filter_attr_list.values.CHECKED %}hasFilters {% ENDIF %}{% ENDFOR %}{% ENDFOR %} {% FOR filter_prop_list %}{% FOR values %}{% IF filter_prop_list.values.CHECKED %}hasFilters{% ENDIF %}{% ENDFOR %}{% ENDFOR %}">
-			<div class="filters__open button button3">
-				<i class="icon-filter"></i>
-				<span>Фильтры</span>
-			</div>
 			<!-- Активные Фильтры -->
 			<div class="filtersActive">
 				<div class="filtersActive__title">Активные фильтры:</div>

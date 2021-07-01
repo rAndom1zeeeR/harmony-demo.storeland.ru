@@ -1,9 +1,12 @@
 /*** Тулбар ***/
 .toolbar {
 	position: relative;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .form__toolbar {
+	width: calc(100% - 14rem);
 	padding: 0 1.5rem;
 	background-color: #ffffff;
 	border-radius: 2rem;
@@ -55,7 +58,7 @@
 
 @media (max-width: 479.98px) {
 	.sort > div + div {
-		margin-left: .75rem;
+		margin-left: 0;
 	}
 }
 
@@ -113,6 +116,10 @@
 	padding: .5rem 1rem;
 	border-radius: 1.5rem;
 	transition: all 0.3s ease;
+}
+
+.filter__item + .filter__item {
+	margin-top: .5rem;
 }
 
 .filter__item:hover,
@@ -203,7 +210,6 @@
 }
 
 .filters__open {
-	margin-top: 1rem;
 	display: none;
 }
 
@@ -241,13 +247,14 @@
 }
 
 .filtersActive__item:hover {
+	border-color: #ffbb3e;
 	background-color: #ffbb3e;
 	color: #ffffff;
 	cursor: pointer;
 }
 
 .filtersActive__item.goodsFilterClear {
-	border: 1px solid #d2d9cd;
+	border-color: #d2d9cd;
 	color: #d2d9cd;
 	background-color: #ffffff;
 }
@@ -430,15 +437,14 @@
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
+		width: 100%;
 	}
 
 	.filters__open {
 		display: inline-block;
 		margin-right: 2rem;
-	}
-
-	.filter__list {
-		margin-top: 0;
+		line-height: 3rem;
+		width: 12rem;
 	}
 
 	.filter__buttons {
@@ -452,12 +458,29 @@
 	}
 }
 
+@media (max-width: 639.98px) {
+	.filters__open {
+		width: 100%;
+		margin: 0 0 1rem 0;
+	}
+
+	.form__toolbar {
+		width: 100%;
+	}
+}
+
 @media (max-width: 479.98px) {
 	.filters__open {
 		display: block;
 		width: 100%;
 		margin-right: 0;
 	}
+
+	.form__toolbar {
+		padding: 0 .75rem;
+	}
+
+
 }
 
 
