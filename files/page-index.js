@@ -1,32 +1,3 @@
-// Переименование названий Месяца
-function monthNames() {
-	$('#news .month').each(function (){
-		if ($(this).text() === 'Jan') {
-			$(this).text('Января')
-		}else if ($(this).text() === 'Feb') {
-			$(this).text('Февраля')
-		}else if ($(this).text() === 'Mar') {
-			$(this).text('Марта')
-		}else if ($(this).text() === 'Apr') {
-			$(this).text('Апреля')
-		}else if ($(this).text() === 'May') {
-			$(this).text('Мая')
-		}else if ($(this).text() === 'Jun') {
-			$(this).text('Июня')
-		}else if ($(this).text() === 'Jul') {
-			$(this).text('Июля')
-		}else if ($(this).text() === 'Aug') {
-			$(this).text('Августа')
-		}else if ($(this).text() === 'Sep') {
-			$(this).text('Сентября')
-		}else if ($(this).text() === 'Nov') {
-			$(this).text('Ноября')
-		}else if ($(this).text() === 'Dec') {
-			$(this).text('Декабря')
-		}
-	});
-}
-
 // Отсчет даты до окончания акции
 function counterDate() {
 	// Устанавливаем дату обратного отсчета ММ-ДД-ГГ
@@ -332,7 +303,6 @@ function newsCarousel() {
 
 // Загрузка основных функций шаблона
 $(document).ready(function(){
-	monthNames();
 	counterDate();
 	slideShow();
 	newsCarousel();

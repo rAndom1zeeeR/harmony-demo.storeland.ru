@@ -254,9 +254,39 @@ function prodQty(){
 	});
 }
 
+// Переименование названий Месяца
+function monthNames() {
+	$('.month').each(function (){
+		if ($(this).text() === 'Jan') {
+			$(this).text('Января')
+		}else if ($(this).text() === 'Feb') {
+			$(this).text('Февраля')
+		}else if ($(this).text() === 'Mar') {
+			$(this).text('Марта')
+		}else if ($(this).text() === 'Apr') {
+			$(this).text('Апреля')
+		}else if ($(this).text() === 'May') {
+			$(this).text('Мая')
+		}else if ($(this).text() === 'Jun') {
+			$(this).text('Июня')
+		}else if ($(this).text() === 'Jul') {
+			$(this).text('Июля')
+		}else if ($(this).text() === 'Aug') {
+			$(this).text('Августа')
+		}else if ($(this).text() === 'Sep') {
+			$(this).text('Сентября')
+		}else if ($(this).text() === 'Nov') {
+			$(this).text('Ноября')
+		}else if ($(this).text() === 'Dec') {
+			$(this).text('Декабря')
+		}
+	});
+}
+
 // Загрузка основных функций шаблона
 $(document).ready(function(){
 	pageGoods();
 	goodsModification();
 	prodQty();
+	monthNames();
 });

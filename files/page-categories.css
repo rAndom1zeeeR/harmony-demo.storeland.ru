@@ -1,6 +1,6 @@
 /*** Категории товаров ***/
 .categories__list {
-	margin: -2rem 0 2rem 0;
+	margin: -2rem 0 0 0;
 	position: relative;
 	display: flex;
 	flex-wrap: wrap;

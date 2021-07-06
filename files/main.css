@@ -734,8 +734,8 @@ label.error:after {
 }
 
 .button.disabled, .button[disabled] {
-	background: #ecdfd4;
-	border-color: #ecdfd4;
+	background: #d2d9cd;
+	border-color: #d2d9cd;
 	color: #FFFFFF;
 	box-shadow: none;
 	cursor: default;
@@ -917,11 +917,11 @@ label.error:after {
 }
 
 .ratings:before {
-	font-size: .875rem;
-	color: #;
+	font-size: 1rem;
+	color: #d2d9cd;
 	line-height: 1;
 	font-family: 'icomoon';
-	content: '\e932\20\e932\20\e932\20\e932\20\e932';
+	content: '\e92b\20\e92b\20\e92b\20\e92b\20\e92b';
 }
 
 .ratings .rating {
@@ -932,12 +932,12 @@ label.error:after {
 }
 
 .ratings .rating:before {
-	font-size: .875rem;
-	color: #;
+	font-size: 1rem;
+	color: #ffbb3e;
 	line-height: 1;
 	white-space: nowrap;
 	font-family: 'icomoon';
-	content: '\e932\20\e932\20\e932\20\e932\20\e932';
+	content: '\e92b\20\e92b\20\e92b\20\e92b\20\e92b';
 }
 
 .stars {
@@ -945,7 +945,6 @@ label.error:after {
 }
 
 .star {
-	color: #;
 	display: block;
 	width: 24px;
 	height: 20px;
@@ -981,7 +980,7 @@ label.error:after {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: #fff4f2;
+	background: #ffffff;
 	z-index: 40;
 	display: flex;
 	align-items: center;
@@ -1008,8 +1007,8 @@ label.error:after {
 
 .preloader.small .loading {
 	display: inline-block;
-	width: 50px;
-	height: 50px;
+	width: 3rem;
+	height: 3rem;
 }
 
 .preloader.small .loading:after {
@@ -1516,7 +1515,16 @@ h6 {
 	}
 
 	.block__nav > a {
-		width: calc(100% - 6rem);
+		width: 100%;
+	}
+
+	.block__nav .owl-nav {
+		margin: 1rem auto 0;
+	}
+
+	.block__nav h2 {
+		font-size: 1.5rem;
+		text-align: center;
 	}
 
 }

@@ -3484,7 +3484,6 @@
 	{% ENDIF %}
 </script>
 <!-- Слайдер. Карусель -->
-{% IF index_page || MOD_LNAME = compare || MOD_LNAME = catalog || MOD_LNAME = discount || MOD_LNAME = search || MOD_LNAME = goods || MOD_LNAME = user && ACT=favorites %}
 <link rel="preload"
       type="text/css"
       href="{ASSETS_STYLES_PATH}owl.carousel.min.css?design=THEMENAME"
@@ -3494,7 +3493,6 @@
 	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}owl.carousel.min.css?design=THEMENAME">
 </noscript>
 <script defer type="text/javascript" src="{ASSETS_JS_PATH}owl-carousel.js?design=THEMENAME"></script>
-{% ENDIF %}
 <!-- Скрипты: Главная  -->
 {% IF MOD_LNAME = feedback || MOD_LNAME = callback %}
 <script defer type="text/javascript" src="{ASSETS_JS_PATH}page-feedback.js?design=THEMENAME"></script>
