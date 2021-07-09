@@ -109,7 +109,14 @@
 		});
 	</script>
 </head>
-<body class="nojs {% IF index_page %}index{% ENDIF %} {% IF MOD_LNAME=user && ACT=favorites %}page-favorites{% ENDIF %} {% IF MOD_LNAME = cart %}page-cart{% ENDIF %} {% IF MOD_LNAME = user %}page-user{% ENDIF %} {% IF MOD_LNAME = goods %}page-goods{% ENDIF %}">
+<body class="nojs
+			{% IF index_page %}index{% ENDIF %}
+			{% IF MOD_LNAME=user && ACT=favorites %}page-favorites{% ENDIF %}
+			{% IF MOD_LNAME = cart %}page-cart{% ENDIF %}
+			{% IF MOD_LNAME = user %}page-user{% ENDIF %}
+			{% IF MOD_LNAME = goods %}page-goods{% ENDIF %}
+      {% IF MOD_LNAME = discount %}page-discount{% ENDIF %}"
+>
 	<div class="wrapper">
 		
 		<!-- Сообщение для инвалидов -->

@@ -44,7 +44,7 @@
 	align-items: stretch;
 }
 
-.row .products__grid {
+.products .row .products__grid {
 	margin-top: -1rem;
 }
 

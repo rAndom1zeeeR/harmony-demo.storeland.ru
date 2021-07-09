@@ -851,11 +851,12 @@ function notyStart(text, type) {
 
 // Закрытие в модальных окнах
 function fancyClose(){
-  var btnClose = $('.fancybox-slide--html .fancybox-close-small');
+  var btnClose = $('.fancybox-close-small');
   var modalClose = $('.modal__close');
   btnClose.hide();
   modalClose.on('click', function (){
     $.fancybox.close();
+    console.log('fancy close')
   });
 }
 fancyClose()

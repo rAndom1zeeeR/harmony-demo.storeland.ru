@@ -7,7 +7,16 @@ function quickViewMod() {
 			block.each(function(){
 				// Удаляем все блоки, которые не отображаются в быстром просмотре.
 				$(this).children().not('.productView').remove();
+				$(this).prepend(
+			'<div class="modal__title block__title">' +
+								'<div class="title">Выбор модификации</div>' +
+								'<div class="modal__close"><i class="icon-close"></i></div>' +
+							'</div>'
+				);
 			});
+			block.removeClass('productViewQuick');
+			block.addClass('productViewMod');
+			block.addClass('modal');
 			return block;
 		}
 		// Быстрый просмотр товара
@@ -51,8 +60,7 @@ function quickViewMod() {
 				observer.observe();
 			});
 			preload();
-			$('.fancybox-content .productView').removeClass('productViewQuick');
-			$('.fancybox-content .productView').addClass('productViewMod');
+			fancyClose();
 			return false;
 		});
 	});
@@ -88,8 +96,6 @@ function quickViewShowMod(href, atempt) {
 			goodsModification();
 			newModification();
 			quantity();
-			$('.fancybox-content .productView').removeClass('productViewQuick');
-			$('.fancybox-content .productView').addClass('productViewMod');
 		}
 	} else {
 		$.get(href, function(content) {
@@ -100,8 +106,6 @@ function quickViewShowMod(href, atempt) {
 			goodsModification();
 			newModification();
 			quantity();
-			$('.fancybox-content .productView').removeClass('productViewQuick');
-			$('.fancybox-content .productView').addClass('productViewMod');
 		});
 	}
 }

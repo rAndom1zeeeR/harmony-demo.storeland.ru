@@ -833,7 +833,14 @@
 /*** Добавление модификации товара ***/
 .productViewMod {
 	max-width: 386px;
+}
+
+.productViewMod .productView {
 	padding: 1rem;
+}
+
+.productViewMod .productView + button {
+	display: none;
 }
 
 .productViewMod .productView__name {
