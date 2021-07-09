@@ -70,6 +70,7 @@
 	<!-- Страница: Оформление заказа -->
 	{% IF MOD_LNAME = order %}
 	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}page-order.css?design=THEMENAME" />
+	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}page-user.css?design=THEMENAME" />
 	{% ENDIF %}
 	<!-- Страница: Корзина -->
 	{% IF MOD_LNAME = cart || MOD_LNAME = order %}
@@ -1785,8 +1786,6 @@
 						<h1 class="title"><a href="{CART_URL}" title="Корзина">Корзина</a></h1>
 						{% ELSEIF MOD_LNAME=goods %}
 						<h1 class="title">{GOODS_NAME}</h1>
-						{% ELSE %}
-						<h1 class="title">{PAGE_TITLE}</h1>
 						{% ENDIF %}
 					</div>
 					

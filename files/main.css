@@ -337,7 +337,7 @@ input, select, textarea {
 	height: 2.5rem;
 	line-height: 2.5rem;
 	padding: 0 1.5rem;
-	color: #d2d9cd;
+	color: #23261d;
 	background-color: #ffffff;
 	border-color: #d2d9cd;
 	border-width: 1px;
@@ -513,19 +513,19 @@ input[disabled] + label {
 
 /*Текст в не активном инпуте TODO*/
 ::-webkit-input-placeholder {
-	color: #c1b1a9;
+	color: #d2d9cd;
 }
 
 ::-moz-placeholder {
-	color: #c1b1a9;
+	color: #d2d9cd;
 }
 
 :-moz-placeholder {
-	color: #c1b1a9;
+	color: #d2d9cd;
 }
 
 :-ms-input-placeholder {
-	color: #c1b1a9;
+	color: #d2d9cd;
 }
 
 :focus::-webkit-input-placeholder {
@@ -2279,7 +2279,7 @@ header {
 }
 
 .mainnav ul li a {
-	padding: 0 .75rem;
+	padding: .5rem .75rem;
 	display: block;
 	white-space: nowrap;
 }
@@ -2290,7 +2290,10 @@ header {
 
 .mainnav .mainnav__list {
 	height: 3rem;
-	overflow: hidden;
+}
+
+.mainnav.opened .mainnav__list {
+	height: auto;
 }
 
 .mainnav .overflowMenu {
@@ -2866,12 +2869,14 @@ header {
 		margin: 0 auto;
 	}
 
-	.social-links {
-		justify-content: center;
+	footer .social-links {
+		max-width: 17.5rem;
+		margin: 1.5rem auto 0;
+		justify-content: space-between;
 	}
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 479.98px) {
 	.footer__block {
 		width: 100%;
 		order: 2;

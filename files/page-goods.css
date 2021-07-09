@@ -832,9 +832,8 @@
 
 /*** Добавление модификации товара ***/
 .productViewMod {
-	max-width: 348px;
+	max-width: 386px;
 	padding: 1rem;
-	border: 5px solid #f8e9e6;
 }
 
 .productViewMod .productView__name {
@@ -861,10 +860,19 @@
 .productViewMod .productView__shop {
 	width: 100%;
 	padding: 0;
+	margin: 0;
+}
+
+.productViewMod .productView__inner {
+	display: none;
+}
+
+.productViewMod .productView__links {
+	display: none;
 }
 
 .productViewMod .productView__addto .button {
-	margin: 0 1rem;
+	margin: 0;
 }
 
 .productViewMod .productView__ratings {
