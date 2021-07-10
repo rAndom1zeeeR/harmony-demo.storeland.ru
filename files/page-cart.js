@@ -15,7 +15,7 @@ function cartQuantity(){
 					quantity.val($(d).find('.cart__item[data-id="' + id + '"] .cartqty').val());
 					item = $('.cart__item[data-id="' + id + '"]');
 					item.find('.cartPriceTotal span').html($(d).find('.cart__item[data-id="' + id + '"] .cartPriceTotal span').html());
-					$('.cart__total').html($(d).find('.cart__total').html());
+					$('.cartTotal').html($(d).find('.cartTotal').html());
 					c = $(d).find('.cart__item[data-id="' + id + '"] .cartqty').val();
 					// Вызов функции быстрого заказа в корзине
 					$('#startOrder').on('click', function() {

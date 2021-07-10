@@ -19,7 +19,7 @@
 .fastOrderForm .form__WantRegisterPass {margin-top: 1rem;}
 .fastOrderForm .deliveryConvenientDate:nth-child(1) {width: calc(50% - 1rem);margin-right: 1rem;}
 .fastOrderForm .deliveryConvenientDate:nth-child(2) {width: calc(50% - 1rem);margin-left: 1rem;margin-top: 0;}
-.fastOrderForm .cart__total {display: flex;flex-wrap: wrap;align-items: center;width: 100%;padding: 2rem 0 0 0;margin-top: 0;}
+.fastOrderForm .cartTotal {display: flex;flex-wrap: wrap;align-items: center;width: 100%;padding: 2rem 0 0 0;margin-top: 0;}
 .fastOrderForm .total__items {width: 100%;}
 .fastOrderForm .total__title {margin: 0;font-weight: bold;}
 .fastOrderForm .total__buttons {width: 100%;margin: 0;display: block;text-align: center;}

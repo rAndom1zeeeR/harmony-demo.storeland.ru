@@ -2,11 +2,7 @@
   {% IF cart_items_empty %}
     <div class="attention">Корзина покупок пуста. Вы можете выбрать нужный товар из <a href="{CATALOG_URL}">каталога</a>.</div>
   {% ELSE %}
-		<!-- Сюда грузится форма оформления быстрого заказа -->
-		<div id="globalOrder" style="display: none">
-			<div class="preloader top"><div class="loading"></div></div>
-			<div id="OrderAjaxBlock" style="display:none"></div>
-		</div>
+	<div class="cartInner">
 		<!-- Форма корзины -->
     <form action="{CART_URL}" method="post" class="cartForm">
 	    <input type="hidden" name="fast_order" value="1" />
@@ -56,67 +52,78 @@
         </div>
         {% ENDFOR %}
       </div>
-      <div class="cart__total">
-	      <div class="total__head">
-		      <div class="total__head-icon">
-			      <i class="icon-cart"></i>
-		      </div>
-		      <div class="total__head-title">
-			      <div class="total__head-label">Ваш заказ</div>
-			      <div class="total__head-count">
-				      <span class="cart__count" data-count="{CART_COUNT_TOTAL}">{CART_COUNT_TOTAL}</span>
-				      <span>товар{CART_COUNT_TOTAL | gen_word_end("","а","ов")}</span>
-			      </div>
-		      </div>
-	      </div>
-	      <!--  -->
-        <div class="total__items">
-          <!-- Скидки, действующие на заказ -->
-          {% FOR cart_discount %}
-          {% IF cart_discount.DISCOUNT_IS_ENABLED %}
-          <div class="total__item total__discount">
-            <div class="total__label"><span>{cart_discount.DISCOUNT_NAME}:</span></div>
-            <div class="total__price"><span class="discount__value" data-value="{cart_discount.DISCOUNT_VALUE}">{cart_discount.DISCOUNT_VALUE}</span>{% IF cart_discount.IS_PERCENT %}<span class="percent">%</span>{% ELSE %}<span class="rub"> руб.</span>{% ENDIF %}</div>
-          </div>
-          {% ENDIF %}
-          {% ENDFOR %}
-	        
-          <!-- Корзина: Купон -->
-          <div class="total__item total__coupons" style="display: none;">
-            <div class="total__label"><span>Купон:</span></div>
-            <div class="total__price"><span class="cartSumCoupons" data-value=""></span></div>
-          </div>
-	        
-          <!-- Корзина: Доставка -->
-          <div class="total__item total__delivery">
-            <div class="total__label"><span>Доставка:</span></div>
-            <div class="total__price"><span class="cartSumDelivery" data-value="{CART_SUM_DELIVERY}">{CART_SUM_DELIVERY | money_format}</span></div>
-          </div>
-	        
-	        <!-- Корзина: Итого -->
-	        <div class="total__item total__cart">
-		        <div class="total__label">Итого:</div>
-		        <div class="total__price cartSumTotal" data-value="{CART_SUM_NOW_WITH_DISCOUNT}">{CART_SUM_NOW_WITH_DISCOUNT | money_format}</div>
-		        <div style="display: none;" class="total__price cartSumNow" data-value="{CART_SUM_NOW}">{CART_SUM_NOW | money_format}</div>
-		        <div style="display: none;" class="total__price cartSumTotalHide" data-value="{CART_SUM_NOW_WITH_DISCOUNT}">{CART_SUM_NOW_WITH_DISCOUNT | money_format}</div>
-		        <div style="display: none;" class="total__price cartSumDiscount" data-value="{CART_SUM_NOW_WITH_DISCOUNT}">{CART_SUM_NOW_WITH_DISCOUNT | money_format}</div>
-	        </div>
-        </div>
-	      
-        <!-- Корзина: Оформление -->
-        <div class="total__buttons">
-	        <a id="startOrder" class="button" title="Перейти к быстрому оформлению заказа"><span>Оформить </span><span>заказ</span></a>
-          <a id="closeOrder" class="button button4" title="Отменить заказ"><span>Отменить </span><span>заказ</span></a>
-	        <a id="makeOrder" class="button disabled" title="Перейти к быстрому оформлению заказа"><span>Оформить </span><span>заказ</span></a>
-	        <div class="total__pp">Нажимая на кнопку &laquo;Оформить заказ&raquo;, Вы соглашаетесь с <a data-fancybox data-src="#fancybox__pp" href="javascript:;">правилами обработки данных</a></div>
-          <noscript>
-            <button type="submit" class="button" title="Пересчитать">Пересчитать</button>
-            <button type="submit" class="button button2" name="next_step" title="Перейти к оформлению заказа в 4 шага"><span>Оформить </span><span>заказ</span></button>
-          </noscript>
-        </div>
-	      
-      </div>
-    </form> 
+    </form>
+	
+		<!-- Сюда грузится форма оформления быстрого заказа -->
+		<div id="globalOrder" style="display: none">
+			<div class="preloader top"><div class="loading"></div></div>
+			<div id="OrderAjaxBlock" style="display:none"></div>
+		</div>
+	</div>
+	
+	<!-- Корзина: Итоговый блок -->
+	<div class="cartTotal">
+		<div class="total__head">
+			<div class="total__head-icon">
+				<i class="icon-cart"></i>
+			</div>
+			<div class="total__head-title">
+				<div class="total__head-label">Ваш заказ</div>
+				<div class="total__head-count">
+					<span class="cart__count" data-count="{CART_COUNT_TOTAL}">{CART_COUNT_TOTAL}</span>
+					<span>товар{CART_COUNT_TOTAL | gen_word_end("","а","ов")}</span>
+				</div>
+			</div>
+		</div>
+		
+		<!--  -->
+		<div class="total__items">
+			<!-- Скидки, действующие на заказ -->
+			{% FOR cart_discount %}
+			{% IF cart_discount.DISCOUNT_IS_ENABLED %}
+			<div class="total__item total__discount">
+				<div class="total__label"><span>{cart_discount.DISCOUNT_NAME}:</span></div>
+				<div class="total__price"><span class="discount__value" data-value="{cart_discount.DISCOUNT_VALUE}">{cart_discount.DISCOUNT_VALUE}</span>{% IF cart_discount.IS_PERCENT %}<span class="percent">%</span>{% ELSE %}<span class="rub"> руб.</span>{% ENDIF %}</div>
+			</div>
+			{% ENDIF %}
+			{% ENDFOR %}
+			
+			<!-- Корзина: Купон -->
+			<div class="total__item total__coupons" style="display: none;">
+				<div class="total__label"><span>Купон:</span></div>
+				<div class="total__price"><span class="cartSumCoupons" data-value=""></span></div>
+			</div>
+			
+			<!-- Корзина: Доставка -->
+			<div class="total__item total__delivery">
+				<div class="total__label"><span>Доставка:</span></div>
+				<div class="total__price"><span class="cartSumDelivery" data-value="{CART_SUM_DELIVERY}">{CART_SUM_DELIVERY | money_format}</span></div>
+			</div>
+			
+			<!-- Корзина: Итого -->
+			<div class="total__item total__cart">
+				<div class="total__label">Итого:</div>
+				<div class="total__price cartSumTotal" data-value="{CART_SUM_NOW_WITH_DISCOUNT}">{CART_SUM_NOW_WITH_DISCOUNT | money_format}</div>
+				<div style="display: none;" class="total__price cartSumNow" data-value="{CART_SUM_NOW}">{CART_SUM_NOW | money_format}</div>
+				<div style="display: none;" class="total__price cartSumTotalHide" data-value="{CART_SUM_NOW_WITH_DISCOUNT}">{CART_SUM_NOW_WITH_DISCOUNT | money_format}</div>
+				<div style="display: none;" class="total__price cartSumDiscount" data-value="{CART_SUM_NOW_WITH_DISCOUNT}">{CART_SUM_NOW_WITH_DISCOUNT | money_format}</div>
+			</div>
+		</div>
+		
+		<!-- Корзина: Оформление -->
+		<div class="total__buttons">
+			<a id="startOrder" class="button" title="Перейти к быстрому оформлению заказа"><span>Оформить </span><span>заказ</span></a>
+			<a id="closeOrder" class="button button4" title="Отменить заказ"><span>Отменить </span><span>заказ</span></a>
+			<a id="makeOrder" class="button disabled" title="Перейти к быстрому оформлению заказа"><span>Оформить </span><span>заказ</span></a>
+			<div class="total__pp">Нажимая на кнопку &laquo;Оформить заказ&raquo;, Вы соглашаетесь с <a data-fancybox data-src="#fancybox__pp" href="javascript:;">правилами обработки данных</a></div>
+			<noscript>
+				<button type="submit" class="button" title="Пересчитать">Пересчитать</button>
+				<button type="submit" class="button button2" name="next_step" title="Перейти к оформлению заказа в 4 шага"><span>Оформить </span><span>заказ</span></button>
+			</noscript>
+		</div>
+	
+	</div>
+	
   {% ENDIF %}
 </div>
 
