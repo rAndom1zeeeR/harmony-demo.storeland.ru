@@ -11,47 +11,65 @@
     <form action="{CART_URL}" method="post" class="cartForm">
 	    <input type="hidden" name="fast_order" value="1" />
 	    <input type="hidden" name="hash" value="{HASH}" />
-	    <div class="cart__head">
-		    <div>Товар</div>
-		    <div>Кол-во</div>
-		    <div>Итого</div>
-	    </div>
       <div class="cart__items">
+	      <div class="cart__head">
+		      <a href="{CATALOG_URL}" title="Вернуться к покупкам">
+			      <i class="icon-arrow_left"></i>
+			      <span>Вернуться к покупкам</span>
+		      </a>
+		      <a class="cart__clear"
+		         href="{CART_TRUNCATE_URL}"
+		         title="Очистить корзину"
+		         onclick="return confirm('Вы действительно хотите удалить все товары из корзины?')"
+		      >
+			      <span>Очистить корзину</span>
+			      <i class="icon-close"></i>
+		      </a>
+	      </div>
         {% FOR cart_items %}
         <div class="cart__item" data-id="{cart_items.GOODS_MOD_ID}">
-          <div class="cart__image">
-	          <a href="{cart_items.GOODS_URL}">
-		          <img class="goods-image-icon" src="{% IF cart_items.GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=florist{% ELSE %}{cart_items.GOODS_IMAGE_ICON}{% ENDIF %}">
-	          </a>
+          <a class="cart__image" href="{cart_items.GOODS_URL}">
+	          <img class="goods-image-icon" src="{% IF cart_items.GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=florist{% ELSE %}{cart_items.GOODS_IMAGE_ICON}{% ENDIF %}">
+          </a>
+          <div class="cart__info">
+            <a class="cart__name" href="{cart_items.GOODS_URL}">{cart_items.GOODS_NAME}</a>
+            <!-- Если у товара есть отличительные свойства для модификации товара, допишем их к названию товара -->
+            {% IF cart_items.GOODS_MOD_ART_NUMBER %}<div class="cart__art"><span class="label">Артикул:</span><span>{cart_items.GOODS_MOD_ART_NUMBER}</span></div>{% ENDIF %}
+            {% IFNOT cart_items.distinctive_properties_empty %}<div class="cart__properties"><span class="label">{% FOR distinctive_properties %}{cart_items.distinctive_properties.NAME}:</span><span>{cart_items.distinctive_properties.VALUE}</span>{% IFNOT cart_items.distinctive_properties.last %},<br> {% ENDIF %}{% ENDFOR %}</div>{% ENDIF %}
           </div>
-          <div class="cart__inner">
-            <div class="cart__info">
-              <a class="cart__name" href="{cart_items.GOODS_URL}">{cart_items.GOODS_NAME}</a>
-              <!-- Если у товара есть отличительные свойства для модификации товара, допишем их к названию товара -->
-              {% IF cart_items.GOODS_MOD_ART_NUMBER %}<div class="cart__art"><span class="label">Артикул:</span><span>{cart_items.GOODS_MOD_ART_NUMBER}</span></div>{% ENDIF %}
-              {% IFNOT cart_items.distinctive_properties_empty %}<div class="cart__properties"><span class="label">{% FOR distinctive_properties %}{cart_items.distinctive_properties.NAME}:</span><span>{cart_items.distinctive_properties.VALUE}</span>{% IFNOT cart_items.distinctive_properties.last %},<br> {% ENDIF %}{% ENDFOR %}</div>{% ENDIF %}
-            </div>
-            <div class="cart__actions">
-              <div class="cart__qty qty">
-                <a href="javascript:void(0)" class="qty__minus unselectable" title="Уменьшить"><i class="icon-arrow_down"></i></a>
-                <input type="text" name="form[quantity][{cart_items.GOODS_MOD_ID}]" maxlength="4" value="{cart_items.ORDER_LINE_QUANTITY}" max="{cart_items.GOODS_MOD_REST_VALUE}" title="Количество, {cart_items.GOODS_MOD_MEASURE_NAME}" class="cartqty" onkeypress="return keyPress(this, event);" onpaste="return false;" autocomplete="off" />
-                <a href="javascript:void(0)" class="qty__plus unselectable" title="Увеличить"><i class="icon-arrow_up"></i></a>
-              </div>
-	            <div class="cart__price {CURRENCY_CHAR_CODE}">
-	              <div class="cartPriceTotal price__now">{cart_items.ORDER_LINE_PRICE_NOW | money_format}</div>
+          <div class="cart__actions">
+	          <div class="cart__price {CURRENCY_CHAR_CODE}">
+		          <div class="cartPriceTotal price__now">{cart_items.ORDER_LINE_PRICE_NOW | money_format}</div>
+		          {% IF cart_items.ORDER_LINE_PRICE_OLD > 0 %}<div class="price__old">{cart_items.ORDER_LINE_PRICE_OLD | money_format}</div>{% ENDIF %}
+	          </div>
+	          <div class="cart__qty">
+	            <div class="qty">
+	              <a href="javascript:void(0)" class="qty__minus unselectable" title="Уменьшить"><i class="icon-minus"></i></a>
+	              <input type="text" name="form[quantity][{cart_items.GOODS_MOD_ID}]" maxlength="4" value="{cart_items.ORDER_LINE_QUANTITY}" max="{cart_items.GOODS_MOD_REST_VALUE}" title="Количество, {cart_items.GOODS_MOD_MEASURE_NAME}" class="cartqty" onkeypress="return keyPress(this, event);" onpaste="return false;" autocomplete="off" />
+	              <a href="javascript:void(0)" class="qty__plus unselectable" title="Увеличить"><i class="icon-plus"></i></a>
 	            </div>
-	            <div class="cart__delete">
-		            <a data-href="{cart_items.ORDER_LINE_DELETE_URL}" title="Удалить позицию" onclick="cartDelete($(this))" class="remove">
-			            <span>Удалить товар</span>
-			            <i class="icon-close"></i>
-		            </a>
-	            </div>
-            </div>
+	          </div>
+            <a class="cart__delete" data-href="{cart_items.ORDER_LINE_DELETE_URL}" title="Удалить позицию" onclick="cartDelete($(this))" class="remove">
+	            <i class="icon-close"></i>
+            </a>
           </div>
         </div>
         {% ENDFOR %}
       </div>
       <div class="cart__total">
+	      <div class="total__head">
+		      <div class="total__head-icon">
+			      <i class="icon-cart"></i>
+		      </div>
+		      <div class="total__head-title">
+			      <div class="total__head-label">Ваш заказ</div>
+			      <div class="total__head-count">
+				      <span class="cart__count" data-count="{CART_COUNT_TOTAL}">{CART_COUNT_TOTAL}</span>
+				      <span>товар{CART_COUNT_TOTAL | gen_word_end("","а","ов")}</span>
+			      </div>
+		      </div>
+	      </div>
+	      <!--  -->
         <div class="total__items">
           <!-- Скидки, действующие на заказ -->
           {% FOR cart_discount %}
@@ -62,16 +80,19 @@
           </div>
           {% ENDIF %}
           {% ENDFOR %}
+	        
           <!-- Корзина: Купон -->
           <div class="total__item total__coupons" style="display: none;">
             <div class="total__label"><span>Купон:</span></div>
             <div class="total__price"><span class="cartSumCoupons" data-value=""></span></div>
           </div>
+	        
           <!-- Корзина: Доставка -->
           <div class="total__item total__delivery">
             <div class="total__label"><span>Доставка:</span></div>
             <div class="total__price"><span class="cartSumDelivery" data-value="{CART_SUM_DELIVERY}">{CART_SUM_DELIVERY | money_format}</span></div>
           </div>
+	        
 	        <!-- Корзина: Итого -->
 	        <div class="total__item total__cart">
 		        <div class="total__label">Итого:</div>
@@ -81,18 +102,19 @@
 		        <div style="display: none;" class="total__price cartSumDiscount" data-value="{CART_SUM_NOW_WITH_DISCOUNT}">{CART_SUM_NOW_WITH_DISCOUNT | money_format}</div>
 	        </div>
         </div>
+	      
         <!-- Корзина: Оформление -->
         <div class="total__buttons">
-	        <a href="{CART_TRUNCATE_URL}" class="cart__clear button button4" title="Очистить корзину" onclick="return confirm('Вы действительно хотите удалить все товары из корзины?')"><span>Очистить </span><span>корзину</span></a>
 	        <a id="startOrder" class="button" title="Перейти к быстрому оформлению заказа"><span>Оформить </span><span>заказ</span></a>
           <a id="closeOrder" class="button button4" title="Отменить заказ"><span>Отменить </span><span>заказ</span></a>
 	        <a id="makeOrder" class="button disabled" title="Перейти к быстрому оформлению заказа"><span>Оформить </span><span>заказ</span></a>
-	        <div class="total__pp">Нажимая на кнопку &laquo;Заказать звонок&raquo;, Вы соглашаетесь с <a data-fancybox data-src="#fancybox__pp" href="javascript:;">правилами обработки данных</a></div>
+	        <div class="total__pp">Нажимая на кнопку &laquo;Оформить заказ&raquo;, Вы соглашаетесь с <a data-fancybox data-src="#fancybox__pp" href="javascript:;">правилами обработки данных</a></div>
           <noscript>
             <button type="submit" class="button" title="Пересчитать">Пересчитать</button>
             <button type="submit" class="button button2" name="next_step" title="Перейти к оформлению заказа в 4 шага"><span>Оформить </span><span>заказ</span></button>
           </noscript>
         </div>
+	      
       </div>
     </form> 
   {% ENDIF %}

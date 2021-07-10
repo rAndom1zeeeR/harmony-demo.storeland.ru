@@ -1076,14 +1076,22 @@ label.error:after {
 	text-decoration: line-through;
 }
 
-.RUB .price__now:after, .RUB .price__old:after, .RUB.price__now:after, .RUB.price__old:after {
+.RUB .price__now:after,
+.RUB .price__old:after,
+.RUB.price__now:after,
+.RUB.price__old:after,
+.total__price:after {
 	content: "Р";
 	font-size: 80%;
 	line-height: 1;
 	margin-left: 0.125rem;
 }
 
-.RUB .price__now span + span, .RUB .price__old span + span, .RUB.price__now span + span, .RUB.price__old span + span {
+.RUB .price__now span + span,
+.RUB .price__old span + span,
+.RUB.price__now span + span,
+.RUB.price__old span + span,
+.total__price span + span {
 	display: none;
 }
 
