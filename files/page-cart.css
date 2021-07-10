@@ -239,3 +239,20 @@
 .total__pp a {
 	text-decoration: underline;
 }
+
+
+#globalOrder {
+	margin-top: 4rem;
+}
+
+#globalOrder .total__buttons {
+	display: none;
+}
+
+#globalOrder .total__pp {
+	margin-top: 1rem;
+}
+
+#closeOrder {
+	display: none;
+}

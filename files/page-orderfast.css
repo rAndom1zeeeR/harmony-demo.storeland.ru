@@ -1,64 +1,169 @@
 /*** Страница: Быстрый заказ ***/
-#OrderAjaxBlock {margin-bottom: 2rem;}
-#OrderAjaxBlock .fastOrderForm .total__buttons {display: none;}
-#closeOrder {display: none;}
-.fastOrder__login {margin-bottom: 1rem;width: 100%;display: flex;align-items: center;justify-content: space-between;}
-.fastOrder__login span {font-size: 18px;}
-.fastOrder .fastOrderForm {border: 5px solid #f8e9e6;border-top: 0;padding: 1rem;}
-.fastOrder__form {display: flex;flex-wrap: wrap;justify-content: space-between;}
-.fastOrderForm [order] {width: 100%;margin-bottom: 2rem;}
-.fastOrder__title {margin-bottom: 1.5rem;padding: .25rem 0;border: 1px solid #d2d9cd;border-left: 0;border-right: 0;font-size: 18px;text-align: center;}
-.fastOrderForm .form__list {display: flex;flex-wrap: wrap;}
-.fastOrderForm .form__fields {width: calc(33.333333% - 2rem);margin: 0 1rem 1rem 1rem;flex-grow: 1;}
-.fastOrderForm .form__fields:last-child {margin-bottom: 0;}
-.fastOrderForm .form__field input, .fastOrderForm .form__field select, .fields__comment textarea {padding-left: 3.5rem;}
-.fastOrderForm .form__fields label {display: none;}
-.fastOrderForm label.error {display: none !important;}
-.fastOrderForm .form__wantRegister {width: 100%;margin-bottom: 0;}
-.fastOrderForm .form__wantRegister label {display: block;margin: 0;width: calc(100% - 40px)}
-.fastOrderForm .form__WantRegisterPass {margin-top: 1rem;}
-.fastOrderForm .deliveryConvenientDate:nth-child(1) {width: calc(50% - 1rem);margin-right: 1rem;}
-.fastOrderForm .deliveryConvenientDate:nth-child(2) {width: calc(50% - 1rem);margin-left: 1rem;margin-top: 0;}
-.fastOrderForm .cartTotal {display: flex;flex-wrap: wrap;align-items: center;width: 100%;padding: 2rem 0 0 0;margin-top: 0;}
-.fastOrderForm .total__items {width: 100%;}
-.fastOrderForm .total__title {margin: 0;font-weight: bold;}
-.fastOrderForm .total__buttons {width: 100%;margin: 0;display: block;text-align: center;}
-.fastOrderForm .total__buttons .button + .button {margin-left: 2rem;}
-.fastOrderForm .total__buttons .total__pp {text-align: center;margin-top: 1rem;}
-.fastOrderForm .selectBox select {height: 40px;background-color: transparent;}
-.fastOrderForm .selectBox:after {background-color: #ffffff;}
-.delivery__fields {margin-top: 1rem;}
-.delivery__price, .zones__price {margin-left: 0.5rem;font-weight: bold;}
-.zones__price {margin: 0.5rem 0 0 0;display: block;}
-.delivery__price .label {margin-right: 0.5rem;}
-.delivery__description {margin-top: 1rem;}
-.delivery__priceBox {background-color: #df5642;padding: 0.5rem 2rem;display: inline-block;}
-.delivery__zones {margin-top: 1rem;padding-left: 1rem;}
-.delivery__zone {margin-top: 0.5rem;}
-.delivery__zone > div {margin-top: 1rem;}
-.fastOrderForm .delivery {margin-bottom: 0;}
-.order__delivery {display: flex;flex-wrap: wrap;}
-.delivery__option {width: calc(33.333333% - 2rem);margin: 0 1rem 2rem 1rem;background-color: #fff4f2;padding: 1rem;transition: all 0.3s ease;}
-.delivery__option:hover {background-color: #ffaf88;color: #ffffff;}
-.delivery__option input {width: 2rem;height: 2rem;background-color: #ffffff;border: 1px solid #ffaf88;border-radius: 100%;display: inline-block;vertical-align: middle;}
-.delivery__option input:after {display: none;}
-.delivery__option input:hover, .delivery__option input:checked {background-color: #ffaf88;border: 4px solid #ffffff;}
-.delivery__option.active {background-color: #ffaf88;color: #ffffff;}
-.delivery__option label {width: calc(100% - 4rem);display: inline-block;vertical-align: middle;margin-bottom: 0;}
-.delivery__fields label {width: auto;}
-.delivery__desc {margin-top: 1rem;}
-.fastOrderForm .payment {margin-bottom: 0;}
-.order__payment {width: 100%;display: flex;flex-wrap: wrap;}
-.payment__option {width: calc(33.333333% - 2rem);margin: 0 1rem 2rem 1rem;background-color: #fff4f2;padding: 1rem;transition: all 0.3s ease;}
-.payment__option:hover {background-color: #ffaf88;color: #ffffff;}
-.payment__option input {width: 2rem;height: 2rem;background-color: #ffffff;border: 1px solid #ffaf88;border-radius: 100%;display: inline-block;vertical-align: middle;}
-.payment__option input:after {display: none;}
-.payment__option input:hover, .payment__option input:checked {background-color: #ffaf88;border: 4px solid #ffffff;}
-.payment__option.active {background-color: #ffaf88;color: #ffffff;}
-.payment__option label {width: calc(100% - 4rem);display: inline-block;vertical-align: middle;margin-bottom: 0;}
-.payment__desc {margin-top: 1rem;}
-.fields__comment label {display: none;}
-.fields__comment i {height: 100%;}
+.fastOrder__login {
+	width: 100%;
+	padding: 1.5rem 2rem;
+	background-color: #ffffff;
+	border-radius: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.fastOrder__login .button {
+	padding: 0 4rem;
+}
+
+.fastOrder__title {
+	margin-bottom: 1.5rem;
+	font-size: 1.25rem;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+.fastOrderForm [order] {
+	margin-top: 1rem;
+	width: 100%;
+	padding: 1.5rem 2rem;
+	background-color: #ffffff;
+	border-radius: 1rem;
+}
+
+.fastOrderForm .form__list {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.fastOrderForm .form__fields {
+	width: calc(33.333333% - 2rem);
+	margin: 0 1rem 1rem 1rem;
+	flex-grow: 1;
+}
+
+.fastOrderForm .form__fields:last-child {
+	margin-bottom: 0;
+}
+
+.fastOrderForm .form__fields label {
+	display: none;
+}
+
+.fastOrderForm label.error {
+	display: none !important;
+}
+
+.fastOrderForm .form__wantRegister {
+	width: 100%;
+	margin-bottom: 0;
+}
+
+.fastOrderForm .form__wantRegister label {
+	display: block;
+	margin: 0;
+	width: calc(100% - 40px)
+}
+
+.fastOrderForm .form__wantRegister input {
+	height: 1.25rem;
+}
+
+.fastOrderForm .form__WantRegisterPass {
+	margin-top: 1rem;
+}
+
+.fastOrderForm .deliveryConvenientDate:nth-child(1) {
+	width: calc(50% - 1rem);
+	margin-right: 1rem;
+}
+
+.fastOrderForm .deliveryConvenientDate:nth-child(2) {
+	width: calc(50% - 1rem);
+	margin-left: 1rem;
+	margin-top: 0;
+}
+
+.delivery__selects {
+	width: 100%;
+}
+
+.delivery__zoneSelect {
+	margin-top: 1rem;
+}
+
+.delivery__descriptionBlock,
+.payment__description {
+	padding: 1rem 0 0 0;
+}
+
+.fields__comment label {
+	display: none;
+}
+
+.form__fields input {
+	height: 3rem;
+}
+
+
+
+
+	/*
+
+	.fastOrder .fastOrderForm {border: 5px solid #f8e9e6;border-top: 0;padding: 1rem;}
+	.fastOrder__form {display: flex;flex-wrap: wrap;justify-content: space-between;}
+	.fastOrderForm [order] {width: 100%;margin-bottom: 2rem;}
+
+	.fastOrderForm .form__list {display: flex;flex-wrap: wrap;}
+	.fastOrderForm .form__fields {width: calc(33.333333% - 2rem);margin: 0 1rem 1rem 1rem;flex-grow: 1;}
+	.fastOrderForm .form__fields:last-child {margin-bottom: 0;}
+	.fastOrderForm .form__field input, .fastOrderForm .form__field select, .fields__comment textarea {padding-left: 3.5rem;}
+	.fastOrderForm .form__fields label {display: none;}
+	.fastOrderForm label.error {display: none !important;}
+	.fastOrderForm .form__wantRegister {width: 100%;margin-bottom: 0;}
+	.fastOrderForm .form__wantRegister label {display: block;margin: 0;width: calc(100% - 40px)}
+	.fastOrderForm .form__WantRegisterPass {margin-top: 1rem;}
+	.fastOrderForm .deliveryConvenientDate:nth-child(1) {width: calc(50% - 1rem);margin-right: 1rem;}
+	.fastOrderForm .deliveryConvenientDate:nth-child(2) {width: calc(50% - 1rem);margin-left: 1rem;margin-top: 0;}
+	.fastOrderForm .cartTotal {display: flex;flex-wrap: wrap;align-items: center;width: 100%;padding: 2rem 0 0 0;margin-top: 0;}
+	.fastOrderForm .total__items {width: 100%;}
+	.fastOrderForm .total__title {margin: 0;font-weight: bold;}
+	.fastOrderForm .total__buttons {width: 100%;margin: 0;display: block;text-align: center;}
+	.fastOrderForm .total__buttons .button + .button {margin-left: 2rem;}
+	.fastOrderForm .total__buttons .total__pp {text-align: center;margin-top: 1rem;}
+	.fastOrderForm .selectBox select {height: 40px;background-color: transparent;}
+	.fastOrderForm .selectBox:after {background-color: #ffffff;}
+	.delivery__fields {margin-top: 1rem;}
+	.delivery__price, .zones__price {margin-left: 0.5rem;font-weight: bold;}
+	.zones__price {margin: 0.5rem 0 0 0;display: block;}
+	.delivery__price .label {margin-right: 0.5rem;}
+	.delivery__description {margin-top: 1rem;}
+	.delivery__priceBox {background-color: #df5642;padding: 0.5rem 2rem;display: inline-block;}
+	.delivery__zones {margin-top: 1rem;padding-left: 1rem;}
+	.delivery__zone {margin-top: 0.5rem;}
+	.delivery__zone > div {margin-top: 1rem;}
+	.fastOrderForm .delivery {margin-bottom: 0;}
+	.order__delivery {display: flex;flex-wrap: wrap;}
+	.delivery__option {width: calc(33.333333% - 2rem);margin: 0 1rem 2rem 1rem;background-color: #fff4f2;padding: 1rem;transition: all 0.3s ease;}
+	.delivery__option:hover {background-color: #ffaf88;color: #ffffff;}
+	.delivery__option input {width: 2rem;height: 2rem;background-color: #ffffff;border: 1px solid #ffaf88;border-radius: 100%;display: inline-block;vertical-align: middle;}
+	.delivery__option input:after {display: none;}
+	.delivery__option input:hover, .delivery__option input:checked {background-color: #ffaf88;border: 4px solid #ffffff;}
+	.delivery__option.active {background-color: #ffaf88;color: #ffffff;}
+	.delivery__option label {width: calc(100% - 4rem);display: inline-block;vertical-align: middle;margin-bottom: 0;}
+	.delivery__fields label {width: auto;}
+	.delivery__desc {margin-top: 1rem;}
+	.fastOrderForm .payment {margin-bottom: 0;}
+	.order__payment {width: 100%;display: flex;flex-wrap: wrap;}
+	.payment__option {width: calc(33.333333% - 2rem);margin: 0 1rem 2rem 1rem;background-color: #fff4f2;padding: 1rem;transition: all 0.3s ease;}
+	.payment__option:hover {background-color: #ffaf88;color: #ffffff;}
+	.payment__option input {width: 2rem;height: 2rem;background-color: #ffffff;border: 1px solid #ffaf88;border-radius: 100%;display: inline-block;vertical-align: middle;}
+	.payment__option input:after {display: none;}
+	.payment__option input:hover, .payment__option input:checked {background-color: #ffaf88;border: 4px solid #ffffff;}
+	.payment__option.active {background-color: #ffaf88;color: #ffffff;}
+	.payment__option label {width: calc(100% - 4rem);display: inline-block;vertical-align: middle;margin-bottom: 0;}
+	.payment__desc {margin-top: 1rem;}
+	.fields__comment label {display: none;}
+	.fields__comment i {height: 100%;}
+
+	 */
 /* Самовывоз */
 .fastOrder__form.pickup .address {display: none;}
 @media (max-width: 991.98px) {
@@ -72,19 +177,59 @@
 .fastOrderForm .form__fields {width: 100%;}
 }
 /** Купоны **/
-.coupon__button {line-height: 38px;top: 0;right: 0;position: absolute;display: flex;align-items: center;justify-content: center;transition: all 0.3s ease;}
+.coupon__button {
+	line-height: 38px;
+	top: 0;
+	right: 0;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.3s ease;
+}
+
 /*.coupon__button:before {font-family: 'icomoon';}
 .coupon__order.active .coupon__button span {display: none;}
 .coupon__order.active .coupon__button:before {content: '\e91b';}
 .coupon__order.error .coupon__button:before {content: '\e914';}*/
-.coupon__reset {display: none;position: absolute;right: 10rem;line-height: 1;cursor: pointer;}
-.coupon__reset.active {display: block;}
-.coupon__reset:after {content: "\e91a";font-family: 'icomoon';}
-.coupon__order input:focus + .coupon__button {}
-.coupon__order.error input {border-color: red;}
-#coupon__code {padding: 0 10rem 0 3.5rem;}
+.coupon__reset {
+	display: none;
+	position: absolute;
+	right: 10rem;
+	line-height: 1;
+	cursor: pointer;
+}
+
+.coupon__reset.active {
+	display: block;
+}
+
+.coupon__reset:after {
+	content: "\e91a";
+	font-family: 'icomoon';
+}
+
+.coupon__order input:focus + .coupon__button {
+}
+
+.coupon__order.error input {
+	border-color: red;
+}
+
+.coupon__order {
+	width: 100%;
+}
+
+#coupon__code {
+	padding: 0 10rem 0 1.5rem;
+}
+
 @media all and (max-width: 479px) {
-.coupon__button {position: relative;right: auto;margin-top: 1rem;}
+	.coupon__button {
+		position: relative;
+		right: auto;
+		margin-top: 1rem;
+	}
 }
 
 /******************************************************************************
