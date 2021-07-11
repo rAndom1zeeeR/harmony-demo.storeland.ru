@@ -241,6 +241,20 @@
 	}
 }
 
+.fastOrderContent .total__buttons {
+	text-align: center;
+}
+
+.fastOrderContent .total__pp {
+	margin-top: 1rem;
+}
+
+.total__pp {
+	font-size: .75rem;
+	text-align: center;
+	margin-bottom: 1rem;
+}
+
 /******************************************************************************
 Air Datepicker v2.2.3 http://t1m0n.name/air-datepicker/docs/index-ru.html
 *******************************************************************************/

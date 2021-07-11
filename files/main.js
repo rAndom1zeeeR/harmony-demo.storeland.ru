@@ -813,7 +813,10 @@ function loadFile(fileName, ext, cb){
   var $file = $('#' + fileName + '-' + ext);
   var attrName = (ext === 'css') ? 'href' : 'src';
 
-  if(!$file.length){console.error('Файл не найден в разметке и не может быть загружен');return;}
+  if(!$file.length){
+    console.error(fileName + '.' + ext + ' - Файл не найден в разметке и не может быть загружен');
+    return;
+  }
   // Если файл уже загружен
   if($file.attr(attrName)){
     cb();

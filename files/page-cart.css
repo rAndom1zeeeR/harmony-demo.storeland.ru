@@ -237,9 +237,6 @@
 
 .total__pp {
 	display: none;
-	font-size: .75rem;
-	text-align: center;
-	margin-bottom: 1rem;
 }
 
 .cartTable.disable .total__pp {
