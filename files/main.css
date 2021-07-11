@@ -2656,9 +2656,11 @@ header {
 
 .callback__index .form__button {
 	padding: 0 3rem;
-	top: .25rem;
-	right: .25rem;
+	top: 0;
+	right: 0;
 	height: 3rem;
+	border: .25rem solid #ffffff;
+	line-height: 2.75rem;
 	position: absolute;
 }
 
