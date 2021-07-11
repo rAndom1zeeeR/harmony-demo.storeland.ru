@@ -9,7 +9,7 @@
 	    <form action="{ORDER_STAGE_CONFIRM_WITHOUT_DOMAIN_URL}" method="post" class="fastOrder__form" novalidate="novalidate">
 		    {% IFNOT CLIENT_IS_LOGIN %}
 		    <div class="fastOrder__login">
-			    <span>Уже зарегистрированы?</span>
+			    <span class="fastOrder__login-label">Уже зарегистрированы?</span>
 			    <a class="button" href="{USER_LOGIN}" title="Войти" rel="nofollow"><span>Войти</span></a>
 		    </div>
 		    {% ENDIF %}

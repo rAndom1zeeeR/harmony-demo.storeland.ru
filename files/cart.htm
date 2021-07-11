@@ -30,8 +30,22 @@
           <div class="cart__info">
             <a class="cart__name" href="{cart_items.GOODS_URL}">{cart_items.GOODS_NAME}</a>
             <!-- Если у товара есть отличительные свойства для модификации товара, допишем их к названию товара -->
-            {% IF cart_items.GOODS_MOD_ART_NUMBER %}<div class="cart__art"><span class="label">Артикул:</span><span>{cart_items.GOODS_MOD_ART_NUMBER}</span></div>{% ENDIF %}
-            {% IFNOT cart_items.distinctive_properties_empty %}<div class="cart__properties"><span class="label">{% FOR distinctive_properties %}{cart_items.distinctive_properties.NAME}:</span><span>{cart_items.distinctive_properties.VALUE}</span>{% IFNOT cart_items.distinctive_properties.last %},<br> {% ENDIF %}{% ENDFOR %}</div>{% ENDIF %}
+	          {% IF cart_items.GOODS_MOD_ART_NUMBER %}
+	          <div class="cart__art">
+		          <span class="cart__art-label">Артикул: </span>
+		          <span>{cart_items.GOODS_MOD_ART_NUMBER}</span>
+	          </div>
+	          {% ENDIF %}
+	          {% IFNOT cart_items.distinctive_properties_empty %}
+	          <div class="cart__prop">
+		          {% FOR distinctive_properties %}
+		          <div class="cart__prop-item">
+		            <span class="cart__prop-label">{cart_items.distinctive_properties.NAME}: </span>
+		            <span>{cart_items.distinctive_properties.VALUE}</span>
+		          </div>
+		          {% ENDFOR %}
+	          </div>
+	          {% ENDIF %}
           </div>
           <div class="cart__actions">
 	          <div class="cart__price {CURRENCY_CHAR_CODE}">
@@ -45,10 +59,10 @@
 	              <a href="javascript:void(0)" class="qty__plus unselectable" title="Увеличить"><i class="icon-plus"></i></a>
 	            </div>
 	          </div>
-            <a class="cart__delete" data-href="{cart_items.ORDER_LINE_DELETE_URL}" title="Удалить позицию" onclick="cartDelete($(this))" class="remove">
-	            <i class="icon-close"></i>
-            </a>
           </div>
+	        <a class="cart__delete" data-href="{cart_items.ORDER_LINE_DELETE_URL}" title="Удалить позицию" onclick="cartDelete($(this))" class="remove">
+		        <i class="icon-close"></i>
+	        </a>
         </div>
         {% ENDFOR %}
       </div>
