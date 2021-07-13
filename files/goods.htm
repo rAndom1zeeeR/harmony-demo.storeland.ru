@@ -516,10 +516,12 @@
 					     data-content="opinionAddForm"
 					     style="display: none"
 					>
+						<div class="modal__title block__title">
+							<div class="title">Мой отзыв о товаре</div>
+						</div>
 						<!-- Форма добавления отзыва -->
-						<div class="opinion__addForm">
-							<div class="opinion__label">Мой отзыв о товаре</div>
-							<div class="opinion__labelText">Вы пишете отзыв на товар: {GOODS_NAME}</div>
+						<div class="modal__content opinion__addForm">
+							<div class="opinion__label"><span>{GOODS_NAME}</span></div>
 							<!-- Форма добавления нового отзыва о товаре -->
 							<form method="post" action="{CURRENT_URL}" class="opinion__form" enctype="multipart/form-data">
 								<input type="hidden" name="hash" value="{HASH}" />

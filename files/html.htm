@@ -119,7 +119,7 @@
 >
 	<div class="wrapper">
 		
-		<!-- Сообщение для инвалидов -->
+		<!-- Сообщение для инвалидов. Если не работает JS -->
 		<noscript>
 			<div class="noscript">
 				<div class="noscript-inner">
@@ -147,11 +147,9 @@
 				<div class="header__top">
 					<!-- Контакты -->
 					<div class="header__contacts">
-						
 						<!-- Почта -->
 						{% IF SETTINGS_STORE_EMAIL_MAIN %}
 						<div class="contacts__block email">
-							
 							<a class="contacts__block-icon"
 							   href="javascript:;"
 							   data-fancybox=""
@@ -159,7 +157,6 @@
 							>
 								<i class="icon-mail"></i>
 							</a>
-							
 							<div class="contacts__block-content">
 								<a class="email"
 								   href="mailto:{SETTINGS_STORE_EMAIL_MAIN}"
@@ -168,17 +165,15 @@
 									<span>{SETTINGS_STORE_EMAIL_MAIN}</span>
 								</a>
 							</div>
-							
-						</div><!-- /END Почта -->
+						</div><!-- //END Почта -->
 						
 						<!-- Разделительная точка -->
 						<div class="separator"></div>
-						{% ENDIF %}
+						{% ENDIF SETTINGS_STORE_EMAIL_MAIN %}
 						
 						<!-- Телефон 1 -->
 						{% IF SETTINGS_STORE_PHONE_NUMBER1 %}
 						<div class="contacts__block phone">
-							
 							<a class="contacts__block-icon"
 							   href="javascript:;"
 							   data-fancybox=""
@@ -186,7 +181,6 @@
 							>
 								<i class="icon-phone"></i>
 							</a>
-							
 							<div class="contacts__block-content">
 								<a class="contacts__phone phone"
 								   href="tel:{SETTINGS_STORE_PHONE_COUNTRY_CODE1}({SETTINGS_STORE_PHONE_CITY_CODE1}){SETTINGS_STORE_PHONE_NUMBER1}"
@@ -195,12 +189,11 @@
 									<span>{SETTINGS_STORE_PHONE_COUNTRY_CODE1}({SETTINGS_STORE_PHONE_CITY_CODE1}){SETTINGS_STORE_PHONE_NUMBER1}</span>
 								</a>
 							</div>
-						
-						</div>
-						{% ENDIF %}
+						</div><!-- //END Телефон 1 -->
 						
 						<!-- Разделительная точка -->
 						<div class="separator"></div>
+						{% ENDIF SETTINGS_STORE_PHONE_NUMBER1 %}
 						
 						<!-- Обратный звонок -->
 						<div class="contacts__block callback">
@@ -211,16 +204,17 @@
 							>
 								<span>Заказать звонок</span>
 							</a>
-						</div><!-- /END Обратный звонок -->
+						</div><!-- //END Обратный звонок -->
 						
 						<!-- Меню. Адаптивное -->
 						<div class="menu dropdown">
-							
-							<a class="menu__icon dropdown__open" href="javascript:;" data-open="menu">
+							<a class="menu__icon dropdown__open"
+							   href="javascript:;"
+							   data-open="menu"
+							>
 								<span>Меню</span>
 								<i class="icon-arrow_drop_down"></i>
 							</a>
-							
 							<div class="dropdown__content" data-content="menu">
 								<ul>
 									{% FOR menu %}
@@ -239,9 +233,7 @@
 									{% ENDFOR %}
 								</ul>
 							</div>
-						
 						</div><!-- //END Меню. Адаптивное -->
-					
 					</div><!-- //END Контакты -->
 					
 					<!-- ЛК, Избр, Срав -->
@@ -291,9 +283,8 @@
 							</a>
 						</div>
 						{% ENDIF %}
-					
+						
 					</div><!-- //END ЛК, Избр, Срав -->
-				
 				</div><!-- //END Верхняя часть шапки -->
 				
 				<!-- Центральная часть шапки -->
@@ -330,9 +321,8 @@
 								{% ENDFOR %}
 							{% ENDFOR %}
 						</ul>
-						
+						<!-- Меню. Еще -->
 						<ul class="overflowMenu"></ul>
-					
 					</nav><!-- //END Меню -->
 					
 					<!-- Поиск -->
@@ -377,7 +367,7 @@
 								<i class="icon-search"></i>
 							</button>
 							
-						</form>
+						</form><!-- //END Форма поиска -->
 						
 						<!-- Результаты поиска -->
 						<div id="search__result" style="display: none;">
@@ -393,7 +383,7 @@
 							<i class="icon-search"></i>
 						</div>
 					
-					</div><!-- /END Поиск -->
+					</div><!-- //END Поиск -->
 					
 					<!-- Каталог -->
 					<div class="catalog__icon button">
@@ -402,8 +392,7 @@
 					</div>
 					
 					<!-- Корзина -->
-					<div class="cart__block cart {% IF CART_COUNT_TOTAL > 0 %}hasItems{% ENDIF %}">
-						
+					<div class="cart cart__block {% IF CART_COUNT_TOTAL > 0 %}hasItems{% ENDIF %}">
 						<div class="cart__block-icon"
 						     data-open="cart"
 						     data-fancybox=""
@@ -411,20 +400,16 @@
 						>
 							<i class="icon-cart"></i>
 						</div>
-						
 						<div class="cart__block-content">
 							<a href="{CART_URL}"
 							   class="cart__block-label"
 							   title="Корзина"
 							>
-								
 								<span class="price__now cartSumNow {CURRENCY_CHAR_CODE}">{CART_SUM_NOW | money_format}</span>
-								
 								<span>
 									<span class="cart__count" data-count="{CART_COUNT_TOTAL}">{CART_COUNT_TOTAL}</span>
 									<span>товар{CART_COUNT_TOTAL | gen_word_end("","а","ов")}</span>
 								</span>
-							
 							</a>
 						</div>
 					
@@ -445,7 +430,6 @@
 						   class="catalog__item"
 						   data-id="{catalog_full.ID}"
 						>
-							
 							<span class="catalog__image">
 								<noscript>
 									<img class="goods-image-medium"
@@ -454,9 +438,7 @@
 								<img class="owl-lazy goods-image-medium scriptOff"
 								     data-src="{% IF catalog_full.IMAGE_MEDIUM %}{catalog_full.IMAGE_MEDIUM}{% ELSE %}{ASSETS_IMAGES_PATH}no-photo-small.png?design=THEMENAME{% ENDIF %}" />
 							</span>
-							
 							<span class="catalog__name">{catalog_full.NAME}</span>
-						
 						</a>
 						{% ENDIF %}
 					{% ENDFOR %}
@@ -542,7 +524,7 @@
 						</a>
 					
 					</div><!-- //END Слайдер. Баннеры -->
-				
+					
 				</div>
 			</div>
 		</section>
@@ -2999,7 +2981,6 @@
 			>
 				<div class="modal__title block__title">
 					<a href="{CART_URL}" class="title">Корзина</a>
-					<div class="modal__close"><i class="icon-close"></i></div>
 				</div>
 				<div class="modal__content">
 					{% IFNOT cart_items_empty %}
@@ -3065,7 +3046,6 @@
 			>
 				<div class="modal__title block__title">
 					<a href="{COMPARE_URL}" class="title">В Сравнении</a>
-					<div class="modal__close"><i class="icon-close"></i></div>
 				</div>
 				<div class="modal__content">
 					<div class="addto__items">
@@ -3117,7 +3097,6 @@
 			>
 				<div class="modal__title block__title">
 					<a href="{FAVORITES_URL}" class="title">В Избранном</a>
-					<div class="modal__close"><i class="icon-close"></i></div>
 				</div>
 				
 				<div class="modal__content">
@@ -3167,7 +3146,6 @@
 			<div id="fancybox__login" class="modal" data-content="login" style="display:none">
 				<div class="modal__title block__title">
 					<a href="{USER_SETTINGS_URL}" class="title">Личный кабинет</a>
-					<div class="modal__close"><i class="icon-close"></i></div>
 				</div>
 				
 				<div class="modal__content">
@@ -3251,7 +3229,6 @@
 			<div id="fancybox__pp" class="modal" style="display:none">
 				<div class="modal__title block__title">
 					<div class="title">Политика приватности</div>
-					<div class="modal__close"><i class="icon-close"></i></div>
 				</div>
 				
 				<div class="modal__content">
@@ -3280,7 +3257,6 @@
 			<div id="fancybox__callback" class="modal" style="display:none">
 				<div class="modal__title block__title">
 					<div class="title">Заказать звонок</div>
-					<div class="modal__close"><i class="icon-close"></i></div>
 				</div>
 				
 				<div class="modal__content">
@@ -3339,7 +3315,6 @@
 			<div id="fancybox__feedback" class="modal" style="display:none">
 				<div class="modal__title block__title">
 					<div class="title">Обратная связь</div>
-					<div class="modal__close"><i class="icon-close"></i></div>
 				</div>
 				
 				<div class="modal__content">
@@ -3401,7 +3376,6 @@
 			<div id="fancybox__notify" class="modal" style="display:none">
 				<div class="modal__title block__title">
 					<div class="title">Уведомить о поступлении</div>
-					<div class="modal__close"><i class="icon-close"></i></div>
 				</div>
 				
 				<div class="modal__content">

@@ -957,20 +957,20 @@ label.error:after {
 }
 
 .star:after {
-	content: '\e932';
+	content: '\e92b';
 	font-family: 'icomoon';
 }
 
 .stars .fullStar {
-	color: #;
+	color: #6aa344;
 }
 
 .stars .tmp_fs {
-	color: #;
+	color: #6aa344;
 }
 
 .stars .tmp_es {
-	color: #;
+	color: #23261d;
 }
 
 /* END jQuery.Rating Plugin CSS *//*** Предзагрузчик ***/
@@ -1567,12 +1567,9 @@ h6 {
 .fancybox-content {
 	max-width: 900px;
 	padding: 0;
-}
-
-.modal {
-	margin: 1.5rem;
+	margin: 1.25rem;
 	overflow: visible;
-	border-radius: 1.5rem;
+	border-radius: 1.5rem
 }
 
 .modal__title {
@@ -1595,7 +1592,7 @@ h6 {
 	border-radius: 1rem 1rem 0 0;
 }
 
-.modal__close {
+.fancybox-slide--html .fancybox-close-small {
 	width: 3rem;
 	height: 3rem;
 	color: #d2d9cd;
@@ -1604,46 +1601,21 @@ h6 {
 	position: absolute;
 	top: -1.5rem;
 	right: -1.5rem;
+	opacity: 1;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	transition: all 0.3s ease;
 }
 
-.modal__close:hover {
+.fancybox-slide--html .fancybox-close-small:hover {
 	cursor: pointer;
 	background-color: #6aa344;
 	color: #ffffff;
 }
 
-.modal__close:before {
-	content: '';
-	width: 1px;
-	height: 60%;
-	top: 20%;
-	left: 0;
-	position: absolute;
-	transition: all 0.3s ease;
-}
-
-.modal__close:hover:before {
-	opacity: 0;
-}
-
-.modal__close i {
-	transition: all 0.3s ease;
-}
-
-.modal__close:hover i {
-	transform: rotate(90deg);
-}
-
 .modal__content {
 	padding: 2rem;
-}
-
-.modal__content + button {
-	display: none;
 }
 
 .modal__content .form__buttons {
@@ -1684,8 +1656,13 @@ h6 {
 	margin-bottom: 0;
 }
 
+@media all and (max-width: 991.98px) {
+	.modal__content {
+		padding: 1rem;
+	}
+}
 
-.fancybox-slide--html .fancybox-close-small {
+/*.fancybox-slide--html .fancybox-close-small {
 	top: 6px;
 	right: 6px;
 	width: 40px;
@@ -1698,7 +1675,7 @@ h6 {
 		width: 34px;
 		height: 30px;
 	}
-}
+}*/
 
 /*** Выпадающее меню ***/
 .dropdown__content {
@@ -2403,6 +2380,14 @@ header {
 }
 
 /* Шапка. Корзина */
+.page-cart .cart__block {
+	display: none;
+}
+
+.page-cart .mainnav {
+	width: calc(100% - 15rem - 3rem - 2rem);
+}
+
 .cart__block {
 	margin-left: 2rem;
 	width: 11rem;
@@ -2469,7 +2454,7 @@ header {
 .search.opened {
 	position: absolute;
 	right: 0;
-	bottom: 2.5rem;
+	bottom: 2.25rem;
 	width: calc(100% - 16rem);
 	background-color: #ffffff;
 	border-radius: 1.5rem;
