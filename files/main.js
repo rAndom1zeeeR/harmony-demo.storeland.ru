@@ -503,9 +503,11 @@ function closeMenu() {
     if($(this).hasClass('opened')){
       $('div, a, form, span').removeClass('opened');
       $('.overflowMenu').removeClass('active');
+      $('.search__reset').click();
       setTimeout(function () {
         $('#overlay').removeClass('transparent');
-      },600)
+        $('.search__reset').click();
+      },100)
     }
   });
 
@@ -567,6 +569,7 @@ function openMenu() {
   $('.search__icon.button').on('click', function (event) {
     event.preventDefault();
     $(this).parent().toggleClass('opened');
+    $('#overlay').addClass('opened');
   });
 
   // "Еще" в выпадающем каталоге
