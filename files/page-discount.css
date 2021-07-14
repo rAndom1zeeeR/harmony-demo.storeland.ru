@@ -1,22 +1,70 @@
 /*** Страница: Просмотр акции ***/
-.promotion__content {
-	text-align: center;
+.promotion__container {
 	margin: 0 0 2rem 0;
+	padding: 2rem;
+	background-color: #ffffff;
+	border-radius: 1rem;
+	display: flex;
+	flex-wrap: wrap;
 }
 
-.promotion__title strong {
-	margin: 0 0.5rem;
+.promotion__icon i {
+	font-size: 6rem;
+	color: #db5c77;
+}
+
+.promotion__content {
+	width: calc(100% - 6rem);
+	padding-left: 2rem;
+}
+
+.promotion__block {
+	margin-top: 1rem;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.promotion__title {
+	font-size: 1.5rem;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.promotion__block-subtitle {
+	margin-right: 2rem;
+}
+
+.promotion__percentage {
+	font-size: 3rem;
+	font-weight: bold;
+	color: #db5c77;
 }
 
 .promotion__text {
 	margin-top: 1rem;
+	width: 100%;
 }
 
 .promotion__content .promotion__date {
-	margin-top: 1rem;
+	margin-top: .5rem;
 	color: #23261d;
 }
 
+@media (max-width: 479.98px) {
+	.promotion__container {
+		padding: 1rem;
+	}
+
+	.promotion__content {
+		width: 100%;
+		padding: 0;
+	}
+
+	.promotion__icon {
+		margin: 0 auto 1rem;
+	}
+}
 
 /*** Страница: Список акций ***/
 .page-discount .row .products__grid {
@@ -77,21 +125,19 @@
 }
 
 .promotion__date {
-	font-size: 1.125rem;
+	font-size: 1rem;
 	font-weight: 600;
 	color: #ffffff;
 	position: relative;
 	text-transform: uppercase;
 }
 
-.promotion__percentage {
-	margin-top: 3rem;
+.promotion__item .promotion__percentage {
 	position: relative;
-}
-
-.promotion__percentage {
 	font-size: 2rem;
 	font-weight: bold;
+	color: #ffffff;
+	margin-top: 2rem;
 }
 
 .promotion__empty {
