@@ -2361,6 +2361,83 @@ header {
 	display: none;
 }
 
+.addto__catalog .catalog__items {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.addto__catalog .catalog__item[data-level="0"] {
+	width: 33.333333%;
+	padding: .5rem 1rem;
+}
+
+.addto__catalog .catalog__item[data-level="1"] {
+	display: none;
+}
+
+.addto__catalog .catalog__item[data-level="1"]:nth-child(-n+4) {
+	display: block;
+}
+
+.addto__catalog .catalog__link {
+	line-height: 24px;
+	font-size: 14px;
+}
+
+.addto__catalog .catalog__link[data-level="0"] {
+	color: #6aa344;
+	font-weight: bold;
+	font-size: 1rem;
+}
+
+.addto__catalog .catalog__link[data-level="0"]:hover {
+	color: #ffbb3e;
+}
+
+.addto__catalog .catalog__link[data-level="0"] .open {
+	display: none;
+}
+
+.addto__catalog .sub[data-level="1"] {
+	margin-top: .5rem;
+}
+
+.addto__catalog .sub[data-level="2"] {
+	padding-left: 1rem;
+	margin-top: 0.5rem;
+	display: none;
+}
+
+.addto__catalog .catalog__item .open {
+	margin-left: 0.5rem;
+	vertical-align: middle;
+	width: 1.25rem;
+	height: 1.25rem;
+	line-height: 1.25rem;
+	display: inline-block;
+	text-align: center;
+}
+
+.addto__catalog .catalog__item .open:before {
+	content: "\e914";
+	font-family: 'icomoon';
+	font-size: .75rem;
+}
+
+.addto__catalog .catalog__item .open.opened:before {
+	content: "\e933";
+}
+
+.addto__catalog .catalog__more .catalog__link {
+	color: #ffbb3e;
+}
+
+.addto__catalog .catalog__more .catalog__link:hover {
+	color: #6aa344;
+}
+
+
 @media (max-width: 1199.98px) {
 	.catalog__icon {
 		display: inline-block;
@@ -2379,6 +2456,11 @@ header {
 	.catalog__icon {
 		padding: 0 1rem;
 	}
+
+	.addto__catalog .catalog__item[data-level="0"] {
+		width: 50%;
+		padding: .5rem 1rem;
+	}
 }
 
 @media (max-width: 639.98px) {
@@ -2386,6 +2468,13 @@ header {
 		flex-grow: 1;
 	}
 }
+
+@media (max-width: 479.98px) {
+	.addto__catalog .catalog__item[data-level="0"] {
+		width: 100%;
+	}
+}
+
 
 /* Шапка. Корзина */
 .page-cart .cart__block {
@@ -2690,7 +2779,7 @@ header {
 	overflow: hidden;
 }
 
-.catalog__item {
+#catalog .catalog__item {
 	border-left: 1px solid #ffffff;
 	padding: 1rem;
 	display: flex;
@@ -2699,7 +2788,7 @@ header {
 	transition: all 0.3s ease;
 }
 
-.catalog__item:hover {
+#catalog .catalog__item:hover {
 	background-color: #ffbb3e;
 	border-color: #ffbb3e;
 	cursor: pointer;
@@ -2709,12 +2798,12 @@ header {
 	border-left: 0;
 }
 
-.catalog__image {
+#catalog .catalog__image {
 	width: 2.5rem;
 	height: 2.5rem;
 }
 
-.catalog__item .catalog__name {
+#catalog .catalog__name {
 	width: calc(100% - 2.5rem);
 	max-height: 2.5rem;
 	padding: 0 0 0 1rem;

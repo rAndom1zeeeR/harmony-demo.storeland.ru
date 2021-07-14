@@ -563,11 +563,37 @@ function openMenu() {
     $('.dropdown__label [data-open="catalog"]').addClass('active');
   });
 
-  //Открытие каталога
+  //Открытие поиска
   $('.search__icon.button').on('click', function (event) {
     event.preventDefault();
     $(this).parent().toggleClass('opened');
   });
+
+  // "Еще" в выпадающем каталоге
+  function catalogItemsMore(){
+    // Определяем главные категории
+    var item = $('.addto__catalog .catalog__item[data-level="0"]');
+    // Удаляем скрытые категории
+    item.find('.hide').remove();
+    // Проверяем категории
+    item.each(function (event){
+      var t = $(this);
+      var item1 = t.find('.catalog__item[data-level="1"]');
+      var href = t.find('a').attr('href');
+      // Добавляем порядок главных категорий
+      var count = event + 1;
+      t.css('order', count)
+      // Добавляем кнопку "Еще" если больше 4 подкатегорий
+      if(item1.length > 4) {
+        t.append('<div class="catalog__more"><a href="'+ href +'" class="catalog__link">Еще...</a></div>');
+      }
+      // Если в категории нет подкатегорий, переносим ее в конец
+      if(item1.length == 0) {
+        t.css('order', item.length + 1)
+      }
+    });
+  }
+  catalogItemsMore();
 }
 
 // Дополнительные пункты меню в шапке Перенос пунктов меню

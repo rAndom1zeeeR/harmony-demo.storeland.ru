@@ -386,7 +386,11 @@
 					</div><!-- //END Поиск -->
 					
 					<!-- Каталог -->
-					<div class="catalog__icon button">
+					<div class="catalog__icon button"
+					     data-open="catalog"
+					     data-fancybox
+					     data-src="#fancybox__catalog"
+					>
 						<i class="icon-menu"></i>
 						<span>Каталог</span>
 					</div>
@@ -3116,35 +3120,40 @@
 			</div>
 			
 			<!-- Каталог -->
-			<div id="addtoCatalog" class="addto__catalog" data-content="catalog">
-				<div class="catalog__items">
-					{% FOR catalog_full %}
-					{% IF catalog_full.FIRST %}{% IFNOT catalog_full.LEVEL = 0 %}
-					<div data-level="{catalog_full.LEVEL}" class="sub">{% ENDIF %}{% ENDIF %}
-						<div {%
-						     IF
-						     catalog_full.HIDE
-						     %}style="display:none;"
-						     {%
-						     ENDIF
-						     %}
-						     data-level="{catalog_full.LEVEL}"
-						     class="catalog__item {% IF catalog_full.ISSET_VISIBLE_SUB %}parent{% ENDIF %} {% IF catalog_full.CURRENT_PARENT %}opened{% ENDIF %}">
-							<a href="{catalog_full.URL}"
-							   data-level="{catalog_full.LEVEL}"
-							   class="catalog__link {% IF catalog_full.CURRENT %}opened{% ENDIF %}">
-								<span>{catalog_full.NAME}</span>
-								{% IF catalog_full.ISSET_VISIBLE_SUB %}<span class="open"></span>{% ENDIF %}
-							</a>
-							{% IF catalog_full.ISSET_SUB=0 %}
-						</div>
-						{% ENDIF %}
-						{% IF catalog_full.LAST %}{%FOR out%}
-					</div>
-					{%IFNOT catalog_full.out.LAST%}
+			<div id="fancybox__catalog"
+			     class="modal addto__catalog"
+			     data-content="catalog"
+			     style="display: none"
+			>
+				<div class="modal__title block__title">
+					<a href="{CATALOG_URL}" class="title">Каталог</a>
 				</div>
-				{%ENDIF%}{%ENDFOR%}{% ENDIF %}
-				{% ENDFOR %}
+				<div class="modal__content">
+					<div class="catalog__items">
+						{% FOR catalog_full %}
+						{% IF catalog_full.FIRST %}{% IFNOT catalog_full.LEVEL = 0 %}
+						<div data-level="{catalog_full.LEVEL}" class="sub">{% ENDIF %}{% ENDIF %}
+							<div class="catalog__item {% IF catalog_full.ISSET_VISIBLE_SUB %}parent{% ENDIF %} {% IF catalog_full.CURRENT_PARENT %}opened{% ENDIF %}"
+							     data-level="{catalog_full.LEVEL}"
+							     {% IF catalog_full.HIDE %}style="display:none;"{% ENDIF %}
+				      >
+								<a class="catalog__link {% IF catalog_full.CURRENT %}opened{% ENDIF %}"
+								   href="{catalog_full.URL}"
+								   data-level="{catalog_full.LEVEL}"
+						    >
+									<span>{catalog_full.NAME}</span>
+									{% IF catalog_full.ISSET_VISIBLE_SUB %}<span class="open"></span>{% ENDIF %}
+								</a>
+								{% IF catalog_full.ISSET_SUB=0 %}
+							</div>
+							{% ENDIF %}
+							{% IF catalog_full.LAST %}{%FOR out%}
+						</div>
+						{%IFNOT catalog_full.out.LAST%}
+					</div>
+					{%ENDIF%}{%ENDFOR%}{% ENDIF %}
+					{% ENDFOR %}
+				</div>
 			</div>
 			
 			<!-- Корзина -->
