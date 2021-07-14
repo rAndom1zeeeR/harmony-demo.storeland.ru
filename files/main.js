@@ -504,7 +504,7 @@ function closeMenu() {
       $('div, a, form, span').removeClass('opened');
       $('.overflowMenu').removeClass('active');
       setTimeout(function () {
-        $('#overlay').removeClass('transparent')
+        $('#overlay').removeClass('transparent');
       },600)
     }
   });
@@ -554,15 +554,6 @@ function openMenu() {
     }
   });
 
-  //Открытие меню
-  $('.mainnav--icon').on('click', function (event){
-    event.preventDefault();
-    $('#addtoCatalog').hide();
-    $('#addtoMenu').show();
-    button.removeClass('active');
-    $('.dropdown__label[data-open="menu"]').addClass('active');
-  });
-
   //Открытие каталога
   $('.catalog--icon').on('click', function (event){
     event.preventDefault();
@@ -573,17 +564,9 @@ function openMenu() {
   });
 
   //Открытие каталога
-  $('.search__icon.button').on('click', function (event){
+  $('.search__icon.button').on('click', function (event) {
     event.preventDefault();
     $(this).parent().toggleClass('opened');
-    $('#overlay').toggleClass('opened');
-  });
-
-  //Открытие меню в подвале
-  $('.footer__open').on('click', function (){
-    var p = $(this).parent().parent(); //parent
-    var c = $(this).parent().next();  //content
-    p.hasClass('opened') ? p.removeClass('opened') && c.slideUp() : p.addClass('opened') && c.slideDown();
   });
 }
 
@@ -756,6 +739,7 @@ $(document).ready(function(){
   mainnavHeader();
   pdtCatalog();
   toTop();
+  viewed();
   // Стили для новых селектов
   /*$('.select').styler();*/
   // Ленивая загрузка
@@ -852,14 +836,37 @@ function notyStart(text, type) {
   }).show();
 }
 
-// Закрытие в модальных окнах
-function fancyClose(){
-  var btnClose = $('.fancybox-close-small');
-  var modalClose = $('.modal__close');
-  btnClose.hide();
-  modalClose.on('click', function (){
-    $.fancybox.close();
-    console.log('fancy close')
+// Функция слайдера для "Вы смотрели" на главной странице
+function viewed() {
+  $('#viewed .owl-carousel').owlCarousel({
+    items: 4,
+    margin: 32,
+    loop: false,
+    rewind: true,
+    lazyLoad: true,
+    nav: true,
+    navContainer: '#viewed .owl-nav',
+    navText: [ , ],
+    dots: false,
+    autoHeight: false,
+    autoHeightClass: 'owl-height',
+    autoplay: false,
+    autoplayHoverPause: true,
+    smartSpeed: 500,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    responsiveClass: true,
+    responsiveRefreshRate: 100,
+    responsive: {
+      0:{items:1, autoHeight: true},
+      540:{items:2},
+      768:{items:3},
+      1200:{items:4}
+    }
   });
 }
-fancyClose()
+
+
+
+

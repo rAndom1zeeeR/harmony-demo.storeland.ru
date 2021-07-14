@@ -60,7 +60,6 @@ function quickViewMod() {
 				observer.observe();
 			});
 			preload();
-			fancyClose();
 			return false;
 		});
 	});

@@ -1614,6 +1614,14 @@ h6 {
 	color: #ffffff;
 }
 
+.fancybox-slide--html .fancybox-close-small i {
+	transition: all 0.3s ease;
+}
+
+.fancybox-slide--html .fancybox-close-small:hover i {
+	transform: rotate(180deg);
+}
+
 .modal__content {
 	padding: 2rem;
 }
@@ -2471,7 +2479,7 @@ header {
 	align-items: center;
 }
 
-.search__form input {
+.search__input {
 	width: calc(100% - 4.5rem);
 	border: 0;
 	border-radius: 1.5rem;
@@ -2557,6 +2565,117 @@ header {
 	100% {
 		transform: rotate(360deg);
 	}
+}
+
+@media (max-width: 639.98px) {
+	.search.opened {
+		bottom: 1.5rem;
+		width: 100%;
+	}
+}
+
+/** Поисковая выдача **/
+#search__result {
+	display: none;
+	width: 100%;
+	max-height: 450px;
+	position: absolute;
+	top: 4rem;
+	right: 0;
+	padding: 1rem;
+	border-radius: 1rem;
+	background: #ffffff;
+	overflow-y: auto;
+	z-index: 3;
+}
+
+#search__result .inner {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: stretch;
+	flex-direction: column;
+}
+
+#search__result .result__item {
+	display: none;
+	width: 100%;
+	line-height: 20px;
+	padding: 10px 0;
+}
+
+#search__result .result__item:nth-child(-n+6) {
+	display: block;
+}
+
+#search__result .result__item a {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	font-size: 1rem;
+}
+
+#search__result .result__item a.active {
+	color: #6aa344;
+}
+
+#search__result .result__item .result__image {
+	width: 40px;
+	margin-right: 20px;
+	text-align: center;
+}
+
+#search__result .result__item .result__name {
+	width: calc(100% - 60px);
+}
+
+#search__result .result__item img {
+	max-width: 40px;
+	max-height: 40px;
+}
+
+#search__result .result__goods {
+	width: 100%;
+	flex-grow: 1;
+	padding: 0 1rem;
+}
+
+#search__result .result__category {
+	width: 100%;
+	flex-grow: 1;
+	padding: 0 1rem 1rem 1rem;
+	margin-bottom: 1rem;
+	border-bottom: 1px solid #d2d9cd;
+}
+
+#search__result .result__category .result__image {
+	display: none;
+}
+
+#search__result .result__category .result__name {
+	width: 100%;
+}
+
+#search__result .result__category a {
+	font-weight: bold;
+}
+
+#search__result .result__showAll {
+	margin: 1rem auto 0;
+	width: 200px;
+	display: inline-block;
+}
+
+#search__result::-webkit-scrollbar {
+	width: 0.5rem;
+	height: 0;
+}
+
+#search__result::-webkit-scrollbar-thumb {
+	background-color: #6aa344;
+}
+
+#search__result::-webkit-scrollbar-track {
+	background-color: #ebded6;
 }
 
 /*** Категории на главной ***/

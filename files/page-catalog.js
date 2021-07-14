@@ -1,17 +1,17 @@
 // Товары. Категории
 function catalog() {
 	// Фильтры по товарам. При нажании на какую либо характеристику или свойство товара происходит фильтрация товаров
-	$('.filter__item input').click(function(){
+	$('.filter__item input').on('click', function(){
 		$(this)[0].form.submit();
 	});
 
-	$('.filtersActive input').click(function(){
+	$('.filtersActive input').on('click', function(){
 		$(this)[0].form.submit();
 	});
 
 	// Боковое меню сохранение открытой вложенности
 	$('.collapsible:not(".active")').find('.collapsible__content').css('display', 'none');
-	$('.collapsible__click').click(function(event){
+	$('.collapsible__click').on('click', function(event){
 		event.preventDefault();
 		if ($(this).closest('.collapsible').hasClass('active')) {
 			$(this).parent().find('.collapsible__content').slideUp(600);
@@ -19,22 +19,6 @@ function catalog() {
 		} else {
 			$(this).parent().find('.collapsible__content').slideDown(600);
 			$(this).closest('.collapsible').addClass('active');
-		}
-	});
-
-	// Фильтры открыть
-	$('.filters__open').on('click', function(event){
-		event.preventDefault();
-		if ($(this).parent().parent().hasClass('opened')) {
-			$(this).removeClass('opened');
-			$(this).parent().parent().removeClass('opened');
-			$('#filters').removeClass('opened');
-			$('#overlay').removeClass('opened');
-		} else {
-			$(this).addClass('opened');
-			$(this).parent().parent().addClass('opened');
-			$('#filters').addClass('opened');
-			$('#overlay').addClass('opened');
 		}
 	});
 }
@@ -72,7 +56,6 @@ function priceFilter() {
 			priceInputMax.val( ui.values[ 1 ] );
 			priceSubmitButtonBlock.css('display', 'flex');
 			priceInputsChangeWidthByChars();
-			console.log('page222')
 		}
 	});
 	// При изменении минимального значения цены
@@ -109,42 +92,20 @@ function priceFilter() {
 
 }
 
-// Функция слайдера для "Вы смотрели" на главной странице
-function viewed() {
-	/*var viewedContent = $('.viewed');
-	var viewedCount = viewedContent.find('.viewed__item').length;
-	if(viewedCount>3){ viewedContent.find('.viewed__buttons').show(); }
-	$('.viewed__buttons .showAll').on('click',function(){
-		if($(this).hasClass('active')){
-			$(this).removeClass('active').find('span').text("Показать все");
-			viewedContent.find('.viewed__item').removeClass('show');
-		}else{
-			$(this).addClass('active').find('span').text("Скрыть все");
-			viewedContent.find('.viewed__item').addClass('show');
-		}
-	});*/
-
-	$('.viewed .owl-carousel').owlCarousel({
-		items: 1,
-		margin: 0,
-		loop: false,
-		rewind: true,
-		lazyLoad: true,
-		nav: true,
-		navContainer: '.viewed .owl-nav',
-		navText: [ , ],
-		dots: true,
-		dotsContainer: '.viewed .owl-dots',
-		autoHeight: false,
-		autoHeightClass: 'owl-height',
-		autoplay: false,
-		autoplayHoverPause: true,
-		smartSpeed: 500,
-		mouseDrag: true,
-		touchDrag: true,
-		pullDrag: true,
-		responsiveClass: true,
-		responsiveRefreshRate: 100
+// Фильтры открыть
+function filtersOpen() {
+	$('.filters__open').on('click', function () {
+		$.fancybox.open({
+			src: '#filters',
+			type: 'inline',
+			smallBtn: true,
+			touch: false,
+			opts: {
+				afterShow: function (instance, current) {
+					console.info('done!');
+				}
+			}
+		});
 	});
 }
 
@@ -152,5 +113,6 @@ function viewed() {
 $(document).ready(function(){
 	catalog();
 	priceFilter();
-	viewed();
+	filtersOpen();
 });
+

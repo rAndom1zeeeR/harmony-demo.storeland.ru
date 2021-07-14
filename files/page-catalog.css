@@ -416,26 +416,30 @@
 	-webkit-justify-content: space-between;
 	justify-content: space-between;
 }
-
+@media all and (min-width: 1200px) {
+	#filters {
+		display: block !important;
+	}
+}
 @media all and (max-width: 1199.98px) {
 	#filters {
-		transform: translate(-100%, 0px);
-		transition: all 0.3s ease-in-out;
-		position: fixed;
-		left: 0;
-		top: 0;
-		width: 288px;
-		height: 100%;
-		background: #ffffff;
-		box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.09);
-		border: 0;
-		border-radius: 0;
-		overflow-x: auto;
-		z-index: 11;
+		padding: 0;
 	}
 
-	#filters.opened {
-		transform: translate(0px, 0px);
+	#filters .sidebar__title {
+		width: 100%;
+		padding: 1rem 2rem;
+		line-height: 1.75rem;
+		background-color: #ffbb3e;
+		color: #ffffff;
+		font-size: 1.125rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		border-radius: 1rem 1rem 0 0;
+	}
+
+	#filters .sidebar__content {
+		padding: 0 1rem 1rem 1rem;
 	}
 
 	.filters-by {
