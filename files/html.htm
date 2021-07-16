@@ -83,7 +83,7 @@
 	{% ENDIF %}
 	<!-- Страница: Товар -->
 	{% IF MOD_LNAME = goods %}
-	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}page-goods.css?design=THEMENAME" />
+	<link id="page-goods-css" rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}page-goods.css?design=THEMENAME" />
 	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}page-orderfast.css?design=THEMENAME" />
 	<link id="page-orderfast-css"
 	      rel="stylesheet"
@@ -1881,7 +1881,7 @@
 		</section>
 		
 		<!-- Вы смотрели -->
-		{% IFNOT recently_viewed_goods_empty %}
+		{% IFNOT recently_viewed_goods_empty && MOD_LNAME = catalog || MOD_LNAME = goods %}
 		<section id="viewed">
 			<div class="container">
 					<div class="block__nav">
@@ -3108,13 +3108,79 @@
 			</div>
 		</footer>
 		
-		<!-- Модальные окна -->
-		<noindex>
+		<!-- Навигация -->
+		<div id="navbar">
+			
+			<!-- Корзина -->
+			<a class="navbar__block {% IF CART_COUNT_TOTAL > 0 %}hasItems{% ENDIF %}"
+			   href="{CART_URL}"
+		     data-open="cart"
+		     data-fancybox
+		     data-src="#fancybox__cart"
+			>
+				<div class="navbar__icon">
+					<i class="icon-cart"></i>
+				</div>
+				<div class="navbar__content">
+					<div class="navbar__title">
+						<span class="price__now cartSumNow {CURRENCY_CHAR_CODE}">{CART_SUM_NOW | money_format}</span>
+					</div>
+					<div class="navbar__subtitle">
+						<span class="cart__count" data-count="{CART_COUNT_TOTAL}">{CART_COUNT_TOTAL}</span>
+						<span>товар{CART_COUNT_TOTAL | gen_word_end("","а","ов")}</span>
+					</div>
+				</div>
+			</a>
+			
+			<!-- Сравнение -->
+			<a class="navbar__block {% IF COMPARE_GOODS_COUNT > 0 %}hasItems{% ENDIF %}"
+			   href="{COMPARE_URL}"
+		     data-open="compare"
+		     data-fancybox
+		     data-src="#fancybox__compare"
+			>
+				<div class="navbar__icon">
+					<i class="icon-compare"></i>
+				</div>
+				<div class="navbar__content">
+					<div class="navbar__title">Сравнение</div>
+					<div class="navbar__subtitle">
+						<span class="compare__count" data-count="{COMPARE_GOODS_COUNT}">{COMPARE_GOODS_COUNT}</span>
+						<span>товар{COMPARE_GOODS_COUNT | gen_word_end("","а","ов")}</span>
+					</div>
+				</div>
+			</a>
+			
+			<!-- Избранное -->
+			<a class="navbar__block"
+			   href="{FAVORITES_URL}"
+		     data-open="favorites"
+		     data-fancybox
+		     data-src="#fancybox__favorites"
+			>
+				<div class="navbar__icon">
+					<i class="icon-favorites"></i>
+				</div>
+				<div class="navbar__content">
+					<div class="navbar__title">Избранное</div>
+					<div class="navbar__subtitle">
+						<span class="favorites__count" data-count="{FAVORITES_GOODS_COUNT}">{FAVORITES_GOODS_COUNT}</span>
+						<span>товар{FAVORITES_GOODS_COUNT | gen_word_end("","а","ов")}</span>
+					</div>
+				</div>
+			</a>
 			
 			<!-- Наверх -->
-			<div id="toTop" class="toTop">
-				<i class="icon-arrow_up"></i>
+			<div class="navbar__block toTop" id="toTop">
+				<div class="navbar__icon">
+					<i class="icon-arrow_up"></i>
+				</div>
 			</div>
+			
+		</div>
+		
+		<!-- Модальные окна -->
+		<noindex>
 			
 			<!-- Каталог -->
 			<div id="fancybox__catalog"
@@ -3694,7 +3760,7 @@
 {% ENDIF %}
 <!-- Страница: Товар -->
 {% IF MOD_LNAME = goods %}
-<script defer type="text/javascript" src="{ASSETS_JS_PATH}page-goods.js?design=THEMENAME"></script>
+<script id="page-goods-js" defer type="text/javascript" src="{ASSETS_JS_PATH}page-goods.js?design=THEMENAME"></script>
 <script defer type="text/javascript" src="{ASSETS_JS_PATH}jquery-star-rating.js?design=THEMENAME"></script>
 <script defer type="text/javascript" src="{ASSETS_JS_PATH}air-datepicker.js?design=THEMENAME"></script>
 <script defer type="text/javascript" src="{ASSETS_JS_PATH}page-orderfast.js?design=THEMENAME"></script>
