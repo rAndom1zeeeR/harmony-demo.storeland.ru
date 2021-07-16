@@ -381,7 +381,7 @@
 }
 
 #pdt__sales .product__shop {
-	width: calc(100% - 18rem - 6.25rem);
+	width: calc(100% - 16.25rem - 6rem);
 	padding: 0 2rem;
 	text-align: left;
 }
