@@ -50,51 +50,6 @@ function pdtSlider() {
 		responsiveRefreshRate: 100
 	});
 
-	// Функция вертикального слайдера для Распродажи
-	// Навигация след слайда
-	$('.product__thumblist-nav--bottom').on('click', function (){
-		var cur = parseInt($('.product__thumblist-items').attr('data-index'));
-		var next = cur + 1;
-		var prev = cur - 1;
-		var length = $('.product__thumblist-items').attr('data-length')
-		// Если последний элемент
-		if(next > length){
-			next = 1;
-			prev = length - 1
-		}
-		$('.product__thumblist-item[data-index='+ length +']').removeClass('show')
-		$('.product__thumblist-item[data-index='+ prev +']').removeClass('show')
-		$('.product__thumblist-item[data-index='+ cur +']').addClass('show')
-		$('.product__thumblist-item[data-index='+ next +']').addClass('show')
-		$('.product__thumblist-items').attr('data-index', next);
-	});
-	// Навигация пред слайда
-	$('.product__thumblist-nav--top').one('click', function (){
-		var cur = parseInt($('.product__thumblist-items').attr('data-index') - 1);
-		$('.product__thumblist-items').attr('data-index', cur);
-	});
-	// Навигация пред слайда
-	$('.product__thumblist-nav--top').on('click', function (){
-		var cur = parseInt($('.product__thumblist-items').attr('data-index'));
-		var next = cur - 1;
-		var prev = cur + 1;
-		var length = $('.product__thumblist-items').attr('data-length')
-		console.log('cur 2', cur)
-		// Если первый элемент
-		if(cur == 1){
-			next = length;
-			prev = 2
-		}
-		if(cur == length){
-			next = length - 1;
-			prev = 1
-		}
-		$('.product__thumblist-item[data-index='+ prev +']').removeClass('show')
-		$('.product__thumblist-item[data-index='+ cur +']').addClass('show')
-		$('.product__thumblist-item[data-index='+ next +']').addClass('show')
-		$('.product__thumblist-items').attr('data-index', next);
-	})
-
 	// Функция слайдера для "Лидеры продаж" на главной странице
 	$('#pdt__best .owl-carousel').owlCarousel({
 		items: 4,
@@ -242,6 +197,7 @@ function pdtSlider() {
 			1200:{items:3}
 		}
 	});
+
 }
 
 // Слайдер для главной страницы
@@ -301,10 +257,73 @@ function newsCarousel() {
 		});
 }
 
+function verticalCarousel() {
+	$('#pdt__sales .product__item').each(function (){
+		var t = $(this);
+		var items = t.find('.product__thumblist-items')
+		var item = t.find('.product__thumblist-item')
+
+		// Атрибуты по умолчанию
+		items.attr('data-prev', '1')
+		items.attr('data-cur', '2')
+		items.attr('data-next', '3')
+		items.attr('data-length', item.length)
+
+		// Следующий
+		t.find('.product__thumblist-nav--bottom').on('click', function (){
+			var cur = parseInt(items.attr('data-cur'));
+			var next = cur + 1;
+			var prev = cur - 1;
+			// Если След слайд последний то показываем первый
+			if(next > item.length) {
+				next = 1;
+			}
+			// Если Пред. первый то показываем последний
+			if(prev < 1) {
+				prev = item.length;
+			}
+			// Обновляем атрибуты
+			items.attr('data-prev', prev);
+			items.attr('data-cur', next);
+			items.attr('data-next', cur);
+			// Добавляем класс видимости
+			item.removeClass('show')
+			items.find('.product__thumblist-item[data-index="'+ prev +'"]').removeClass('show');
+			items.find('.product__thumblist-item[data-index="'+ cur +'"]').addClass('show');
+			items.find('.product__thumblist-item[data-index="'+ next +'"]').addClass('show');
+		});
+
+		// Предыдущий
+		t.find('.product__thumblist-nav--top').on('click', function (){
+			var cur = parseInt(items.attr('data-prev'));
+			var next = cur + 1;
+			var prev = cur - 1;
+			// Если След слайд последний то показываем первый
+			if(next > item.length) {
+				next = 1;
+			}
+			// Если Пред. первый то показываем последний
+			if(prev < 1) {
+				prev = item.length;
+			}
+			// Обновляем атрибуты
+			items.attr('data-prev', prev);
+			items.attr('data-cur', cur);
+			items.attr('data-next', next);
+			// Добавляем класс видимости
+			item.removeClass('show')
+			items.find('.product__thumblist-item[data-index="'+ prev +'"]').addClass('show');
+			items.find('.product__thumblist-item[data-index="'+ cur +'"]').addClass('show');
+			items.find('.product__thumblist-item[data-index="'+ next +'"]').removeClass('show');
+		});
+	})
+}
+
 // Загрузка основных функций шаблона
 $(document).ready(function(){
 	counterDate();
 	slideShow();
 	newsCarousel();
 	pdtSlider();
+	verticalCarousel();
 });

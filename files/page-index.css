@@ -359,8 +359,13 @@
 	background-size: cover;
 }
 
+#pdt__sales .owl-item {
+	overflow: hidden;
+}
+
 #pdt__sales .product__item {
 	margin: 0;
+	padding-top: .5rem;
 	height: 100%;
 }
 
@@ -372,10 +377,11 @@
 
 #pdt__sales .product__image {
 	margin: 0;
+	width: 16.25rem;
 }
 
 #pdt__sales .product__shop {
-	width: calc(100% - 16.25rem - 6.25rem);
+	width: calc(100% - 18rem - 6.25rem);
 	padding: 0 2rem;
 	text-align: left;
 }
@@ -519,16 +525,20 @@
 
 /* Навигация в распродаже доп. изображений */
 .product__thumblist {
-	width: 6.25rem;
+	width: 6rem;
+	height: 16.25rem;
 }
 
 .product__thumblist-items {
-	margin: 1rem 0;
+	height: 13rem;
+	margin: .75rem 0;
+	overflow: hidden;
 }
 
 .product__thumblist-item {
-	width: 6.25rem;
-	height: 6.25rem;
+	margin-bottom: 1rem;
+	width: 6rem;
+	height: 6rem;
 	border: 1px solid #d2d9cd;
 	border-radius: 1.5rem;
 	display: none;
@@ -541,10 +551,6 @@
 	display: flex;
 }
 
-.product__thumblist-item + .product__thumblist-item {
-	margin-top: 1rem;
-}
-
 .product__thumblist-item:hover {
 	border-color: #6aa344;
 }
@@ -555,6 +561,7 @@
 
 .product__thumblist-nav {
 	text-align: center;
+	line-height: 1;
 }
 
 .product__thumblist-nav:hover {

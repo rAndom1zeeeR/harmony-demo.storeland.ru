@@ -1199,10 +1199,7 @@
 									</div>
 									
 									<!-- Список изображений -->
-									<div class="product__thumblist-items"
-									     data-index="2"
-									     data-index-back="1"
-									     data-length="{% FOR images %}{% IF index_page_sale_goods.images.index > 1 %}{% ENDIF %}{index_page_sale_goods.images.length}{% ENDFOR %}">
+									<div class="product__thumblist-items">
 										{% FOR images %}
 										<a class="product__thumblist-item {% IF index_page_sale_goods.images.index < 3 %}show{% ENDIF %}"
 										   href="{index_page_sale_goods.images.LARGE}"
