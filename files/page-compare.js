@@ -3,7 +3,7 @@ function compare() {
 	var owlCompare = $('.CompareGoodsTableTbody .owl-carousel');
 	owlCompare.owlCarousel({
 		items: 4,
-		margin: 15,
+		margin: 16,
 		loop: false,
 		rewind: false,
 		lazyLoad: true,
@@ -47,7 +47,7 @@ function compare() {
 		$('.CompareGoodsTableTbody .owl-carousel').trigger('next.owl.carousel');
 	});
 	// Сравнение товаров. Фильтр в верхней навигации. Отображение всех и различающихся характеристик товара
-	$('.CompareGoods__switch').click(function(){
+	$('.CompareGoods__switch').on('click', function(){
 		$(this).toggleClass('switch-on');
 		if ($(this).hasClass('switch-on')) {
 			$(this).trigger('on.switch');

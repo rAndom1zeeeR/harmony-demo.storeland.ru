@@ -272,7 +272,7 @@ $(function(){
 
 // Валидаторы для телефона в "Подписаться" в подвале
 function validPhoneSubscribe(){
-  var tel = $('.subscribe').find('.form__phone');
+  var tel = $('#subscribe').find('.form__phone');
   var check = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{5,10}$/.test(tel.val());
   if(check == true && check != ''){
     tel.removeClass('error');
@@ -289,7 +289,7 @@ function validPhoneSubscribe(){
 }
 // Подписаться. Валидатор почты в "Подписаться"
 function validEmailSubscribe(){
-  var email = $('.subscribe').find('.form__email');
+  var email = $('#subscribe').find('.form__email');
   var check = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email.val());
   if(check == true && check != ''){
     email.removeClass('error');
@@ -311,7 +311,7 @@ function validSubmitSubscribe(){
 }
 // Проверка отправки формы
 $(function(){
-  $('.subscribe .form__callback').submit(validSubmitSubscribe);
+  $('#subscribe .form__callback').submit(validSubmitSubscribe);
 });
 
 

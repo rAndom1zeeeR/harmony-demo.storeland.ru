@@ -10,7 +10,6 @@ function quickViewMod() {
 				$(this).prepend(
 			'<div class="modal__title block__title">' +
 								'<div class="title">Выбор модификации</div>' +
-								'<div class="modal__close"><i class="icon-close"></i></div>' +
 							'</div>'
 				);
 			});

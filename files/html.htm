@@ -2658,7 +2658,7 @@
 				
 				<!-- Заголовок -->
 				<div class="block__title block__nav">
-					<a href="#" data-content="{% IFNOT news_list_all_empty %}news_list_all{% ELSE %}news_list_shop{% ENDIF %}">
+					<a href="{NEWS_URL}" data-content="{% IFNOT news_list_all_empty %}news_list_all{% ELSE %}news_list_shop{% ENDIF %}">
 						<h2 class="title">Новости</h2>
 					</a>
 					<div class="owl-nav" data-content="{% IFNOT news_list_all_empty %}news_list_all{% ELSE %}news_list_shop{% ENDIF %}"></div>
@@ -3123,12 +3123,18 @@
 				</div>
 				<div class="navbar__content">
 					<div class="navbar__title">
+						{% IF cart_count_empty %}
+						<div class="navbar__title">Корзина</div>
+						{% ELSE %}
 						<span class="price__now cartSumNow {CURRENCY_CHAR_CODE}">{CART_SUM_NOW | money_format}</span>
+						{% ENDIF %}
 					</div>
+					{% IFNOT cart_count_empty %}
 					<div class="navbar__subtitle">
 						<span class="cart__count" data-count="{CART_COUNT_TOTAL}">{CART_COUNT_TOTAL}</span>
 						<span>товар{CART_COUNT_TOTAL | gen_word_end("","а","ов")}</span>
 					</div>
+					{% ENDIF %}
 				</div>
 			</a>
 			
@@ -3152,7 +3158,7 @@
 			</a>
 			
 			<!-- Избранное -->
-			<a class="navbar__block"
+			<a class="navbar__block {% IF FAVORITES_GOODS_COUNT > 0 %}hasItems{% ENDIF %}"
 			   href="{FAVORITES_URL}"
 		     data-open="favorites"
 		     data-fancybox

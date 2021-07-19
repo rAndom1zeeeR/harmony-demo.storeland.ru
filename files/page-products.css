@@ -93,7 +93,7 @@
 
 .product__name {
 	margin-bottom: 1rem;
-	max-height: 4rem;
+	height: 4rem;
 	line-height: 1.325rem;
 	display: block;
 	overflow: hidden;
@@ -195,12 +195,13 @@
 	content: '\e91a';
 }
 
-.product__links .add-notify:after {
-	content: '\e918';
+.product__links .add-notify, .product__links .add-notify.added {
+	background-color: #db5c77;
+	border-color: #db5c77;
 }
 
-.product__links .add-notify {
-	background-color: #db5c77;
+.product__links .add-notify:after {
+	content: '\e918';
 }
 
 @media (min-width: 1200px) {

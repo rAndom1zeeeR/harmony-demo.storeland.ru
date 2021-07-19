@@ -37,7 +37,7 @@
 .noty__addto {background: #ffffff;display: flex;align-items: center;flex-wrap: wrap;}
 .noty__addto i {width: 6rem;height: 6rem;font-size: 3rem;border-radius: 100%;display: flex;align-items: center;justify-content: center;}
 .noty__addto a {font-weight: bold;}
-.noty__message {width: calc(100% - 6rem);padding-left: 1rem;}
+.noty__message {width: calc(100% - 6rem);padding: 1rem;}
 .noty_type__success a, .noty_type__success a:visited, .noty_type__success a:focus, .noty_type__success a:hover {color: inherit;}
 .noty_type__success.noty_has_progressbar .noty_progressbar {background-color: #6aa344;opacity: 1;}
 .noty_type__warning.noty_has_progressbar .noty_progressbar {background-color: #df5642;opacity: 1;}
