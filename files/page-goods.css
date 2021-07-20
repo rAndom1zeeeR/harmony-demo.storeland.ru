@@ -889,6 +889,7 @@
 .productViewMod .productView__name {
 	display: block;
 	padding-right: 1rem;
+	font-size: 1.5rem;
 }
 
 .productViewMod .productView__articles {

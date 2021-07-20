@@ -29,6 +29,10 @@
 	text-align: right;
 	position: relative;
 	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-items: flex-end;
 }
 
 .slider__button {
@@ -38,9 +42,16 @@
 .slider__title {
 	margin-top: 1rem;
 	color: #ffffff;
-	font-size: 2rem;
+	font-size: 2.25rem;
 	font-weight: bold;
 	text-transform: uppercase;
+	transition: all 0.3s ease;
+	position: relative;
+	transform: scale(0.9);
+}
+
+.slider__title:hover {
+	transform: scale(1.1);
 }
 
 .slider__subtitle {
@@ -80,6 +91,12 @@
 .slider__banner .slider__title {
 	font-size: 1.25rem;
 	text-transform: none;
+	transition: all 0.3s ease;
+	transform: scale(0.9);
+}
+
+.slider__banner .slider__title:hover {
+	transform: scale(1.1);
 }
 
 .slider__banner .slider__button {
@@ -90,8 +107,8 @@
 
 /* Слайдер. Навигация */
 #slideshow .owl-dots {
-	bottom: 2.5rem;
-	padding: .5rem 1rem;
+	bottom: 1rem;
+	padding: .3125rem .75rem;
 	background-color: #ffffff;
 	border-radius: 1.5rem;
 	display: inline-block;
@@ -199,10 +216,6 @@
 	.slider__subtitle {
 		font-size: .875rem;
 	}
-
-	#slideshow .owl-dots {
-		bottom: 2rem;
-	}
 }
 
 @media (max-width: 374.98px) {
@@ -235,7 +248,7 @@
 }
 
 .popular__item:hover .popular__title {
-	font-size: 1.5rem;
+	transform: scale(1.2);
 }
 
 .popular__image {
@@ -373,6 +386,7 @@
 	padding: 1.25rem;
 	display: flex;
 	flex-wrap: wrap;
+	height: auto;
 }
 
 #pdt__sales .product__image {
@@ -388,7 +402,7 @@
 
 #pdt__sales .product__price-addto {
 	max-width: 10rem;
-	padding: 0 2rem;
+	padding: .5rem 2rem;
 }
 
 #pdt__sales .product__inner {
@@ -454,18 +468,10 @@
 }
 
 @media (max-width: 991.98px) {
-/*	#pdt__sales .product__shop {
-		width: calc(100% - 13rem);
-		padding: 0 0 0 1rem;
+	#pdt__sales .product__item form {
+		flex-direction: column;
 	}
 
-	#pdt__sales .product__price {
-		height: auto;
-	}
-
-	#pdt__sales .product__price-addto {
-		padding: 1rem 2rem;
-	}*/
 	#pdt__sales .product__image {
 		width: 100%;
 		text-align: center;
@@ -478,9 +484,6 @@
 
 	.product__counter {
 		max-width: 100%;
-	}
-	#pdt__sales .owl-carousel .product__image .product__img {
-		height: auto;
 	}
 }
 
@@ -503,9 +506,6 @@
 
 	#pdt__sales .product__item form {
 		padding-top: 6rem;
-	}
-
-	#pdt__sales .product__item form {
 		border: 0;
 	}
 

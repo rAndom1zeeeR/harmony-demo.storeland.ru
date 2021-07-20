@@ -452,8 +452,8 @@ function removeFromCart(e){
       success: function(d){
         var newCount = oldCount - qty;
         $('.cart__count').attr('data-count', newCount).text(newCount);
-        $('.addto__cart .cartSumNow').html($(d).find('.cartSumNow').html());
-        $('header .cartSumNow').html($(d).find('.cartSumNow').html());
+        $('.cartSumNow').html($(d).find('.cartSumNow').html());
+        $('.cart__word').html($(d).find('.cart__word').html());
         var flag = 0;
         if(newCount != 0){
           $('.addto__cart .addto__item').each(function(){
@@ -597,6 +597,12 @@ function openMenu() {
     });
   }
   catalogItemsMore();
+
+  // Имитация клика по каталогу в меню
+  $('.mainnav__catalog').on('click', function (event){
+    event.preventDefault();
+    $('.catalog__icon').click();
+  });
 }
 
 // Дополнительные пункты меню в шапке Перенос пунктов меню
@@ -659,7 +665,7 @@ function pdtCatalog() {
     dots: false,
     autoHeight: false,
     autoHeightClass: 'owl-height',
-    autoplay: false,
+    autoplay: true,
     autoplayHoverPause: true,
     smartSpeed: 500,
     mouseDrag: true,

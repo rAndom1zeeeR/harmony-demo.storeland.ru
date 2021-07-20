@@ -309,7 +309,7 @@
 								{% FOR header %}
 									{% FOR links %}
 									<li>
-										<a class="mainnav__link {% IF menu.header.links.SELECTED %}active{%ENDIF%}"
+										<a class="mainnav__link {% IF menu.header.links.SELECTED %}active{%ENDIF%} {% IF menu.header.links.NAME = Каталог %}mainnav__catalog{%ENDIF%}"
 										   href="{menu.header.links.URL}"
 										   title="{% IF menu.header.links.TITLE %}{menu.header.links.TITLE}{% ELSE%}{menu.header.links.NAME}{% ENDIF %}"
 										   itemprop="url"
@@ -412,7 +412,7 @@
 								<span class="price__now cartSumNow {CURRENCY_CHAR_CODE}">{CART_SUM_NOW | money_format}</span>
 								<span>
 									<span class="cart__count" data-count="{CART_COUNT_TOTAL}">{CART_COUNT_TOTAL}</span>
-									<span>товар{CART_COUNT_TOTAL | gen_word_end("","а","ов")}</span>
+									<span class="cart__word">товар{CART_COUNT_TOTAL | gen_word_end("","а","ов")}</span>
 								</span>
 							</a>
 						</div>
@@ -425,7 +425,7 @@
 		</header>
 		
 		<!-- Категории на главной -->
-		<div id="catalog">
+		<section id="catalog">
 			<div class="container">
 				<div class="catalog__list owl-carousel">
 					{% FOR catalog_full %}
@@ -448,7 +448,7 @@
 					{% ENDFOR %}
 				</div>
 			</div>
-		</div>
+		</section>
 		
 		<!-- Главная страница -->
 		{% IF index_page %}
@@ -3112,7 +3112,7 @@
 		<div id="navbar">
 			
 			<!-- Корзина -->
-			<a class="navbar__block {% IF CART_COUNT_TOTAL > 0 %}hasItems{% ENDIF %}"
+			<a class="navbar__block cart {% IF CART_COUNT_TOTAL > 0 %}hasItems{% ENDIF %}"
 			   href="{CART_URL}"
 		     data-open="cart"
 		     data-fancybox
@@ -3123,23 +3123,18 @@
 				</div>
 				<div class="navbar__content">
 					<div class="navbar__title">
-						{% IF cart_count_empty %}
-						<div class="navbar__title">Корзина</div>
-						{% ELSE %}
+						<div class="navbar__empty">Корзина</div>
 						<span class="price__now cartSumNow {CURRENCY_CHAR_CODE}">{CART_SUM_NOW | money_format}</span>
-						{% ENDIF %}
 					</div>
-					{% IFNOT cart_count_empty %}
 					<div class="navbar__subtitle">
 						<span class="cart__count" data-count="{CART_COUNT_TOTAL}">{CART_COUNT_TOTAL}</span>
-						<span>товар{CART_COUNT_TOTAL | gen_word_end("","а","ов")}</span>
+						<span class="cart__word">товар{CART_COUNT_TOTAL | gen_word_end("","а","ов")}</span>
 					</div>
-					{% ENDIF %}
 				</div>
 			</a>
 			
 			<!-- Сравнение -->
-			<a class="navbar__block {% IF COMPARE_GOODS_COUNT > 0 %}hasItems{% ENDIF %}"
+			<a class="navbar__block compare {% IF COMPARE_GOODS_COUNT > 0 %}hasItems{% ENDIF %}"
 			   href="{COMPARE_URL}"
 		     data-open="compare"
 		     data-fancybox
@@ -3152,13 +3147,13 @@
 					<div class="navbar__title">Сравнение</div>
 					<div class="navbar__subtitle">
 						<span class="compare__count" data-count="{COMPARE_GOODS_COUNT}">{COMPARE_GOODS_COUNT}</span>
-						<span>товар{COMPARE_GOODS_COUNT | gen_word_end("","а","ов")}</span>
+						<span class="compare__word">товар{COMPARE_GOODS_COUNT | gen_word_end("","а","ов")}</span>
 					</div>
 				</div>
 			</a>
 			
 			<!-- Избранное -->
-			<a class="navbar__block {% IF FAVORITES_GOODS_COUNT > 0 %}hasItems{% ENDIF %}"
+			<a class="navbar__block favorites {% IF FAVORITES_GOODS_COUNT > 0 %}hasItems{% ENDIF %}"
 			   href="{FAVORITES_URL}"
 		     data-open="favorites"
 		     data-fancybox
@@ -3171,7 +3166,7 @@
 					<div class="navbar__title">Избранное</div>
 					<div class="navbar__subtitle">
 						<span class="favorites__count" data-count="{FAVORITES_GOODS_COUNT}">{FAVORITES_GOODS_COUNT}</span>
-						<span>товар{FAVORITES_GOODS_COUNT | gen_word_end("","а","ов")}</span>
+						<span class="favorites__word">товар{FAVORITES_GOODS_COUNT | gen_word_end("","а","ов")}</span>
 					</div>
 				</div>
 			</a>
@@ -3255,9 +3250,10 @@
 								{% ENDIF %}
 								<!-- Цена -->
 								<div class="addto__price {CURRENCY_CHAR_CODE}">
-									<div class="price__now"
-									     data-price="{cart_items.GOODS_MOD_PRICE_NOW}">{cart_items.GOODS_MOD_PRICE_NOW | money_format}
-									</div>
+									<span class="price__qty">{cart_items.ORDER_LINE_QUANTITY} x </span>
+									<span class="price__now" data-price="{cart_items.GOODS_MOD_PRICE_NOW}">
+										{cart_items.GOODS_MOD_PRICE_NOW | money_format}
+									</span>
 									<!-- Удаление -->
 									<a class="addto__remove remove"
 									   href="{cart_items.ORDER_LINE_DELETE_URL}"
@@ -3271,7 +3267,10 @@
 						{% ENDFOR %}
 					</div>
 					<div class="addto__total {CURRENCY_CHAR_CODE}">
-						<span class="cartCountTotal">{CART_COUNT_TOTAL} товар{CART_COUNT_TOTAL | gen_word_end("","а","ов")} на сумму</span>
+						<span class="cartCountTotal">
+							<span class="cart__count">{CART_COUNT_TOTAL}</span>
+							<span class="cart__word">товар{CART_COUNT_TOTAL | gen_word_end("","а","ов")}</span>
+						</span>
 						<span class="price__now cartSumNow">{CART_SUM_NOW | money_format}</span>
 					</div>
 					{% ENDIF %}
@@ -3740,7 +3739,6 @@
 <!-- Скрипты: Сравнение -->
 {% IF MOD_LNAME = compare %}
 <script defer type="text/javascript" src="{ASSETS_JS_PATH}page-compare.js?design=THEMENAME"></script>
-<script defer type="text/javascript" src="{ASSETS_JS_PATH}page-products.js?design=THEMENAME"></script>
 {% ENDIF %}
 <!-- Скрипты: Главная  -->
 {% IF index_page %}
@@ -3752,17 +3750,11 @@
 <script defer type="text/javascript" src="{ASSETS_JS_PATH}jqueryui.js?design=THEMENAME"></script>
 {% ENDIF %}
 <!-- Скрипты: Товары -->
-{% IF index_page || MOD_LNAME = catalog || MOD_LNAME = discount || MOD_LNAME = search || MOD_LNAME = goods || MOD_LNAME = user && ACT=favorites %}
+{% IF index_page || MOD_LNAME = catalog || MOD_LNAME = discount || MOD_LNAME = search || MOD_LNAME = goods || MOD_LNAME = user && ACT=favorites || MOD_LNAME = compare %}
 <script defer type="text/javascript" src="{ASSETS_JS_PATH}page-products.js?design=THEMENAME"></script>
 <script defer type="text/javascript" src="{ASSETS_JS_PATH}page-goods-mod.js?design=Deluxe"></script>
-<script id="air-datepicker-js"
-        defer
-        type="text/javascript"
-        data-src="{ASSETS_JS_PATH}air-datepicker.js?design=THEMENAME"></script>
-<script id="page-orderfast-js"
-        defer
-        type="text/javascript"
-        data-src="{ASSETS_JS_PATH}page-orderfast.js?design=THEMENAME"></script>
+<script id="air-datepicker-js" defer type="text/javascript" data-src="{ASSETS_JS_PATH}air-datepicker.js?design=THEMENAME"></script>
+<script id="page-orderfast-js" defer type="text/javascript" data-src="{ASSETS_JS_PATH}page-orderfast.js?design=THEMENAME"></script>
 {% ENDIF %}
 <!-- Страница: Товар -->
 {% IF MOD_LNAME = goods %}
@@ -3771,10 +3763,7 @@
 <script defer type="text/javascript" src="{ASSETS_JS_PATH}air-datepicker.js?design=THEMENAME"></script>
 <script defer type="text/javascript" src="{ASSETS_JS_PATH}page-orderfast.js?design=THEMENAME"></script>
 {% ELSE %}
-<script id="page-goods-js"
-        defer
-        type="text/javascript"
-        data-src="{ASSETS_JS_PATH}page-goods.js?design=THEMENAME"></script>
+<script id="page-goods-js" defer type="text/javascript" data-src="{ASSETS_JS_PATH}page-goods.js?design=THEMENAME"></script>
 {% ENDIF %}
 <!-- Скрипты магазина-->
 <script defer type="text/javascript" src="{ASSETS_JS_PATH}main.js?design=THEMENAME"></script>

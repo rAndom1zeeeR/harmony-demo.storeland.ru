@@ -433,9 +433,9 @@ function addTo() {
 // Добавление/удаление товара на сравнение/Сохраненное через ajax
 	$('.add-favorites').off('click').click(function(){
 		// Объект ссылки, по которой кликнули
-		let
+		var
 				a = $(this)
-		addUrl = a.attr('data-action-add-url'),
+				addUrl = a.attr('data-action-add-url'),
 				delUrl = a.attr('data-action-delete-url'),
 				addTitle = a.attr('data-action-add-title'),
 				delTitle = a.attr('data-action-delete-title'),

@@ -1350,7 +1350,7 @@ label.error:after {
 
 /*** Общие блоки ***/
 section {
-	margin: 4rem 0;
+	margin: 3rem 0;
 }
 @media (max-width: 991.98px) {
 	section {
@@ -1904,12 +1904,18 @@ a.dropdown__label:hover {
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: row;
-	align-items: flex-start;
+	align-items: center;
 }
 
 .addto__price [class^="price__"] {
 	flex-grow: 1;
-	font-size: 18px;
+	font-size: 1.125rem;
+}
+
+.addto__price .price__qty {
+	font-size: .75rem;
+	flex-grow: 0;
+	margin-right: .5rem;
 }
 
 .addto__price .price__old {
@@ -2270,6 +2276,7 @@ header {
 
 .mainnav ul li a.active {
 	color: #6aa344;
+	font-weight: bold;
 }
 
 .mainnav .mainnav__list {
@@ -2480,6 +2487,10 @@ header {
 	display: none;
 }
 
+.page-cart [data-open="cart"] {
+	display: none;
+}
+
 .page-cart .mainnav {
 	width: calc(100% - 15rem - 3rem - 2rem);
 }
@@ -2550,7 +2561,7 @@ header {
 .search.opened {
 	position: absolute;
 	right: 0;
-	bottom: 2.25rem;
+	bottom: .75rem;
 	width: calc(100% - 16rem);
 	background-color: #ffffff;
 	border-radius: 1.5rem;
@@ -2657,7 +2668,7 @@ header {
 
 @media (max-width: 639.98px) {
 	.search.opened {
-		bottom: 1.5rem;
+		bottom: 0;
 		width: 100%;
 	}
 }
@@ -2768,7 +2779,6 @@ header {
 
 /*** Категории на главной ***/
 #catalog {
-	margin-top: 1.5rem;
 	background-color: #6aa344;
 	position: relative;
 }
@@ -2781,7 +2791,7 @@ header {
 
 #catalog .catalog__item {
 	border-left: 1px solid #ffffff;
-	padding: 1rem;
+	padding: .625rem 1rem;
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
@@ -3198,6 +3208,26 @@ footer .contacts__block {
 	display: inline-block;
 }
 
+.social-links a.vk {
+	color: #1e88e5;
+}
+
+.social-links a.youtube {
+	color: #f44336;
+}
+
+.social-links a.whatsup {
+	color: #2cb742;
+}
+
+.social-links a.instagram {
+	color: #f10002;
+}
+
+.social-links a.telegram {
+	color: #4e96d4;
+}
+
 .social-links a:hover {
 	color: #ffffff;
 	background-color: #6aa344;
@@ -3347,6 +3377,21 @@ footer .contacts__block {
 	display: block;
 }
 
+.cart .price__now {
+	display: none;
+}
+
+.cart.hasItems .price__now {
+	display: block;
+}
+
+.cart.hasItems .navbar__empty {
+	display: none;
+}
+
+.cart .navbar__subtitle {
+	display: none;
+}
 
 /******************************************************************************Адаптивная часть*******************************************************************************/
 .col-fx-12 {
