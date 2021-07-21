@@ -199,7 +199,7 @@ label.error:after {content: ' ';position: absolute;top: -7px;left: 0.875rem;widt
 /*** Предзагрузчик ***/
 .preloader {position: absolute;top: 0;left: 0;width: 100%;height: 100%;background: #ffffff;z-index: 40;display: flex;align-items: center;justify-content: center;}
 .preloader .loading {display: inline-block;width: 100px;height: 100px;}
-.preloader .loading:after {content: '';display: block;width: 100px;height: 100px;margin: 1px;border: 5px solid #ffffff;border-radius: 50%;border-color: #6aa344 transparent #6aa344 transparent;animation: loading 1.2s linear infinite;}
+.preloader .loading:after {content: '';display: block;width: 100px;height: 100px;margin: 1px;border-radius: 50%;border: 5px solid #ffffff;border-color: #6aa344 transparent #6aa344 transparent;animation: loading 1.2s linear infinite;}
 .preloader.small .loading {display: inline-block;width: 3rem;height: 3rem;}
 .preloader.small .loading:after {content: '';display: block;width: 50px;height: 50px;}
 .preloader.top {align-items: flex-start;}

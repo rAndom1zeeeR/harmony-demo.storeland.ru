@@ -1,6 +1,6 @@
 /* noty.css */
 .noty_layout_mixin, #noty_layout__top, #noty_layout__topLeft, #noty_layout__topCenter, #noty_layout__topRight, #noty_layout__bottom, #noty_layout__bottomLeft, #noty_layout__bottomCenter, #noty_layout__bottomRight, #noty_layout__center, #noty_layout__centerLeft, #noty_layout__centerRight {position: fixed;margin: 0;padding: 0;z-index: 9999999;-webkit-transform: translateZ(0) scale(1, 1);transform: translateZ(0) scale(1, 1);-webkit-backface-visibility: hidden;backface-visibility: hidden;-webkit-font-smoothing: subpixel-antialiased;filter: blur(0);-webkit-filter: blur(0);max-width: 90%;}
-#noty_layout__top {top: 0;left: 0%;width: 100%;max-width: 100%;}
+#noty_layout__top {top: 0;left: 0;width: 100%;max-width: 100%;}
 #noty_layout__topLeft {top: 20px;left: 20px;width: 325px;}
 #noty_layout__topCenter {top: 5%;left: 50%;width: 325px;-webkit-transform: translate(-webkit-calc(-50% - .5px)) translateZ(0) scale(1, 1);transform: translate(calc(-50% - .5px)) translateZ(0) scale(1, 1);}
 #noty_layout__topRight {top: 20px;right: 20px;width: 325px;}

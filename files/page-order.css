@@ -23,7 +23,7 @@
 .stages__list .stages:first-child {margin-top: 0;}
 .stages__list .stages:after {width: 90%;}
 }
-.orderStrageContent {width: 100%;display: -ms-flexbox;display: -webkit-flex;display: flex;-ms-flex-wrap: wrap;-webkit-flex-wrap: wrap;flex-wrap: wrap;-ms-flex-align: flex-start;-webkit-align-items: flex-start;-webkit-box-align: flex-start;align-items: flex-start;-webkit-justify-content: space-between;justify-content: space-between;}
+.orderStrageContent {width: 100%;display: -ms-flexbox;display: -webkit-flex;display: flex;flex-wrap: wrap;align-items: flex-start;justify-content: space-between;}
 .orderStrageContent__block {width: calc(50% - 1rem);}
 .orderStrageContent__block.full {width: 100%;}
 .orderStrageContent__buttons {width: 100%;}
