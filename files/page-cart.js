@@ -114,7 +114,7 @@ function startOrder(){
 				return false;
 			});
 			// Выключение кнопки оформления заказа если не все поля заполнены
-			$(".fastOrder__form [required]").blur(function(){
+			$(".fastOrder__form [required]").on('blur keyup keydown',function(){
 				if($('.fastOrder__form').valid()) {
 					$(".total__buttons button").removeClass('disabled');
 					$(".total__buttons button").attr('data-tooltip', 'Оформить заказ');

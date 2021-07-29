@@ -109,8 +109,9 @@
 	</script>
 </head>
 <body class="nojs
-			{% IF index_page %}index{% ENDIF %}
-			{% IF MOD_LNAME=user && ACT=favorites %}page-favorites{% ENDIF %}
+			{% IF index_page %}page-index{% ENDIF %}
+			{% IF MOD_LNAME= user && ACT=favorites %}page-favorites{% ENDIF %}
+			{% IF MOD_LNAME = compare %}page-compare{% ENDIF %}
 			{% IF MOD_LNAME = cart %}page-cart{% ENDIF %}
 			{% IF MOD_LNAME = user %}page-user{% ENDIF %}
 			{% IF MOD_LNAME = goods %}page-goods{% ENDIF %}
@@ -314,6 +315,7 @@
 										   itemprop="url"
 										>
 											<span itemprop="name">{menu.header.links.NAME}</span>
+											{% IF menu.header.links.NAME = Каталог %}<i class="icon-arrow_drop_down"></i>{%ENDIF%}
 										</a>
 									</li>
 									{% ENDFOR %}
@@ -461,7 +463,7 @@
 					<div class="slider owl-carousel">
 						
 						<!-- Слайд 1 -->
-						<a class="slider__item shadow lozad"
+						<a class="slider__item shadow shadow2 lozad"
 						   href="{CATALOG_URL}"
 						   data-background-image="{ASSETS_IMAGES_PATH}slide_1.jpg?design=THEMENAME"
 						   data-slide="1"
@@ -474,7 +476,7 @@
 						</a>
 						
 						<!-- Слайд 2 -->
-						<a class="slider__item shadow lozad"
+						<a class="slider__item shadow shadow2 lozad"
 						   href="{CATALOG_URL}"
 						   data-background-image="{ASSETS_IMAGES_PATH}slide_2.jpg?design=THEMENAME"
 						   data-slide="1"
@@ -487,7 +489,7 @@
 						</a>
 						
 						<!-- Слайд 3 -->
-						<a class="slider__item shadow lozad"
+						<a class="slider__item shadow shadow2 lozad"
 						   href="{CATALOG_URL}"
 						   data-background-image="{ASSETS_IMAGES_PATH}slide_3.jpg?design=THEMENAME"
 						   data-slide="1"
@@ -1890,7 +1892,7 @@
 						<div class="owl-nav"></div>
 					</div>
 					
-					<div class="products__grid owl-carousel">
+					<div class="products__grid products__grid-small owl-carousel">
 						{% FOR recently_viewed_goods %}
 						<div class="product__item
 						{% IF SETTINGS_GOODS_DONT_PUT_TO_CART_MORE_THAN_AVAILABLE && recently_viewed_goods.MAX_REST_VALUE=0 %}empty{% ENDIF %}

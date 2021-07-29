@@ -7,7 +7,7 @@
 .slider__content {height: 100%;padding: 2.5rem;text-align: right;position: relative;z-index: 2;display: flex;flex-direction: column;flex-wrap: wrap;align-items: flex-end;}
 .slider__button {text-transform: uppercase;}
 .slider__title {margin-top: 1rem;color: #ffffff;font-size: 2.25rem;font-weight: bold;text-transform: uppercase;transition: all 0.3s ease;position: relative;transform: scale(0.9);}
-.slider__title:hover {transform: scale(1.1);}
+.slider__title:hover {transform: scale(1.025);}
 .slider__subtitle {margin-top: .5rem;color: #ffffff;font-size: 1.25rem;}
 /* Слайдер. Баннеры */
 .slider__banners {width: 22.5rem;margin-left: 2rem;}
@@ -15,10 +15,10 @@
 .slider__banner + .slider__banner {margin-top: 2rem;}
 .slider__banner .slider__content {padding: 1.25rem;display: flex;flex-wrap: wrap;flex-direction: column;align-items: flex-end;justify-content: flex-end;}
 .slider__banner .slider__title {font-size: 1.25rem;text-transform: none;transition: all 0.3s ease;transform: scale(0.9);}
-.slider__banner .slider__title:hover {transform: scale(1.1);}
+.slider__banner .slider__title:hover {transform: scale(1.025);}
 .slider__banner .slider__button {padding: 0 1.5rem;font-size: .825rem;font-weight: 600;}
 /* Слайдер. Навигация */
-#slideshow .owl-dots {bottom: 1rem;padding: .3125rem .75rem;background-color: #ffffff;border-radius: 1.5rem;display: inline-block;position: absolute;}
+#slideshow .owl-dots {bottom: 1rem;padding: .5rem .75rem;background-color: #ffffff;border-radius: 1.5rem;position: absolute;}
 #slideshow .owl-nav {width: auto;background-color: transparent;position: unset;}
 #slideshow .owl-nav:before {display: none;}
 #slideshow .owl-nav [class^="owl-"] {color: #d2d9cd;background-color: #f0f7f5;width: 2rem;height: 3.75rem;top: calc(50% - 3.75rem / 2);position: absolute;}
@@ -96,6 +96,7 @@
 /*** Товары на главной ***/
 #pdt__sales .pdt__sales-bg {padding: 3rem;border-radius: 2rem;background-repeat: no-repeat;background-size: cover;}
 #pdt__sales .owl-item {overflow: hidden;}
+#pdt__sales .owl-carousel .owl-stage {display: block;}
 #pdt__sales .product__item {margin: 0;padding-top: .5rem;height: 100%;}
 #pdt__sales .product__item form {padding: 1.25rem;display: flex;flex-wrap: wrap;height: auto;}
 #pdt__sales .product__image {margin: 0;width: 16.25rem;}
@@ -106,6 +107,12 @@
 #pdt__sales .product__price {margin: 0 1rem 0 0;}
 #pdt__sales .product__name {margin-bottom: 1rem;font-weight: 600;height: auto;}
 #pdt__sales .product__desc {margin-bottom: 1rem;font-size: .875rem;line-height: 1.25rem;max-height: 5rem;overflow: hidden;}
+#pdt__sales .owl-nav {width: auto;background-color: transparent;position: unset;}
+#pdt__sales .owl-nav:before {display: none;}
+#pdt__sales .owl-nav [class^="owl-"] {color: #d2d9cd;background-color: #f0f7f5;border-radius: 100%;width: 3rem;height: 3rem;top: calc(50% - 1.5rem);position: absolute;}
+#pdt__sales .owl-nav [class^="owl-"]:hover {color: #6aa344;}
+#pdt__sales .owl-prev {left: -1.5rem;}
+#pdt__sales .owl-next {right: -1.5rem;}
 /* Счетчик акции */
 .product__counter {max-width: 22rem;margin-bottom: 1.5rem;padding: .75rem;font-weight: bold;color: #ffffff;background-color: #db5c77;border-radius: 1.5rem;display: flex;align-items: center;justify-content: center;}
 .product__counter label {text-transform: uppercase;}

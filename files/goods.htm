@@ -205,7 +205,7 @@
 			<!-- Имя товара -->
 			<h1 class="productView__name" itemprop="name">{GOODS_NAME}</h1>
 			<!-- Цена товара -->
-			<div class="productView__price {CURRENCY_CHAR_CODE} {% IF GOODS_MOD_MAX_DISCOUNT_ID %}hasCampaign{% ENDIF %}" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+			<div class="productView__price {CURRENCY_CHAR_CODE}" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
 				<!-- информация для поисковика о наличии товара -->
 				<meta itemprop="availability" content="{% IF GOODS_MOD_REST_VALUE>0 %}http://schema.org/InStock{% ELSE %}http://schema.org/OutOfStock{% ENDIF %}">
 				<!-- информация для поисковика о валюте товара -->
@@ -296,7 +296,7 @@
 							</div>
 						</div>
 						<!-- Добавление товара в корзину -->
-						<button type="submit" class="add-cart button" title="Положить &laquo;{GOODS_NAME}&raquo; в корзину">
+						<button type="submit" class="add-cart button button2" title="Положить &laquo;{GOODS_NAME}&raquo; в корзину">
 							<i class="icon-cart"></i>
 							<span>В корзину</span>
 						</button>
@@ -602,7 +602,6 @@
 	<!-- Сопутствующие товары -->
 	{% IFNOT related_goods_empty %}
 	<div class="related__goods">
-		
 		<div class="block__nav">
 			<a href="javascript:;">
 				<h2 class="title">Сопутствующие</h2>
@@ -610,7 +609,7 @@
 			<div class="owl-nav"></div>
 		</div>
 		
-		<div class="products__grid owl-carousel">
+		<div class="products__grid products__grid-small owl-carousel">
 			{% FOR related_goods %}
 			<div class="product__item
 						{% IF SETTINGS_GOODS_DONT_PUT_TO_CART_MORE_THAN_AVAILABLE && related_goods.MAX_REST_VALUE=0 %}empty{% ENDIF %}
@@ -900,10 +899,10 @@
 		</div>
 	</div>
 	{% ENDIF %}
+	
 	<!-- С этим товаром смотрят -->
 	{% IFNOT related_views_goods_empty %}
 	<div class="related__views">
-		
 		<div class="block__nav">
 			<a href="javascript:;">
 				<h2 class="title">Рекомендуем</h2>
@@ -911,7 +910,7 @@
 			<div class="owl-nav"></div>
 		</div>
 		
-		<div class="products__grid owl-carousel">
+		<div class="products__grid products__grid-small owl-carousel">
 			{% FOR related_views_goods %}
 			<div class="product__item
 						{% IF SETTINGS_GOODS_DONT_PUT_TO_CART_MORE_THAN_AVAILABLE && related_views_goods.MAX_REST_VALUE=0 %}empty{% ENDIF %}

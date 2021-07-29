@@ -15,6 +15,7 @@
 .cart__head a {color: #d2d9cd;display: flex;align-items: center;}
 .cart__head a:hover {color: #6aa344;}
 .cart__head a i {margin: 0 .5rem;}
+.cart__head a span {margin: 0 .125rem;}
 @media (max-width: 479.98px) {
 	.cart__head a span + span {	display: none;}
 }

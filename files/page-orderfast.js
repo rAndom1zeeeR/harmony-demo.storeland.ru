@@ -260,12 +260,12 @@ function orderScriptsSelect() {
 	});
 
 	// Выбор зоны доставки
-	$('.delivery__zoneSelect select').change(function(){
+	$('.delivery__zoneSelect select').on('change', function(){
 		var optValue = $(this).find('option:selected').attr('value');
 		$('.delivery__zones input[value="'+optValue+'"]').click();
 		var WithZone = $('.zone__radio:checked').attr('price');
 		$('.changeprice').text(WithZone);
-		$('.cartSumDelivery .num').text(startprice);
+		$('.cartSumDelivery .num').text(WithZone);
 	});
 
 	// Выбор оплаты

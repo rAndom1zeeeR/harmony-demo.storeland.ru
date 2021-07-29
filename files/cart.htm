@@ -11,14 +11,16 @@
 	      <div class="cart__head">
 		      <a href="{CATALOG_URL}" title="Вернуться к покупкам">
 			      <i class="icon-arrow_left"></i>
-			      <span>Вернуться</span><span> к покупкам</span>
+			      <span>Вернуться</span>
+			      <span>к покупкам</span>
 		      </a>
 		      <a class="cart__clear"
 		         href="{CART_TRUNCATE_URL}"
 		         title="Очистить корзину"
 		         onclick="return confirm('Вы действительно хотите удалить все товары из корзины?')"
 		      >
-			      <span>Очистить</span><span> корзину</span>
+			      <span>Очистить</span>
+			      <span>корзину</span>
 			      <i class="icon-close"></i>
 		      </a>
 	      </div>
@@ -50,7 +52,7 @@
           <div class="cart__actions">
 	          <div class="cart__price {CURRENCY_CHAR_CODE}">
 		          <div class="cartPriceTotal price__now">{cart_items.ORDER_LINE_PRICE_NOW | money_format}</div>
-		          {% IF cart_items.ORDER_LINE_PRICE_OLD > 0 %}<div class="price__old">{cart_items.ORDER_LINE_PRICE_OLD | money_format}</div>{% ENDIF %}
+		          {% IF cart_items.ORDER_LINE_PRICE_OLD > cart_items.ORDER_LINE_PRICE_NOW %}<div class="price__old">{cart_items.ORDER_LINE_PRICE_OLD | money_format}</div>{% ENDIF %}
 	          </div>
 	          <div class="cart__qty">
 	            <div class="qty">

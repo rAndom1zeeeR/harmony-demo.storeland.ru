@@ -34,7 +34,7 @@ function pdtSlider() {
 		rewind: true,
 		lazyLoad: true,
 		nav: true,
-		navContainer: '#pdt__sales .owl-nav',
+		navContainer: '',
 		navText: [ , ],
 		dots: false,
 		dotsContainer: '',
@@ -62,7 +62,7 @@ function pdtSlider() {
 		navText: [ , ],
 		dots: false,
 		dotsContainer: '',
-		autoHeight: false,
+		autoHeight: true,
 		autoHeightClass: 'owl-height',
 		autoplay: false,
 		autoplayHoverPause: true,
@@ -73,7 +73,7 @@ function pdtSlider() {
 		responsiveClass: true,
 		responsiveRefreshRate: 100,
 		responsive: {
-			0:{items:1, autoHeight: true},
+			0:{items:1},
 			540:{items:2},
 			768:{items:3},
 			1200:{items:4}
@@ -91,7 +91,7 @@ function pdtSlider() {
 		navContainer: '#pdt__new .owl-nav',
 		navText: [ , ],
 		dots: false,
-		autoHeight: false,
+		autoHeight: true,
 		autoHeightClass: 'owl-height',
 		autoplay: false,
 		autoplayHoverPause: true,
@@ -102,7 +102,7 @@ function pdtSlider() {
 		responsiveClass: true,
 		responsiveRefreshRate: 100,
 		responsive: {
-			0:{items:1, autoHeight: true},
+			0:{items:1},
 			540:{items:2},
 			768:{items:3},
 			1200:{items:4}
@@ -120,7 +120,7 @@ function pdtSlider() {
 		navContainer: '#pdt__sale .owl-nav',
 		navText: [ , ],
 		dots: false,
-		autoHeight: false,
+		autoHeight: true,
 		autoHeightClass: 'owl-height',
 		autoplay: false,
 		autoplayHoverPause: true,
@@ -131,7 +131,7 @@ function pdtSlider() {
 		responsiveClass: true,
 		responsiveRefreshRate: 100,
 		responsive: {
-			0:{items:1, autoHeight: true},
+			0:{items:1},
 			540:{items:2},
 			768:{items:3},
 			1200:{items:4}
@@ -149,7 +149,7 @@ function pdtSlider() {
 		navContainer: '',
 		navText: [ , ],
 		dots: true,
-		autoHeight: false,
+		autoHeight: true,
 		autoHeightClass: 'owl-height',
 		autoplay: false,
 		autoplayHoverPause: true,
@@ -177,7 +177,7 @@ function pdtSlider() {
 		navContainer: '',
 		navText: [ , ],
 		dots: true,
-		autoHeight: false,
+		autoHeight: true,
 		autoHeightClass: 'owl-height',
 		autoplay: false,
 		autoplayHoverPause: true,
@@ -189,7 +189,7 @@ function pdtSlider() {
 		responsiveRefreshRate: 100,
 		responsive: {
 			0:{items:1},
-			320:{items:1, autoHeight: true},
+			320:{items:1},
 			480:{items:1},
 			641:{items:2},
 			768:{items:3},
@@ -250,7 +250,7 @@ function newsCarousel() {
 			responsiveClass: true,
 			responsiveRefreshRate: 100,
 			responsive: {
-				0:{items:1, autoHeight: true},
+				0:{items:1},
 				540:{items:2},
 				768:{items:3}
 			}

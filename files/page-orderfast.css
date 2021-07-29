@@ -5,7 +5,6 @@
 .fastOrderForm [order] {margin-top: 1rem;width: 100%;padding: 1.5rem 2rem;background-color: #ffffff;border-radius: 1rem;}
 .fastOrderForm .form__list {display: flex;flex-wrap: wrap;}
 .fastOrderForm .form__fields {width: calc(33.333333% - 2rem);margin: 0 1rem 1rem 1rem;flex-grow: 1;}
-.fastOrderForm .form__fields:last-child {margin-bottom: 0;}
 .fastOrderForm .form__fields label {display: none;}
 .fastOrderForm label.error {display: none !important;}
 .fastOrderForm .form__wantRegister {width: 100% !important;margin-bottom: 0;}
@@ -17,9 +16,8 @@
 .fastOrderForm .deliveryConvenientDate:nth-child(2) {width: calc(50% - 1rem);margin-left: 1rem;margin-top: 0;}
 .delivery__selects {width: 100%;}
 .delivery__zoneSelect {margin-top: 1rem;}
-.delivery__descriptionBlock,
-.payment__description,
-.delivery__description {padding: 1rem 0 0 0;}
+.delivery__descriptionBlock, .payment__description {margin: 1rem 0 0 0;background-color: #f0f7f5;padding: 1rem;border-radius: 1rem;}
+.delivery__description {margin: 1rem 0 0 0;}
 .delivery__priceBox .delivery__price {margin-left: 1rem;font-weight: bold;}
 .fields__comment label {display: none;}
 .form__fields input {height: 3rem;}

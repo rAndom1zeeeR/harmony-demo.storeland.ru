@@ -7,7 +7,7 @@
 .CompareGoods__filter {display: -ms-flexbox;display: -webkit-flex;display: flex;line-height: 30px;}
 .CompareGoods__filter .button {padding: 0 1rem;}
 .CompareGoods__filter .hide {margin-left: 3px;}
-.CompareGoods__switch {background: #bfbfbf;display: inline-block;position: relative;width: 60px;height: 30px;border-radius: 1.5rem;z-index: 0;margin: 0 0.625rem 0 0;padding: 0;border: none;cursor: pointer;transition-duration: 300ms;}
+.CompareGoods__switch {background: #d2d9cd;display: inline-block;position: relative;width: 60px;height: 30px;border-radius: 1.5rem;z-index: 0;margin: 0 0.625rem 0 0;padding: 0;border: none;cursor: pointer;transition-duration: 300ms;}
 .CompareGoods__switch:after {background: #ffffff;content: '';position: absolute;top: 3px;left: 3px;height: 1.5rem;width: 1.5rem;border-radius: 17px;transition-duration: 300ms;z-index: 1;}
 .CompareGoods__switch.switch-on {background: #6aa344;}
 .CompareGoods__switch.switch-on:after {left: 33px;}
@@ -23,8 +23,8 @@
 .CompareGoodsTableTbody > div .cell input {display: none;}
 .CompareGoodsTableTbody .image a:not(.remove) {display: block;line-height: 130px;}
 .CompareGoodsTableTbody .owl-item .image img {display: inline-block;width: auto;max-width: 100%;}
-.CompareGoodsTableTbody .remove {color: #e0e0e0;background: #ffffff;border: 1px solid #d2d9cd;position: absolute;top: 0;right: 0;z-index: 2;width: 2rem;height: 2rem;}
-.CompareGoodsTableTbody .remove:hover {color: #ffffff;background: #231803;border-color: #231803;}
+.CompareGoodsTableTbody .remove {color: #d2d9cd;background: #ffffff;border: 1px solid #d2d9cd;position: absolute;top: 0;right: 0;z-index: 2;width: 2rem;height: 2rem;}
+.CompareGoodsTableTbody .remove:hover {color: #ffffff;background: #6aa344;border-color: #6aa344;}
 .CompareGoodsTableTbody .remove i {display: block;font-size: 1rem;line-height: 1.95rem;}
 .CompareGoodsTableTbody .CompareCheckbox {display: none;margin: 0 0.625rem 0 0;vertical-align: middle;}
 .CompareGoodsTableTbody .htmlDataBlock {text-align: left;overflow: hidden;}

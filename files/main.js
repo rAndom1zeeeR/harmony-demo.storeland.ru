@@ -874,7 +874,7 @@ function notyStart(text, type) {
 // Функция слайдера для "Вы смотрели" на главной странице
 function viewed() {
   $('#viewed .owl-carousel').owlCarousel({
-    items: 4,
+    items: 5,
     margin: 32,
     loop: false,
     rewind: true,
@@ -883,7 +883,7 @@ function viewed() {
     navContainer: '#viewed .owl-nav',
     navText: [ , ],
     dots: false,
-    autoHeight: false,
+    autoHeight: true,
     autoHeightClass: 'owl-height',
     autoplay: false,
     autoplayHoverPause: true,
@@ -894,10 +894,13 @@ function viewed() {
     responsiveClass: true,
     responsiveRefreshRate: 100,
     responsive: {
-      0:{items:1, autoHeight: true},
+      0:{items:1},
+      320:{items:1},
       540:{items:2},
+      640:{items:3},
       768:{items:3},
-      1200:{items:4}
+      992:{items:4},
+      1200:{items:5}
     }
   });
 }

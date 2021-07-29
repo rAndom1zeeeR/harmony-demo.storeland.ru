@@ -46,7 +46,7 @@ function pageGoods() {
 	});
 	// Сопутствующие товары Слайдер
 	$('.related__goods .owl-carousel').owlCarousel({
-		items: 4,
+		items: 5,
 		margin: 32,
 		loop: false,
 		rewind: true,
@@ -69,16 +69,16 @@ function pageGoods() {
 		responsive: {
 			0:{items:1},
 			320:{items:1},
-			481:{items:2},
-			641:{items:2},
+			540:{items:2},
+			640:{items:3},
 			768:{items:3},
-			992:{items:3},
-			1200:{items:4}
+			992:{items:4},
+			1200:{items:5}
 		}
 	});
 	// С этим товаром смотрят Слайдер
 	$('.related__views .owl-carousel').owlCarousel({
-		items: 4,
+		items: 5,
 		margin: 32,
 		loop: false,
 		rewind: true,
@@ -101,11 +101,11 @@ function pageGoods() {
 		responsive: {
 			0:{items:1},
 			320:{items:1},
-			481:{items:2},
-			641:{items:2},
+			540:{items:2},
+			640:{items:3},
 			768:{items:3},
-			992:{items:3},
-			1200:{items:4}
+			992:{items:4},
+			1200:{items:5}
 		}
 	});
 
@@ -228,6 +228,7 @@ function pageGoods() {
 // Изменение кол-ва в карточке
 function prodQty(){
 	$('.productView__qty .quantity').change(function(){
+		console.log('qty')
 		// Если вводят 0 то заменяем на 1
 		if($(this).val() < 1){
 			$(this).val(1);
