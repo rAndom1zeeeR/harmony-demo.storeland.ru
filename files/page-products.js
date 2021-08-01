@@ -8,9 +8,9 @@ function quickViewMod() {
 				// Удаляем все блоки, которые не отображаются в быстром просмотре.
 				$(this).children().not('.productView').remove();
 				$(this).prepend(
-			'<div class="modal__title block__title">' +
-								'<div class="title">Выбор модификации</div>' +
-							'</div>'
+					'<div class="modal__title block__title">' +
+						'<div class="title">Выбор модификации</div>' +
+					'</div>'
 				);
 			});
 			block.removeClass('productViewQuick');
@@ -95,6 +95,7 @@ function quickViewShowMod(href, atempt) {
 			goodsModification();
 			newModification();
 			quantity();
+			prodQty();
 		}
 	} else {
 		$.get(href, function(content) {
@@ -105,6 +106,7 @@ function quickViewShowMod(href, atempt) {
 			goodsModification();
 			newModification();
 			quantity();
+			prodQty();
 		});
 	}
 }
