@@ -102,7 +102,14 @@
 			{% IF cart_discount.DISCOUNT_IS_ENABLED %}
 			<div class="total__item total__discount">
 				<div class="total__label"><span>{cart_discount.DISCOUNT_NAME}:</span></div>
-				<div class="total__price"><span class="discount__value" data-value="{cart_discount.DISCOUNT_VALUE}">{cart_discount.DISCOUNT_VALUE}</span>{% IF cart_discount.IS_PERCENT %}<span class="percent">%</span>{% ELSE %}<span class="rub"> руб.</span>{% ENDIF %}</div>
+				<div {% IFNOT cart_discount.IS_PERCENT %}class="total__price"{% ENDIF %}>
+					<span class="discount__value" data-value="{cart_discount.DISCOUNT_VALUE}">{cart_discount.DISCOUNT_VALUE}</span>
+					{% IF cart_discount.IS_PERCENT %}
+					<span class="percent">%</span>
+					{% ELSE %}
+					<span class="rub">р</span>
+					{% ENDIF %}
+				</div>
 			</div>
 			{% ENDIF %}
 			{% ENDFOR %}

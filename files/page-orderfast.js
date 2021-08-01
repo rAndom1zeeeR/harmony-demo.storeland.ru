@@ -315,26 +315,29 @@ function coupons() {
 			url: url,
 			data: formData,
 			success: function(data) {
-				var oldQuickPrice = $('.cartSumTotal:eq(0) .num').text().toString().replace(/\s/g, '')
+				var cartSumTotal = $('.cartSumTotal:eq(0) .num').text().toString().replace(/\s/g, '')
+				// Получаем блок скидки
 				var discountBlock = $(data).closest('#myform').find('.discount');
 				var discountName = discountBlock.find('.name').text();
 				var discountPercent = discountBlock.find('.percent').text();
+				var discountPrice = discountBlock.find('.price').text();
+				// Получаем новую итоговую стоимость заказа
 				var totalBlock = $(data).closest('#myform').find('.total');
+				var totalSum = totalBlock.find('.total-sum').data('total-sum');
+				var deliveryPrice = parseInt($('.cartSumDelivery .num').text());
+				var newTotalSum = totalSum + deliveryPrice;
 				// Записываем название и размер скидки по купону
 				$('.total__coupons .total__label span').html(discountName);
 				$('.total__coupons .cartSumCoupons').html(discountPercent);
 				$('.total__discount').hide();
 				$('.total__coupons').show();
-				// Получаем новую итоговую стоимость заказа
-				var totalSum = totalBlock.find('.total-sum').data('total-sum');
-				var deliveryPrice = parseInt($('.cartSumDelivery .num').text());
-				var newTotalSum = totalSum + deliveryPrice;
-				if (totalSum > oldQuickPrice) {
+				if (newTotalSum >= cartSumTotal) {
 					couponInput.parent().addClass('error');
 					couponInput.parent().removeClass('active');
 					couponInput.val("").attr("placeholder", "Купон неверен");
 					$('.total__coupons').hide();
 					$('.total__discount').show();
+					$('.cartSumTotal .num').text(newTotalSum);
 				} else {
 					couponInput.parent().removeClass('error');
 					couponInput.parent().addClass('active');
@@ -359,12 +362,14 @@ function coupons() {
 		setTimeout(function(){
 			$('.total__coupons').hide();
 			$('.total__discount').show();
-			var cartSum = $('.cartSumDiscount .num').data('value');
-			$('.cartSumTotal .num').text(cartSum);
-			$('.cartSumTotal').attr('data-value', cartSum);
-			$('.cartSumCoupons').attr('data-value', cartSum);
-			$('.cartSumTotalHide').attr('data-value', cartSum);
-			$('.cartSumTotalHide .num').text(cartSum);
+			var cartSum = $('.cartSumDiscount').data('value');
+			var deliveryPrice = parseInt($('.cartSumDelivery .num').text());
+			var newTotalSum = cartSum + deliveryPrice;
+			$('.cartSumTotal .num').text(newTotalSum);
+			$('.cartSumTotal').attr('data-value', newTotalSum);
+			$('.cartSumCoupons').attr('data-value', newTotalSum);
+			$('.cartSumTotalHide').attr('data-value', newTotalSum);
+			$('.cartSumTotalHide .num').text(newTotalSum);
 			couponInput.parent().removeClass('error');
 			couponInput.parent().removeClass('active');
 			couponInput.val("").attr("placeholder", "Введите купон");
