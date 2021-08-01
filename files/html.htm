@@ -3706,16 +3706,16 @@
 <script type="text/javascript" src="{JAVASCRIPT_BUG_HUNTING_URL}"></script>
 {% ENDIF %}
 <!-- ВНИМАНИЕ! Если Вы удалите код ниже, то это повлияет на работу вашего сайта. Пожалуйста ничего не удаляйте без консультации у специалистов. -->
+{% IF FORM_NOTICE %}
 <script async type="text/javascript">
 	// Модальное окно уведомления при отправке сообщения
-	{% IF FORM_NOTICE %}
 	var type = '{% IF FORM_NOTICE_IS_GOOD %}success{% ELSE %}warning{% ENDIF %}';
 	var text = '<div class="noty__addto"><i class="icon-{% IF FORM_NOTICE_IS_GOOD %}check{% ELSE %}warning{% ENDIF %}"></i><div class="noty__message">{FORM_NOTICE | nl2br}</div></div>'
 	setTimeout(function () {
 		notyStart(text, type)
 	}, 1000);
-	{% ENDIF %}
 </script>
+{% ENDIF %}
 <!-- Слайдер. Карусель -->
 <link rel="preload"
       type="text/css"
