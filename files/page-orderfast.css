@@ -46,6 +46,7 @@
 	.fastOrderForm .form__fields {width: 100%;}
 	.fastOrderForm [order] {padding: 1rem;}
 	.fastOrder__login {padding: 1rem;}
+	.fastOrder__title {font-size: 1rem;}
 }
 
 /** Купоны **/

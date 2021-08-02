@@ -140,10 +140,10 @@ function goodsModRest() {
 	$('.goodsModRestValue').each(function(){
 		var value = $(this).data('value');
 		if (value > 10) {
-			$(this).html('В наличии много');
+			$(this).html('Много');
 			$(this).css('opacity', '1');
 		}else{
-			$(this).html('В наличии мало');
+			$(this).html('Мало');
 			$(this).css('opacity', '1');
 			$(this).parent().addClass('few');
 		}
