@@ -465,7 +465,7 @@ header {position: relative;}
 #addto {display: flex;flex-wrap: wrap;align-items: center;}
 .addto__block {margin: 0 1.25rem;}
 .addto__label {color: #d2d9cd;font-size: 1.5rem;line-height: 1;display: inline-block;position: relative;}
-.addto__label:hover {color: #6aa344;}
+.addto__label:hover, .hasItems .addto__label {color: #6aa344;}
 .addto__label [data-count] {font-size: .75rem;color: #ffffff;background-color: #d2d9cd;border: 2px solid #f0f7f5;border-radius: 50%;width: 1.5rem;height: 1.5rem;line-height: 1.25rem;top: -.5rem;right: -1.25rem;text-align: center;display: block;position: absolute;transition: all 0.3s ease;}
 .addto__label:hover [data-count] {background-color: #6aa344;}
 .hasItems .addto__label [data-count] {background-color: #ffbb3e;}

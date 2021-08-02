@@ -762,8 +762,6 @@ function quantity() {
 }
 
 
-
-
 // Загрузка основных функций шаблона
 $(document).ready(function(){
   userAgent();
