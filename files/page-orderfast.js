@@ -108,16 +108,16 @@ function orderScripts() {
 		var cartSumTotal = $('.cartSumTotal').data('value');
 		var zonePrice =  $('.zone__radio:checked').attr('price');
 		if(zonePrice > 0){
-			priceBlock.text(zonePrice);
-			$('.cartSumDelivery .num').text(zonePrice);
+			priceBlock.text(addSpaces(zonePrice));
+			$('.cartSumDelivery .num').text(addSpaces(zonePrice));
 		}else{
 			priceBlock.text(price);
-			$('.cartSumDelivery .num').text(price);
+			$('.cartSumDelivery .num').text(addSpaces(price));
 		}
 		// Обновление цены с учетом доставки
 		var cartSumTotalHide = $('.cartSumDiscount:eq(0) .num').text().toString().replace(/\s/g, '');
 		var newSum = parseInt(cartSumTotalHide) + parseInt(priceBlock.text());
-		$('.cartSumTotal .num').text(newSum);
+		$('.cartSumTotal .num').text(addSpaces(newSum));
 		// Скрытие необязательных полей при выборе самовывоза
 		if($(this).data('name') == 'Самовывоз'){
 			$('.fastOrder__form').addClass('pickup');
@@ -137,7 +137,7 @@ function orderScripts() {
 		var price = $(this).attr('price');
 		var priceBlock = $('.delivery__option[rel='+ val +']').find('.delivery__price').find('.num');
 		// Обновление цены
-		priceBlock.text(price);
+		priceBlock.text(addSpaces(price));
 		//
 		$('.delivery__radio').each(function(){
 			$(this).prop('checked',false);
@@ -155,8 +155,8 @@ function orderScripts() {
 		// Обновление цены с учетом доставки
 		var cartSumTotalHide = $('.cartSumTotalHide:eq(0) .num').text().toString().replace(/\s/g, '');
 		var newSum = parseInt(cartSumTotalHide) + parseInt(priceBlock.text());
-		$('.cartSumTotal .num').text(newSum);
-		$('.cartSumDelivery .num').text(price);
+		$('.cartSumTotal .num').text(addSpaces(newSum));
+		$('.cartSumDelivery .num').text(addSpaces(price));
 	});
 }
 
@@ -177,8 +177,8 @@ function orderScriptsSelect() {
 		}else{
 			startprice = WithoutZone;
 		}
-		$('.changeprice').text(startprice);
-		$('.cartSumDelivery .num').text(startprice);
+		$('.changeprice').text(addSpaces(startprice));
+		$('.cartSumDelivery .num').text(addSpaces(startprice));
 		$('.order__payment').hide();
 		$('.order__payment[rel="'+ selectedDelId +'"]').show();
 		var startInputId = $('.delivery__radio:checked').attr('value');
@@ -221,8 +221,8 @@ function orderScriptsSelect() {
 		}else{
 			startprice = WithoutZone;
 		}
-		$('.changeprice').text(startprice);
-		$('.cartSumDelivery .num').text(startprice);
+		$('.changeprice').text(addSpaces(startprice));
+		$('.cartSumDelivery .num').text(addSpaces(startprice));
 		$('.order__payment').hide();
 		$('.order__payment[rel="'+ selectedDelId +'"]').show();
 		var startInputId = $('.delivery__radio:checked').attr('value');
@@ -255,8 +255,8 @@ function orderScriptsSelect() {
 		var optValue = $(this).find('option:selected').attr('value');
 		$('.delivery__zones input[value="'+optValue+'"]').click();
 		var WithZone = $('.zone__radio:checked').attr('price');
-		$('.changeprice').text(WithZone);
-		$('.cartSumDelivery .num').text(startprice);
+		$('.changeprice').text(addSpaces(WithZone));
+		$('.cartSumDelivery .num').text(addSpaces(startprice));
 	});
 
 	// Выбор зоны доставки
@@ -264,8 +264,8 @@ function orderScriptsSelect() {
 		var optValue = $(this).find('option:selected').attr('value');
 		$('.delivery__zones input[value="'+optValue+'"]').click();
 		var WithZone = $('.zone__radio:checked').attr('price');
-		$('.changeprice').text(WithZone);
-		$('.cartSumDelivery .num').text(WithZone);
+		$('.changeprice').text(addSpaces(WithZone));
+		$('.cartSumDelivery .num').text(addSpaces(WithZone));
 	});
 
 	// Выбор оплаты
@@ -320,7 +320,6 @@ function coupons() {
 				var discountBlock = $(data).closest('#myform').find('.discount');
 				var discountName = discountBlock.find('.name').text();
 				var discountPercent = discountBlock.find('.percent').text();
-				var discountPrice = discountBlock.find('.price').text();
 				// Получаем новую итоговую стоимость заказа
 				var totalBlock = $(data).closest('#myform').find('.total');
 				var totalSum = totalBlock.find('.total-sum').data('total-sum');
@@ -331,24 +330,27 @@ function coupons() {
 				$('.total__coupons .cartSumCoupons').html(discountPercent);
 				$('.total__discount').hide();
 				$('.total__coupons').show();
-				if (newTotalSum >= cartSumTotal) {
+				if (newTotalSum > cartSumTotal) {
 					couponInput.parent().addClass('error');
 					couponInput.parent().removeClass('active');
 					couponInput.val("").attr("placeholder", "Купон неверен");
 					$('.total__coupons').hide();
 					$('.total__discount').show();
-					$('.cartSumTotal .num').text(newTotalSum);
+					$('.cartSumTotal .num').text(addSpaces(newTotalSum));
+				} else if (newTotalSum == cartSumTotal) {
+					couponInput.parent().removeClass('error');
+					couponInput.parent().addClass('active');
 				} else {
 					couponInput.parent().removeClass('error');
 					couponInput.parent().addClass('active');
 					$('.total__coupons').show();
 					// Обновляем значение итоговой стоимости
-					$('.cartSumTotal .num').text(newTotalSum);
+					$('.cartSumTotal .num').text(addSpaces(newTotalSum));
 					$('.cartSumTotal').attr('data-value', newTotalSum);
 					$('.cartSumCoupons').attr('data-value', newTotalSum);
 					$('.cartSumTotalHide').attr('data-value', newTotalSum);
-					$('.cartSumTotalHide .num').text(newTotalSum);
-					$('.cartSumDiscount .num').text(totalSum);
+					$('.cartSumTotalHide .num').text(addSpaces(newTotalSum));
+					$('.cartSumDiscount .num').text(addSpaces(totalSum));
 				}
 			},
 			error: function(data){
@@ -365,11 +367,11 @@ function coupons() {
 			var cartSum = $('.cartSumDiscount').data('value');
 			var deliveryPrice = parseInt($('.cartSumDelivery .num').text());
 			var newTotalSum = cartSum + deliveryPrice;
-			$('.cartSumTotal .num').text(newTotalSum);
+			$('.cartSumTotal .num').text(addSpaces(newTotalSum));
 			$('.cartSumTotal').attr('data-value', newTotalSum);
 			$('.cartSumCoupons').attr('data-value', newTotalSum);
 			$('.cartSumTotalHide').attr('data-value', newTotalSum);
-			$('.cartSumTotalHide .num').text(newTotalSum);
+			$('.cartSumTotalHide .num').text(addSpaces(newTotalSum));
 			couponInput.parent().removeClass('error');
 			couponInput.parent().removeClass('active');
 			couponInput.val("").attr("placeholder", "Введите купон");
