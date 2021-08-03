@@ -1,6 +1,6 @@
 <!-- Форма карточки товара -->
 <div class="productViewBlock" itemscope itemtype="https://schema.org/Product">
-	<div class="productView {% IF GOODS_MOD_REST_VALUE=0 %}empty{% ENDIF %}">
+	<div class="productView {% IF SETTINGS_GOODS_DONT_PUT_TO_CART_MORE_THAN_AVAILABLE && GOODS_MOD_REST_VALUE=0 %}empty{% ENDIF %}">
 		<!-- Изображение товара  {% IF GOODS_IMAGE_ID = goods_images.ID %}style="display: none;"{% ENDIF %} -->
 		<div class="productView__imageBox" data-id="{GOODS_IMAGE_ID}">
 			<div class="preloader">
@@ -235,18 +235,18 @@
 						<div class="goodsModificationsProperty">
 							<!-- Выдаем списки со свойствами для модификаций, чтобы определить какую модификацию товара хочет пользователь -->
 							{% FOR values %}
-							<!-- Если это первый элемент в списке -->
-							{% IF goods_modifications_properties.values.first %}
-							<label>{goods_modifications_properties.NAME}:</label>
-							<div class="selectBox">
-								<select name="form[properties][]" class="select">
-									{% ENDIF %}
-									<option value="{goods_modifications_properties.values.ID}" {% IF goods_modifications_properties.values.SELECTED %}selected="selected" {% ENDIF %}>{goods_modifications_properties.values.NAME}</option>
-									<!-- Если это последний элемент в списке -->
-									{% IF goods_modifications_properties.values.last %}
-								</select>
-							</div>
-							{% ENDIF %}
+								<!-- Если это первый элемент в списке -->
+								{% IF goods_modifications_properties.values.first %}
+								<label>{goods_modifications_properties.NAME}:</label>
+								<div class="selectBox">
+									<select name="form[properties][]" class="select">
+										{% ENDIF %}
+										<option value="{goods_modifications_properties.values.ID}" {% IF goods_modifications_properties.values.SELECTED %}selected="selected" {% ENDIF %}>{goods_modifications_properties.values.NAME}</option>
+										<!-- Если это последний элемент в списке -->
+										{% IF goods_modifications_properties.values.last %}
+									</select>
+								</div>
+								{% ENDIF %}
 							{% ENDFOR %}
 							{% FOR values %}
 							{% IF goods_modifications_properties.values.first %}
@@ -291,7 +291,17 @@
 						<div class="productView__qty">
 							<div class="qty">
 								<a href="javascript:void(0)" class="qty__minus unselectable" title="Уменьшить"><i class="icon-minus"></i></a>
-								<input type="text" name="form[goods_mod_quantity]" maxlength="4" value="1" min="1" max="{GOODS_MOD_REST_VALUE}" title="Количество" class="quantity" onkeypress="return keyPress(this, event);" onpaste="return false;" autocomplete="off" />
+								<input class="quantity" 
+									type="text" 
+									name="form[goods_mod_quantity]" 
+									maxlength="4" 
+									value="1" 
+									min="1" 
+									{% IF SETTINGS_GOODS_DONT_PUT_TO_CART_MORE_THAN_AVAILABLE %}max="{GOODS_MOD_REST_VALUE}"{% ENDIF %}
+									title="Количество" 												
+									onkeypress="return keyPress(this, event);" 
+									onpaste="return false;" 
+									autocomplete="off" />
 								<a href="javascript:void(0)" class="qty__plus unselectable" title="Увеличить"><i class="icon-plus"></i></a>
 							</div>
 						</div>

@@ -1,8 +1,3 @@
-// Добавляет пробел 1000 -> 1 000  /  10000 -> 10 000
-function addSpaces(nStr){
-	return nStr.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ')
-}
-
 // Крутит изображение при обновлении картинки защиты от роботов
 function RefreshImageAction(img,num,cnt) {
 	if(cnt>13) { return false; }
@@ -228,15 +223,22 @@ function pageGoods() {
 // Изменение кол-ва в карточке
 function prodQty(){
 	$('.productView__qty .quantity').change(function(){
-		console.log('qty')
+		var t = $(this);
+		// Количество
+		var val = parseInt(t.val());
 		// Если вводят 0 то заменяем на 1
-		if($(this).val() < 1){
-			$(this).val(1);
+		if(val < 1){ 
+			t.val(1);
+			val = 1;
+		}
+		// Проверка максимальныго остатка
+		var max = parseInt(t.attr('max'));
+		if(val > max){ 
+			t.val(max);
+			val = max;
 		}
 		// Обновление кол-ва для функций "Добавить"
 		$('.goodsDataMainModificationId').val($(this).val());
-		// Количество
-		var val = parseInt($(this).val());
 		// Цена товара без изменений
 		var price = parseInt($('.productView__price .price__now').attr('content'));
 		var newPrice = 0;

@@ -10,7 +10,7 @@
 #makeOrder {display: none;}
 .cartTable.disable #makeOrder {display: inline-block;}
 .cartTable {position: relative;display: flex;flex-wrap: wrap;align-items: flex-start;}
-.cartInner {width: calc(100% - 22.5rem);padding-right: 2rem;overflow: hidden;}
+.cartInner {width: calc(100% - 22.5rem);padding-right: 2rem;overflow: hidden;position: relative;}
 .cart__head {margin-bottom: 1rem;display: flex;flex-wrap: wrap;align-items: center;justify-content: space-between;}
 .cart__head a {color: #d2d9cd;display: flex;align-items: center;}
 .cart__head a:hover {color: #6aa344;}

@@ -501,11 +501,11 @@ header {position: relative;}
 
 /* Шапка. Меню */
 .mainnav {width: calc(100% - 15rem - 3rem - 2rem - 11rem);padding: 0 1rem;position: relative;}
-.mainnav ul {margin: 0;padding: 0;list-style: none;overflow: hidden;display: flex;flex-wrap: nowrap;align-items: center;}
+.mainnav ul {margin: 0;padding: 0;list-style: none;overflow: hidden;display: flex;flex-wrap: wrap;align-items: center;}
 .mainnav ul li {display: inline-block;}
 .mainnav ul li a {padding: .5rem .75rem;display: block;white-space: nowrap;}
 .mainnav ul li a.active {color: #6aa344;font-weight: bold;}
-.mainnav .mainnav__list {height: 3rem;}
+.mainnav .mainnav__list {height: 5rem;}
 .mainnav.opened .mainnav__list {height: auto;}
 .mainnav .overflowMenu {display: none;}
 .mainnav .overflowMenu.opened {display: inline-block;}

@@ -116,6 +116,12 @@ function userAgent(){
   }
 }
 
+// Добавляет пробел 1000 -> 1 000  /  10000 -> 10 000
+function addSpaces(nStr){
+  nStr = String(nStr)
+	return nStr.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ')
+}
+
 // Наверх
 function toTop() {
   $("#toTop").hide();
@@ -616,7 +622,8 @@ function mainnavHeader(){
       mainnav.find('.mainnav__list').append($(this));
     });
   }
-  var menuWidth = mainnav.width();
+  var menuHeight = 2;
+  var menuWidth = mainnav.width() * menuHeight;
   var menuCount = mainnav.find('.mainnav__list li').length + 1;
   var nextCheck = 0;
   for(var i=1; i < menuCount;  i++){
@@ -738,7 +745,7 @@ function keyPress(oToCheckField, oKeyEvent) {
 // Функция + - для товара
 function quantity() {
   //Regulator Up копки + в карточке товара при добавлении в корзину
-  $('.qty__plus').off('click').click(function(){
+  $('.qty__plus').off('click').on('click', function(){
     var quantity = $(this).parent().find('.quantity, .cartqty');
     var currentVal = parseInt(quantity.val());
     if (!isNaN(currentVal)){
@@ -749,7 +756,7 @@ function quantity() {
     return false;
   });
   //Regulator Down копки - в карточке товара при добавлении в корзину
-  $('.qty__minus').off('click').click(function(){
+  $('.qty__minus').off('click').on('click', function(){
     var quantity = $(this).parent().find('.quantity, .cartqty');
     var currentVal = parseInt(quantity.val());
     if (!isNaN(currentVal)){

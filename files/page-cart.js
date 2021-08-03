@@ -92,6 +92,7 @@ function startOrder(){
 			orderScripts();
 			orderScriptsSelect();
 			coupons();
+			preload();
 			// Стили для новых селектов
 			$(".form__phone").mask("+7 (999) 999-9999");
 			$("#sites_client_phone").mask("+7 (999) 999-9999");
@@ -105,7 +106,6 @@ function startOrder(){
 			});
 			// Валидация формы на странице оформления заказа
 			$(".total__buttons button, #makeOrder").on('click', function(){
-				console.log('start')
 				var form = $(".fastOrder__form");
 				form.validate({
 					errorPlacement: function(error, element) { }

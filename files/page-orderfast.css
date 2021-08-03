@@ -51,7 +51,7 @@
 
 /** Купоны **/
 .coupon__button {height: 3rem;top: 0;right: 0;position: absolute;display: flex;align-items: center;justify-content: center;transition: all 0.3s ease;}
-.coupon__reset {display: none;position: absolute;right: 11rem;line-height: 1;cursor: pointer;}
+.coupon__reset {display: none;color: #d2d9cd;position: absolute;right: 11rem;line-height: 1;cursor: pointer;}
 .coupon__reset.active {display: block;}
 .coupon__reset:after {content: "\e918";font-family: 'icomoon';}
 .coupon__order.error input {border-color: red;}
