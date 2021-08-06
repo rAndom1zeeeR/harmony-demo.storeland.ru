@@ -17,7 +17,7 @@
 .cart__head a i {margin: 0 .5rem;}
 .cart__head a span {margin: 0 .125rem;}
 @media (max-width: 479.98px) {
-	.cart__head a span + span {	display: none;}
+	.cart__head a span + span {display: none;}
 }
 .cart__item {margin-top: 2rem;padding: 1rem;border: 1px solid #d2d9cd;border-radius: 1rem;background-color: #ffffff;display: flex;flex-wrap: wrap;align-items: center;position: relative;}
 .cart__image {width: 6rem;height: 6rem;display: flex;align-items: center;justify-content: center;}
