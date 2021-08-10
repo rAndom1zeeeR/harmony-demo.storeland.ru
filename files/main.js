@@ -37,7 +37,7 @@ function number_format(n,e,t,r){var i=n,a=e,o=function(n,e){var t=Math.pow(10,e)
 // Функция определения ширины экрана пользователя
 function getClientWidth() {return document.compatMode=='CSS1Compat' && !window.opera?document.documentElement.clientWidth:document.body.clientWidth;}
 
-// Работа с cookie файлами. 
+// Работа с cookie файлами.
 // Получение переменной из cookie
 function getCookie(name) {
   var matches = document.cookie.match(new RegExp(
@@ -594,7 +594,7 @@ function openMenu() {
       t.css('order', count)
       // Добавляем кнопку "Еще" если больше 4 подкатегорий
       if(item1.length > 4) {
-        t.append('<div class="catalog__more"><a href="'+ href +'" class="catalog__link">Еще...</a></div>');
+        t.find('.sub').append('<div class="catalog__more"><a href="'+ href +'" class="catalog__link">Еще...</a></div>');
       }
       // Если в категории нет подкатегорий, переносим ее в конец
       if(item1.length == 0) {

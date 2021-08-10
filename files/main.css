@@ -494,7 +494,7 @@ header {position: relative;}
 }
 
 /* Шапка. Логотип */
-.logo {width: 15rem;flex-grow: 1;}
+.logo {width: 14rem;flex-grow: 1;}
 @media (max-width: 639.98px) {
 	.logo {width: 100%;text-align: center;margin-bottom: 2rem;}
 }
@@ -535,7 +535,6 @@ header {position: relative;}
 .addto__catalog .catalog__link span:not(.open) {max-width: calc(100% - 1.75rem);}
 .addto__catalog .catalog__link[data-level="0"] {color: #6aa344;font-weight: bold;font-size: 1rem;}
 .addto__catalog .catalog__link[data-level="0"]:hover {color: #ffbb3e;}
-.addto__catalog .catalog__link[data-level="0"] .open {display: none;}
 .addto__catalog .sub[data-level="1"] {margin-top: .5rem;}
 .addto__catalog .sub[data-level="2"] {background-color: #f0f7f5;padding: .5rem 1rem;margin: 0.25rem 0;border-radius: 1rem;display: none;}
 .addto__catalog .catalog__item .open {margin-left: 0.5rem;vertical-align: middle;width: 1.25rem;height: 1.25rem;line-height: 1.25rem;display: inline-block;text-align: center;}
@@ -558,13 +557,14 @@ header {position: relative;}
 }
 @media (max-width: 479.98px) {
 	.addto__catalog .catalog__item[data-level="0"] {width: 100%;}
+	.addto__catalog .sub[data-level="1"] {display: none;}
 }
 
 /* Шапка. Корзина */
 .page-cart .cart__block {display: none;}
 .page-cart [data-open="cart"] {display: none;}
 .page-cart .mainnav {width: calc(100% - 15rem - 3rem - 2rem);}
-.cart__block {margin-left: 2rem;width: 11rem;background-color: #ffffff;border-radius: 1.5rem;padding: .25rem;display: flex;flex-wrap: wrap;align-items: center;transition: all 0.3s ease;}
+.cart__block {margin-left: 2rem;width: 10rem;background-color: #ffffff;border-radius: 1.5rem;padding: .25rem;display: flex;flex-wrap: wrap;align-items: center;transition: all 0.3s ease;}
 .cart__block-icon {font-size: 1.25rem;color: #ffffff;background-color: #ffbb3e;border-radius: 50%;width: 2.5rem;height: 2.5rem;display: flex;align-items: center;justify-content: center;transition: all 0.3s ease;}
 .cart__block:hover .cart__block-icon {background-color: #6aa344;cursor: pointer;}
 .cart__block-content {width: calc(100% - 2.5rem);padding: 0 1rem;}
