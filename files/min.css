@@ -41,6 +41,10 @@
 .noty_type__success a, .noty_type__success a:visited, .noty_type__success a:focus, .noty_type__success a:hover {color: inherit;}
 .noty_type__success.noty_has_progressbar .noty_progressbar {background-color: #6aa344;opacity: 1;}
 .noty_type__warning.noty_has_progressbar .noty_progressbar {background-color: #df5642;opacity: 1;}
+@media (max-width: 639.98px) {
+	.noty__addto i {width: 4rem;height: 4rem;font-size: 2rem;}
+  .noty__message {width: calc(100% - 4rem);}
+}
 
 .animated {
 -webkit-animation-duration: 1s;

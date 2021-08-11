@@ -3462,11 +3462,7 @@
 						<div class="client__buttons addto__buttons">
 							<button type="submit" name="send" class="button" title="Войти">Войти</button>
 							<a href="{USER_RECOVERY_URL}" class="button button5">Забыли пароль?</a>
-						</div>
-						<div class="form__text">
-							<p>У Вас еще нет аккаунта?</p>
-						</div>
-						<div class="client__buttons addto__buttons">
+							<div class="form__text mt1">У Вас еще нет аккаунта?</div>
 							<a href="{USER_REGISTER_URL}" class="button button3">Зарегистрироваться</a>
 						</div>
 					</form>
@@ -3632,10 +3628,7 @@
 					<form method="post" action="{CALLBACK_URL}" class="form__callback" enctype="multipart/form-data">
 						<input type="hidden" name="hash" value="{HASH}" />
 						<input type="hidden" name="return_to" value="{CALLBACK_URL}" class="callbackredirect" />
-						<input type="hidden"
-						       name="form[{ANTISPAM_FORM_FIELD_NAME_CALLBACK_PERSON}]"
-						       value="Уведомить -- {GOODS_NAME}"
-						       id="fancy__info" />
+						<input type="hidden" name="form[goods_mod_id]" value="" id="fancy__info"/>
 						<input type="hidden" name="form[Имя_Товара]" value="{GOODS_NAME}" id="fancy__name" />
 						<input type="hidden" name="form[Артикул]" value="{GOODS_MOD_ART_NUMBER}" id="fancy__art" />
 						<!-- Для использования почты для уведомлений необходимо убрать комментарии для строки ниже -->
