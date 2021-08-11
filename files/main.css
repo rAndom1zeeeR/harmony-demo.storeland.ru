@@ -406,7 +406,7 @@ h6 {font-size: 0.875rem;}
 .addto__name {width: 100%;font-size: .875rem;display: block;max-height: 2.25rem;overflow: hidden;}
 .addto__mod {display: none;font-size: .75rem;margin-top: 0.5rem;}
 .addto__price {width: 100%;padding: 1rem 0 0 0;display: flex;flex-wrap: wrap;flex-direction: row;align-items: center;}
-.addto__price [class^="price__"] {flex-grow: 1;font-size: 1.125rem;}
+.addto__price [class^="price__"] {flex-grow: 1;}
 .addto__price .price__qty {font-size: .75rem;flex-grow: 0;margin-right: .5rem;}
 .addto__price .price__old {margin-top: 0.5rem;}
 .addto__remove {color: #d2d9cd;font-size: .875rem;line-height: 1;transition: all 0.3s ease;}
@@ -626,6 +626,7 @@ header {position: relative;}
 
 /*** Категории на главной ***/
 #catalog {background-color: #6aa344;position: relative;}
+#catalog .owl-carousel .owl-stage-outer {padding: 0 1px;}
 #catalog .owl-carousel {display: flex;max-height: 72px;overflow: hidden;}
 #catalog .catalog__item {border-left: 1px solid #ffffff;padding: .625rem 1rem;display: flex;flex-wrap: wrap;align-items: center;transition: all 0.3s ease;}
 #catalog .catalog__item:hover {background-color: #ffbb3e;border-color: #ffbb3e;cursor: pointer;}

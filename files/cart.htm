@@ -69,7 +69,7 @@
         {% ENDFOR %}
       </div>
     </form>
-	
+
 		<!-- Сюда грузится форма оформления быстрого заказа -->
 		<div id="globalOrder" style="display: none">
 			<div class="preloader top"><div class="loading"></div></div>
@@ -79,7 +79,7 @@
 			<div id="OrderAjaxBlock" style="display:none"></div>
 		</div>
 	</div>
-	
+
 	<!-- Корзина: Итоговый блок -->
 	<div class="cartTotal">
 		<div class="total__head">
@@ -94,7 +94,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<!--  -->
 		<div class="total__items">
 			<!-- Скидки, действующие на заказ -->
@@ -113,19 +113,19 @@
 			</div>
 			{% ENDIF %}
 			{% ENDFOR %}
-			
+
 			<!-- Корзина: Купон -->
 			<div class="total__item total__coupons" style="display: none;">
 				<div class="total__label"><span>Купон:</span></div>
-				<div class=""><span class="cartSumCoupons" data-value=""></span></div>
+				<div class="total__price"><span class="cartSumCoupons" data-value=""></span></div>
 			</div>
-			
+
 			<!-- Корзина: Доставка -->
 			<div class="total__item total__delivery">
 				<div class="total__label"><span>Доставка:</span></div>
 				<div class="total__price"><span class="cartSumDelivery" data-value="{CART_SUM_DELIVERY}">{CART_SUM_DELIVERY | money_format}</span></div>
 			</div>
-			
+
 			<!-- Корзина: Итого -->
 			<div class="total__item total__cart">
 				<div class="total__label">Итого:</div>
@@ -135,7 +135,7 @@
 				<div style="display: none;" class="total__price cartSumDiscount" data-value="{CART_SUM_NOW_WITH_DISCOUNT}">{CART_SUM_NOW_WITH_DISCOUNT | money_format}</div>
 			</div>
 		</div>
-		
+
 		<!-- Корзина: Оформление -->
 		<div class="total__buttons">
 			<a id="startOrder" class="button" title="Перейти к быстрому оформлению заказа"><span>Оформить </span><span>заказ</span></a>
@@ -147,9 +147,9 @@
 				<button type="submit" class="button button2" name="next_step" title="Перейти к оформлению заказа в 4 шага"><span>Оформить </span><span>заказ</span></button>
 			</noscript>
 		</div>
-	
+
 	</div>
-	
+
   {% ENDIF %}
 </div>
 

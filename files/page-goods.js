@@ -227,15 +227,29 @@ function prodQty(){
 		// Количество
 		var val = parseInt(t.val());
 		// Если вводят 0 то заменяем на 1
-		if(val < 1){ 
+		if(val < 1){
 			t.val(1);
 			val = 1;
 		}
 		// Проверка максимальныго остатка
 		var max = parseInt(t.attr('max'));
-		if(val > max){ 
+		if(val > max){
 			t.val(max);
 			val = max;
+			new Noty({
+				text: '<div class="noty__addto"><i class="icon-close"></i><div class="noty__message">Внимание! Вы пытаетесь положить в корзину товара больше, чем есть в наличии</div></div>',
+				layout:"bottomRight",
+				type:"warning",
+				easing:"swing",
+				animation: {
+					open: 'animated fadeInUp',
+					close: 'animated fadeOutDown',
+					easing: 'swing',
+					speed: 400
+				},
+				timeout:"2000",
+				progressBar:true,
+			}).show();
 		}
 		// Обновление кол-ва для функций "Добавить"
 		$('.goodsDataMainModificationId').val($(this).val());

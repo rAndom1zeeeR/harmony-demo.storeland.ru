@@ -319,7 +319,7 @@ function coupons() {
 				// Получаем блок скидки
 				var discountBlock = $(data).closest('#myform').find('.discount');
 				var discountName = discountBlock.find('.name').text();
-				var discountPercent = discountBlock.find('.percent').text();
+				var discountPercent = discountBlock.find('.percent .num').text();
 				// Получаем новую итоговую стоимость заказа
 				var totalBlock = $(data).closest('#myform').find('.total');
 				var totalSum = totalBlock.find('.total-sum').data('total-sum');
