@@ -248,7 +248,7 @@ function prodQty(){
 					speed: 400
 				},
 				timeout:"2000",
-				progressBar:true,
+				progressBar:true
 			}).show();
 		}
 		// Обновление кол-ва для функций "Добавить"

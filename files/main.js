@@ -321,6 +321,78 @@ $(function(){
 });
 
 
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////
+/* Аякс Отправка формы без обновления страницы */
+//////////////////////////////////////////////////////
+function ajaxForms(id,successMessage,errorMessage){
+  var globalFlag = false;
+  $(id).find('.form__callback').on('submit',function(event){
+    event.preventDefault();
+    if(!globalFlag){
+      t = $(this);
+      var url = t.prop('action');
+      var formData = t.serializeArray();
+      formData.push({name: 'ajax_q', value: 1});
+      formData.push({name: 'only_body', value: 1});
+      $.ajax({
+        method: 'POST',
+        cache: false,
+        url: url,
+        data: formData,
+        success: function(d){
+          var serverCall = JSON.parse(d).status;
+          if(serverCall == "ok"){
+            $.fancybox.close();
+            t.hide();
+            new Noty({
+              text: '<div class="noty__addto"><i class="icon-check"></i><div class="noty__message">' + successMessage + '</div></div>',
+              layout:"bottomRight",
+              type:"success",
+              easing:"swing",
+              animation: {
+                open: 'animated fadeInUp',
+                close: 'animated fadeOutDown',
+                easing: 'swing',
+                speed: 400
+              },
+              timeout:"2000",
+              progressBar:true
+            }).show();
+            globalFlag = true;
+          }
+        }
+      });
+    }else{
+      function callBackError(type) {
+        new Noty({
+          text: '<div class="noty__addto"><i class="icon-close"></i><div class="noty__message">' + errorMessage + '</div></div>',
+          type: 'warning',
+        }).show();
+      }
+      callBackError();
+    }
+  });
+}
+// "Обратный звонок".
+ajaxForms('#callback','Спасибо за обращение! Мы перезвоним вам в ближайшее время','Вы уже отправляли запрос. Пожалуйста ожидайте звонка.')
+// "Обратный звонок" в модальном окне. отправка формы без обновления страницы
+ajaxForms('#fancybox__callback','Спасибо за обращение! Мы перезвоним вам в ближайшее время','Вы уже отправляли запрос. Пожалуйста ожидайте звонка.')
+// "Обратная связь" в модальном окне. отправка формы без обновления страницы
+ajaxForms('#fancybox__feedback','Спасибо за обращение! Мы свяжемся с вами в ближайшее время','Вы уже отправляли запрос. Пожалуйста ожидайте.')
+// "Подписаться". отправка формы без обновления страницы
+ajaxForms('#subscribe','Спасибо за обращение! Вы подписались на наши уведомления','Вы уже отправляли запрос. Пожалуйста ожидайте.')
+// "Уведомить" в модальном окне. отправка формы без обновления страницы
+ajaxForms('#fancybox__notify','Спасибо за обращение! Вы подписались на уведомления о поступлении товара','Вы уже отправляли запрос. Пожалуйста ожидайте.')
+
+
 ///////////////////////////////////////////////////////
 /* Действия */
 //////////////////////////////////////////////////////
