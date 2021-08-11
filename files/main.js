@@ -324,19 +324,11 @@ $(function(){
 
 
 
-
-
-
-
-
 ///////////////////////////////////////////////////////
 /* Аякс Отправка формы без обновления страницы */
 //////////////////////////////////////////////////////
-var globalFlag = false;
 function ajaxForms(id,successMessage,errorMessage){
-  console.log('id', id)
-  console.log('successMessage', successMessage)
-  console.log('errorMessage', errorMessage)
+  var globalFlag = false;
   $(id).find('.form__callback').on('submit',function(event){
     event.preventDefault();
     if(!globalFlag){
@@ -354,7 +346,7 @@ function ajaxForms(id,successMessage,errorMessage){
           var serverCall = JSON.parse(d).status;
           if(serverCall == "ok"){
             $.fancybox.close();
-            t.hide();
+            // t.hide();
             new Noty({
               text: '<div class="noty__addto"><i class="icon-check"></i><div class="noty__message">' + successMessage + '</div></div>',
               layout:"bottomRight",
@@ -585,7 +577,6 @@ function closeMenu() {
       $('div, a, form, span').removeClass('opened');
       $('.overflowMenu').removeClass('active');
       $('.search__reset').click();
-      $('.mainnav').removeClass('fadeOut');
       setTimeout(function () {
         $('#overlay').removeClass('transparent');
         $('.search__reset').click();
@@ -652,7 +643,6 @@ function openMenu() {
     event.preventDefault();
     $(this).parent().toggleClass('opened');
     $('#overlay').addClass('opened');
-    $('.mainnav').addClass('fadeOut');
   });
 
   // "Еще" в выпадающем каталоге
