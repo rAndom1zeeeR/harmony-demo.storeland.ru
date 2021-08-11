@@ -332,8 +332,11 @@ $(function(){
 ///////////////////////////////////////////////////////
 /* Аякс Отправка формы без обновления страницы */
 //////////////////////////////////////////////////////
+var globalFlag = false;
 function ajaxForms(id,successMessage,errorMessage){
-  var globalFlag = false;
+  console.log('id', id)
+  console.log('successMessage', successMessage)
+  console.log('errorMessage', errorMessage)
   $(id).find('.form__callback').on('submit',function(event){
     event.preventDefault();
     if(!globalFlag){
@@ -582,6 +585,7 @@ function closeMenu() {
       $('div, a, form, span').removeClass('opened');
       $('.overflowMenu').removeClass('active');
       $('.search__reset').click();
+      $('.mainnav').removeClass('fadeOut');
       setTimeout(function () {
         $('#overlay').removeClass('transparent');
         $('.search__reset').click();
@@ -648,6 +652,7 @@ function openMenu() {
     event.preventDefault();
     $(this).parent().toggleClass('opened');
     $('#overlay').addClass('opened');
+    $('.mainnav').addClass('fadeOut');
   });
 
   // "Еще" в выпадающем каталоге

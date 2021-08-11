@@ -29,8 +29,8 @@ dt, dd {line-height: 1.6;}
 .noscript {position: relative;text-align: center;background-color: #6aa344;color: #ffffff;z-index: 999;padding: 0.625rem 0;}
 .unselectable {-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
 .selectable {-webkit-user-select: auto;-moz-user-select: text;-ms-user-select: text;user-select: text;}
-.fadeout, .out {opacity: 0;filter: alpha(opacity=0);}
-.fadein, .in {opacity: 1;filter: alpha(opacity=100);}
+.fadeOut, .out {opacity: 0;filter: alpha(opacity=0);}
+.fadeIn, .in {opacity: 1;filter: alpha(opacity=100);}
 .tc {color: #6aa344 !important;}
 .blockquote {padding: 0 0 0 1rem;margin: 0 0 1.5rem;border-left: 3px solid #6aa344;text-align: left;line-height: 25px;}
 .DescriptionBlock {margin: 2rem 0 0 0;}
@@ -585,7 +585,7 @@ header {position: relative;}
 
 
 /* Шапка. Поиск */
-.search.opened {position: absolute;right: 0;bottom: .75rem;width: calc(100% - 16rem);background-color: #ffffff;border-radius: 1.5rem;display: flex;flex-wrap: wrap;align-items: center;z-index: 11;}
+.search.opened {position: absolute;right: 0;bottom: 1rem;width: calc(100% - 16rem);background-color: #ffffff;border-radius: 1.5rem;display: flex;flex-wrap: wrap;align-items: center;z-index: 11;}
 .search__form {display: none;width: 100%;flex-wrap: wrap;align-items: center;}
 .search__input {width: calc(100% - 4.25rem);border: 0;border-radius: 1.5rem;padding: 0 1rem 0 2rem;}
 .opened .search__form {display: flex;}
