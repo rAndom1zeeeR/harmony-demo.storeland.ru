@@ -149,12 +149,13 @@ function preload() {
 }
 
 
+
 ///////////////////////////////////////////////////////
 /* Валидаторы */
 //////////////////////////////////////////////////////
-// Валидаторы для телефона в "консультация"
-function validName(){
-  var name = $('#callback').find('.form__person');
+// Валидаторы для Имени
+function validName(id){
+  var name = $(id).find('.form__person');
   if(name.val() != ''){
     name.removeClass('error');
     name.parent().removeClass('error');
@@ -167,135 +168,28 @@ function validName(){
     return false;
   }
 }
-function validPhone(){
-  var tel = $('#callback').find('.form__phone');
-  var check = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{5,10}$/.test(tel.val());
-  if(check == true && check != ''){
-    tel.removeClass('error');
-    tel.parent().removeClass('error');
-    tel.attr('placeholder','Введите номер');
-    return true;
-  }
-  else{
-    tel.addClass('error');
-    tel.parent().addClass('error');
-    tel.attr('placeholder','Вы не ввели номер');
-    return false;
-  }
-}
-// Проверка телефона в обратном звонке.
-function validSubmit(){
-  var name = validName();
-  var phone = validPhone();
-  return name && phone;
-}
-// Проверка отправки формы
-$(function(){
-  $('#callback .form__callback').submit(validSubmit);
-});
 
-// Валидаторы для Имени и телефона в "Обратный звонок" модальное окно
-function validNameFancy(){
-  var name = $('#fancybox__callback').find('.form__person');
-  if(name.val() != ''){
-    name.removeClass('error');
-    name.parent().removeClass('error');
-    name.attr('placeholder','Введите Имя');
-    return true;
-  }else{
-    name.addClass('error');
-    name.parent().addClass('error');
-    name.attr('placeholder','Вы не ввели Имя');
-    return false;
-  }
-}
-function validPhoneFancy(){
-  var tel = $('#fancybox__callback').find('.form__phone');
-  var check = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{5,10}$/.test(tel.val());
+// Валидаторы для телефона
+function validPhone(id){
+  var phone = $(id).find('.form__phone');
+  var check = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{5,10}$/.test(phone.val());
   if(check == true && check != ''){
-    tel.removeClass('error');
-    tel.parent().removeClass('error');
-    tel.attr('placeholder','Введите номер');
+    phone.removeClass('error');
+    phone.parent().removeClass('error');
+    phone.attr('placeholder','Введите номер');
     return true;
   }
   else{
-    tel.addClass('error');
-    tel.parent().addClass('error');
-    tel.attr('placeholder','Вы не ввели номер');
+    phone.addClass('error');
+    phone.parent().addClass('error');
+    phone.attr('placeholder','Вы не ввели номер');
     return false;
   }
 }
-function validSubmitFancy(){
-  var name = validNameFancy();
-  var phone = validPhoneFancy();
-  return name && phone;
-}
-// Проверка отправки формы
-$(function(){
-  $('#fancybox__callback .form__callback').submit(validSubmitFancy);
-});
 
-// Валидаторы для Имени и телефона в "Обратная связь" модальное окно
-function validNameFeedback(){
-  var name = $('#fancybox__feedback').find('.form__person');
-  if(name.val() != ''){
-    name.removeClass('error');
-    name.parent().removeClass('error');
-    name.attr('placeholder','Введите Имя');
-    return true;
-  }else{
-    name.addClass('error');
-    name.parent().addClass('error');
-    name.attr('placeholder','Вы не ввели Имя');
-    return false;
-  }
-}
-function validPhoneFeedback(){
-  var tel = $('#fancybox__feedback').find('.form__phone');
-  var check = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{5,10}$/.test(tel.val());
-  if(check == true && check != ''){
-    tel.removeClass('error');
-    tel.parent().removeClass('error');
-    tel.attr('placeholder','Введите номер');
-    return true;
-  }
-  else{
-    tel.addClass('error');
-    tel.parent().addClass('error');
-    tel.attr('placeholder','Вы не ввели номер');
-    return false;
-  }
-}
-function validSubmitFeedback(){
-  var name = validNameFeedback();
-  var phone = validPhoneFeedback();
-  return name && phone;
-}
-// Проверка отправки формы
-$(function(){
-  $('#fancybox__feedback .form__callback').submit(validSubmitFeedback);
-});
-
-// Валидаторы для телефона в "Подписаться" в подвале
-function validPhoneSubscribe(){
-  var tel = $('#subscribe').find('.form__phone');
-  var check = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{5,10}$/.test(tel.val());
-  if(check == true && check != ''){
-    tel.removeClass('error');
-    tel.parent().removeClass('error');
-    tel.attr('placeholder','Введите номер');
-    return true;
-  }
-  else{
-    tel.addClass('error');
-    tel.parent().addClass('error');
-    tel.attr('placeholder','Вы не ввели номер');
-    return false;
-  }
-}
-// Подписаться. Валидатор почты в "Подписаться"
-function validEmailSubscribe(){
-  var email = $('#subscribe').find('.form__email');
+// Валидаторы для почты
+function validEmail(id){
+  var email = $(id).find('.form__email');
   var check = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email.val());
   if(check == true && check != ''){
     email.removeClass('error');
@@ -310,28 +204,18 @@ function validEmailSubscribe(){
     return false;
   }
 }
-function validSubmitSubscribe(){
-  var email = validEmailSubscribe();
-  var phone = validPhoneSubscribe();
-  return email || phone;
-}
-// Проверка отправки формы
-$(function(){
-  $('#subscribe .form__callback').submit(validSubmitSubscribe);
-});
-
-
-
 
 
 ///////////////////////////////////////////////////////
 /* Аякс Отправка формы без обновления страницы */
 //////////////////////////////////////////////////////
-function ajaxForms(id,successMessage,errorMessage){
-  var globalFlag = false;
-  $(id).find('.form__callback').on('submit',function(event){
+function ajaxForms(id,flag,successMessage,errorMessage){
+  var flag = false;
+  console.log('ajaxForms id - ', id)
+  var form = $(id).find('.form__callback');
+  form.on('submit',function(event){
     event.preventDefault();
-    if(!globalFlag){
+    if(!flag){
       t = $(this);
       var url = t.prop('action');
       var formData = t.serializeArray();
@@ -346,7 +230,9 @@ function ajaxForms(id,successMessage,errorMessage){
           var serverCall = JSON.parse(d).status;
           if(serverCall == "ok"){
             $.fancybox.close();
-            // t.hide();
+            t.hide();
+            t.find('.form__input').val(' ');
+            t.parent().append('<div class="form__text">'+ errorMessage +'</div>');
             new Noty({
               text: '<div class="noty__addto"><i class="icon-check"></i><div class="noty__message">' + successMessage + '</div></div>',
               layout:"bottomRight",
@@ -361,31 +247,59 @@ function ajaxForms(id,successMessage,errorMessage){
               timeout:"2000",
               progressBar:true
             }).show();
-            globalFlag = true;
+            flag = true;
           }
         }
       });
     }else{
       function callBackError(type) {
+        t.find('.form__input').val(' ');
+        t.parent().find('.form__text').hide();
         new Noty({
           text: '<div class="noty__addto"><i class="icon-close"></i><div class="noty__message">' + errorMessage + '</div></div>',
-          type: 'warning',
+          layout:"bottomRight",
+          type:"warning",
+          easing:"swing",
+          animation: {
+            open: 'animated fadeInUp',
+            close: 'animated fadeOutDown',
+            easing: 'swing',
+            speed: 400
+          },
+          timeout:"2000",
+          progressBar:true
         }).show();
       }
       callBackError();
     }
   });
+
+  // Валидация при клике
+  form.on('click',function(event){
+    console.log('click - ', id)
+    validName(form);
+    validPhone(form);
+    validEmail(form);
+  });
 }
+
 // "Обратный звонок".
-ajaxForms('#callback','Спасибо за обращение! Мы перезвоним вам в ближайшее время','Вы уже отправляли запрос. Пожалуйста ожидайте звонка.')
-// "Обратный звонок" в модальном окне. отправка формы без обновления страницы
-ajaxForms('#fancybox__callback','Спасибо за обращение! Мы перезвоним вам в ближайшее время','Вы уже отправляли запрос. Пожалуйста ожидайте звонка.')
-// "Обратная связь" в модальном окне. отправка формы без обновления страницы
-ajaxForms('#fancybox__feedback','Спасибо за обращение! Мы свяжемся с вами в ближайшее время','Вы уже отправляли запрос. Пожалуйста ожидайте.')
-// "Подписаться". отправка формы без обновления страницы
-ajaxForms('#subscribe','Спасибо за обращение! Вы подписались на наши уведомления','Вы уже отправляли запрос. Пожалуйста ожидайте.')
-// "Уведомить" в модальном окне. отправка формы без обновления страницы
-ajaxForms('#fancybox__notify','Спасибо за обращение! Вы подписались на уведомления о поступлении товара','Вы уже отправляли запрос. Пожалуйста ожидайте.')
+ajaxForms('#callback','callbackFlag','Спасибо за обращение! Мы перезвоним вам в ближайшее время','Вы уже отправляли запрос. Пожалуйста ожидайте звонка.')
+// "Обратный звонок" в модальном окне.
+ajaxForms('#fancybox__callback','fancyCallbackFlag','Спасибо за обращение! Мы перезвоним вам в ближайшее время','Вы уже отправляли запрос. Пожалуйста ожидайте звонка.')
+// "Обратная связь" в модальном окне.
+ajaxForms('#fancybox__feedback','fancyFeedbackFlag','Спасибо за обращение! Мы свяжемся с вами в ближайшее время','Вы уже отправляли запрос. Пожалуйста ожидайте.')
+// "Обратная связь".
+ajaxForms('.form__feedback','feedbackFlag','Спасибо за обращение! Мы свяжемся с вами в ближайшее время','Вы уже отправляли запрос. Пожалуйста ожидайте.')
+// "Подписаться".
+ajaxForms('#subscribe','subscribeFlag','Спасибо за обращение! Вы подписались на наши уведомления','Вы уже отправляли запрос. Пожалуйста ожидайте.')
+// "Уведомить" в модальном окне.
+ajaxForms('#fancybox__notify','notifyFlag','Спасибо за обращение! Вы подписались на уведомления о поступлении товара','Вы уже отправляли запрос. Пожалуйста ожидайте.')
+
+
+
+
+
 
 
 ///////////////////////////////////////////////////////

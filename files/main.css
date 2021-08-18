@@ -460,7 +460,7 @@ header {position: relative;}
 .header__contacts {display: flex;flex-wrap: wrap;align-items: center;}
 .contacts__block {display: flex;flex-wrap: wrap;align-items: center;}
 .contacts__block i {color: #d2d9cd;font-size: 1.5rem;transition: all 0.3s ease;}
-.contacts__block:hover i {color: #6aa344;}
+.contacts__block:hover i {color: #ffffff;cursor: pointer;}
 .contacts__block a {font-size: .875rem;max-width: 10rem;display: block;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
 .contacts__block-content {width: calc(100% - 1.5rem);padding-left: .75rem;}
 @media (min-width: 1200px) {

@@ -115,7 +115,8 @@
 			{% IF MOD_LNAME = cart %}page-cart{% ENDIF %}
 			{% IF MOD_LNAME = user %}page-user{% ENDIF %}
 			{% IF MOD_LNAME = goods %}page-goods{% ENDIF %}
-      {% IF MOD_LNAME = discount %}page-discount{% ENDIF %}"
+      {% IF MOD_LNAME = discount %}page-discount{% ENDIF %}
+      {% IF MOD_LNAME = feedback %}page-feedback{% ENDIF %}"
 >
 	<div class="wrapper">
 
@@ -2328,7 +2329,8 @@
 								       name="form[{ANTISPAM_FORM_FIELD_NAME_CALLBACK_PHONE}]"
 								       value="{FORM_CALLBACK_PHONE}"
 								       placeholder="Ваш телефон"
-								       autocomplete="off" />
+								       autocomplete="off"
+											 required />
 								<button type="submit" title="Заказать звонок" class="form__button button">
 									<span>Заказать звонок</span>
 									<i class="icon-call"></i>
@@ -2791,22 +2793,17 @@
 					</div>
 
 					<div class="callback__content">
-
 						<div class="callback__title">Подпишитесь!</div>
-
 						<div class="callback__subtitle">Подпишитесь на нашу рассылку и получайте эксклюзивные предложения и секретные акции!</div>
-
 						<form method="post" action="{CALLBACK_URL}" class="form__callback" enctype="multipart/form-data">
 							<input type="hidden" name="hash" value="{HASH}" />
 							<input class="callbackredirect" type="hidden" name="return_to" value="{CALLBACK_URL}" />
 							<!-- Скрытые поля -->
-							<input class="form__input form__person"
-							       type="hidden"
+							<input type="hidden"
 							       name="form[{ANTISPAM_FORM_FIELD_NAME_CALLBACK_PERSON}]"
 							       value="Подписаться"
 							       placeholder="Ваше имя" />
-							<input class="form__input form__phone"
-							       type="hidden"
+							<input type="hidden"
 							       name="form[{ANTISPAM_FORM_FIELD_NAME_CALLBACK_PHONE}]"
 							       value="Подписаться"
 							       placeholder="Ваш телефон" />
@@ -2820,6 +2817,7 @@
 								       value="{FORM_CALLBACK_EMAIL}"
 								       placeholder="email@email.ru *"
 								       autocomplete="off"
+											 required
 								/>
 								<button type="submit" title="Заказать звонок" class="form__button button button2">
 									<span>Подписаться</span>
@@ -3504,7 +3502,6 @@
 				<div class="modal__title block__title">
 					<div class="title">Заказать звонок</div>
 				</div>
-
 				<div class="modal__content">
 					<form method="post" action="{CALLBACK_URL}" class="form__callback" enctype="multipart/form-data">
 						<input type="hidden" name="hash" value="{HASH}" />
@@ -3519,6 +3516,7 @@
 						<div class="form__text">
 							<p>Оставьте свой номер телефона и наши специалисты презвонят Вам в ближайшее время</p>
 						</div>
+
 						<div class="form__fields">
 							<div class="form__field">
 								<input id="form[{ANTISPAM_FORM_FIELD_NAME_CALLBACK_PERSON}]"
@@ -3527,10 +3525,12 @@
 								       name="form[{ANTISPAM_FORM_FIELD_NAME_CALLBACK_PERSON}]"
 								       value="{FORM_CALLBACK_PERSON}"
 								       placeholder="Владимир П."
-								       autocomplete="off" />
+								       autocomplete="off"
+											 required />
 								<i class="icon-user"></i>
 							</div>
 						</div>
+
 						<div class="form__fields">
 							<div class="form__field">
 								<input id="form[{ANTISPAM_FORM_FIELD_NAME_CALLBACK_PHONE}]"
@@ -3539,7 +3539,8 @@
 								       name="form[{ANTISPAM_FORM_FIELD_NAME_CALLBACK_PHONE}]"
 								       value="{FORM_CALLBACK_PHONE}"
 								       placeholder="+7 (987) 654-3210"
-								       autocomplete="off" />
+								       autocomplete="off"
+											 required />
 								<i class="icon-phone"></i>
 							</div>
 						</div>
@@ -3581,7 +3582,8 @@
 								       name="form[{ANTISPAM_FORM_FIELD_NAME_CALLBACK_PERSON}]"
 								       value="{FORM_CALLBACK_PERSON}"
 								       placeholder="Владимир П."
-								       autocomplete="off" />
+								       autocomplete="off"
+											 required />
 								<i class="icon-user"></i>
 							</div>
 						</div>
@@ -3593,7 +3595,8 @@
 								       name="form[{ANTISPAM_FORM_FIELD_NAME_CALLBACK_PHONE}]"
 								       value="{FORM_CALLBACK_PHONE}"
 								       placeholder="+7 (987) 654-3210"
-								       autocomplete="off" />
+								       autocomplete="off"
+											 required />
 								<i class="icon-phone"></i>
 							</div>
 						</div>
@@ -3644,7 +3647,8 @@
 								       name="form[{ANTISPAM_FORM_FIELD_NAME_CALLBACK_PHONE}]"
 								       value="{FORM_CALLBACK_PHONE}"
 								       placeholder="+7 (987) 654-3210"
-								       autocomplete="off" />
+								       autocomplete="off"
+											 required />
 								<i class="icon-phone"></i>
 							</div>
 						</div>
