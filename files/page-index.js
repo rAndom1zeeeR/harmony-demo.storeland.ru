@@ -269,6 +269,17 @@ function verticalCarousel() {
 		items.attr('data-next', '3')
 		items.attr('data-length', item.length)
 
+		// Если меньше 3 доп. изображений, скрываем навигацию
+		if (item.length < 3){
+			t.find('.product__thumblist-nav').hide();
+		}
+
+		// Если меньше 2 доп. изображений, скрываем весь блок
+		if (item.length < 2){
+			t.find('.product__thumblist').hide();
+			t.find('.product__shop').addClass('nothumb');
+		}
+
 		// Следующий
 		t.find('.product__thumblist-nav--bottom').on('click', function (){
 			var cur = parseInt(items.attr('data-cur'));

@@ -103,6 +103,7 @@
 #pdt__sales .product__item form {padding: 1.25rem;display: flex;flex-wrap: wrap;height: auto;}
 #pdt__sales .product__image {margin: 0;width: 16.25rem;}
 #pdt__sales .product__shop {width: calc(100% - 16.25rem - 6rem);padding: 0 2rem;text-align: left;}
+#pdt__sales .product__shop.nothumb {width: calc(100% - 16.25rem);}
 #pdt__sales .product__price-addto {max-width: 10rem;padding: .5rem 2rem;}
 #pdt__sales .product__inner {display: flex;flex-wrap: wrap;}
 #pdt__sales .product__links {position: relative;width: auto;bottom: auto;}
