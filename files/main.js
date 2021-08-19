@@ -503,7 +503,7 @@ function openMenu() {
   // Открытие элементов
   $('.dropdown__open').on('click', function(event){
     event.preventDefault();
-    $('div').removeClass('opened');
+    $('div, a, form').removeClass('opened');
     var value = $(this).data('open');
     if ($('.dropdown__content[data-content="'+ value +'"]').hasClass('opened')){
       $(this).removeClass('opened');
@@ -523,14 +523,17 @@ function openMenu() {
   // Открытие каталога с сохранением вложенности
   $('.catalog__item .open').on('click', function(event){
     event.preventDefault();
-    if ($(this).closest('.parent').hasClass('opened')) {
-      $(this).parent().next('.sub').slideUp(600);
-      $(this).closest('.parent').removeClass('opened');
-      $(this).closest('.open').removeClass('opened');
+    var parent = $(this).closest('.parent');
+    var sub = $(this).parent().next('.sub');
+    var open = $(this).closest('.open');
+    if (parent.hasClass('opened')) {
+      sub.slideUp(600);
+      parent.removeClass('opened');
+      open.removeClass('opened');
     } else {
-      $(this).parent().next('.sub').slideDown(600);
-      $(this).closest('.parent').addClass('opened');
-      $(this).closest('.open').addClass('opened');
+      sub.slideDown(600);
+      parent.addClass('opened');
+      open.addClass('opened');
     }
   });
 
@@ -629,7 +632,6 @@ function mainnavHeader(){
   }
 }
 
-
 // Функция Слайдер категорий Каталога на всех страницах.
 function pdtCatalog() {
   $('#catalog .owl-carousel').owlCarousel({
@@ -724,6 +726,54 @@ function quantity() {
   });
 }
 
+// Загрузчик файлов
+function loadFile(fileName, ext, cb){
+  if(!fileName){console.error('Не передано имя загружаемого файла');return;}
+  if(!ext){console.error('Не передано расширение загружаемого файла');return;}
+  if(!(typeof cb === 'function')){cb = function(){}};
+
+  var $file = $('#' + fileName + '-' + ext);
+  var attrName = (ext === 'css') ? 'href' : 'src';
+
+  if(!$file.length){
+    console.error(fileName + '.' + ext + ' - Файл не найден в разметке и не может быть загружен');
+    return;
+  }
+  // Если файл уже загружен
+  if($file.attr(attrName)){
+    cb();
+    console.log($file, ' - Already loaded');
+    return (true);
+  }
+  $file.on('load', cb)
+  $file.attr(attrName, $file.data(attrName));
+  console.log($file, ' - loaded');
+}
+
+// Уведомления
+function notyStart(text, type) {
+  new Noty({
+    text: text,
+    layout: "bottomCenter",
+    type: type,
+    theme: "",
+    textAlign: "center",
+    animation: {
+      open: 'animated fadeInUp',
+      close: 'animated fadeOutDown',
+      easing: 'swing',
+      speed: 400
+    },
+    timeout: "2000",
+    progressBar: true,
+    closable: true,
+    closeOnSelfClick: true,
+    modal: false,
+    dismissQueue: false,
+    onClose: true,
+    killer: false
+  }).show();
+}
 
 // Загрузка основных функций шаблона
 $(document).ready(function(){
@@ -784,54 +834,6 @@ function addOpened(obj){obj.hasClass('opened') ? obj.removeClass('opened') : obj
 function addActive(obj){obj.hasClass('active') ? obj.removeClass('active') : obj.addClass('active')}
 
 
-// Загрузчик файлов
-function loadFile(fileName, ext, cb){
-  if(!fileName){console.error('Не передано имя загружаемого файла');return;}
-  if(!ext){console.error('Не передано расширение загружаемого файла');return;}
-  if(!(typeof cb === 'function')){cb = function(){}};
-
-  var $file = $('#' + fileName + '-' + ext);
-  var attrName = (ext === 'css') ? 'href' : 'src';
-
-  if(!$file.length){
-    console.error(fileName + '.' + ext + ' - Файл не найден в разметке и не может быть загружен');
-    return;
-  }
-  // Если файл уже загружен
-  if($file.attr(attrName)){
-    cb();
-    console.log($file, ' - Already loaded');
-    return (true);
-  }
-  $file.on('load', cb)
-  $file.attr(attrName, $file.data(attrName));
-  console.log($file, ' - loaded');
-}
-
-// Уведомления
-function notyStart(text, type) {
-  new Noty({
-    text: text,
-    layout: "bottomCenter",
-    type: type,
-    theme: "",
-    textAlign: "center",
-    animation: {
-      open: 'animated fadeInUp',
-      close: 'animated fadeOutDown',
-      easing: 'swing',
-      speed: 400
-    },
-    timeout: "2000",
-    progressBar: true,
-    closable: true,
-    closeOnSelfClick: true,
-    modal: false,
-    dismissQueue: false,
-    onClose: true,
-    killer: false
-  }).show();
-}
 
 
 
