@@ -187,7 +187,7 @@ label.error:after {content: ' ';position: absolute;top: -7px;left: 0.875rem;widt
 .information {background-color: #3FCBFC;border-color: #1ce7fb;color: #fff;}
 .help {border-color: #cecece;}
 .success .close, .warning .close, .attention .close, .information .close {float: right;padding-top: 4px;padding-right: 4px;cursor: pointer;}
-.success a, .warning a, .attention a, .information a {margin-left: 4px;color: inherit;font-weight: 600;text-decoration: underline;}
+.success a, .warning a, .attention a, .information a {color: inherit;font-weight: 600;text-decoration: underline;display: inline;}
 
 /*** Рейтинг ***/
 .ratings {display: inline-block;position: relative;vertical-align: middle;line-height: 0;overflow: hidden;}

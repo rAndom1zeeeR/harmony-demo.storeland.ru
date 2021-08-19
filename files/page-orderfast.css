@@ -32,7 +32,7 @@
 .delivery__zone > div {margin-top: 1rem;}
 
 .fastOrderContent .fastOrderForm [order] {margin: 0;}
-.fastOrderContent .modal__title {display: block;}
+/* .fastOrderContent .modal__title {display: block;} */
 .fastOrderContent .total__buttons {text-align: center;margin-top: 1rem;}
 .fastOrderContent .total__pp {padding: 1rem 1rem 0 1rem;}
 .total__pp {font-size: .75rem;text-align: center;margin-bottom: 1rem;}

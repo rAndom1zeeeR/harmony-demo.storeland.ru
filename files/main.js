@@ -297,11 +297,6 @@ ajaxForms('#subscribe','subscribeFlag','Спасибо за обращение! 
 ajaxForms('#fancybox__notify','notifyFlag','Спасибо за обращение! Вы подписались на уведомления о поступлении товара','Вы уже отправляли запрос. Пожалуйста ожидайте.')
 
 
-
-
-
-
-
 ///////////////////////////////////////////////////////
 /* Действия */
 //////////////////////////////////////////////////////
@@ -336,14 +331,16 @@ function removeFromFavorites(e){
         var obj = $('.add-favorites[data-mod-id="' + goodsModId + '"]');
         if(obj.length) {
           obj.attr("data-action-is-add", "1")
-              .removeAttr("title")
-              .removeClass("added")
-              .attr("href", obj.attr("href").replace(obj.attr('data-action-delete-url'), obj.attr('data-action-add-url')));
+          .removeAttr("title")
+          .removeClass("added")
+          .attr("href", obj.attr("href")
+          .replace(obj.attr('data-action-delete-url'), obj.attr('data-action-add-url')));
         }
       }
     });
   }
 }
+
 // Удаление ВСЕХ товаров из Избранного без обновлении страницы
 function removeFromFavoritesAll(e){
   event.preventDefault();
@@ -396,9 +393,10 @@ function removeFromCompare(e){
         var obj = $('.add-compare[data-mod-id="' + goodsModId + '"]');
         if(obj.length) {
           obj.attr("data-action-is-add", "1")
-              .removeAttr("title")
-              .removeClass("added")
-              .attr("href", obj.attr("href").replace(obj.attr('data-action-delete-url'), obj.attr('data-action-add-url')));
+          .removeAttr("title")
+          .removeClass("added")
+          .attr("href", obj.attr("href")
+          .replace(obj.attr('data-action-delete-url'), obj.attr('data-action-add-url')));
         }
       }
     });
@@ -679,14 +677,14 @@ function pdtCatalog() {
 // @InputObject - объект у которого нужно изменить тип поля
 function ChangePasswordFieldType (LinkObject, InputObject) {
   var
-      // Ссылка по которой кликнули
-      LObject = $(LinkObject),
-      // Объект у которого изменяем тип с password на text
-      IObject = $(InputObject),
-      // Старый текст ссылки
-      txtOld = LObject.text(),
-      // Новый текст ссылки
-      txtNew = LObject.attr('rel');
+    // Ссылка по которой кликнули
+    LObject = $(LinkObject),
+    // Объект у которого изменяем тип с password на text
+    IObject = $(InputObject),
+    // Старый текст ссылки
+    txtOld = LObject.text(),
+    // Новый текст ссылки
+    txtNew = LObject.attr('rel');
   // Если объекты не получены, завершим работу функции
   if( LObject.length==0 || IObject.length==0 ) {
     return false;
@@ -825,11 +823,12 @@ function loadFile(fileName, ext, cb){
   // Если файл уже загружен
   if($file.attr(attrName)){
     cb();
-    // console.log('Already loaded');
+    console.log($file, ' - Already loaded');
     return (true);
   }
   $file.on('load', cb)
   $file.attr(attrName, $file.data(attrName));
+  console.log($file, ' - loaded');
 }
 
 // Уведомления

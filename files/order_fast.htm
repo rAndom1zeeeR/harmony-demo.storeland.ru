@@ -1,7 +1,12 @@
 <div>
 	<div class="preloader top"><div class="loading"></div></div>
 	<div class="fastOrderContent">
-  {% IF FORM_NOTICE %}<div class="modal__title {% IF FORM_NOTICE_IS_GOOD %}success{% ELSE %}warning{% ENDIF %}">{FORM_NOTICE | nl2br}</div>{% ENDIF %}
+  {% IF FORM_NOTICE %}
+		<div class="modal__title">
+			<!-- {FORM_NOTICE | htmlspecialchars_decode} -->
+			<div class="{% IF FORM_NOTICE_IS_GOOD %}success{% ELSE %}warning{% ENDIF %}">{FORM_NOTICE | htmlspecialchars_decode}</div>
+		</div>
+	{% ENDIF %}
   {% IF cart_count_empty %}
     <div class="attention">Ваша корзина пуста, пожалуйста, выберите другой товар для оформления заказа</div>
   {% ELSE %}
