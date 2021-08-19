@@ -1,41 +1,10 @@
 ///////////////////////////////////////////////////////
 /* Общие функции */
 //////////////////////////////////////////////////////
-// Возвращает правильное окончание для слова
-function genWordEnd(num, e, m, mm) {
-  // Если забыли указать окончания
-  if(typeof (e) == "undefined") { e = ''; }
-  if(typeof (m) == "undefined") { e = 'а'; }
-  if(typeof (mm) == "undefined"){ e = 'oв'; }
-  // Если передали пустую строку, вместо цифры
-  if(0 == num.length) { num = 0; }
-  // Превращаем цифру в правильный INT
-  num = GetSum(num).toString();
-  // Получаем последний символ цифры
-  ch1 = num.substring(num.length-1);
-  // Получаем последний символ цифры
-  ch2 = num.length == 1 ? 0 : num.substring(num.length-2, num.length-1);
-  // Если последняя цифра - 1, вернем единственное число
-  if(ch2!=1 && ch1==1)               {return e;}
-  // Если последняя цифра - от 2 до 4х , вернем множественное чило из массива с индексом 2
-  else if(ch2!=1 && ch1>1 && ch1<=4) {return m;}
-  // Если последняя цифра - от 5 до 0 , вернем множественное чило из массива с индексом 3
-  else if(ch2==1 || ch1>4 || ch1==0) {return mm;}
-}
-
-// Считает сумму  33 599,65 + 2000 - 1910-41,6
-function GetSum(val,precision) {
-  if(typeof (precision) == "undefined" || precision < 0) { precision = 0; }
-  // Возводим в степень точности 10 для округления
-  var p = Math.pow(10,precision);
-  try {return Math.round(parseFloat(eval(val.toString().replace(/\s/gi, "").replace(/,/gi, ".")))*p)/p;} catch (e) {return 0;}
-}
-
-// Форматирует цену
-function number_format(n,e,t,r){var i=n,a=e,o=function(n,e){var t=Math.pow(10,e);return(Math.round(n*t)/t).toString()};i=isFinite(+i)?+i:0,a=isFinite(+a)?Math.abs(a):0;var u,d,f="undefined"==typeof r?",":r,h="undefined"==typeof t?".":t,l=a>0?o(i,a):o(Math.round(i),a),s=o(Math.abs(i),a);s>=1e3?(u=s.split(/\D/),d=u[0].length%3||3,u[0]=l.slice(0,d+(0>i))+u[0].slice(d).replace(/(\d{3})/g,f+"$1"),l=u.join(h)):l=l.replace(".",h);var c=l.indexOf(h);return a>=1&&-1!==c&&l.length-c-1<a?l+=new Array(a-(l.length-c-1)).join(0)+"0":a>=1&&-1===c&&(l+=h+new Array(a).join(0)+"0"),l}
-
 // Функция определения ширины экрана пользователя
-function getClientWidth() {return document.compatMode=='CSS1Compat' && !window.opera?document.documentElement.clientWidth:document.body.clientWidth;}
+function getClientWidth() {
+  return document.compatMode=='CSS1Compat' && !window.opera?document.documentElement.clientWidth:document.body.clientWidth;
+}
 
 // Работа с cookie файлами.
 // Получение переменной из cookie
@@ -90,54 +59,13 @@ function sendError (desc, page, line) {
 // Функция определения браузера
 function userAgent(){
   var ua = detect.parse(navigator.userAgent);
-  if (ua.browser.family === 'Safari') {
-    $('body').addClass('Safari');
-  }
-  if (ua.browser.family === 'IE') {
-    $('body').addClass('IE');
-  }
-  if (ua.browser.family === 'Edge') {
-    $('body').addClass('Edge');
-  }
-  if (ua.browser.family === 'Firefox') {
-    $('body').addClass('Firefox');
-  }
-  if (ua.browser.family === 'Opera') {
-    $('body').addClass('Opera');
-  }
-  if (ua.browser.family === 'Chrome') {
-    $('body').addClass('Chrome');
-  }
-  if (ua.os.family === 'iOS') {
-    $('body').addClass('iOS');
-  }
-  if (ua.os.family === 'Android') {
-    $('body').addClass('Android');
-  }
+  $('body').addClass(ua.browser.family);
 }
 
 // Добавляет пробел 1000 -> 1 000  /  10000 -> 10 000
 function addSpaces(nStr){
   nStr = String(nStr)
 	return nStr.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ')
-}
-
-// Наверх
-function toTop() {
-  $("#toTop").hide();
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 100) {
-      $('#toTop').fadeIn();
-    } else {
-      $('#toTop').fadeOut();
-    }
-  });
-  $('.toTop').click(function () {
-    $('body,html').animate({
-      scrollTop: 0
-    }, 800);
-    return false;
-  });
 }
 
 // Предзагрузчик
@@ -148,6 +76,71 @@ function preload() {
   preloader.delay(1000).fadeOut('slow');
 }
 
+// Наверх
+function toTop() {
+  $("#toTop").hide();
+  $(window).on('scroll', function () {
+    if ($(this).scrollTop() > 100) {
+      $('#toTop').fadeIn();
+    } else {
+      $('#toTop').fadeOut();
+    }
+  });
+  $('.toTop').on('click', function () {
+    $('body,html').animate({
+      scrollTop: 0
+    }, 800);
+    return false;
+  });
+}
+
+// Превращает поле пароля в текстовое поле и обратно
+// @LinkObject - ссылка по которой кликнули
+// @InputObject - объект у которого нужно изменить тип поля
+function ChangePasswordFieldType (LinkObject, InputObject) {
+  var
+    // Ссылка по которой кликнули
+    LObject = $(LinkObject),
+    // Объект у которого изменяем тип с password на text
+    IObject = $(InputObject),
+    // Старый текст ссылки
+    txtOld = LObject.text(),
+    // Новый текст ссылки
+    txtNew = LObject.attr('rel');
+  // Если объекты не получены, завершим работу функции
+  if( LObject.length==0 || IObject.length==0 ) {
+    return false;
+  }
+  // Изменяем у ссылки текст со старого на новый
+  //LObject.html(txtNew);
+  // Старый текст ссылки сохраняем в атрибуте rel
+  //LObject.attr('rel', txtOld);
+  // Изменяем тип input поля
+  if(IObject[0].type == 'text') {
+    IObject[0].type = 'password';
+  } else {
+    IObject[0].type = 'text';
+  }
+}
+
+// Показать пароль
+function showPass() {
+  $('.showPassBlock').on('click', function(event){
+    ChangePasswordFieldType(this, $('#sites_client_pass'));
+    ChangePasswordFieldType(this, $('.sites_client_pass'));
+    if ($(this).hasClass('active')) {
+      $(this).removeClass('active');
+    } else {
+      $(this).addClass('active');
+    }
+    return false;
+  });
+}
+
+// Проверка вводимых значений в количестве товара
+function keyPress(oToCheckField, oKeyEvent) {
+  return oKeyEvent.charCode === 0 || /\d/.test(String.fromCharCode(oKeyEvent.charCode));
+}
 
 
 ///////////////////////////////////////////////////////
@@ -637,7 +630,7 @@ function mainnavHeader(){
 }
 
 
-// Функция показать больше для Каталога на главной странице
+// Функция Слайдер категорий Каталога на всех страницах.
 function pdtCatalog() {
   $('#catalog .owl-carousel').owlCarousel({
     items: 6,
@@ -671,54 +664,38 @@ function pdtCatalog() {
   });
 }
 
-
-// Превращает поле пароля в текстовое поле и обратно
-// @LinkObject - ссылка по которой кликнули
-// @InputObject - объект у которого нужно изменить тип поля
-function ChangePasswordFieldType (LinkObject, InputObject) {
-  var
-    // Ссылка по которой кликнули
-    LObject = $(LinkObject),
-    // Объект у которого изменяем тип с password на text
-    IObject = $(InputObject),
-    // Старый текст ссылки
-    txtOld = LObject.text(),
-    // Новый текст ссылки
-    txtNew = LObject.attr('rel');
-  // Если объекты не получены, завершим работу функции
-  if( LObject.length==0 || IObject.length==0 ) {
-    return false;
-  }
-  // Изменяем у ссылки текст со старого на новый
-  //LObject.html(txtNew);
-  // Старый текст ссылки сохраняем в атрибуте rel
-  //LObject.attr('rel', txtOld);
-  // Изменяем тип input поля
-  if(IObject[0].type == 'text') {
-    IObject[0].type = 'password';
-  } else {
-    IObject[0].type = 'text';
-  }
-}
-
-// Показать пароль
-function showPass() {
-  $('.showPassBlock').on('click', function(event){
-    ChangePasswordFieldType(this, $('#sites_client_pass'));
-    ChangePasswordFieldType(this, $('.sites_client_pass'));
-    if ($(this).hasClass('active')) {
-      $(this).removeClass('active');
-    } else {
-      $(this).addClass('active');
+// Функция слайдера для "Вы смотрели" на главной странице
+function viewed() {
+  $('#viewed .owl-carousel').owlCarousel({
+    items: 5,
+    margin: 32,
+    loop: false,
+    rewind: true,
+    lazyLoad: true,
+    nav: true,
+    navContainer: '#viewed .owl-nav',
+    navText: [ , ],
+    dots: false,
+    autoHeight: true,
+    autoHeightClass: 'owl-height',
+    autoplay: false,
+    autoplayHoverPause: true,
+    smartSpeed: 500,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    responsiveClass: true,
+    responsiveRefreshRate: 100,
+    responsive: {
+      0:{items:1},
+      320:{items:1},
+      540:{items:2},
+      640:{items:3},
+      768:{items:3},
+      992:{items:4},
+      1200:{items:5}
     }
-    return false;
   });
-}
-
-
-// Проверка вводимых значений в количестве товара
-function keyPress(oToCheckField, oKeyEvent) {
-  return oKeyEvent.charCode === 0 || /\d/.test(String.fromCharCode(oKeyEvent.charCode));
 }
 
 // Функция + - для товара
@@ -856,39 +833,6 @@ function notyStart(text, type) {
   }).show();
 }
 
-// Функция слайдера для "Вы смотрели" на главной странице
-function viewed() {
-  $('#viewed .owl-carousel').owlCarousel({
-    items: 5,
-    margin: 32,
-    loop: false,
-    rewind: true,
-    lazyLoad: true,
-    nav: true,
-    navContainer: '#viewed .owl-nav',
-    navText: [ , ],
-    dots: false,
-    autoHeight: true,
-    autoHeightClass: 'owl-height',
-    autoplay: false,
-    autoplayHoverPause: true,
-    smartSpeed: 500,
-    mouseDrag: true,
-    touchDrag: true,
-    pullDrag: true,
-    responsiveClass: true,
-    responsiveRefreshRate: 100,
-    responsive: {
-      0:{items:1},
-      320:{items:1},
-      540:{items:2},
-      640:{items:3},
-      768:{items:3},
-      992:{items:4},
-      1200:{items:5}
-    }
-  });
-}
 
 
 
