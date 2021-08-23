@@ -9,7 +9,10 @@
 .view__icon {width: 2.5rem;height: 2.5rem;color: #d2d9cd;font-size: 1.5rem;display: flex;align-items: center;justify-content: center;}
 .view__icon:hover, .view__icon.active {color: #6aa344;}
 @media (max-width: 479.98px) {
-	.sort > div + div {margin-left: 0;}
+	.sort > div + div {margin-left: 1rem;}
+	.sort .selectBox:before {right: -.5rem;}
+	.view__icon + .view__icon {display: none;}
+	.products__list .product__item {width: calc(100% - 4rem);}
 }
 /*** Сайдбар. Левая часть ***/
 .sidebar__block {margin-bottom: 2rem;padding: 0 1rem 1rem 1rem;background-color: #ffffff;border-radius: 1rem;}
