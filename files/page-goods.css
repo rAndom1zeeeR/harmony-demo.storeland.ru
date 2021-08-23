@@ -143,7 +143,7 @@
 }
 /* Товар: Отзывы */
 .opinion__content {display: flex;flex-wrap: wrap;align-items: flex-start;}
-.opinion__round {margin-bottom: 2rem;color: #ffffff;width: 100%;display: flex;flex-wrap: wrap;align-items: center;justify-content: space-between}
+.opinion__round {color: #ffffff;width: 100%;display: flex;flex-wrap: wrap;align-items: center;justify-content: space-between}
 .opinion__round i {font-size: 3rem;color: rgba(255, 255, 255, 0.4);margin-right: 2rem;}
 .rating__value {margin-right: 2rem;font-size: 2.75rem;font-weight: bold;line-height: 1;}
 .rating__roundValue {padding: .5rem 2rem;background-color: #ffbb3e;border-radius: 1rem;width: calc(50% - 1rem);display: flex;align-items: center;justify-content: flex-start;flex-wrap: wrap;}
@@ -151,7 +151,7 @@
 .rating__addOpinion:hover {background-color: #ffbb3e;cursor: pointer;}
 /* Отзывы: Список */
 .opinion__items {width: 100%;}
-.opinion__item {margin-bottom: 2rem;padding: 2rem;background-color: #ffffff;border-radius: 1rem;display: flex;flex-wrap: wrap;align-items: center;}
+.opinion__item {margin-top: 2rem;padding: 2rem;background-color: #ffffff;border-radius: 1rem;display: flex;flex-wrap: wrap;align-items: center;}
 .opinion__text {width: 100%;margin-top: .75rem;padding-top: 1rem;border-top: 1px solid #d2d9cd;}
 .opinion__text > div + div {margin-top: .5rem;}
 .opinion__name {margin-right: 2rem;font-weight: 600;display: inline-block;text-overflow: ellipsis;overflow: hidden;max-width: 50%;}
@@ -179,8 +179,8 @@
 }@media (max-width: 991.98px) {
 	.opinion__items {width: 100%;padding: 0;}
 	.opinion__addForm {width: 100%;position: relative;}
-	.rating__roundValue {width: 100%;}
-	.rating__addOpinion {width: 100%;margin-top: 2rem;}
+	.rating__roundValue {width: 100%;margin-bottom: 2rem;}
+	.rating__addOpinion {width: 100%;}
 }
 @media (max-width: 479.98px) {
 	.opinion__name {width: 100%;max-width: 100%;margin: 0 0 .5rem 0;}

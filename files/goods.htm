@@ -436,9 +436,10 @@
 			<div class="productView__opinion" data-tab="4">
 				<div class="opinion__content">
 
-					{% IFNOT opinion_list_empty %}
-					<div class="opinion__round">
 
+					<div class="opinion__round">
+						<!-- Среднее значение отзыва -->
+						{% IFNOT opinion_list_empty %}
 						<div class="rating__roundValue">
 							<i class="icon-star"></i>
 							<div class="rating__value">{GOODS_OPINION_RATING_VALUE_ROUND | divide("2")}</div>
@@ -447,7 +448,8 @@
 								<div>{GOODS_OPINION_RATING_CNT_ALL} отзыв{GOODS_OPINION_RATING_CNT_ALL | gen_word_end("а","ов","ов")}</div>
 							</div>
 						</div>
-
+						{% ENDIF %}
+						<!-- Добавить отзыв -->
 						<div class="rating__addOpinion" data-fancybox data-src="#fancybox__opinionAddForm">
 							<i class="icon-chat"></i>
 							<span>Оставить отзыв</span>
@@ -455,6 +457,7 @@
 
 					</div>
 
+					{% IFNOT opinion_list_empty %}
 					<!-- Список отзывов о товарах -->
 					<div class="opinion__items" itemprop="review" itemscope itemtype="https://schema.org/Review">
 						{% FOR opinion_list %}

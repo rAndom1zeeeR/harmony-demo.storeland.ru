@@ -230,33 +230,34 @@ function slideShow() {
 // Новости
 function newsCarousel() {
 	$("#news .owl-carousel").owlCarousel({
-			items: 2,
-			margin: 32,
-			loop: false,
-			rewind: true,
-			lazyLoad: true,
-			nav: true,
-			navContainer: '#news .owl-nav',
-			navText: [ , ],
-			dots: false,
-			autoHeight: true,
-			autoHeightClass: 'owl-height',
-			autoplay: false,
-			autoplayHoverPause: true,
-			smartSpeed: 500,
-			mouseDrag: true,
-			touchDrag: true,
-			pullDrag: true,
-			responsiveClass: true,
-			responsiveRefreshRate: 100,
-			responsive: {
-				0:{items:1},
-				540:{items:2},
-				768:{items:3}
-			}
-		});
+		items: 2,
+		margin: 32,
+		loop: false,
+		rewind: true,
+		lazyLoad: true,
+		nav: true,
+		navContainer: '#news .owl-nav',
+		navText: [ , ],
+		dots: false,
+		autoHeight: true,
+		autoHeightClass: 'owl-height',
+		autoplay: false,
+		autoplayHoverPause: true,
+		smartSpeed: 500,
+		mouseDrag: true,
+		touchDrag: true,
+		pullDrag: true,
+		responsiveClass: true,
+		responsiveRefreshRate: 100,
+		responsive: {
+			0:{items:1},
+			540:{items:2},
+			768:{items:3}
+		}
+	});
 }
 
+// Вертикальная карусель
 function verticalCarousel() {
 	$('#pdt__sales .product__item').each(function (){
 		var t = $(this);
