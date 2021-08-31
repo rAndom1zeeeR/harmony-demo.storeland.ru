@@ -482,6 +482,7 @@ function closeMenu() {
       $('div, a, form, span').removeClass('opened');
       $('.overflowMenu').removeClass('active');
       $('.search__reset').click();
+      $('header .mainnav').animate({opacity: '1'}, "fast");
       setTimeout(function () {
         $('#overlay').removeClass('transparent');
         $('.search__reset').click();
@@ -550,6 +551,7 @@ function openMenu() {
   $('.search__icon.button').on('click', function (event) {
     event.preventDefault();
     $(this).parent().toggleClass('opened');
+    $('header .mainnav').animate({opacity: '0'}, 1)
     $('#overlay').addClass('opened');
   });
 

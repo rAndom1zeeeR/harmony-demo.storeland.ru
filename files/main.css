@@ -453,14 +453,14 @@ h6 {font-size: 0.875rem;}
 /*** Шапка ***/
 header {position: relative;}
 .header__top {padding: .75rem 0;border-bottom: 1px solid #d2d9cd;display: flex;flex-wrap: wrap;align-items: center;justify-content: space-between;}
-.header__middle {padding: 1.5rem 0 0 0;position: relative;display: flex;flex-wrap: wrap;align-items: center;justify-content: space-between;}
+.header__middle {padding: 2rem 0 0 0;position: relative;display: flex;flex-wrap: wrap;align-items: center;justify-content: space-between;}
 .separator {margin: 0 1rem;width: 5px;height: 5px;background-color: #6aa344;border-radius: 50%;display: block;}
 
 /* Шапка. Контакты */
 .header__contacts {display: flex;flex-wrap: wrap;align-items: center;}
 .contacts__block {display: flex;flex-wrap: wrap;align-items: center;}
 .contacts__block i {color: #d2d9cd;font-size: 1.5rem;transition: all 0.3s ease;}
-.contacts__block:hover i {color: #ffffff;cursor: pointer;}
+.contacts__block:hover i {color: #6aa344;cursor: pointer;}
 .contacts__block a {font-size: .875rem;max-width: 10rem;display: block;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
 .contacts__block-content {width: calc(100% - 1.5rem);padding-left: .75rem;}
 @media (min-width: 1200px) {
@@ -497,7 +497,7 @@ header {position: relative;}
 }
 
 /* Шапка. Логотип */
-.logo {width: 14rem;flex-grow: 1;}
+.logo {width: 14.125rem;flex-grow: 1;}
 @media (max-width: 639.98px) {
 	.logo {width: 100%;text-align: center;margin-bottom: 2rem;}
 }
@@ -629,7 +629,7 @@ header {position: relative;}
 
 
 /*** Категории на главной ***/
-#catalog {background-color: #6aa344;position: relative;}
+#catalog {margin-top: 2rem;background-color: #6aa344;position: relative;}
 #catalog .owl-carousel .owl-stage-outer {padding: 0 1px;}
 #catalog .owl-carousel {display: flex;max-height: 72px;overflow: hidden;}
 #catalog .catalog__item {border-left: 1px solid #ffffff;padding: .625rem 1rem;display: flex;flex-wrap: wrap;align-items: center;transition: all 0.3s ease;}
@@ -729,6 +729,7 @@ footer li:hover:before {background-color: #ffbb3e;}
 footer .logo {margin: 0 auto 2rem;}
 footer .contacts__icon {font-size: 1.5rem;width: 3rem;height: 3rem;line-height: 3.5rem;color: #6aa344;background-color: #ffffff;border-radius: 100%;text-align: center;transition: all 0.3s ease;}
 footer .contacts__block:hover .contacts__icon {color: #ffffff;background-color: #6aa344;}
+footer .contacts__block:hover i {color: #ffffff;}
 footer .contacts__content {width: calc(100% - 3rem);padding-left: 1rem;}
 footer .contacts__content a {display: block;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
 footer .contacts__content a + a {margin-top: .5rem;}
