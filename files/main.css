@@ -728,13 +728,14 @@ footer li:hover:before {background-color: #ffbb3e;}
 /* Подвал. Контакты */
 footer .logo {margin: 0 auto 2rem;}
 footer .contacts__icon {font-size: 1.5rem;width: 3rem;height: 3rem;line-height: 3.5rem;color: #6aa344;background-color: #ffffff;border-radius: 100%;text-align: center;transition: all 0.3s ease;}
+footer .contacts__block {margin-top: 1rem;}
+footer .contacts__block i {color: #6aa344}
 footer .contacts__block:hover .contacts__icon {color: #ffffff;background-color: #6aa344;}
 footer .contacts__block:hover i {color: #ffffff;}
 footer .contacts__content {width: calc(100% - 3rem);padding-left: 1rem;}
 footer .contacts__content a {display: block;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
 footer .contacts__content a + a {margin-top: .5rem;}
 footer .contacts__content a.work {white-space: normal;}
-footer .contacts__block {margin-top: 1rem;}
 
 /* Подвал. Соц сети */
 .social-links {margin-top: 1.5rem;display: flex;flex-wrap: wrap;}
