@@ -29,72 +29,6 @@
 	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}min.css?design=THEMENAME" />
 	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}jquery.fancybox.min.css?design=THEMENAME" />
 	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}main.css?design=THEMENAME" />
-	<!-- Страница: Главная и НЕ главная -->
-	{% IF index_page %}
-	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}page-index.css?design=THEMENAME" />
-	{% ELSE %}
-	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}page-not-index.css?design=THEMENAME" />
-	{% ENDIF %}
-	<!-- Страница: Акции -->
-	{% IF MOD_LNAME = discount %}
-	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}page-discount.css?design=THEMENAME" />
-	{% ENDIF %}
-	<!-- Страница: Сравнение -->
-	{% IF MOD_LNAME = compare %}
-	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}page-compare.css?design=THEMENAME" />
-	{% ENDIF %}
-	<!-- Страница: Обратная связь -->
-	{% IF MOD_LNAME = feedback %}
-	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}page-feedback.css?design=THEMENAME" />
-	{% ENDIF %}
-	<!-- Страница: Новости -->
-	{% IF MOD_LNAME = news %}
-	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}page-news.css?design=THEMENAME" />
-	{% ENDIF %}
-	<!-- Страница: ЛК -->
-	{% IF MOD_LNAME = user || MOD_LNAME = feedback %}
-	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}page-user.css?design=THEMENAME" />
-	{% ENDIF %}
-	<!-- Стили: Товары -->
-	{% IF index_page || MOD_LNAME = catalog || MOD_LNAME = goods || MOD_LNAME = discount || MOD_LNAME = search || MOD_LNAME = user && ACT=favorites %}
-	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}page-products.css?design=THEMENAME" />
-	{% ENDIF %}
-	<!-- Стили: Категории -->
-	{% IF MOD_LNAME = catalog || index_page %}
-	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}page-categories.css?design=THEMENAME" />
-	{% ENDIF %}
-	<!-- Страница: Каталог -->
-	{% IF MOD_LNAME = catalog || MOD_LNAME = discount || MOD_LNAME = search %}
-	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}page-catalog.css?design=THEMENAME" />
-	{% ENDIF %}
-	<!-- Страница: Оформление заказа -->
-	{% IF MOD_LNAME = order %}
-	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}page-order.css?design=THEMENAME" />
-	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}page-user.css?design=THEMENAME" />
-	{% ENDIF %}
-	<!-- Страница: Корзина -->
-	{% IF MOD_LNAME = cart || MOD_LNAME = order %}
-	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}page-cart.css?design=THEMENAME" />
-	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}page-orderfast.css?design=THEMENAME" />
-	{% ENDIF %}
-	<!-- Страница: Быстрый заказ -->
-	{% IF index_page || MOD_LNAME = catalog || MOD_LNAME = discount || MOD_LNAME = search || MOD_LNAME = goods || MOD_LNAME = user && ACT=favorites || MOD_LNAME = compare %}
-	<link rel="stylesheet" type="text/css" data-href="{ASSETS_STYLES_PATH}page-orderfast.css?design=THEMENAME" />
-	{% ENDIF %}
-	<!-- Страница: Товар -->
-	{% IF MOD_LNAME = goods %}
-	<link id="page-goods-css" rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}page-goods.css?design=THEMENAME" />
-	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}page-orderfast.css?design=THEMENAME" />
-	<link id="page-orderfast-css"
-	      rel="stylesheet"
-	      type="text/css"
-	      data-href="{ASSETS_STYLES_PATH}page-orderfast.css?design=THEMENAME" />
-	{% ELSE %}
-	<link id="page-goods-css"
-	      rel="stylesheet"
-	      type="text/css"
-	      data-href="{ASSETS_STYLES_PATH}page-goods.css?design=THEMENAME" />
-	{% ENDIF %}
 	<!-- Скрипты магазина -->
 	<script type="text/javascript" src="{ASSETS_JS_PATH}jquery-3.6.0.min.js?design=THEMENAME"></script>
 	<!-- Дополнительные скрипты -->
@@ -3693,13 +3627,13 @@
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/picturefill/3.0.3/picturefill.min.js" async></script>
 <link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}owl.carousel.min.css?design=THEMENAME">
-<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}fix-ie.css?design=THEMENAME">
 {% ENDIF %}
 
 <!-- В случае их возникновения JS ошибок, отображаем их владельцу магазина для возможности отладки. Покупатели сообщений о JS ошибках не видят -->
 {% IF JAVASCRIPT_BUG_HUNTING_URL %}
 <script type="text/javascript" src="{JAVASCRIPT_BUG_HUNTING_URL}"></script>
 {% ENDIF %}
+
 <!-- ВНИМАНИЕ! Если Вы удалите код ниже, то это повлияет на работу вашего сайта. Пожалуйста ничего не удаляйте без консультации у специалистов. -->
 {% IF FORM_NOTICE %}
 <script async type="text/javascript">
@@ -3711,55 +3645,92 @@
 	}, 1000);
 </script>
 {% ENDIF %}
+
 <!-- Слайдер. Карусель -->
-<link rel="preload"
-      type="text/css"
-      href="{ASSETS_STYLES_PATH}owl.carousel.min.css?design=THEMENAME"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" type="text/css" href="{ASSETS_STYLES_PATH}owl.carousel.min.css?design=THEMENAME" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript>
 	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}owl.carousel.min.css?design=THEMENAME">
 </noscript>
 <script defer type="text/javascript" src="{ASSETS_JS_PATH}owl-carousel.js?design=THEMENAME"></script>
+
 <!-- Скрипты: Корзина -->
-{% IF MOD_LNAME = cart || MOD_LNAME = order %}
-<script defer type="text/javascript" src="{ASSETS_JS_PATH}page-cart.js?design=THEMENAME"></script>
-<script defer type="text/javascript" src="{ASSETS_JS_PATH}page-orderfast.js?design=THEMENAME"></script>
+{% IF MOD_LNAME = cart %}
 <script defer type="text/javascript" src="{ASSETS_JS_PATH}air-datepicker.js?design=THEMENAME"></script>
 <script defer type="text/javascript" src="{ASSETS_JS_PATH}debounce.js?design=THEMENAME"></script>
+<script type="text/javascript">
+// Загрузка основных функций страницы Корзина
+$(document).ready(function(){
+	cartQuantity();
+	// Вызов функции быстрого заказа в корзине
+	$('#startOrder').on('click', function() {
+		startOrder();
+		return false;
+	});
+});
+</script>
 {% ENDIF %}
-<!-- Скрипты: Сравнение -->
-{% IF MOD_LNAME = compare %}
-<script defer type="text/javascript" src="{ASSETS_JS_PATH}page-compare.js?design=THEMENAME"></script>
+
+<!-- Скрипты: Оформление заказа -->
+{% IF MOD_LNAME = order %}
+<script defer type="text/javascript" src="{ASSETS_JS_PATH}air-datepicker.js?design=THEMENAME"></script>
 {% ENDIF %}
-<!-- Скрипты: Главная  -->
-{% IF index_page %}
-<script defer type="text/javascript" src="{ASSETS_JS_PATH}page-index.js?design=THEMENAME"></script>
-{% ENDIF %}
-<!-- Скрипты: Товары, Акции, Поиск -->
-{% IF MOD_LNAME = catalog || MOD_LNAME = discount || MOD_LNAME = search %}
-<script defer type="text/javascript" src="{ASSETS_JS_PATH}page-catalog.js?design=THEMENAME"></script>
-<script defer type="text/javascript" src="{ASSETS_JS_PATH}jqueryui.js?design=THEMENAME"></script>
-{% ENDIF %}
+
 <!-- Скрипты: Товары -->
-{% IF index_page || MOD_LNAME = catalog || MOD_LNAME = discount || MOD_LNAME = search || MOD_LNAME = goods || MOD_LNAME = user && ACT=favorites || MOD_LNAME = compare %}
-<script defer type="text/javascript" src="{ASSETS_JS_PATH}page-products.js?design=THEMENAME"></script>
-<script defer type="text/javascript" src="{ASSETS_JS_PATH}page-goods-mod.js?design=Deluxe"></script>
-<script id="air-datepicker-js" defer type="text/javascript" data-src="{ASSETS_JS_PATH}air-datepicker.js?design=THEMENAME"></script>
-<script id="page-orderfast-js" defer type="text/javascript" data-src="{ASSETS_JS_PATH}page-orderfast.js?design=THEMENAME"></script>
+{% IF MOD_LNAME = catalog %}
+<script defer type="text/javascript" src="{ASSETS_JS_PATH}jqueryui.js?design=THEMENAME"></script>
+<script>
+// Загрузка основных функций шаблона Товары
+$(document).ready(function(){
+	catalog();
+	priceFilter();
+});
+</script>
 {% ENDIF %}
+
 <!-- Страница: Товар -->
 {% IF MOD_LNAME = goods %}
-<script id="page-goods-js" defer type="text/javascript" src="{ASSETS_JS_PATH}page-goods.js?design=THEMENAME"></script>
 <script defer type="text/javascript" src="{ASSETS_JS_PATH}jquery-star-rating.js?design=THEMENAME"></script>
-<script defer type="text/javascript" src="{ASSETS_JS_PATH}air-datepicker.js?design=THEMENAME"></script>
-<script defer type="text/javascript" src="{ASSETS_JS_PATH}page-orderfast.js?design=THEMENAME"></script>
-{% ELSE %}
-<script id="page-goods-js" defer type="text/javascript" data-src="{ASSETS_JS_PATH}page-goods.js?design=THEMENAME"></script>
+<script type="text/javascript">	
+// Загрузка основных функций шаблона Товар
+$(document).ready(function(){
+	pageGoods();
+	goodsModification();
+	prodQty();
+	monthNames();
+});
+</script>
 {% ENDIF %}
+
+<!-- Скрипты: Сравнение -->
+{% IF MOD_LNAME = compare %}
+<script type="text/javascript">	
+// Загрузка основных функций шаблона Сравнение
+$(document).ready(function(){
+	compare();
+});
+</script>
+{% ENDIF %}
+
+<!-- Скрипты: Главная -->
+{% IF index_page %}
+<script type="text/javascript">	
+// Загрузка основных функций шаблона
+$(document).ready(function(){
+	counterDate();
+	slideShow();
+	newsCarousel();
+	pdtSlider();
+	verticalCarousel();
+});
+</script>
+{% ENDIF %}
+
+
 <!-- Скрипты магазина-->
 <script defer type="text/javascript" src="{ASSETS_JS_PATH}main.js?design=THEMENAME"></script>
 <script defer type="text/javascript" src="{ASSETS_JS_PATH}search.js?design=THEMENAME"></script>
+<!-- Выбор даты в быстром заказе -->
+<script defer type="text/javascript" src="{ASSETS_JS_PATH}air-datepicker.js?design=THEMENAME"></script>
 <!-- Уведомления о действиях -->
 <script defer type="text/javascript" src="{ASSETS_JS_PATH}noty.min.js?design=THEMENAME"></script>
 <!-- Маска ввода-->
