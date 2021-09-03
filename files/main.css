@@ -870,7 +870,7 @@ footer .contacts__content a.work {white-space: normal;}
 
 
 /*** Популярное ***/
-#popular {min-height: 22rem;}
+#popular {height: 22rem;overflow: hidden;}
 #popular .owl-dots {margin-top: 1rem;}
 .popular__items {display: flex;flex-wrap: wrap;align-items: flex-start;}
 .popular__item {width: 100%;margin: 0;display: flex;justify-content: center;position: relative;}
