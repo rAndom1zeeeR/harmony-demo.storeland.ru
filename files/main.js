@@ -483,6 +483,7 @@ function closeMenu() {
       $('.overflowMenu').removeClass('active');
       $('.search__reset').click();
       $('header .mainnav').animate({opacity: '1'}, "fast");
+      $('header .cart__block').animate({opacity: '1'}, "fast");
       setTimeout(function () {
         $('#overlay').removeClass('transparent');
         $('.search__reset').click();
@@ -552,6 +553,7 @@ function openMenu() {
     event.preventDefault();
     $(this).parent().toggleClass('opened');
     $('header .mainnav').animate({opacity: '0'}, 1)
+		$('header .cart__block').animate({opacity: '0'}, 1)		
     $('#overlay').addClass('opened');
   });
 
@@ -2371,7 +2373,13 @@ function coupons() {
 				// Получаем блок скидки
 				var discountBlock = $(data).closest('#myform').find('.discount');
 				var discountName = discountBlock.find('.name').text();
-				var discountPercent = discountBlock.find('.percent .num').text();
+				var discountPrice = discountBlock.find('.percent .num').text();
+				var discountPercent = discountBlock.find('.percent').text();
+				if (discountPrice.length) {
+					discountPrice = discountPrice
+				}else{
+					discountPrice = discountPercent
+				}
 				// Получаем новую итоговую стоимость заказа
 				var totalBlock = $(data).closest('#myform').find('.total');
 				var totalSum = totalBlock.find('.total-sum').data('total-sum');
@@ -2379,7 +2387,7 @@ function coupons() {
 				var newTotalSum = totalSum + deliveryPrice;
 				// Записываем название и размер скидки по купону
 				$('.total__coupons .total__label span').html(discountName);
-				$('.total__coupons .cartSumCoupons').html(discountPercent);
+				$('.total__coupons .cartSumCoupons').html(discountPrice);
 				$('.total__discount').hide();
 				$('.total__coupons').show();
 				if (newTotalSum > cartSumTotal) {
