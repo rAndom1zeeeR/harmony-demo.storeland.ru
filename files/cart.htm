@@ -100,7 +100,7 @@
 			<!-- Скидки, действующие на заказ -->
 			{% FOR cart_discount %}
 			{% IF cart_discount.DISCOUNT_IS_ENABLED %}
-			<div class="total__item total__discount">
+			<div class="total__item total__discount {CURRENCY_CHAR_CODE}">
 				<div class="total__label"><span>{cart_discount.DISCOUNT_NAME}:</span></div>
 				<div {% IFNOT cart_discount.IS_PERCENT %}class="total__price"{% ENDIF %}>
 					<span class="discount__value" data-value="{cart_discount.DISCOUNT_VALUE}">{cart_discount.DISCOUNT_VALUE}</span>
@@ -115,19 +115,19 @@
 			{% ENDFOR %}
 
 			<!-- Корзина: Купон -->
-			<div class="total__item total__coupons" style="display: none;">
+			<div class="total__item total__coupons {CURRENCY_CHAR_CODE}" style="display: none;">
 				<div class="total__label"><span>Купон:</span></div>
 				<div class="total__price"><span class="cartSumCoupons" data-value=""></span></div>
 			</div>
 
 			<!-- Корзина: Доставка -->
-			<div class="total__item total__delivery">
+			<div class="total__item total__delivery {CURRENCY_CHAR_CODE}">
 				<div class="total__label"><span>Доставка:</span></div>
 				<div class="total__price"><span class="cartSumDelivery" data-value="{CART_SUM_DELIVERY}">{CART_SUM_DELIVERY | money_format}</span></div>
 			</div>
 
 			<!-- Корзина: Итого -->
-			<div class="total__item total__cart">
+			<div class="total__item total__cart {CURRENCY_CHAR_CODE}">
 				<div class="total__label">Итого:</div>
 				<div class="total__price cartSumTotal" data-value="{CART_SUM_NOW_WITH_DISCOUNT}">{CART_SUM_NOW_WITH_DISCOUNT | money_format}</div>
 				<div style="display: none;" class="total__price cartSumNow" data-value="{CART_SUM_NOW}">{CART_SUM_NOW | money_format}</div>

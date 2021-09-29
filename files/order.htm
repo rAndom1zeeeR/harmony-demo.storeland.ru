@@ -322,7 +322,7 @@
                   {% IF cart_discount.IS_PERCENT %}
                   <td colspan="2" class="percent">{cart_discount.DISCOUNT_VALUE}%</td>
                   {% ELSE %}
-                  <td colspan="2" class="percent price__now RUB">{cart_discount.DISCOUNT_VALUE | money_format}</td>
+                  <td colspan="2" class="price__now RUB">{cart_discount.DISCOUNT_VALUE | money_format}</td>
                   {% ENDIF %}
                 </tr>
               {% ENDIF %}
