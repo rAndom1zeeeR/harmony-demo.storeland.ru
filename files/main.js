@@ -947,45 +947,49 @@ function startOrder(){
 				$('html, body').delay(400).animate({scrollTop : jQuery('#globalOrder').offset().top}, 800);
 				return false;
 			});
-			// Валидация формы на странице оформления заказа
-			$(".total__buttons button, #makeOrder").on('click', function(){
-				var form = $(".fastOrder__form");
-				form.validate({
-					errorPlacement: function(error, element) { }
-				});
-				form.submit();
-				return false;
-			});
-			// Выключение кнопки оформления заказа если не все поля заполнены
-			$(".fastOrder__form [required]").on('blur keyup keydown',function(){
-				if($('.fastOrder__form').valid()) {
-					$(".total__buttons button").removeClass('disabled');
-					$(".total__buttons button").attr('data-tooltip', 'Оформить заказ');
-					$("#makeOrder").removeClass('disabled');
-					$("#makeOrder").attr('data-tooltip', 'Оформить заказ');
-				} else {
-					$(".total__buttons button").addClass('disabled');
-					$(".total__buttons button").attr('data-tooltip', 'Заполните все поля');
-					$("#makeOrder").addClass('disabled');
-					$("#makeOrder").attr('data-tooltip', 'Заполните все поля');
-				}
-			});
-			// Выключение кнопки оформления заказа если не все поля заполнены
-			$(function(){
-				if($('.fastOrder__form').valid()) {
-					$(".total__buttons button").removeClass('disabled');
-					$(".total__buttons button").attr('data-tooltip', 'Оформить заказ');
-					$("#makeOrder").removeClass('disabled');
-					$("#makeOrder").attr('data-tooltip', 'Оформить заказ');
-				}else{
-					$(".fastOrder__form input, .fastOrder__form textarea, .fastOrder__form select").removeClass('error');
-				}
-			});
+			validOrders();
 		}
 	});
 	return false;
 }
 
+function validOrders(){	
+	// Валидация формы на странице оформления заказа
+	$(".total__buttons button, #makeOrder").on('click', function(){
+		console.log('click')
+		var form = $(".fastOrder__form");
+		form.validate({
+			errorPlacement: function(error, element) { }
+		});
+		form.submit();
+		return false;
+	});
+	// Выключение кнопки оформления заказа если не все поля заполнены
+	$(".fastOrder__form [required]").on('blur keyup keydown',function(){
+		if($('.fastOrder__form').valid()) {
+			$(".total__buttons button").removeClass('disabled');
+			$(".total__buttons button").attr('data-tooltip', 'Оформить заказ');
+			$("#makeOrder").removeClass('disabled');
+			$("#makeOrder").attr('data-tooltip', 'Оформить заказ');
+		} else {
+			$(".total__buttons button").addClass('disabled');
+			$(".total__buttons button").attr('data-tooltip', 'Заполните все поля');
+			$("#makeOrder").addClass('disabled');
+			$("#makeOrder").attr('data-tooltip', 'Заполните все поля');
+		}
+	});
+	// Выключение кнопки оформления заказа если не все поля заполнены
+	$(function(){
+		if($('.fastOrder__form').valid()) {
+			$(".total__buttons button").removeClass('disabled');
+			$(".total__buttons button").attr('data-tooltip', 'Оформить заказ');
+			$("#makeOrder").removeClass('disabled');
+			$("#makeOrder").attr('data-tooltip', 'Оформить заказ');
+		}else{
+			$(".fastOrder__form input, .fastOrder__form textarea, .fastOrder__form select").removeClass('error');
+		}
+	});
+}
 
 ///////////////////////////////////////////////////////
 /* Товары */
@@ -2094,6 +2098,7 @@ function quickOrder(formSelector) {
           $('.fastOrder__form').validate({
             errorPlacement: function(error, element) { }
           });
+					validOrders();
 				}
 			})
 
