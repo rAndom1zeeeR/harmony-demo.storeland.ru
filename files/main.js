@@ -484,6 +484,7 @@ function closeMenu() {
       $('.search__reset').click();
       $('header .mainnav').animate({opacity: '1'}, "fast");
       $('header .cart__block').animate({opacity: '1'}, "fast");
+			$('header .catalog__icon').animate({opacity: '1'}, "fast")
       setTimeout(function () {
         $('#overlay').removeClass('transparent');
         $('.search__reset').click();
@@ -553,7 +554,8 @@ function openMenu() {
     event.preventDefault();
     $(this).parent().toggleClass('opened');
     $('header .mainnav').animate({opacity: '0'}, 1)
-		$('header .cart__block').animate({opacity: '0'}, 1)		
+		$('header .cart__block').animate({opacity: '0'}, 1)
+		$('header .catalog__icon').animate({opacity: '0'}, 1)
     $('#overlay').addClass('opened');
   });
 
