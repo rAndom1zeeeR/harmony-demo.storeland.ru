@@ -504,7 +504,7 @@ function closeMenu() {
 // Открытие Контактов, Меню, Сравнения, Избранного
 function openMenu() {
   // Открытие элементов
-  $('.dropdown__open').on('click', function(event){
+  $('.dropdown__open[data-open]').on('click', function(event){
     event.preventDefault();
     $('div, a, form').removeClass('opened');
     var value = $(this).data('open');
@@ -533,10 +533,12 @@ function openMenu() {
       sub.slideUp(600);
       parent.removeClass('opened');
       open.removeClass('opened');
+			console.log('slideUp')
     } else {
       sub.slideDown(600);
       parent.addClass('opened');
       open.addClass('opened');
+			console.log('slideDown')
     }
   });
 
@@ -643,7 +645,7 @@ function pdtCatalog() {
   $('#catalog .owl-carousel').owlCarousel({
     items: 6,
     margin: 0,
-    loop: false,
+    loop: true,
     rewind: true,
     lazyLoad: true,
     nav: false,
@@ -654,7 +656,7 @@ function pdtCatalog() {
     autoHeightClass: 'owl-height',
     autoplay: true,
     autoplayHoverPause: true,
-    smartSpeed: 500,
+    smartSpeed: 800,
     mouseDrag: true,
     touchDrag: true,
     pullDrag: true,

@@ -61,7 +61,7 @@
 			{% ENDIF %}
 
 			<!-- Добавление в избранное и сравнение -->
-			<div class="productView__links {% IF GOODS_MOD_IS_HAS_IN_COMPARE_LIST || GOODS_MOD_IS_HAS_IN_FAVORITES_LIST %}added{% ENDIF %}">
+			<div class="productView__links {% IF GOODS_MOD_IS_HAS_IN_COMPARE_LIST || GOODS_MOD_IS_HAS_IN_FAVORITES_LIST %}added{% ENDIF %} {% IF GOODS_MOD_MAX_DISCOUNT_ID %}has-discount{% ENDIF %}">
 				<!-- Если в тарифном плане подключен модуль сравнения товаров и он не выключен в настройках магазина -->
 				{% IF SETTINGS_COMPARE_DISABLE=0 %}
 				{% IF GOODS_MOD_IS_HAS_IN_COMPARE_LIST %}

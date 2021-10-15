@@ -335,26 +335,77 @@
 					</div>
 
 					<!-- Корзина -->
-					<div class="cart cart__block {% IF CART_COUNT_TOTAL > 0 %}hasItems{% ENDIF %}">
-						<div class="cart__block-icon"
-						     data-open="cart"
-						     data-fancybox
-						     data-src="#fancybox__cart"
-						>
-							<i class="icon-cart"></i>
-						</div>
-						<div class="cart__block-content">
-							<a href="{CART_URL}"
-							   class="cart__block-label"
-							   title="Корзина"
-							>
+					<div class="cart cart__block dropdown {% IF CART_COUNT_TOTAL > 0 %}hasItems{% ENDIF %}">
+						<a href="{CART_URL}" class="cart__block-label dropdown__open" title="Корзина">
+							<div class="cart__block-icon">
+								<i class="icon-cart"></i>
+							</div>
+							<div class="cart__block-content">
 								<span class="price__now cartSumNow {CURRENCY_CHAR_CODE}">{CART_SUM_NOW | money_format}</span>
 								<span>
 									<span class="cart__count" data-count="{CART_COUNT_TOTAL}">{CART_COUNT_TOTAL}</span>
 									<span class="cart__word">товар{CART_COUNT_TOTAL | gen_word_end("","а","ов")}</span>
 								</span>
-							</a>
+							</div>
+						</a>
+
+						<div class="cart__block-dropdown addto__cart dropdown__content">
+							{% IFNOT cart_items_empty %}
+							<div class="addto__items">
+								{% FOR cart_items %}
+								<div class="addto__item" data-id="{cart_items.GOODS_ID}">
+									<a href="{cart_items.GOODS_URL}"
+											title="{cart_items.GOODS_NAME}"
+											class="addto__image"><img src="{% IF cart_items.GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=THEMENAME{% ELSE %}{cart_items.GOODS_IMAGE_ICON}{% ENDIF %}"
+																								alt="{cart_items.GOODS_NAME}"
+																								class="goods-image-icon" /></a>
+									<div class="addto__shop">
+										<!-- Название -->
+										<a href="{cart_items.GOODS_URL}"
+												class="addto__name"
+												title="{cart_items.GOODS_NAME}"><span>{cart_items.GOODS_NAME}</span></a>
+										{% IFNOT cart_items.distinctive_properties_empty %}
+										<div class="addto__mod">({% FOR distinctive_properties %}{cart_items.distinctive_properties.NAME}: {cart_items.distinctive_properties.VALUE}{% IFNOT cart_items.distinctive_properties.last %}, {% ENDIF %}{% ENDFOR %})</div>
+										{% ENDIF %}
+										<!-- Цена -->
+										<div class="addto__price {CURRENCY_CHAR_CODE}">
+											<span class="price__qty">{cart_items.ORDER_LINE_QUANTITY} x </span>
+											<span class="price__now" data-price="{cart_items.GOODS_MOD_PRICE_NOW}">
+												{cart_items.GOODS_MOD_PRICE_NOW | money_format}
+											</span>
+											<!-- Удаление -->
+											<a class="addto__remove remove"
+													href="{cart_items.ORDER_LINE_DELETE_URL}"
+													data-qty="{cart_items.ORDER_LINE_QUANTITY}"
+													title="Удалить позицию"
+													data-id="{cart_items.GOODS_ID}"
+													onclick="removeFromCart($(this))"><span>Удалить</span></a>
+										</div>
+									</div>
+								</div>
+								{% ENDFOR %}
+							</div>
+							<div class="addto__total {CURRENCY_CHAR_CODE}">
+								<span class="cartCountTotal">
+									<span class="cart__count">{CART_COUNT_TOTAL}</span>
+									<span class="cart__word">товар{CART_COUNT_TOTAL | gen_word_end("","а","ов")}</span>
+								</span>
+								<span class="price__now cartSumNow">{CART_SUM_NOW | money_format}</span>
+							</div>
+							{% ENDIF %}
+							<div class="addto__empty">
+								<div class="addto__title">В корзине пока ничего нет</div>
+								<a href="{CATALOG_URL}" class="button addto__close" title="Продолжить покупки">Каталог</a>
+							</div>
+							<div class="addto__buttons">
+								<a href="{CART_TRUNCATE_URL}"
+										onclick="removeFromCartAll($(this))"
+										class="button button4 removeAll"
+										title="Очистить корзину"><span>Очистить</span></a>
+								<a href="{CART_URL}" class="button" title="Перейти в Корзину"><span>В корзину</span></a>
+							</div>
 						</div>
+
 
 					</div><!-- //END Корзина -->
 
@@ -1780,7 +1831,7 @@
 												<input type="checkbox" name="form[filter][attr][{filter_attr_list.ID}][{filter_attr_list.values.ID}]" value="1" id="filterAttrVal{filter_attr_list.values.ID}" class="square" {% IF filter_attr_list.values.CHECKED %}checked="checked" {% ELSEIF filter_attr_list.values.NB_GOODS_FILTERED=0 %}disabled="disabled" {% ENDIF %} />
 												<label for="filterAttrVal{filter_attr_list.values.ID}">
 													<span>{filter_attr_list.values.VALUE}</span>
-													<span>({filter_attr_list.values.NB_GOODS_ALL})</span>
+													<!-- <span>({filter_attr_list.values.NB_GOODS_ALL})</span> -->
 												</label>
 											</div>
 											{% ENDFOR %}
@@ -1800,7 +1851,7 @@
 												<input type="checkbox" name="form[filter][prop][{filter_prop_list.ID}][{filter_prop_list.values.ID}]" value="1" id="filterPropVal{filter_prop_list.values.ID}" class="square" {% IF filter_prop_list.values.CHECKED %}checked="checked" {% ELSEIF filter_prop_list.values.NB_GOODS_FILTERED=0 %}disabled="disabled" {% ENDIF %} />
 												<label for="filterPropVal{filter_prop_list.values.ID}">
 													<span>{filter_prop_list.values.VALUE}</span>
-													<span>({filter_prop_list.values.NB_GOODS_FILTERED})</span>
+													<!-- <span>({filter_prop_list.values.NB_GOODS_FILTERED})</span> -->
 												</label>
 											</div>
 											{% ENDFOR %}
@@ -2132,7 +2183,7 @@
 		{% ENDIF %}
 
 		<!-- Баннеры -->
-		{% IFNOT MOD_LNAME = cart %}
+		{% IF index_page || MOD_LNAME = catalog %}
 		<section id="banners">
 			<div class="container">
 				<div class="row">
@@ -2727,7 +2778,7 @@
 		{% ENDIF %}<!-- //END Главная страница -->
 
 		<!-- Подпишитесь -->
-		{% IFNOT MOD_LNAME = cart %}
+		{% IF index_page || MOD_LNAME = catalog %}
 		<section id="subscribe" class="callback__index">
 			<div class="container">
 				<div class="inner">
@@ -3138,16 +3189,16 @@
 						{% FOR catalog_full %}
 						{% IF catalog_full.FIRST %}{% IFNOT catalog_full.LEVEL = 0 %}
 						<div data-level="{catalog_full.LEVEL}" class="sub">{% ENDIF %}{% ENDIF %}
-							<div class="catalog__item {% IF catalog_full.ISSET_VISIBLE_SUB %}parent{% ENDIF %} {% IF catalog_full.CURRENT_PARENT %}opened{% ENDIF %}"
+							<div class="catalog__item {% IF catalog_full.ISSET_VISIBLE_SUB %}parent{% ENDIF %} {% IF catalog_full.CURRENT_PARENT %}opened{% ENDIF %} {% IF catalog_full.LEVEL = 0 %}opened{% ENDIF %}"
 							     data-level="{catalog_full.LEVEL}"
 							     {% IF catalog_full.HIDE %}style="display:none;"{% ENDIF %}
 				      >
-								<a class="catalog__link {% IF catalog_full.CURRENT %}opened{% ENDIF %}"
+								<a class="catalog__link {% IF catalog_full.CURRENT %}opened{% ENDIF %} {% IF catalog_full.LEVEL = 0 %}opened{% ENDIF %}"
 								   href="{catalog_full.URL}"
 								   data-level="{catalog_full.LEVEL}"
 								>
 									<span>{catalog_full.NAME}</span>
-									{% IF catalog_full.ISSET_VISIBLE_SUB %}<span class="open"></span>{% ENDIF %}
+									{% IF catalog_full.ISSET_VISIBLE_SUB %}<span class="open {% IF catalog_full.LEVEL = 0 %}opened{% ENDIF %}"></span>{% ENDIF %}
 								</a>
 								{% IF catalog_full.ISSET_SUB=0 %}
 							</div>
@@ -3160,75 +3211,6 @@
 					{% ENDFOR %}
 				</div>
 			</div>
-
-			<!-- Корзина -->
-			{% IFNOT MOD_LNAME = cart %}
-			<div id="fancybox__cart"
-			     class="modal addto__cart cart {% IF CART_COUNT_TOTAL > 0 %}hasItems{% ENDIF %}"
-			     data-content="cart"
-			     style="display: none"
-			>
-				<div class="modal__title block__title">
-					<a href="{CART_URL}" class="title">Корзина</a>
-				</div>
-				<div class="modal__content">
-					{% IFNOT cart_items_empty %}
-					<div class="addto__items">
-						{% FOR cart_items %}
-						<div class="addto__item" data-id="{cart_items.GOODS_ID}">
-							<a href="{cart_items.GOODS_URL}"
-							   title="{cart_items.GOODS_NAME}"
-							   class="addto__image"><img src="{% IF cart_items.GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=THEMENAME{% ELSE %}{cart_items.GOODS_IMAGE_ICON}{% ENDIF %}"
-							                             alt="{cart_items.GOODS_NAME}"
-							                             class="goods-image-icon" /></a>
-							<div class="addto__shop">
-								<!-- Название -->
-								<a href="{cart_items.GOODS_URL}"
-								   class="addto__name"
-								   title="{cart_items.GOODS_NAME}"><span>{cart_items.GOODS_NAME}</span></a>
-								{% IFNOT cart_items.distinctive_properties_empty %}
-								<div class="addto__mod">({% FOR distinctive_properties %}{cart_items.distinctive_properties.NAME}: {cart_items.distinctive_properties.VALUE}{% IFNOT cart_items.distinctive_properties.last %}, {% ENDIF %}{% ENDFOR %})</div>
-								{% ENDIF %}
-								<!-- Цена -->
-								<div class="addto__price {CURRENCY_CHAR_CODE}">
-									<span class="price__qty">{cart_items.ORDER_LINE_QUANTITY} x </span>
-									<span class="price__now" data-price="{cart_items.GOODS_MOD_PRICE_NOW}">
-										{cart_items.GOODS_MOD_PRICE_NOW | money_format}
-									</span>
-									<!-- Удаление -->
-									<a class="addto__remove remove"
-									   href="{cart_items.ORDER_LINE_DELETE_URL}"
-									   data-qty="{cart_items.ORDER_LINE_QUANTITY}"
-									   title="Удалить позицию"
-									   data-id="{cart_items.GOODS_ID}"
-									   onclick="removeFromCart($(this))"><span>Удалить</span></a>
-								</div>
-							</div>
-						</div>
-						{% ENDFOR %}
-					</div>
-					<div class="addto__total {CURRENCY_CHAR_CODE}">
-						<span class="cartCountTotal">
-							<span class="cart__count">{CART_COUNT_TOTAL}</span>
-							<span class="cart__word">товар{CART_COUNT_TOTAL | gen_word_end("","а","ов")}</span>
-						</span>
-						<span class="price__now cartSumNow">{CART_SUM_NOW | money_format}</span>
-					</div>
-					{% ENDIF %}
-					<div class="addto__empty">
-						<div class="addto__title">В корзине пока ничего нет</div>
-						<a href="{CATALOG_URL}" class="button addto__close" title="Продолжить покупки">Каталог</a>
-					</div>
-					<div class="addto__buttons">
-						<a href="{CART_TRUNCATE_URL}"
-						   onclick="removeFromCartAll($(this))"
-						   class="button button4 removeAll"
-						   title="Очистить корзину"><span>Очистить</span></a>
-						<a href="{CART_URL}" class="button" title="Перейти в Корзину"><span>В корзину</span></a>
-					</div>
-				</div>
-			</div>
-			{% ENDIF %}
 
 			<!-- Сравнение -->
 			{% IFNOT MOD_LNAME = compare && SETTINGS_COMPARE_DISABLE=0 %}
