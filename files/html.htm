@@ -1831,7 +1831,7 @@
 												<input type="checkbox" name="form[filter][attr][{filter_attr_list.ID}][{filter_attr_list.values.ID}]" value="1" id="filterAttrVal{filter_attr_list.values.ID}" class="square" {% IF filter_attr_list.values.CHECKED %}checked="checked" {% ELSEIF filter_attr_list.values.NB_GOODS_FILTERED=0 %}disabled="disabled" {% ENDIF %} />
 												<label for="filterAttrVal{filter_attr_list.values.ID}">
 													<span>{filter_attr_list.values.VALUE}</span>
-													<!-- <span>({filter_attr_list.values.NB_GOODS_ALL})</span> -->
+													<span>({filter_attr_list.values.NB_GOODS_ALL})</span>
 												</label>
 											</div>
 											{% ENDFOR %}
@@ -1851,7 +1851,7 @@
 												<input type="checkbox" name="form[filter][prop][{filter_prop_list.ID}][{filter_prop_list.values.ID}]" value="1" id="filterPropVal{filter_prop_list.values.ID}" class="square" {% IF filter_prop_list.values.CHECKED %}checked="checked" {% ELSEIF filter_prop_list.values.NB_GOODS_FILTERED=0 %}disabled="disabled" {% ENDIF %} />
 												<label for="filterPropVal{filter_prop_list.values.ID}">
 													<span>{filter_prop_list.values.VALUE}</span>
-													<!-- <span>({filter_prop_list.values.NB_GOODS_FILTERED})</span> -->
+													<span>({filter_prop_list.values.NB_GOODS_FILTERED})</span>
 												</label>
 											</div>
 											{% ENDFOR %}
@@ -2843,7 +2843,7 @@
 						<div class="footer__title">Каталог</div>
 
 						<div class="footer__content">
-							<ul>
+							<ul class="footer__links">
 								{% FOR catalog_full %}
 									{% IF catalog_full.LEVEL = 0 %}
 									<li>
@@ -3052,7 +3052,7 @@
 						<div class="footer__title">Меню</div>
 
 						<div class="footer__content">
-							<ul itemscope itemtype="https://schema.org/SiteNavigationElement">
+							<ul class="footer__links" itemscope itemtype="https://schema.org/SiteNavigationElement">
 								{% FOR menu %}
 									{% FOR footer %}
 										{% FOR links %}
@@ -3108,12 +3108,7 @@
 		<div id="navbar">
 
 			<!-- Корзина -->
-			<a class="navbar__block cart {% IF CART_COUNT_TOTAL > 0 %}hasItems{% ENDIF %}"
-			   href="{CART_URL}"
-		     data-open="cart"
-		     data-fancybox
-		     data-src="#fancybox__cart"
-			>
+			<a class="navbar__block cart {% IF CART_COUNT_TOTAL > 0 %}hasItems{% ENDIF %}" href="{CART_URL}">
 				<div class="navbar__icon">
 					<i class="icon-cart"></i>
 				</div>
@@ -3130,12 +3125,7 @@
 			</a>
 
 			<!-- Сравнение -->
-			<a class="navbar__block compare {% IF COMPARE_GOODS_COUNT > 0 %}hasItems{% ENDIF %}"
-			   href="{COMPARE_URL}"
-		     data-open="compare"
-		     data-fancybox
-		     data-src="#fancybox__compare"
-			>
+			<a class="navbar__block compare {% IF COMPARE_GOODS_COUNT > 0 %}hasItems{% ENDIF %}" href="{COMPARE_URL}">
 				<div class="navbar__icon">
 					<i class="icon-compare"></i>
 				</div>
@@ -3149,12 +3139,7 @@
 			</a>
 
 			<!-- Избранное -->
-			<a class="navbar__block favorites {% IF FAVORITES_GOODS_COUNT > 0 %}hasItems{% ENDIF %}"
-			   href="{FAVORITES_URL}"
-		     data-open="favorites"
-		     data-fancybox
-		     data-src="#fancybox__favorites"
-			>
+			<a class="navbar__block favorites {% IF FAVORITES_GOODS_COUNT > 0 %}hasItems{% ENDIF %}" href="{FAVORITES_URL}">
 				<div class="navbar__icon">
 					<i class="icon-favorites"></i>
 				</div>

@@ -656,7 +656,7 @@ function pdtCatalog() {
     autoHeightClass: 'owl-height',
     autoplay: true,
     autoplayHoverPause: true,
-    smartSpeed: 800,
+    smartSpeed: 500,
     mouseDrag: true,
     touchDrag: true,
     pullDrag: true,
@@ -733,113 +733,6 @@ function quantity() {
     return false;
   });
 }
-
-// Загрузчик файлов
-// function loadFile(fileName, ext, cb){
-//   if(!fileName){console.error('Не передано имя загружаемого файла');return;}
-//   if(!ext){console.error('Не передано расширение загружаемого файла');return;}
-//   if(!(typeof cb === 'function')){cb = function(){}};
-
-//   var $file = $('#' + fileName + '-' + ext);
-//   var attrName = (ext === 'css') ? 'href' : 'src';
-
-//   if(!$file.length){
-//     console.error(fileName + '.' + ext + ' - Файл не найден в разметке и не может быть загружен');
-//     return;
-//   }
-//   // Если файл уже загружен
-//   if($file.attr(attrName)){
-//     cb();
-//     console.log($file, ' - Already loaded');
-//     return (true);
-//   }
-//   $file.on('load', cb)
-//   $file.attr(attrName, $file.data(attrName));
-//   console.log($file, ' - loaded');
-// }
-
-// Уведомления
-function notyStart(text, type) {
-  new Noty({
-    text: text,
-    layout: "bottomCenter",
-    type: type,
-    theme: "",
-    textAlign: "center",
-    animation: {
-      open: 'animated fadeInUp',
-      close: 'animated fadeOutDown',
-      easing: 'swing',
-      speed: 400
-    },
-    timeout: "2000",
-    progressBar: true,
-    closable: true,
-    closeOnSelfClick: true,
-    modal: false,
-    dismissQueue: false,
-    onClose: true,
-    killer: false
-  }).show();
-}
-
-// Загрузка основных функций шаблона
-$(document).ready(function(){
-  userAgent();
-  openMenu();
-  closeMenu();
-  showPass();
-  quantity();
-  mainnavHeader();
-  pdtCatalog();
-  toTop();
-  viewed();
-  // Стили для новых селектов
-  /*$('.select').styler();*/
-  // Ленивая загрузка
-  $(function(){
-    var observer = lozad(); // lazy loads elements with default selector as '.lozad'
-    observer.observe();
-  });
-  // Отправка формы по Ctrl+Enter
-  $('form').bind('keypress', function(e){
-    if((e.ctrlKey) && ((e.which==10)||(e.which==13))) {$(this).submit();}
-  // Отправка данных формы по нажатию на Enter в случае если курсор находится в input полях (В некоторых браузерах при нажатии по enter срабатывает клик по первому submit полю, которое является кнопкой назад. Для этого написан этот фикс)
-  }).find('input').bind('keypress', function(e){
-    if(((e.which==10)||(e.which==13))) { try{$(this.form).submit();} catch(e){} return false; }
-  });
-  // Маска ввода телефона
-  $(".form__phone").mask("+7 (999) 999-9999"); // будет грузится в нескольких местах
-  // Возврашаем пользователя на страницу с которой был сделан обратный звонок
-  $('.callbackredirect').val(document.location.href);
-});
-
-// Запуск основных функций для разных разрешений экрана
-$(document).ready(function(){
-  if(getClientWidth() > 481 && window.outerHeight < 630){
-    $('body').addClass('landscape');
-  }else{
-    $('body').removeClass('landscape');
-  }
-});
-// Запуск функций при изменении экрана
-$(window).resize(function(){
-  if(getClientWidth() > 481 && window.outerHeight < 630){
-    $('body').addClass('landscape');
-  }else{
-    $('body').removeClass('landscape');
-  }
-});
-
-
-/*
-//Функции для удобства
-function addActive(obj){obj.addClass('active');}
-function removeActive(obj){obj.removeClass('active')}
-//if (addOpened(t));
-function addOpened(obj){obj.hasClass('opened') ? obj.removeClass('opened') : obj.addClass('opened')}*/
-
-function addActive(obj){obj.hasClass('active') ? obj.removeClass('active') : obj.addClass('active')}
 
 
 ///////////////////////////////////////////////////////
@@ -3094,6 +2987,32 @@ function addTo() {
 	});
 }
 
+///////////////////////////////////////
+// Функция скрывания категорий и меню в подвале, если больше 5 пунктов.
+///////////////////////////////////////
+function footerLinksMore(){
+	$('.footer__links').each(function(){
+		var t = $(this);
+		// Добавляем кнопку Еще если больше 5 пунктов
+		if(t.find('li').length > 5) {
+			t.append('<li class="show"><a class="footer__links-open" href="javascript:;"><span>Ещё</span></a></li>');
+		}
+		// Действия при нажатии на кнопку Еще
+		t.find('.footer__links-open').on('click', function(){
+			if($(this).hasClass('opened')){
+				$(this).removeClass('opened')
+				t.find('li').removeClass('show')
+				$(this).parent().addClass('show')
+				$(this).find('span').text('Еще')
+			}else{
+				$(this).addClass('opened')
+				t.find('li').addClass('show')
+				$(this).find('span').text('Скрыть')
+			}
+		});
+	});	
+}
+
 // Загрузка основных функций товаров
 $(document).ready(function(){
 	quickViewMod();
@@ -3122,3 +3041,112 @@ $(document).ready(function(){
 		$('#fancy__art').val($(this).attr('data-art'));
 	});
 });
+
+
+// Загрузчик файлов
+// function loadFile(fileName, ext, cb){
+//   if(!fileName){console.error('Не передано имя загружаемого файла');return;}
+//   if(!ext){console.error('Не передано расширение загружаемого файла');return;}
+//   if(!(typeof cb === 'function')){cb = function(){}};
+
+//   var $file = $('#' + fileName + '-' + ext);
+//   var attrName = (ext === 'css') ? 'href' : 'src';
+
+//   if(!$file.length){
+//     console.error(fileName + '.' + ext + ' - Файл не найден в разметке и не может быть загружен');
+//     return;
+//   }
+//   // Если файл уже загружен
+//   if($file.attr(attrName)){
+//     cb();
+//     console.log($file, ' - Already loaded');
+//     return (true);
+//   }
+//   $file.on('load', cb)
+//   $file.attr(attrName, $file.data(attrName));
+//   console.log($file, ' - loaded');
+// }
+
+// Уведомления
+function notyStart(text, type) {
+  new Noty({
+    text: text,
+    layout: "bottomCenter",
+    type: type,
+    theme: "",
+    textAlign: "center",
+    animation: {
+      open: 'animated fadeInUp',
+      close: 'animated fadeOutDown',
+      easing: 'swing',
+      speed: 400
+    },
+    timeout: "2000",
+    progressBar: true,
+    closable: true,
+    closeOnSelfClick: true,
+    modal: false,
+    dismissQueue: false,
+    onClose: true,
+    killer: false
+  }).show();
+}
+
+// Загрузка основных функций шаблона
+$(document).ready(function(){
+  userAgent();
+  openMenu();
+  closeMenu();
+  showPass();
+  quantity();
+  mainnavHeader();
+  pdtCatalog();
+  toTop();
+  viewed();
+	footerLinksMore();
+  // Стили для новых селектов
+  /*$('.select').styler();*/
+  // Ленивая загрузка
+  $(function(){
+    var observer = lozad(); // lazy loads elements with default selector as '.lozad'
+    observer.observe();
+  });
+  // Отправка формы по Ctrl+Enter
+  $('form').bind('keypress', function(e){
+    if((e.ctrlKey) && ((e.which==10)||(e.which==13))) {$(this).submit();}
+  // Отправка данных формы по нажатию на Enter в случае если курсор находится в input полях (В некоторых браузерах при нажатии по enter срабатывает клик по первому submit полю, которое является кнопкой назад. Для этого написан этот фикс)
+  }).find('input').bind('keypress', function(e){
+    if(((e.which==10)||(e.which==13))) { try{$(this.form).submit();} catch(e){} return false; }
+  });
+  // Маска ввода телефона
+  $(".form__phone").mask("+7 (999) 999-9999"); // будет грузится в нескольких местах
+  // Возврашаем пользователя на страницу с которой был сделан обратный звонок
+  $('.callbackredirect').val(document.location.href);
+});
+
+// Запуск основных функций для разных разрешений экрана
+$(document).ready(function(){
+  if(getClientWidth() > 481 && window.outerHeight < 630){
+    $('body').addClass('landscape');
+  }else{
+    $('body').removeClass('landscape');
+  }
+});
+// Запуск функций при изменении экрана
+$(window).resize(function(){
+  if(getClientWidth() > 481 && window.outerHeight < 630){
+    $('body').addClass('landscape');
+  }else{
+    $('body').removeClass('landscape');
+  }
+});
+
+
+/*
+//Функции для удобства
+function addActive(obj){obj.addClass('active');}
+function removeActive(obj){obj.removeClass('active')}
+//if (addOpened(t));
+function addOpened(obj){obj.hasClass('opened') ? obj.removeClass('opened') : obj.addClass('opened')}*/
+
+function addActive(obj){obj.hasClass('active') ? obj.removeClass('active') : obj.addClass('active')}
