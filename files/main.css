@@ -860,13 +860,13 @@ footer .contacts__content a.work {white-space: normal;}
 
 
 /*** Популярное ***/
-#popular {height: 22rem;overflow: hidden;}
+#popular {height: 22.625rem;overflow: hidden;}
 #popular .owl-dots {margin-top: 1rem;}
 .popular__items {display: flex;flex-wrap: wrap;align-items: flex-start;}
 .popular__item {width: 100%;margin: 0;display: flex;justify-content: center;position: relative;}
 .popular__title {color: #ffffff;font-size: 1.25rem;font-weight: bold;text-transform: uppercase;position: absolute;bottom: 1rem;transition: all 0.3s ease;}
 .popular__item:hover .popular__title {transform: scale(1.2);}
-.popular__image {width: 100%;height: 18rem;background-color: rgba(0, 0, 0, 0.4);border-radius: 1.5rem;display: flex;align-items: center;justify-content: center;}
+.popular__image {width: 100%;height: 18.625rem;background-color: rgba(0, 0, 0, 0.4);border-radius: 1.5rem;display: flex;align-items: center;justify-content: center;}
 #popular .popular__image img {border-radius: 1.5rem;width: 100%;}
 @media (max-width: 1199.98px) {
 	#popular {height: 19.125rem;}
