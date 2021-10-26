@@ -1831,7 +1831,7 @@
 												<input type="checkbox" name="form[filter][attr][{filter_attr_list.ID}][{filter_attr_list.values.ID}]" value="1" id="filterAttrVal{filter_attr_list.values.ID}" class="square" {% IF filter_attr_list.values.CHECKED %}checked="checked" {% ELSEIF filter_attr_list.values.NB_GOODS_FILTERED=0 %}disabled="disabled" {% ENDIF %} />
 												<label for="filterAttrVal{filter_attr_list.values.ID}">
 													<span>{filter_attr_list.values.VALUE}</span>
-													<span>({filter_attr_list.values.NB_GOODS_ALL})</span>
+													<span>({filter_attr_list.values.NB_GOODS_FILTERED})</span>
 												</label>
 											</div>
 											{% ENDFOR %}
