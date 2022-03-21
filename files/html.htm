@@ -9,8 +9,8 @@
 	<meta http-equiv="Content-Language" content="ru" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="format-detection" content="telephone=no" />
-	<link rel="icon" href="{ASSETS_IMAGES_PATH}favicon.ico?design=THEMENAME" type="image/x-icon" />
-	<link rel="shortcut icon" href="{ASSETS_IMAGES_PATH}favicon.ico?design=THEMENAME" type="image/x-icon" />
+	<link rel="icon" href="{ASSETS_IMAGES_PATH}favicon.ico?design=Harmony" type="image/x-icon" />
+	<link rel="shortcut icon" href="{ASSETS_IMAGES_PATH}favicon.ico?design=Harmony" type="image/x-icon" />
 	<meta property="og:title" content="{PAGE_TITLE}">
 	<meta property="og:image" content="{% IF MOD_LNAME=goods %}{GOODS_IMAGE_MEDIUM}{% ELSE %}{INDEX_PAGE_URL}design/logo.png{% ENDIF %}">
 	<meta property="og:url" content="{INDEX_PAGE_URL}">
@@ -24,13 +24,13 @@
 	<!-- Подключаемые шрифты -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="/design/icomoon.css?design=THEMENAME" />
+	<link rel="stylesheet" type="text/css" href="/design/icomoon.css?design=Harmony" />
 	<!-- Основные Стили магазина для всех страниц -->
-	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}min.css?design=THEMENAME" />
-	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}jquery.fancybox.min.css?design=THEMENAME" />
-	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}main.css?design=THEMENAME" />
+	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}min.css?design=Harmony" />
+	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}jquery.fancybox.min.css?design=Harmony" />
+	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}main.css?design=Harmony" />
 	<!-- Скрипты магазина -->
-	<script type="text/javascript" src="{ASSETS_JS_PATH}jquery-3.6.0.min.js?design=THEMENAME"></script>
+	<script type="text/javascript" src="{ASSETS_JS_PATH}jquery-3.6.0.min.js?design=Harmony"></script>
 	<!-- Дополнительные скрипты -->
 	<script type="text/javascript">
 		// Если отключен JS
@@ -69,7 +69,7 @@
 				}
 			</style>
 
-			<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}fix-nojs.css?design=THEMENAME">
+			<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}fix-nojs.css?design=Harmony">
 		</noscript>
 
 		<!-- Фон для закрытия всплывающих окон -->
@@ -231,7 +231,7 @@
 					<!-- Логотип -->
 					<div class="logo" itemscope itemtype="http://schema.org/Organization">
 						<a href="{INDEX_PAGE_URL}" title="{SETTINGS_STORE_NAME}" itemprop="url">
-							<img src="{ASSETS_IMAGES_PATH}logo.png?design=THEMENAME" alt="{SETTINGS_STORE_NAME}" itemprop="logo">
+							<img src="{ASSETS_IMAGES_PATH}logo.png?design=Harmony" alt="{SETTINGS_STORE_NAME}" itemprop="logo">
 							<meta itemprop="name" content="{SETTINGS_STORE_NAME}">
 							<span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
 								<meta itemprop="addressLocality" content="{SETTINGS_STORE_REGION}" />
@@ -356,7 +356,7 @@
 								<div class="addto__item" data-id="{cart_items.GOODS_ID}">
 									<a href="{cart_items.GOODS_URL}"
 											title="{cart_items.GOODS_NAME}"
-											class="addto__image"><img src="{% IF cart_items.GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=THEMENAME{% ELSE %}{cart_items.GOODS_IMAGE_ICON}{% ENDIF %}"
+											class="addto__image"><img src="{% IF cart_items.GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=Harmony{% ELSE %}{cart_items.GOODS_IMAGE_ICON}{% ENDIF %}"
 																								alt="{cart_items.GOODS_NAME}"
 																								class="goods-image-icon" /></a>
 									<div class="addto__shop">
@@ -427,10 +427,10 @@
 							<span class="catalog__image">
 								<noscript>
 									<img class="goods-image-medium"
-									     src="{% IF catalog_full.IMAGE_MEDIUM %}{catalog_full.IMAGE_MEDIUM}{% ELSE %}{ASSETS_IMAGES_PATH}no-photo-small.png?design=THEMENAME{% ENDIF %}" />
+									     src="{% IF catalog_full.IMAGE_MEDIUM %}{catalog_full.IMAGE_MEDIUM}{% ELSE %}{ASSETS_IMAGES_PATH}no-photo-small.png?design=Harmony{% ENDIF %}" />
 								</noscript>
 								<img class="owl-lazy goods-image-medium scriptOff"
-								     data-src="{% IF catalog_full.IMAGE_MEDIUM %}{catalog_full.IMAGE_MEDIUM}{% ELSE %}{ASSETS_IMAGES_PATH}no-photo-small.png?design=THEMENAME{% ENDIF %}" />
+								     data-src="{% IF catalog_full.IMAGE_MEDIUM %}{catalog_full.IMAGE_MEDIUM}{% ELSE %}{ASSETS_IMAGES_PATH}no-photo-small.png?design=Harmony{% ENDIF %}" />
 							</span>
 							<span class="catalog__name">{catalog_full.NAME}</span>
 						</a>
@@ -454,7 +454,7 @@
 						<!-- Слайд 1 -->
 						<a class="slider__item shadow shadow2 lozad"
 						   href="{CATALOG_URL}"
-						   data-background-image="{ASSETS_IMAGES_PATH}slide_1.jpg?design=THEMENAME"
+						   data-background-image="{ASSETS_IMAGES_PATH}slide_1.jpg?design=Harmony"
 						   data-slide="1"
 						>
 							<div class="slider__content">
@@ -467,7 +467,7 @@
 						<!-- Слайд 2 -->
 						<a class="slider__item shadow shadow2 lozad"
 						   href="{CATALOG_URL}"
-						   data-background-image="{ASSETS_IMAGES_PATH}slide_2.jpg?design=THEMENAME"
+						   data-background-image="{ASSETS_IMAGES_PATH}slide_2.jpg?design=Harmony"
 						   data-slide="1"
 						>
 							<div class="slider__content">
@@ -480,7 +480,7 @@
 						<!-- Слайд 3 -->
 						<a class="slider__item shadow shadow2 lozad"
 						   href="{CATALOG_URL}"
-						   data-background-image="{ASSETS_IMAGES_PATH}slide_3.jpg?design=THEMENAME"
+						   data-background-image="{ASSETS_IMAGES_PATH}slide_3.jpg?design=Harmony"
 						   data-slide="1"
 						>
 							<div class="slider__content">
@@ -498,7 +498,7 @@
 						<!-- Слайдер. Баннер 1 -->
 						<a class="slider__banner shadow lozad"
 						   href="{CATALOG_URL}"
-						   data-background-image="{ASSETS_IMAGES_PATH}banner_1.jpg?design=THEMENAME"
+						   data-background-image="{ASSETS_IMAGES_PATH}banner_1.jpg?design=Harmony"
 						>
 							<div class="slider__content">
 								<span class="slider__button button button2">от 500 рублей</span>
@@ -509,7 +509,7 @@
 						<!-- Слайдер. Баннер 2 -->
 						<a class="slider__banner shadow lozad"
 						   href="{CATALOG_URL}"
-						   data-background-image="{ASSETS_IMAGES_PATH}banner_2.jpg?design=THEMENAME"
+						   data-background-image="{ASSETS_IMAGES_PATH}banner_2.jpg?design=Harmony"
 						>
 							<div class="slider__content">
 								<span class="slider__button button button2">Скидка 20%</span>
@@ -535,19 +535,19 @@
 
 					<!-- Популярное 1 -->
 					<a class="popular__item" href="{CATALOG_URL}">
-						<div class="popular__image shadow lozad" data-background-image="{ASSETS_IMAGES_PATH}banner_3.jpg?design=THEMENAME"></div>
+						<div class="popular__image shadow lozad" data-background-image="{ASSETS_IMAGES_PATH}banner_3.jpg?design=Harmony"></div>
 						<div class="popular__title">Рюкзаки</div>
 					</a>
 
 					<!-- Популярное 2 -->
 					<a class="popular__item" href="{CATALOG_URL}">
-						<div class="popular__image shadow lozad" data-background-image="{ASSETS_IMAGES_PATH}banner_4.jpg?design=THEMENAME"></div>
+						<div class="popular__image shadow lozad" data-background-image="{ASSETS_IMAGES_PATH}banner_4.jpg?design=Harmony"></div>
 						<div class="popular__title">Палатки</div>
 					</a>
 
 					<!-- Популярное 3 -->
 					<a class="popular__item" href="{CATALOG_URL}">
-						<div class="popular__image shadow lozad" data-background-image="{ASSETS_IMAGES_PATH}banner_5.jpg?design=THEMENAME"></div>
+						<div class="popular__image shadow lozad" data-background-image="{ASSETS_IMAGES_PATH}banner_5.jpg?design=Harmony"></div>
 						<div class="popular__title">Посуда</div>
 					</a>
 
@@ -583,7 +583,7 @@
 							<input type="hidden" name="hash" value="{HASH}" />
 							<input type="hidden" name="form[goods_from]" value="{index_page_favorites_goods.GOODS_FROM}" />
 							<input type="hidden" name="form[goods_mod_id]" value="{index_page_favorites_goods.MIN_PRICE_NOW_ID}" />
-							<link itemprop="image" href="{% IF index_page_favorites_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo.png?design=THEMENAME{% ELSE %}{index_page_favorites_goods.IMAGE_MEDIUM}{% ENDIF %}" />
+							<link itemprop="image" href="{% IF index_page_favorites_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo.png?design=Harmony{% ELSE %}{index_page_favorites_goods.IMAGE_MEDIUM}{% ENDIF %}" />
 
 							<!-- Изображение товара -->
 							<div class="product__image">
@@ -595,12 +595,12 @@
 								   itemprop="url">
 									<noscript>
 										<img class="goods-image-medium"
-										     src="{% IF index_page_favorites_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo.png?design=THEMENAME{% ELSE %}{index_page_favorites_goods.IMAGE_MEDIUM}{% ENDIF %}"
+										     src="{% IF index_page_favorites_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo.png?design=Harmony{% ELSE %}{index_page_favorites_goods.IMAGE_MEDIUM}{% ENDIF %}"
 										     alt="{index_page_favorites_goods.NAME}" />
 									</noscript>
 									<img class="goods-image-medium lozad script__on"
-									     src="{ASSETS_IMAGES_PATH}placeholder.png?design=THEMENAME"
-									     data-src="{% IF index_page_favorites_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo.png?design=THEMENAME{% ELSE %}{index_page_favorites_goods.IMAGE_MEDIUM}{% ENDIF %}"
+									     src="{ASSETS_IMAGES_PATH}placeholder.png?design=Harmony"
+									     data-src="{% IF index_page_favorites_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo.png?design=Harmony{% ELSE %}{index_page_favorites_goods.IMAGE_MEDIUM}{% ENDIF %}"
 									     alt="{index_page_favorites_goods.NAME}" />
 								</a>
 
@@ -736,7 +736,7 @@
 									   data-action-delete-title="Убрать &laquo;{index_page_favorites_goods.NAME}&raquo; из Избранного"
 									   data-prodname="{index_page_favorites_goods.NAME}"
 									   data-produrl="{index_page_favorites_goods.URL}"
-									   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=THEMENAME{% ELSE %}{index_page_favorites_goods.IMAGE_ICON}{% ENDIF %}"
+									   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=Harmony{% ELSE %}{index_page_favorites_goods.IMAGE_ICON}{% ENDIF %}"
 									   data-id="{index_page_favorites_goods.ID}"
 									   data-mod-id="{index_page_favorites_goods.MIN_PRICE_NOW_ID}"
 									   data-mod-price="{index_page_favorites_goods.MIN_PRICE_NOW}"
@@ -758,7 +758,7 @@
 									   data-action-delete-title="Убрать &laquo;{index_page_favorites_goods.NAME}&raquo; из Избранного"
 									   data-prodname="{index_page_favorites_goods.NAME}"
 									   data-produrl="{index_page_favorites_goods.URL}"
-									   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=THEMENAME{% ELSE %}{index_page_favorites_goods.IMAGE_ICON}{% ENDIF %}"
+									   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=Harmony{% ELSE %}{index_page_favorites_goods.IMAGE_ICON}{% ENDIF %}"
 									   data-id="{index_page_favorites_goods.ID}"
 									   data-mod-id="{index_page_favorites_goods.MIN_PRICE_NOW_ID}"
 									   data-mod-price="{index_page_favorites_goods.MIN_PRICE_NOW}"
@@ -816,7 +816,7 @@
 									   data-action-delete-title="Убрать &laquo;{index_page_favorites_goods.NAME}&raquo; из списка сравнения с другими товарами"
 									   data-prodname="{index_page_favorites_goods.NAME}"
 									   data-produrl="{index_page_favorites_goods.URL}"
-									   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=THEMENAME{% ELSE %}{index_page_favorites_goods.IMAGE_ICON}{% ENDIF %}"
+									   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=Harmony{% ELSE %}{index_page_favorites_goods.IMAGE_ICON}{% ENDIF %}"
 									   data-id="{index_page_favorites_goods.ID}"
 									   data-mod-id="{index_page_favorites_goods.MIN_PRICE_NOW_ID}"
 									   data-mod-price="{index_page_favorites_goods.MIN_PRICE_NOW}"
@@ -838,7 +838,7 @@
 									   data-action-delete-title="Убрать &laquo;{index_page_favorites_goods.NAME}&raquo; из списка сравнения с другими товарами"
 									   data-prodname="{index_page_favorites_goods.NAME}"
 									   data-produrl="{index_page_favorites_goods.URL}"
-									   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=THEMENAME{% ELSE %}{index_page_favorites_goods.IMAGE_ICON}{% ENDIF %}"
+									   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=Harmony{% ELSE %}{index_page_favorites_goods.IMAGE_ICON}{% ENDIF %}"
 									   data-id="{index_page_favorites_goods.ID}"
 									   data-mod-id="{index_page_favorites_goods.MIN_PRICE_NOW_ID}"
 									   data-mod-price="{index_page_favorites_goods.MIN_PRICE_NOW}"
@@ -867,7 +867,7 @@
 		{% IFNOT index_page_sale_goods_empty %}
 		<div id="pdt__sales" data-content="pdt__sales" class="pdt">
 			<div class="container">
-				<div class="pdt__sales-bg lozad" data-background-image="{ASSETS_IMAGES_PATH}bg_sale.jpg?design=THEMENAME">
+				<div class="pdt__sales-bg lozad" data-background-image="{ASSETS_IMAGES_PATH}bg_sale.jpg?design=Harmony">
 					<div class="products__grid owl-carousel">
 						{% FOR index_page_sale_goods %}
 						<div class="product__item {% IF SETTINGS_GOODS_DONT_PUT_TO_CART_MORE_THAN_AVAILABLE && index_page_sale_goods.MAX_REST_VALUE=0 %}empty{% ENDIF %} {% IF index_page_sale_goods.COUNT_MODIFICATION > 1 %}hasMod{% ENDIF %}"
@@ -879,7 +879,7 @@
 								<input type="hidden" name="hash" value="{HASH}" />
 								<input type="hidden" name="form[goods_from]" value="{index_page_sale_goods.GOODS_FROM}" />
 								<input type="hidden" name="form[goods_mod_id]" value="{index_page_sale_goods.MIN_PRICE_NOW_ID}" />
-								<link itemprop="image" href="{% IF index_page_sale_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo.png?design=THEMENAME{% ELSE %}{index_page_sale_goods.IMAGE_MEDIUM}{% ENDIF %}" />
+								<link itemprop="image" href="{% IF index_page_sale_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo.png?design=Harmony{% ELSE %}{index_page_sale_goods.IMAGE_MEDIUM}{% ENDIF %}" />
 
 								<!-- Изображение товара -->
 								<div class="product__image">
@@ -891,12 +891,12 @@
 									   itemprop="url">
 										<noscript>
 											<img class="goods-image-medium"
-											     src="{% IF index_page_sale_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo.png?design=THEMENAME{% ELSE %}{index_page_sale_goods.IMAGE_MEDIUM}{% ENDIF %}"
+											     src="{% IF index_page_sale_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo.png?design=Harmony{% ELSE %}{index_page_sale_goods.IMAGE_MEDIUM}{% ENDIF %}"
 											     alt="{index_page_sale_goods.NAME}">
 										</noscript>
 										<img class="goods-image-medium lozad script__on"
-										     src="{ASSETS_IMAGES_PATH}placeholder.png?design=THEMENAME"
-										     data-src="{% IF index_page_sale_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo.png?design=THEMENAME{% ELSE %}{index_page_sale_goods.IMAGE_MEDIUM}{% ENDIF %}"
+										     src="{ASSETS_IMAGES_PATH}placeholder.png?design=Harmony"
+										     data-src="{% IF index_page_sale_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo.png?design=Harmony{% ELSE %}{index_page_sale_goods.IMAGE_MEDIUM}{% ENDIF %}"
 										     alt="{index_page_sale_goods.NAME}">
 									</a>
 
@@ -1066,7 +1066,7 @@
 											   data-action-delete-title="Убрать &laquo;{index_page_sale_goods.NAME}&raquo; из Избранного"
 											   data-prodname="{index_page_sale_goods.NAME}"
 											   data-produrl="{index_page_sale_goods.URL}"
-											   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=THEMENAME{% ELSE %}{index_page_sale_goods.IMAGE_ICON}{% ENDIF %}"
+											   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=Harmony{% ELSE %}{index_page_sale_goods.IMAGE_ICON}{% ENDIF %}"
 											   data-id="{index_page_sale_goods.ID}"
 											   data-mod-id="{index_page_sale_goods.MIN_PRICE_NOW_ID}"
 											   data-mod-price="{index_page_sale_goods.MIN_PRICE_NOW}"
@@ -1088,7 +1088,7 @@
 											   data-action-delete-title="Убрать &laquo;{index_page_sale_goods.NAME}&raquo; из Избранного"
 											   data-prodname="{index_page_sale_goods.NAME}"
 											   data-produrl="{index_page_sale_goods.URL}"
-											   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=THEMENAME{% ELSE %}{index_page_sale_goods.IMAGE_ICON}{% ENDIF %}"
+											   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=Harmony{% ELSE %}{index_page_sale_goods.IMAGE_ICON}{% ENDIF %}"
 											   data-id="{index_page_sale_goods.ID}"
 											   data-mod-id="{index_page_sale_goods.MIN_PRICE_NOW_ID}"
 											   data-mod-price="{index_page_sale_goods.MIN_PRICE_NOW}"
@@ -1112,7 +1112,7 @@
 											   data-action-delete-title="Убрать &laquo;{index_page_sale_goods.NAME}&raquo; из списка сравнения с другими товарами"
 											   data-prodname="{index_page_sale_goods.NAME}"
 											   data-produrl="{index_page_sale_goods.URL}"
-											   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=THEMENAME{% ELSE %}{index_page_sale_goods.IMAGE_ICON}{% ENDIF %}"
+											   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=Harmony{% ELSE %}{index_page_sale_goods.IMAGE_ICON}{% ENDIF %}"
 											   data-id="{index_page_sale_goods.ID}"
 											   data-mod-id="{index_page_sale_goods.MIN_PRICE_NOW_ID}"
 											   data-mod-price="{index_page_sale_goods.MIN_PRICE_NOW}"
@@ -1134,7 +1134,7 @@
 											   data-action-delete-title="Убрать &laquo;{index_page_sale_goods.NAME}&raquo; из списка сравнения с другими товарами"
 											   data-prodname="{index_page_sale_goods.NAME}"
 											   data-produrl="{index_page_sale_goods.URL}"
-											   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=THEMENAME{% ELSE %}{index_page_sale_goods.IMAGE_ICON}{% ENDIF %}"
+											   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=Harmony{% ELSE %}{index_page_sale_goods.IMAGE_ICON}{% ENDIF %}"
 											   data-id="{index_page_sale_goods.ID}"
 											   data-mod-id="{index_page_sale_goods.MIN_PRICE_NOW_ID}"
 											   data-mod-price="{index_page_sale_goods.MIN_PRICE_NOW}"
@@ -1218,7 +1218,7 @@
 							<input type="hidden" name="hash" value="{HASH}" />
 							<input type="hidden" name="form[goods_from]" value="{index_page_new_goods.GOODS_FROM}" />
 							<input type="hidden" name="form[goods_mod_id]" value="{index_page_new_goods.MIN_PRICE_NOW_ID}" />
-							<link itemprop="image" href="{% IF index_page_new_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo.png?design=THEMENAME{% ELSE %}{index_page_new_goods.IMAGE_MEDIUM}{% ENDIF %}" />
+							<link itemprop="image" href="{% IF index_page_new_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo.png?design=Harmony{% ELSE %}{index_page_new_goods.IMAGE_MEDIUM}{% ENDIF %}" />
 
 							<!-- Изображение товара -->
 							<div class="product__image">
@@ -1230,12 +1230,12 @@
 								   itemprop="url">
 									<noscript>
 										<img class="goods-image-medium"
-										     src="{% IF index_page_new_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo.png?design=THEMENAME{% ELSE %}{index_page_new_goods.IMAGE_MEDIUM}{% ENDIF %}"
+										     src="{% IF index_page_new_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo.png?design=Harmony{% ELSE %}{index_page_new_goods.IMAGE_MEDIUM}{% ENDIF %}"
 										     alt="{index_page_new_goods.NAME}" />
 									</noscript>
 									<img class="goods-image-medium lozad script__on"
-									     src="{ASSETS_IMAGES_PATH}placeholder.png?design=THEMENAME"
-									     data-src="{% IF index_page_new_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo.png?design=THEMENAME{% ELSE %}{index_page_new_goods.IMAGE_MEDIUM}{% ENDIF %}"
+									     src="{ASSETS_IMAGES_PATH}placeholder.png?design=Harmony"
+									     data-src="{% IF index_page_new_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo.png?design=Harmony{% ELSE %}{index_page_new_goods.IMAGE_MEDIUM}{% ENDIF %}"
 									     alt="{index_page_new_goods.NAME}" />
 								</a>
 
@@ -1371,7 +1371,7 @@
 									   data-action-delete-title="Убрать &laquo;{index_page_new_goods.NAME}&raquo; из Избранного"
 									   data-prodname="{index_page_new_goods.NAME}"
 									   data-produrl="{index_page_new_goods.URL}"
-									   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=THEMENAME{% ELSE %}{index_page_new_goods.IMAGE_ICON}{% ENDIF %}"
+									   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=Harmony{% ELSE %}{index_page_new_goods.IMAGE_ICON}{% ENDIF %}"
 									   data-id="{index_page_new_goods.ID}"
 									   data-mod-id="{index_page_new_goods.MIN_PRICE_NOW_ID}"
 									   data-mod-price="{index_page_new_goods.MIN_PRICE_NOW}"
@@ -1393,7 +1393,7 @@
 									   data-action-delete-title="Убрать &laquo;{index_page_new_goods.NAME}&raquo; из Избранного"
 									   data-prodname="{index_page_new_goods.NAME}"
 									   data-produrl="{index_page_new_goods.URL}"
-									   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=THEMENAME{% ELSE %}{index_page_new_goods.IMAGE_ICON}{% ENDIF %}"
+									   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=Harmony{% ELSE %}{index_page_new_goods.IMAGE_ICON}{% ENDIF %}"
 									   data-id="{index_page_new_goods.ID}"
 									   data-mod-id="{index_page_new_goods.MIN_PRICE_NOW_ID}"
 									   data-mod-price="{index_page_new_goods.MIN_PRICE_NOW}"
@@ -1451,7 +1451,7 @@
 									   data-action-delete-title="Убрать &laquo;{index_page_new_goods.NAME}&raquo; из списка сравнения с другими товарами"
 									   data-prodname="{index_page_new_goods.NAME}"
 									   data-produrl="{index_page_new_goods.URL}"
-									   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=THEMENAME{% ELSE %}{index_page_new_goods.IMAGE_ICON}{% ENDIF %}"
+									   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=Harmony{% ELSE %}{index_page_new_goods.IMAGE_ICON}{% ENDIF %}"
 									   data-id="{index_page_new_goods.ID}"
 									   data-mod-id="{index_page_new_goods.MIN_PRICE_NOW_ID}"
 									   data-mod-price="{index_page_new_goods.MIN_PRICE_NOW}"
@@ -1473,7 +1473,7 @@
 									   data-action-delete-title="Убрать &laquo;{index_page_new_goods.NAME}&raquo; из списка сравнения с другими товарами"
 									   data-prodname="{index_page_new_goods.NAME}"
 									   data-produrl="{index_page_new_goods.URL}"
-									   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=THEMENAME{% ELSE %}{index_page_new_goods.IMAGE_ICON}{% ENDIF %}"
+									   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=Harmony{% ELSE %}{index_page_new_goods.IMAGE_ICON}{% ENDIF %}"
 									   data-id="{index_page_new_goods.ID}"
 									   data-mod-id="{index_page_new_goods.MIN_PRICE_NOW_ID}"
 									   data-mod-price="{index_page_new_goods.MIN_PRICE_NOW}"
@@ -1874,7 +1874,7 @@
 								<input type="hidden" name="hash" value="{HASH}" />
 								<input type="hidden" name="form[goods_from]" value="{recently_viewed_goods.GOODS_FROM}" />
 								<input type="hidden" name="form[goods_mod_id]" value="{recently_viewed_goods.MIN_PRICE_NOW_ID}" />
-								<link itemprop="image" href="{% IF recently_viewed_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo.png?design=THEMENAME{% ELSE %}{recently_viewed_goods.IMAGE_MEDIUM}{% ENDIF %}" />
+								<link itemprop="image" href="{% IF recently_viewed_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo.png?design=Harmony{% ELSE %}{recently_viewed_goods.IMAGE_MEDIUM}{% ENDIF %}" />
 
 								<!-- Изображение товара -->
 								<div class="product__image">
@@ -1886,12 +1886,12 @@
 									   itemprop="url">
 										<noscript>
 											<img class="goods-image-medium"
-											     src="{% IF recently_viewed_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo.png?design=THEMENAME{% ELSE %}{recently_viewed_goods.IMAGE_MEDIUM}{% ENDIF %}"
+											     src="{% IF recently_viewed_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo.png?design=Harmony{% ELSE %}{recently_viewed_goods.IMAGE_MEDIUM}{% ENDIF %}"
 											     alt="{recently_viewed_goods.NAME}" />
 										</noscript>
 										<img class="goods-image-medium lozad script__on"
-										     src="{ASSETS_IMAGES_PATH}placeholder.png?design=THEMENAME"
-										     data-src="{% IF recently_viewed_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo.png?design=THEMENAME{% ELSE %}{recently_viewed_goods.IMAGE_MEDIUM}{% ENDIF %}"
+										     src="{ASSETS_IMAGES_PATH}placeholder.png?design=Harmony"
+										     data-src="{% IF recently_viewed_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo.png?design=Harmony{% ELSE %}{recently_viewed_goods.IMAGE_MEDIUM}{% ENDIF %}"
 										     alt="{recently_viewed_goods.NAME}" />
 									</a>
 
@@ -2027,7 +2027,7 @@
 										   data-action-delete-title="Убрать &laquo;{recently_viewed_goods.NAME}&raquo; из Избранного"
 										   data-prodname="{recently_viewed_goods.NAME}"
 										   data-produrl="{recently_viewed_goods.URL}"
-										   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=THEMENAME{% ELSE %}{recently_viewed_goods.IMAGE_ICON}{% ENDIF %}"
+										   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=Harmony{% ELSE %}{recently_viewed_goods.IMAGE_ICON}{% ENDIF %}"
 										   data-id="{recently_viewed_goods.ID}"
 										   data-mod-id="{recently_viewed_goods.MIN_PRICE_NOW_ID}"
 										   data-mod-price="{recently_viewed_goods.MIN_PRICE_NOW}"
@@ -2049,7 +2049,7 @@
 										   data-action-delete-title="Убрать &laquo;{recently_viewed_goods.NAME}&raquo; из Избранного"
 										   data-prodname="{recently_viewed_goods.NAME}"
 										   data-produrl="{recently_viewed_goods.URL}"
-										   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=THEMENAME{% ELSE %}{recently_viewed_goods.IMAGE_ICON}{% ENDIF %}"
+										   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=Harmony{% ELSE %}{recently_viewed_goods.IMAGE_ICON}{% ENDIF %}"
 										   data-id="{recently_viewed_goods.ID}"
 										   data-mod-id="{recently_viewed_goods.MIN_PRICE_NOW_ID}"
 										   data-mod-price="{recently_viewed_goods.MIN_PRICE_NOW}"
@@ -2107,7 +2107,7 @@
 										   data-action-delete-title="Убрать &laquo;{recently_viewed_goods.NAME}&raquo; из списка сравнения с другими товарами"
 										   data-prodname="{recently_viewed_goods.NAME}"
 										   data-produrl="{recently_viewed_goods.URL}"
-										   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=THEMENAME{% ELSE %}{recently_viewed_goods.IMAGE_ICON}{% ENDIF %}"
+										   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=Harmony{% ELSE %}{recently_viewed_goods.IMAGE_ICON}{% ENDIF %}"
 										   data-id="{recently_viewed_goods.ID}"
 										   data-mod-id="{recently_viewed_goods.MIN_PRICE_NOW_ID}"
 										   data-mod-price="{recently_viewed_goods.MIN_PRICE_NOW}"
@@ -2129,7 +2129,7 @@
 										   data-action-delete-title="Убрать &laquo;{recently_viewed_goods.NAME}&raquo; из списка сравнения с другими товарами"
 										   data-prodname="{recently_viewed_goods.NAME}"
 										   data-produrl="{recently_viewed_goods.URL}"
-										   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=THEMENAME{% ELSE %}{recently_viewed_goods.IMAGE_ICON}{% ENDIF %}"
+										   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=Harmony{% ELSE %}{recently_viewed_goods.IMAGE_ICON}{% ENDIF %}"
 										   data-id="{recently_viewed_goods.ID}"
 										   data-mod-id="{recently_viewed_goods.MIN_PRICE_NOW_ID}"
 										   data-mod-price="{recently_viewed_goods.MIN_PRICE_NOW}"
@@ -2165,7 +2165,7 @@
 						<!-- Баннер 1 -->
 						<a class="banners__item shadow lozad"
 						   href="{CATALOG_URL}"
-						   data-background-image="{ASSETS_IMAGES_PATH}banner_6.jpg?design=THEMENAME">
+						   data-background-image="{ASSETS_IMAGES_PATH}banner_6.jpg?design=Harmony">
 							<div class="banners__content">
 
 								<div class="banners__price {CURRENCY_CHAR_CODE}">
@@ -2183,7 +2183,7 @@
 						<!-- Баннер 2 -->
 						<a class="banners__item shadow lozad"
 						   href="{CATALOG_URL}"
-						   data-background-image="{ASSETS_IMAGES_PATH}banner_7.jpg?design=THEMENAME">
+						   data-background-image="{ASSETS_IMAGES_PATH}banner_7.jpg?design=Harmony">
 							<div class="banners__content">
 
 								<div class="banners__price {CURRENCY_CHAR_CODE}">
@@ -2344,7 +2344,7 @@
 							<input type="hidden" name="hash" value="{HASH}" />
 							<input type="hidden" name="form[goods_from]" value="{index_page_goods.GOODS_FROM}" />
 							<input type="hidden" name="form[goods_mod_id]" value="{index_page_goods.MIN_PRICE_NOW_ID}" />
-							<link itemprop="image" href="{% IF index_page_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo.png?design=THEMENAME{% ELSE %}{index_page_goods.IMAGE_MEDIUM}{% ENDIF %}" />
+							<link itemprop="image" href="{% IF index_page_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo.png?design=Harmony{% ELSE %}{index_page_goods.IMAGE_MEDIUM}{% ENDIF %}" />
 
 							<!-- Изображение товара -->
 							<div class="product__image">
@@ -2356,12 +2356,12 @@
 								   itemprop="url">
 									<noscript>
 										<img class="goods-image-medium"
-										     src="{% IF index_page_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo.png?design=THEMENAME{% ELSE %}{index_page_goods.IMAGE_MEDIUM}{% ENDIF %}"
+										     src="{% IF index_page_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo.png?design=Harmony{% ELSE %}{index_page_goods.IMAGE_MEDIUM}{% ENDIF %}"
 										     alt="{index_page_goods.NAME}" />
 									</noscript>
 									<img class="goods-image-medium lozad script__on"
-									     src="{ASSETS_IMAGES_PATH}placeholder.png?design=THEMENAME"
-									     data-src="{% IF index_page_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo.png?design=THEMENAME{% ELSE %}{index_page_goods.IMAGE_MEDIUM}{% ENDIF %}"
+									     src="{ASSETS_IMAGES_PATH}placeholder.png?design=Harmony"
+									     data-src="{% IF index_page_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo.png?design=Harmony{% ELSE %}{index_page_goods.IMAGE_MEDIUM}{% ENDIF %}"
 									     alt="{index_page_goods.NAME}" />
 								</a>
 
@@ -2497,7 +2497,7 @@
 									   data-action-delete-title="Убрать &laquo;{index_page_goods.NAME}&raquo; из Избранного"
 									   data-prodname="{index_page_goods.NAME}"
 									   data-produrl="{index_page_goods.URL}"
-									   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=THEMENAME{% ELSE %}{index_page_goods.IMAGE_ICON}{% ENDIF %}"
+									   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=Harmony{% ELSE %}{index_page_goods.IMAGE_ICON}{% ENDIF %}"
 									   data-id="{index_page_goods.ID}"
 									   data-mod-id="{index_page_goods.MIN_PRICE_NOW_ID}"
 									   data-mod-price="{index_page_goods.MIN_PRICE_NOW}"
@@ -2519,7 +2519,7 @@
 									   data-action-delete-title="Убрать &laquo;{index_page_goods.NAME}&raquo; из Избранного"
 									   data-prodname="{index_page_goods.NAME}"
 									   data-produrl="{index_page_goods.URL}"
-									   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=THEMENAME{% ELSE %}{index_page_goods.IMAGE_ICON}{% ENDIF %}"
+									   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=Harmony{% ELSE %}{index_page_goods.IMAGE_ICON}{% ENDIF %}"
 									   data-id="{index_page_goods.ID}"
 									   data-mod-id="{index_page_goods.MIN_PRICE_NOW_ID}"
 									   data-mod-price="{index_page_goods.MIN_PRICE_NOW}"
@@ -2577,7 +2577,7 @@
 									   data-action-delete-title="Убрать &laquo;{index_page_goods.NAME}&raquo; из списка сравнения с другими товарами"
 									   data-prodname="{index_page_goods.NAME}"
 									   data-produrl="{index_page_goods.URL}"
-									   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=THEMENAME{% ELSE %}{index_page_goods.IMAGE_ICON}{% ENDIF %}"
+									   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=Harmony{% ELSE %}{index_page_goods.IMAGE_ICON}{% ENDIF %}"
 									   data-id="{index_page_goods.ID}"
 									   data-mod-id="{index_page_goods.MIN_PRICE_NOW_ID}"
 									   data-mod-price="{index_page_goods.MIN_PRICE_NOW}"
@@ -2599,7 +2599,7 @@
 									   data-action-delete-title="Убрать &laquo;{index_page_goods.NAME}&raquo; из списка сравнения с другими товарами"
 									   data-prodname="{index_page_goods.NAME}"
 									   data-produrl="{index_page_goods.URL}"
-									   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=THEMENAME{% ELSE %}{index_page_goods.IMAGE_ICON}{% ENDIF %}"
+									   data-prodimg="{% IF GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=Harmony{% ELSE %}{index_page_goods.IMAGE_ICON}{% ENDIF %}"
 									   data-id="{index_page_goods.ID}"
 									   data-mod-id="{index_page_goods.MIN_PRICE_NOW_ID}"
 									   data-mod-price="{index_page_goods.MIN_PRICE_NOW}"
@@ -2657,11 +2657,11 @@
 							   title="Перейти к странице &laquo;{news_list_all.TITLE}&raquo;"
 							>
 								<noscript>
-									<img src="{% IF news_list_all.IMG %}{news_list_all.IMG}{% ELSE %}{ASSETS_IMAGES_PATH}news_1.jpg?design=THEMENAME{% ENDIF %}"
+									<img src="{% IF news_list_all.IMG %}{news_list_all.IMG}{% ELSE %}{ASSETS_IMAGES_PATH}news_1.jpg?design=Harmony{% ENDIF %}"
 									     alt="{news_list_all.TITLE}" />
 								</noscript>
 								<img class="owl-lazy script__on"
-								     data-src="{% IF news_list_all.IMG %}{news_list_all.IMG}{% ELSE %}{ASSETS_IMAGES_PATH}news_1.jpg?design=THEMENAME{% ENDIF %}"
+								     data-src="{% IF news_list_all.IMG %}{news_list_all.IMG}{% ELSE %}{ASSETS_IMAGES_PATH}news_1.jpg?design=Harmony{% ENDIF %}"
 								     alt="{news_list_all.TITLE}" />
 							</a>
 
@@ -2710,11 +2710,11 @@
 							   href="{news_list_shop.URL}"
 							   title="Перейти к странице &laquo;{news_list_shop.TITLE}&raquo;">
 								<noscript>
-									<img src="{% IF news_list_shop.IMG %}{news_list_shop.IMG}{% ELSE %}{ASSETS_IMAGES_PATH}news_1.jpg?design=THEMENAME{% ENDIF %}"
+									<img src="{% IF news_list_shop.IMG %}{news_list_shop.IMG}{% ELSE %}{ASSETS_IMAGES_PATH}news_1.jpg?design=Harmony{% ENDIF %}"
 									     alt="{news_list_shop.TITLE}" />
 								</noscript>
 								<img class="owl-lazy script__on"
-								     data-src="{% IF news_list_shop.IMG %}{news_list_shop.IMG}{% ELSE %}{ASSETS_IMAGES_PATH}news_1.jpg?design=THEMENAME{% ENDIF %}"
+								     data-src="{% IF news_list_shop.IMG %}{news_list_shop.IMG}{% ELSE %}{ASSETS_IMAGES_PATH}news_1.jpg?design=Harmony{% ENDIF %}"
 								     alt="{news_list_shop.TITLE}" />
 							</a>
 
@@ -2837,7 +2837,7 @@
 							<!-- Логотип -->
 							<div class="logo" itemscope itemtype="http://schema.org/Organization">
 								<a href="{INDEX_PAGE_URL}" title="{SETTINGS_STORE_NAME}" itemprop="url">
-									<img src="{ASSETS_IMAGES_PATH}logo.png?design=THEMENAME" alt="{SETTINGS_STORE_NAME}" itemprop="logo">
+									<img src="{ASSETS_IMAGES_PATH}logo.png?design=Harmony" alt="{SETTINGS_STORE_NAME}" itemprop="logo">
 									<meta itemprop="name" content="{SETTINGS_STORE_NAME}">
 									<span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
 										<meta itemprop="addressLocality" content="{SETTINGS_STORE_REGION}" />
@@ -3186,7 +3186,7 @@
 						<div class="addto__item" data-id="{compare_goods.ID}">
 							<a href="{compare_goods.URL}"
 							   title="{compare_goods.NAME}"
-							   class="addto__image"><img src="{% IF compare_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=THEMENAME{% ELSE %}{compare_goods.IMAGE_ICON}{% ENDIF %}"
+							   class="addto__image"><img src="{% IF compare_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=Harmony{% ELSE %}{compare_goods.IMAGE_ICON}{% ENDIF %}"
 							                             class="goods-image-icon" /></a>
 							<div class="addto__shop">
 								<!-- Название -->
@@ -3239,7 +3239,7 @@
 							<a href="{favorites_goods.URL}"
 							   title="{favorites_goods.NAME}"
 							   class="addto__image">
-								<img class="goods-image-icon" src="{% IF favorites_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=THEMENAME{% ELSE %}{favorites_goods.IMAGE_ICON}{% ENDIF %}" />
+								<img class="goods-image-icon" src="{% IF favorites_goods.IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=Harmony{% ELSE %}{favorites_goods.IMAGE_ICON}{% ENDIF %}" />
 							</a>
 							<div class="addto__shop">
 								<!-- Название -->
@@ -3577,7 +3577,7 @@
 	document.createElement("picture");
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/picturefill/3.0.3/picturefill.min.js" async></script>
-<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}owl.carousel.min.css?design=THEMENAME">
+<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}owl.carousel.min.css?design=Harmony">
 {% ENDIF %}
 
 <!-- В случае их возникновения JS ошибок, отображаем их владельцу магазина для возможности отладки. Покупатели сообщений о JS ошибках не видят -->
@@ -3598,16 +3598,16 @@
 {% ENDIF %}
 
 <!-- Слайдер. Карусель -->
-<link rel="preload" type="text/css" href="{ASSETS_STYLES_PATH}owl.carousel.min.css?design=THEMENAME" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" type="text/css" href="{ASSETS_STYLES_PATH}owl.carousel.min.css?design=Harmony" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript>
-	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}owl.carousel.min.css?design=THEMENAME">
+	<link rel="stylesheet" type="text/css" href="{ASSETS_STYLES_PATH}owl.carousel.min.css?design=Harmony">
 </noscript>
-<script defer type="text/javascript" src="{ASSETS_JS_PATH}owl-carousel.js?design=THEMENAME"></script>
+<script defer type="text/javascript" src="{ASSETS_JS_PATH}owl-carousel.js?design=Harmony"></script>
 
 <!-- Скрипты: Корзина -->
 {% IF MOD_LNAME = cart %}
-<script defer type="text/javascript" src="{ASSETS_JS_PATH}air-datepicker.js?design=THEMENAME"></script>
-<script defer type="text/javascript" src="{ASSETS_JS_PATH}debounce.js?design=THEMENAME"></script>
+<script defer type="text/javascript" src="{ASSETS_JS_PATH}air-datepicker.js?design=Harmony"></script>
+<script defer type="text/javascript" src="{ASSETS_JS_PATH}debounce.js?design=Harmony"></script>
 <script type="text/javascript">
 // Загрузка основных функций страницы Корзина
 $(document).ready(function(){
@@ -3623,12 +3623,12 @@ $(document).ready(function(){
 
 <!-- Скрипты: Оформление заказа -->
 {% IF MOD_LNAME = order %}
-<script defer type="text/javascript" src="{ASSETS_JS_PATH}air-datepicker.js?design=THEMENAME"></script>
+<script defer type="text/javascript" src="{ASSETS_JS_PATH}air-datepicker.js?design=Harmony"></script>
 {% ENDIF %}
 
 <!-- Скрипты: Товары -->
 {% IF MOD_LNAME = catalog %}
-<script defer type="text/javascript" src="{ASSETS_JS_PATH}jqueryui.js?design=THEMENAME"></script>
+<script defer type="text/javascript" src="{ASSETS_JS_PATH}jqueryui.js?design=Harmony"></script>
 <script>
 // Загрузка основных функций шаблона Товары
 $(document).ready(function(){
@@ -3640,7 +3640,7 @@ $(document).ready(function(){
 
 <!-- Страница: Товар -->
 {% IF MOD_LNAME = goods %}
-<script defer type="text/javascript" src="{ASSETS_JS_PATH}jquery-star-rating.js?design=THEMENAME"></script>
+<script defer type="text/javascript" src="{ASSETS_JS_PATH}jquery-star-rating.js?design=Harmony"></script>
 <script type="text/javascript">	
 // Загрузка основных функций шаблона Товар
 $(document).ready(function(){
@@ -3677,23 +3677,23 @@ $(document).ready(function(){
 {% ENDIF %}
 
 <!-- Скрипты магазина-->
-<script defer type="text/javascript" src="{ASSETS_JS_PATH}main.js?design=THEMENAME"></script>
-<script defer type="text/javascript" src="{ASSETS_JS_PATH}search.js?design=THEMENAME"></script>
+<script defer type="text/javascript" src="{ASSETS_JS_PATH}main.js?design=Harmony"></script>
+<script defer type="text/javascript" src="{ASSETS_JS_PATH}search.js?design=Harmony"></script>
 <!-- Выбор даты в быстром заказе -->
-<script defer type="text/javascript" src="{ASSETS_JS_PATH}air-datepicker.js?design=THEMENAME"></script>
+<script defer type="text/javascript" src="{ASSETS_JS_PATH}air-datepicker.js?design=Harmony"></script>
 <!-- Уведомления о действиях -->
-<script defer type="text/javascript" src="{ASSETS_JS_PATH}noty.min.js?design=THEMENAME"></script>
+<script defer type="text/javascript" src="{ASSETS_JS_PATH}noty.min.js?design=Harmony"></script>
 <!-- Маска ввода-->
-<script defer type="text/javascript" src="{ASSETS_JS_PATH}jquery.maskedinput.min.js?design=THEMENAME"></script>
+<script defer type="text/javascript" src="{ASSETS_JS_PATH}jquery.maskedinput.min.js?design=Harmony"></script>
 <!-- Валидатор форм -->
-<script defer type="text/javascript" src="{ASSETS_JS_PATH}jquery.validate.min.js?design=THEMENAME"></script>
+<script defer type="text/javascript" src="{ASSETS_JS_PATH}jquery.validate.min.js?design=Harmony"></script>
 <!-- Модальные окна -->
-<script defer type="text/javascript" src="{ASSETS_JS_PATH}jquery.fancybox.min.js?design=THEMENAME"></script>
+<script defer type="text/javascript" src="{ASSETS_JS_PATH}jquery.fancybox.min.js?design=Harmony"></script>
 <!-- Предзагрузчик изображений -->
-<script defer type="text/javascript" src="{ASSETS_JS_PATH}lozad.min.js?design=THEMENAME"></script>
+<script defer type="text/javascript" src="{ASSETS_JS_PATH}lozad.min.js?design=Harmony"></script>
 <!-- Определение браузера -->
-<script defer type="text/javascript" src="{ASSETS_JS_PATH}detect.js?design=THEMENAME"></script>
-<script defer type="text/javascript" src="{ASSETS_JS_PATH}forall.js?design=THEMENAME"></script>
+<script defer type="text/javascript" src="{ASSETS_JS_PATH}detect.js?design=Harmony"></script>
+<script defer type="text/javascript" src="{ASSETS_JS_PATH}forall.js?design=Harmony"></script>
 
 </body>
 </html>
