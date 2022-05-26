@@ -3251,7 +3251,7 @@
 									<div class="price__now">{favorites_goods.MIN_PRICE_NOW | money_format}</div>
 									<!-- Удаление -->
 									<a class="addto__remove remove"
-										 href="{FAVORITES_DELETE_URL}?id={favorites_goods.MIN_PRICE_NOW_ID}"
+										 href="{favorites_goods.FAVORITES_DELETE_URL}"
 									   data-goods-mod-id="{favorites_goods.MIN_PRICE_NOW_ID}"
 									   title="Убрать товар из списка избранного"
 									   onclick="removeFromFavorites($(this))"><span>Удалить</span></a>
